@@ -48,20 +48,8 @@ namespace JustStartVR {
             ovrSupport = true;
 #endif
 
-            // Show warning message / button if SteamVR integration isn't enabled
-            if (inputBridge.InputSource == XRInputSource.SteamVR && steamVRSupport == false) {
-                EditorGUILayout.HelpBox("Input Source set to 'SteamVR', but SteamVR integration has not been enabled. Would you like to enable it now?", MessageType.Warning);
-                if (GUILayout.Button("Open Integrations Window")) {
-                    IntegrationsEditor.ShowWindow();
-                }
-            }
-            // Show warning message / button if Oculus integration isn't enabled
-            else if (inputBridge.InputSource == XRInputSource.OVRInput && ovrSupport == false) {
-                EditorGUILayout.HelpBox("Input Source set to 'OVRInput', but Oculus Integration has not been enabled. Would you like to enable it now?", MessageType.Warning);
-                if (GUILayout.Button("Open Integrations Window")) {
-                    IntegrationsEditor.ShowWindow();
-                }
-            }
+
+           
 
             // Tracking Origin
             EditorGUILayout.PropertyField(trackingOrigin);

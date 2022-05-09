@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace JustStartVR {
+namespace JustStartVR
+{
 
     /// <summary>
     /// An example weapon script that can fire Raycasts or Projectile objects
     /// </summary>
-    public class RaycastWeapon : GrabbableEvents {
+    public class RaycastWeapon : GrabbableEvents
+    {
 
         [Header("General : ")]
         /// <summary>
@@ -134,7 +136,8 @@ namespace JustStartVR {
         /// Make this active on fire. Randomize scale / rotation
         /// </summary>
         [Tooltip("Make this active on fire. Randomize scale / rotation")]
-        public GameObject MuzzleFlashObject;
+        //public GameObject MuzzleFlashObject;
+        public ParticleSystem MuzzleFlashObject;
 
         /// <summary>
         /// Eject this at EjectPointTransform (optional)
@@ -179,7 +182,7 @@ namespace JustStartVR {
         /// How far back to move the slide on fire
         /// </summary>
         [Tooltip("How far back to move the slide on fire")]
-        public float SlideDistance = -0.028f;        
+        public float SlideDistance = -0.028f;
 
         /// <summary>
         /// Should the slide be forced back if we shoot the last bullet
@@ -247,37 +250,42 @@ namespace JustStartVR {
 
         protected bool readyToShoot = true;
 
-        void Start() {
+        void Start()
+        {
             weaponRigid = GetComponent<Rigidbody>();
 
-            if (MuzzleFlashObject) {
-                MuzzleFlashObject.SetActive(false);
-            }
+            //if (MuzzleFlashObject) {
+            //    MuzzleFlashObject.SetActive(false);
+            //}
 
-            ws = GetComponentInChildren<WeaponSlide>();            
+            ws = GetComponentInChildren<WeaponSlide>();
 
             updateChamberedBullet();
         }
 
-        public override void OnTrigger(float triggerValue) {
+        public override void OnTrigger(float triggerValue)
+        {
 
 
             // Sanitize for angles 
             triggerValue = Mathf.Clamp01(triggerValue);
 
             // Update trigger graphics
-            if (TriggerTransform) {
+            if (TriggerTransform)
+            {
                 TriggerTransform.localEulerAngles = new Vector3(triggerValue * 15, 0, 0);
             }
 
             // Trigger up, reset values
-            if (triggerValue <= 0.5) {
+            if (triggerValue <= 0.5)
+            {
                 readyToShoot = true;
                 playedEmptySound = false;
             }
 
             // Fire gun if possible
-            if (readyToShoot && triggerValue >= 0.75f) {
+            if (readyToShoot && triggerValue >= 0.75f)
+            {
                 Shoot();
 
                 // Immediately ready to keep firing if 
@@ -294,74 +302,93 @@ namespace JustStartVR {
             base.OnTrigger(triggerValue);
         }
 
-        void checkSlideInput() {
+        void checkSlideInput()
+        {
             // Check for bound controller button to release the charging mechanism
-            for (int x = 0; x < ReleaseSlideInput.Count; x++) {
-                if (InputBridge.Instance.GetGrabbedControllerBinding(ReleaseSlideInput[x], thisGrabber.HandSide)) {
+            for (int x = 0; x < ReleaseSlideInput.Count; x++)
+            {
+                if (InputBridge.Instance.GetGrabbedControllerBinding(ReleaseSlideInput[x], thisGrabber.HandSide))
+                {
                     UnlockSlide();
                     break;
                 }
             }
         }
 
-        void checkEjectInput() {
+        void checkEjectInput()
+        {
             // Check for bound controller button to eject magazine
-            for (int x = 0; x < EjectInput.Count; x++) {
-                if (InputBridge.Instance.GetGrabbedControllerBinding(EjectInput[x], thisGrabber.HandSide)) {
+            for (int x = 0; x < EjectInput.Count; x++)
+            {
+                if (InputBridge.Instance.GetGrabbedControllerBinding(EjectInput[x], thisGrabber.HandSide))
+                {
                     EjectMagazine();
                     break;
                 }
             }
         }
 
-        public virtual void CheckReloadInput() {
-            if(ReloadMethod == ReloadType.InternalAmmo) {
+        public virtual void CheckReloadInput()
+        {
+            if (ReloadMethod == ReloadType.InternalAmmo)
+            {
                 // Check for Reload input(s)
-                for (int x = 0; x < ReloadInput.Count; x++) {
-                    if (InputBridge.Instance.GetGrabbedControllerBinding(EjectInput[x], thisGrabber.HandSide)) {
+                for (int x = 0; x < ReloadInput.Count; x++)
+                {
+                    if (InputBridge.Instance.GetGrabbedControllerBinding(EjectInput[x], thisGrabber.HandSide))
+                    {
                         Reload();
                         break;
                     }
                 }
-            }            
+            }
         }
 
-        public virtual void UnlockSlide() {
-            if (ws != null) {
+        public virtual void UnlockSlide()
+        {
+            if (ws != null)
+            {
                 ws.UnlockBack();
             }
         }
 
-        public virtual void EjectMagazine() {
+        public virtual void EjectMagazine()
+        {
             MagazineSlide ms = GetComponentInChildren<MagazineSlide>();
-            if (ms != null) {
+            if (ms != null)
+            {
                 ms.EjectMagazine();
             }
         }
 
         protected bool playedEmptySound = false;
-        
-        public virtual void Shoot() {
+
+        public virtual void Shoot()
+        {
 
             // Has enough time passed between shots
             float shotInterval = Time.timeScale < 1 ? SlowMoRateOfFire : FiringRate;
-            if (Time.time - lastShotTime < shotInterval) {
+            if (Time.time - lastShotTime < shotInterval)
+            {
                 return;
             }
 
             // Need to Chamber round into weapon
-            if(!BulletInChamber && MustChamberRounds) {
+            if (!BulletInChamber && MustChamberRounds)
+            {
                 // Only play empty sound once per trigger down
-                if(!playedEmptySound) {
+                if (!playedEmptySound)
+                {
                     VRUtils.Instance.PlaySpatialClipAt(EmptySound, transform.position, EmptySoundVolume, 0.5f);
                     playedEmptySound = true;
                 }
-                
+
                 return;
             }
 
             // Need to release slide
-            if(ws != null && ws.LockedBack) {
+            if (ws != null && ws.LockedBack)
+            {
                 VRUtils.Instance.PlaySpatialClipAt(EmptySound, transform.position, EmptySoundVolume, 0.5f);
                 return;
             }
@@ -370,60 +397,71 @@ namespace JustStartVR {
             VRUtils.Instance.PlaySpatialClipAt(GunShotSound, transform.position, GunShotVolume);
 
             // Haptics
-            if (thisGrabber != null) {
+            if (thisGrabber != null)
+            {
                 input.VibrateController(0.1f, 0.2f, 0.1f, thisGrabber.HandSide);
             }
 
             // Use projectile if Time has been slowed
             bool useProjectile = AlwaysFireProjectile || (FireProjectileInSlowMo && Time.timeScale < 1);
-            if (useProjectile) {
+            if (useProjectile)
+            {
                 GameObject projectile = Instantiate(ProjectilePrefab, MuzzlePointTransform.position, MuzzlePointTransform.rotation) as GameObject;
                 Rigidbody projectileRigid = projectile.GetComponentInChildren<Rigidbody>();
                 projectileRigid.AddForce(MuzzlePointTransform.forward * ShotForce, ForceMode.VelocityChange);
-                
+
                 Projectile proj = projectile.GetComponent<Projectile>();
                 // Convert back to raycast if Time reverts
-                if (proj && !AlwaysFireProjectile) {
+                if (proj && !AlwaysFireProjectile)
+                {
                     proj.MarkAsRaycastBullet();
                 }
 
                 // Make sure we clean up this projectile
                 Destroy(projectile, 20);
             }
-            else {
+            else
+            {
                 // Raycast to hit
                 RaycastHit hit;
-                if (Physics.Raycast(MuzzlePointTransform.position, MuzzlePointTransform.forward, out hit, MaxRange, ValidLayers, QueryTriggerInteraction.Ignore)) {
+                if (Physics.Raycast(MuzzlePointTransform.position, MuzzlePointTransform.forward, out hit, MaxRange, ValidLayers, QueryTriggerInteraction.Ignore))
+                {
                     OnRaycastHit(hit);
                 }
             }
 
             // Apply recoil
-            ApplyRecoil();            
+            ApplyRecoil();
 
             // We just fired this bullet
             BulletInChamber = false;
 
             // Try to load a new bullet into chamber         
-            if (AutoChamberRounds) {
+            if (AutoChamberRounds)
+            {
                 chamberRound();
             }
-            else {
+            else
+            {
                 EmptyBulletInChamber = true;
             }
 
             // Unable to chamber bullet, force slide back
-            if(!BulletInChamber) {
+            if (!BulletInChamber)
+            {
                 // Do we need to force back the receiver?
                 slideForcedBack = ForceSlideBackOnLastShot;
 
-                if (slideForcedBack && ws != null) {
+                if (slideForcedBack && ws != null)
+                {
                     ws.LockBack();
                 }
             }
 
             // Call Shoot Event
-            if(onShootEvent != null) {
+            if (onShootEvent != null)
+            {
+                //Debug.Log("Shoot");
                 onShootEvent.Invoke();
             }
 
@@ -431,24 +469,29 @@ namespace JustStartVR {
             lastShotTime = Time.time;
 
             // Stop previous routine
-            if (shotRoutine != null) {
-                MuzzleFlashObject.SetActive(false);
+            if (shotRoutine != null)
+            {
+                //MuzzleFlashObject.SetActive(false);
                 StopCoroutine(shotRoutine);
             }
 
-            if (AutoChamberRounds) {
+            if (AutoChamberRounds)
+            {
                 shotRoutine = animateSlideAndEject();
                 StartCoroutine(shotRoutine);
             }
-            else {
+            else
+            {
                 shotRoutine = doMuzzleFlash();
                 StartCoroutine(shotRoutine);
             }
         }
 
         // Apply recoil by requesting sprinyness and apply a local force to the muzzle point
-        public virtual void ApplyRecoil() {
-            if (weaponRigid != null && RecoilForce != Vector3.zero) {
+        public virtual void ApplyRecoil()
+        {
+            if (weaponRigid != null && RecoilForce != Vector3.zero)
+            {
 
                 // Make weapon springy for X seconds
                 grab.RequestSpringTime(RecoilDuration);
@@ -459,39 +502,47 @@ namespace JustStartVR {
         }
 
         // Hit something without Raycast. Apply damage, apply FX, etc.
-        public virtual void OnRaycastHit(RaycastHit hit) {
+        public virtual void OnRaycastHit(RaycastHit hit)
+        {
 
             ApplyParticleFX(hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal), hit.collider);
 
             // push object if rigidbody
             Rigidbody hitRigid = hit.collider.attachedRigidbody;
-            if (hitRigid != null) {
+            if (hitRigid != null)
+            {
                 hitRigid.AddForceAtPosition(BulletImpactForce * MuzzlePointTransform.forward, hit.point);
             }
 
             // Damage if possible
             Damageable d = hit.collider.GetComponent<Damageable>();
-            if (d) {
+            if (d)
+            {
                 d.DealDamage(Damage, hit.point, hit.normal, true, gameObject, hit.collider.gameObject);
 
-                if (onDealtDamageEvent != null) {
+                if (onDealtDamageEvent != null)
+                {
                     onDealtDamageEvent.Invoke(Damage);
                 }
             }
 
             // Call event
-            if (onRaycastHitEvent != null) {
+            if (onRaycastHitEvent != null)
+            {
                 onRaycastHitEvent.Invoke(hit);
             }
         }
 
-        public virtual void ApplyParticleFX(Vector3 position, Quaternion rotation, Collider attachTo) {
-            if(HitFXPrefab) {
+        public virtual void ApplyParticleFX(Vector3 position, Quaternion rotation, Collider attachTo)
+        {
+            if (HitFXPrefab)
+            {
                 GameObject impact = Instantiate(HitFXPrefab, position, rotation) as GameObject;
 
                 // Attach bullet hole to object if possible
                 BulletHole hole = impact.GetComponent<BulletHole>();
-                if (hole) {
+                if (hole)
+                {
                     hole.TryAttachTo(attachTo);
                 }
             }
@@ -500,34 +551,42 @@ namespace JustStartVR {
         /// <summary>
         /// Something attached ammo to us
         /// </summary>
-        public virtual void OnAttachedAmmo() {
+        public virtual void OnAttachedAmmo()
+        {
 
             // May have ammo loaded
             updateChamberedBullet();
 
-            if(onAttachedAmmoEvent != null) {
+            if (onAttachedAmmoEvent != null)
+            {
                 onAttachedAmmoEvent.Invoke();
             }
         }
 
         // Ammo was detached from the weapon
-        public virtual void OnDetachedAmmo() {
+        public virtual void OnDetachedAmmo()
+        {
             // May have ammo loaded / unloaded
             updateChamberedBullet();
 
-            if (onDetachedAmmoEvent != null) {
+            if (onDetachedAmmoEvent != null)
+            {
                 onDetachedAmmoEvent.Invoke();
             }
         }
 
-        public virtual int GetBulletCount() {
-            if (ReloadMethod == ReloadType.InfiniteAmmo) {
+        public virtual int GetBulletCount()
+        {
+            if (ReloadMethod == ReloadType.InfiniteAmmo)
+            {
                 return 9999;
             }
-            else if (ReloadMethod == ReloadType.InternalAmmo) {
+            else if (ReloadMethod == ReloadType.InternalAmmo)
+            {
                 return (int)InternalAmmo;
             }
-            else if (ReloadMethod == ReloadType.ManualClip) {
+            else if (ReloadMethod == ReloadType.ManualClip)
+            {
                 return GetComponentsInChildren<Bullet>(false).Length;
             }
 
@@ -535,20 +594,25 @@ namespace JustStartVR {
             return GetComponentsInChildren<Bullet>(false).Length;
         }
 
-        public virtual void RemoveBullet() {
+        public virtual void RemoveBullet()
+        {
 
             // Don't remove bullet here
-            if (ReloadMethod == ReloadType.InfiniteAmmo) {
+            if (ReloadMethod == ReloadType.InfiniteAmmo)
+            {
                 return;
             }
 
-            else if (ReloadMethod == ReloadType.InternalAmmo) {
+            else if (ReloadMethod == ReloadType.InternalAmmo)
+            {
                 InternalAmmo--;
             }
-            else if (ReloadMethod == ReloadType.ManualClip) {
+            else if (ReloadMethod == ReloadType.ManualClip)
+            {
                 Bullet firstB = GetComponentInChildren<Bullet>(false);
                 // Deactivate gameobject as this bullet has been consumed
-                if (firstB != null) {
+                if (firstB != null)
+                {
                     Destroy(firstB.gameObject);
                 }
             }
@@ -558,21 +622,26 @@ namespace JustStartVR {
         }
 
 
-        public virtual void Reload() {
+        public virtual void Reload()
+        {
             InternalAmmo = MaxInternalAmmo;
         }
 
-        void updateChamberedBullet() {
-            if (ChamberedBullet != null) {
+        void updateChamberedBullet()
+        {
+            if (ChamberedBullet != null)
+            {
                 ChamberedBullet.gameObject.SetActive(BulletInChamber || EmptyBulletInChamber);
             }
         }
 
-        void chamberRound() {
+        void chamberRound()
+        {
 
             int currentBulletCount = GetBulletCount();
 
-            if(currentBulletCount > 0) {
+            if (currentBulletCount > 0)
+            {
                 // Remove the first bullet we find in the clip                
                 RemoveBullet();
 
@@ -580,26 +649,31 @@ namespace JustStartVR {
                 BulletInChamber = true;
             }
             // Unable to chamber a bullet
-            else {
+            else
+            {
                 BulletInChamber = false;
             }
         }
 
-        protected IEnumerator shotRoutine;        
+        protected IEnumerator shotRoutine;
 
         // Randomly scale / rotate to make them seem different
-        void randomizeMuzzleFlashScaleRotation() {
-            MuzzleFlashObject.transform.localScale = Vector3.one * Random.Range(0.75f, 1.5f);
-            MuzzleFlashObject.transform.localEulerAngles = new Vector3(0, 0, Random.Range(0, 90f));
-        }       
+        void randomizeMuzzleFlashScaleRotation()
+        {
+            //MuzzleFlashObject.transform.localScale = Vector3.one * Random.Range(0.75f, 1.5f);
+            //MuzzleFlashObject.transform.localEulerAngles = new Vector3(0, 0, Random.Range(0, 90f));
+        }
 
-        public virtual void OnWeaponCharged(bool allowCasingEject) {
+        public virtual void OnWeaponCharged(bool allowCasingEject)
+        {
 
             // Already bullet in chamber, eject it
-            if (BulletInChamber && allowCasingEject) {                
+            if (BulletInChamber && allowCasingEject)
+            {
                 ejectCasing();
             }
-            else if (EmptyBulletInChamber && allowCasingEject) {
+            else if (EmptyBulletInChamber && allowCasingEject)
+            {
                 ejectCasing();
                 EmptyBulletInChamber = false;
             }
@@ -609,16 +683,19 @@ namespace JustStartVR {
             // Slide is no longer forced back if weapon was just charged
             slideForcedBack = false;
 
-            if(onWeaponChargedEvent != null) {
+            if (onWeaponChargedEvent != null)
+            {
                 onWeaponChargedEvent.Invoke();
             }
         }
-        
-        protected virtual void ejectCasing() {
+
+        protected virtual void ejectCasing()
+        {
             GameObject shell = Instantiate(BulletCasingPrefab, EjectPointTransform.position, EjectPointTransform.rotation) as GameObject;
             Rigidbody rb = shell.GetComponentInChildren<Rigidbody>();
 
-            if (rb) {
+            if (rb)
+            {
                 rb.AddRelativeForce(Vector3.right * BulletCasingForce, ForceMode.VelocityChange);
             }
 
@@ -626,67 +703,78 @@ namespace JustStartVR {
             GameObject.Destroy(shell, 5);
         }
 
-        protected virtual IEnumerator doMuzzleFlash() {
-            MuzzleFlashObject.SetActive(true);
-            yield return new  WaitForSeconds(0.05f);
+        protected virtual IEnumerator doMuzzleFlash()
+        {
+            //MuzzleFlashObject.SetActive(true);
+            MuzzleFlashObject.Play();
+            yield return new WaitForSeconds(0.05f);
 
             randomizeMuzzleFlashScaleRotation();
             yield return new WaitForSeconds(0.05f);
 
-            MuzzleFlashObject.SetActive(false);
+            //MuzzleFlashObject.SetActive(false);
         }
 
         // Animate the slide back, eject casing, pull slide back
-        protected virtual IEnumerator animateSlideAndEject() {
+        protected virtual IEnumerator animateSlideAndEject()
+        {
 
             // Start Muzzle Flash
-            MuzzleFlashObject.SetActive(true);
+            //MuzzleFlashObject.SetActive(true);
+            MuzzleFlashObject.Play();
 
             int frames = 0;
             bool slideEndReached = false;
             Vector3 slideDestination = new Vector3(0, 0, SlideDistance);
 
-            if(SlideTransform) {
-                while (!slideEndReached) {
+            if (SlideTransform)
+            {
+                while (!slideEndReached)
+                {
 
 
                     SlideTransform.localPosition = Vector3.MoveTowards(SlideTransform.localPosition, slideDestination, Time.deltaTime * slideSpeed);
                     float distance = Vector3.Distance(SlideTransform.localPosition, slideDestination);
 
-                    if (distance <= minSlideDistance) {
+                    if (distance <= minSlideDistance)
+                    {
                         slideEndReached = true;
                     }
 
                     frames++;
 
                     // Go ahead and update muzzleflash in sync with slide
-                    if (frames < 2) {
+                    if (frames < 2)
+                    {
                         randomizeMuzzleFlashScaleRotation();
                     }
-                    else {
+                    else
+                    {
                         slideEndReached = true;
-                        MuzzleFlashObject.SetActive(false);
+                        //MuzzleFlashObject.SetActive(false);
                     }
 
                     yield return new WaitForEndOfFrame();
                 }
             }
-            else {
+            else
+            {
                 yield return new WaitForEndOfFrame();
                 randomizeMuzzleFlashScaleRotation();
                 yield return new WaitForEndOfFrame();
-                
-                MuzzleFlashObject.SetActive(false);
+
+                //MuzzleFlashObject.SetActive(false);
                 slideEndReached = true;
             }
-            
+
             // Set Slide Position
-            if(SlideTransform) {
+            if (SlideTransform)
+            {
                 SlideTransform.localPosition = slideDestination;
             }
 
             yield return new WaitForEndOfFrame();
-            MuzzleFlashObject.SetActive(false);
+            //MuzzleFlashObject.SetActive(false);
 
             // Eject Shell
             ejectCasing();
@@ -695,20 +783,24 @@ namespace JustStartVR {
             yield return new WaitForEndOfFrame();
 
 
-            if(!slideForcedBack && SlideTransform != null) {
+            if (!slideForcedBack && SlideTransform != null)
+            {
                 // Slide back to original position
                 frames = 0;
                 bool slideBeginningReached = false;
-                while (!slideBeginningReached) {
+                while (!slideBeginningReached)
+                {
 
                     SlideTransform.localPosition = Vector3.MoveTowards(SlideTransform.localPosition, Vector3.zero, Time.deltaTime * slideSpeed);
                     float distance = Vector3.Distance(SlideTransform.localPosition, Vector3.zero);
 
-                    if (distance <= minSlideDistance) {
+                    if (distance <= minSlideDistance)
+                    {
                         slideBeginningReached = true;
                     }
 
-                    if (frames > 2) {
+                    if (frames > 2)
+                    {
                         slideBeginningReached = true;
                     }
 
@@ -718,15 +810,16 @@ namespace JustStartVR {
         }
     }
 
-    public enum FiringType {
+    public enum FiringType
+    {
         Semi,
         Automatic
     }
 
-    public enum ReloadType {
+    public enum ReloadType
+    {
         InfiniteAmmo,
         ManualClip,
         InternalAmmo
     }
 }
-
