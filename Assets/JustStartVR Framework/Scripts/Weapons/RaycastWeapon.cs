@@ -156,6 +156,7 @@ namespace JustStartVR
         /// </summary>
         [Tooltip("Hit Effects spawned at point of impact")]
         public GameObject HitFXPrefab;
+        public GameObject HitEnemyFXPrefab;
 
         /// <summary>
         /// Play this sound on shoot
@@ -506,7 +507,7 @@ namespace JustStartVR
         {
 
             ApplyParticleFX(hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal), hit.collider);
-
+            
             // push object if rigidbody
             Rigidbody hitRigid = hit.collider.attachedRigidbody;
             if (hitRigid != null)
@@ -535,15 +536,32 @@ namespace JustStartVR
 
         public virtual void ApplyParticleFX(Vector3 position, Quaternion rotation, Collider attachTo)
         {
-            if (HitFXPrefab)
+            if (attachTo.tag == "Enemy")
             {
-                GameObject impact = Instantiate(HitFXPrefab, position, rotation) as GameObject;
-
-                // Attach bullet hole to object if possible
-                BulletHole hole = impact.GetComponent<BulletHole>();
-                if (hole)
+                if(HitEnemyFXPrefab)
                 {
-                    hole.TryAttachTo(attachTo);
+                    GameObject impact = Instantiate(HitEnemyFXPrefab, position, rotation) as GameObject;
+
+                    // Attach bullet hole to object if possible
+                    BulletHole hole = impact.GetComponent<BulletHole>();
+                    if (hole)
+                    {
+                        hole.TryAttachTo(attachTo);
+                    }
+                }
+            }
+            else
+            {
+                if (HitFXPrefab)
+                {
+                    GameObject impact = Instantiate(HitFXPrefab, position, rotation) as GameObject;
+
+                    // Attach bullet hole to object if possible
+                    BulletHole hole = impact.GetComponent<BulletHole>();
+                    if (hole)
+                    {
+                        hole.TryAttachTo(attachTo);
+                    }
                 }
             }
         }
