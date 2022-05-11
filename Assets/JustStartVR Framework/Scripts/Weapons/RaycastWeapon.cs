@@ -89,12 +89,12 @@ namespace JustStartVR
         /// <summary>
         /// How much force to apply to the tip of the barrel
         /// </summary>
-        [Tooltip("How much force to apply to the tip of the barrel")]
-        public Vector3 RecoilForce = Vector3.zero;
+        //[Tooltip("How much force to apply to the tip of the barrel")]
+        //public Vector3 RecoilForce = Vector3.zero;
 
 
-        [Tooltip("Time in seconds to allow the gun to be springy")]
-        public float RecoilDuration = 0.3f;
+        //[Tooltip("Time in seconds to allow the gun to be springy")]
+        //public float RecoilDuration = 0.3f;
 
         Rigidbody weaponRigid;
 
@@ -432,7 +432,7 @@ namespace JustStartVR
             }
 
             // Apply recoil
-            ApplyRecoil();
+            //ApplyRecoil();
 
             // We just fired this bullet
             BulletInChamber = false;
@@ -489,18 +489,18 @@ namespace JustStartVR
         }
 
         // Apply recoil by requesting sprinyness and apply a local force to the muzzle point
-        public virtual void ApplyRecoil()
-        {
-            if (weaponRigid != null && RecoilForce != Vector3.zero)
-            {
+        //public virtual void ApplyRecoil()
+        //{
+        //    if (weaponRigid != null && RecoilForce != Vector3.zero)
+        //    {
 
-                // Make weapon springy for X seconds
-                grab.RequestSpringTime(RecoilDuration);
+        //        // Make weapon springy for X seconds
+        //        grab.RequestSpringTime(RecoilDuration);
 
-                // Apply the Recoil Force
-                weaponRigid.AddForceAtPosition(MuzzlePointTransform.TransformDirection(RecoilForce), MuzzlePointTransform.position, ForceMode.VelocityChange);
-            }
-        }
+        //        // Apply the Recoil Force
+        //        weaponRigid.AddForceAtPosition(MuzzlePointTransform.TransformDirection(RecoilForce), MuzzlePointTransform.position, ForceMode.VelocityChange);
+        //    }
+        //}
 
         // Hit something without Raycast. Apply damage, apply FX, etc.
         public virtual void OnRaycastHit(RaycastHit hit)

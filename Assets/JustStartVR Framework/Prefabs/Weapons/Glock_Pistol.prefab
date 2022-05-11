@@ -123,6 +123,36 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+--- !u!1 &1075853605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1075853606}
+  m_Layer: 10
+  m_Name: BackwardRecoil (Forward Vector)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1075853606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075853605}
+  m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: -0.026, z: 0.027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6024261396410624979}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!1 &1284734578
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +208,36 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+--- !u!1 &2082094672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2082094673}
+  m_Layer: 10
+  m_Name: UpRecoil (Up Vector)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2082094673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082094672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.028, z: 0.386}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6024261396410624979}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &487094148783905881
 GameObject:
   m_ObjectHideFlags: 0
@@ -3374,6 +3434,7 @@ GameObject:
   - component: {fileID: 260408578}
   - component: {fileID: 260408579}
   - component: {fileID: 141909561}
+  - component: {fileID: 1615350133}
   m_Layer: 10
   m_Name: Glock_Pistol
   m_TagString: Untagged
@@ -3407,6 +3468,8 @@ Transform:
   - {fileID: 6024261394743409021}
   - {fileID: 6024261394720629044}
   - {fileID: 343391317}
+  - {fileID: 2082094673}
+  - {fileID: 1075853606}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3426,7 +3489,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6024261396410624980}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 1.5
   m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -3628,8 +3691,6 @@ MonoBehaviour:
   SlowMoRateOfFire: 0.3
   ShotForce: 20
   BulletCasingForce: 3
-  RecoilForce: {x: 0, y: 0, z: 0}
-  RecoilDuration: 0.3
   ValidLayers:
     serializedVersion: 2
     m_Bits: 1281
@@ -3657,7 +3718,19 @@ MonoBehaviour:
   EmptyBulletInChamber: 0
   onShootEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1615350133}
+        m_TargetAssemblyTypeName: JustStartVR.RecoilSystem, JustStartVR
+        m_MethodName: Recoil
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onAttachedAmmoEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3870,6 +3943,24 @@ MonoBehaviour:
   onSnapZoneExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1615350133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024261396410624980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb41268ffa667b64b89fa3444c06f486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Settings: {fileID: 11400000, guid: 0d4d55178ef17794e96e9019810e072e, type: 2}
+  UpRecoilType: 0
+  UpRecoil: {fileID: 6024261394930030411}
+  BackRecoil: {fileID: 1075853606}
+  CurrentForce: {x: 0, y: 0, z: 0}
+  TorqueAxisReversed: 0
 --- !u!1 &6638139941897956705
 GameObject:
   m_ObjectHideFlags: 0
@@ -4791,14 +4882,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
---- !u!4 &6340558974432068037 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8177840117864108404, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
-  m_PrefabInstance: {fileID: 2775262496851415217}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &6340558974432067898 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8177840117864108427, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
+  m_PrefabInstance: {fileID: 2775262496851415217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6340558974432068037 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8177840117864108404, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
   m_PrefabInstance: {fileID: 2775262496851415217}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6978229133880913841
