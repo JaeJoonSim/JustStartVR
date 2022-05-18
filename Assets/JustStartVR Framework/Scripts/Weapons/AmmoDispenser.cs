@@ -26,28 +26,28 @@ namespace JustStartVR {
         public GameObject AmmoDispenserObject;
 
         /// <summary>
-        /// Instantiate this if pistol equipped
+        /// Instantiate this if M1911 equipped
         /// </summary>
-        public GameObject PistolClip;
+        public GameObject M1911Clip;
 
         /// <summary>
-        /// Instantiate this if shotgun equipped
+        /// Instantiate this if Glock equipped
         /// </summary>
-        public GameObject ShotgunShell;
+        public GameObject GlockClip;
 
         /// <summary>
-        /// Instantiate this if shotgun equipped
+        /// Instantiate this if Glock equipped
         /// </summary>
         public GameObject RifleClip;
 
         /// <summary>
-        /// Amount of Pistol Clips currently available
+        /// Amount of M1911 Clips currently available
         /// </summary>
-        public int CurrentPistolClips = 5;
+        public int CurrentM1911Clips = 5;
 
         public int CurrentRifleClips = 5;
 
-        public int CurrentShotgunShells = 30;
+        public int CurrentGlockClips = 30;
 
         // Update is called once per frame
         void Update() {
@@ -69,9 +69,9 @@ namespace JustStartVR {
                 return false;
             }
 
-            // Holding shotgun, pistol, or rifle
+            // Holding Glock, M1911, or rifle
             string grabName = g.HeldGrabbable.transform.name;
-            if (grabName.Contains("Shotgun") || grabName.Contains("Pistol") || grabName.Contains("Rifle")) {
+            if (grabName.Contains("Glock") || grabName.Contains("M1911") || grabName.Contains("Rifle")) {
                 return true;
             }
 
@@ -83,14 +83,14 @@ namespace JustStartVR {
             bool leftGrabberValid = LeftGrabber != null && LeftGrabber.HeldGrabbable != null;
             bool rightGrabberValid = RightGrabber != null && RightGrabber.HeldGrabbable != null;
 
-            // Shotgun
-            if (leftGrabberValid && LeftGrabber.HeldGrabbable.transform.name.Contains("Shotgun") && CurrentShotgunShells > 0) {
-                CurrentShotgunShells--;
-                return ShotgunShell;
+            // Glock
+            if (leftGrabberValid && LeftGrabber.HeldGrabbable.transform.name.Contains("Glock") && CurrentGlockClips > 0) {
+                CurrentGlockClips--;
+                return GlockClip;
             }
-            else if (rightGrabberValid && RightGrabber.HeldGrabbable.transform.name.Contains("Shotgun") && CurrentShotgunShells > 0) {
-                CurrentShotgunShells--;
-                return ShotgunShell;
+            else if (rightGrabberValid && RightGrabber.HeldGrabbable.transform.name.Contains("Glock") && CurrentGlockClips > 0) {
+                CurrentGlockClips--;
+                return GlockClip;
             }
 
             // Rifle
@@ -103,14 +103,14 @@ namespace JustStartVR {
                 return RifleClip;
             }
 
-            // Pistol
-            if (leftGrabberValid && LeftGrabber.HeldGrabbable.transform.name.Contains("Pistol") && CurrentPistolClips > 0) {
-                CurrentPistolClips--;
-                return PistolClip;
+            // M1911
+            if (leftGrabberValid && LeftGrabber.HeldGrabbable.transform.name.Contains("M1911") && CurrentM1911Clips > 0) {
+                CurrentM1911Clips--;
+                return M1911Clip;
             }
-            else if (rightGrabberValid && RightGrabber.HeldGrabbable.transform.name.Contains("Pistol") && CurrentPistolClips > 0) {
-                CurrentPistolClips--;
-                return PistolClip;
+            else if (rightGrabberValid && RightGrabber.HeldGrabbable.transform.name.Contains("M1911") && CurrentM1911Clips > 0) {
+                CurrentM1911Clips--;
+                return M1911Clip;
             }
 
             // Default to nothing
@@ -142,14 +142,14 @@ namespace JustStartVR {
         }
 
         public virtual void AddAmmo(string AmmoName) {
-            if(AmmoName.Contains("Shotgun")) {
-                CurrentShotgunShells++;
+            if(AmmoName.Contains("Glock")) {
+                CurrentGlockClips++;
             }
             else if (AmmoName.Contains("Rifle")) {
                 CurrentRifleClips--;
             }
-            else if (AmmoName.Contains("Pistol")) {
-                CurrentPistolClips++;
+            else if (AmmoName.Contains("M1911")) {
+                CurrentM1911Clips++;
             }
         }
     }
