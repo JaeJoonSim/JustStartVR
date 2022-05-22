@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(FieldOfView))]
+
 public class FieldOfViewEditor : Editor
 {
     void OnSceneGUI()
@@ -17,11 +18,8 @@ public class FieldOfViewEditor : Editor
         Handles.DrawLine(fow.transform.position, fow.transform.position + viewAngleA * fow.viewRadius);
         Handles.DrawLine(fow.transform.position, fow.transform.position + viewAngleB * fow.viewRadius);
 
-        Handles.color = Color.red;
-        foreach (Transform visible in fow.target)
-        {
-            Handles.DrawLine(fow.transform.position, visible.transform.position);
-            
-        }
     }
+
+
+
 }
