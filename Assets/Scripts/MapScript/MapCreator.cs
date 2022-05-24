@@ -13,7 +13,8 @@ public class MapCreator : MonoBehaviour
     private Stack<Tile> m_tileStack = new Stack<Tile>();
 
     [SerializeField] private GameObject m_TileFactoryOBJ;
-    [SerializeField] private GameObject m_ParentsOBJ;
+    [SerializeField] private GameObject m_AllParentsOBJ;
+    [SerializeField] private GameObject m_PathOBJ;
 
     [SerializeField] private GameObject[] m_TileOBJ;
     [SerializeField] private GameObject[] m_CeilingOBJ;
@@ -79,7 +80,7 @@ public class MapCreator : MonoBehaviour
             {
                 random = Random.Range(0, 6);
                 m_GroupOBJ[i, j] = new GameObject("Room (" + i + ", " + j + ")");
-                m_GroupOBJ[i, j].transform.parent = m_ParentsOBJ.transform;
+                m_GroupOBJ[i, j].transform.parent = m_AllParentsOBJ.transform;
                 m_GroupOBJ[i, j].AddComponent<Room>();
                 m_newOBJ = m_GroupOBJ[i, j];
                 if (random >= 2)
@@ -160,13 +161,16 @@ public class MapCreator : MonoBehaviour
 
         Max = dist * m_RoomSize;
 
+        GameObject newTileOBJ;
         for (int z = StartZ; z < StartZ + Max + m_MapInterval; z++)
         {
             if(m_TileisEmpty[StartX, z])
             {
                 AddNewTile(StartX, z);
-                m_TileFactory.CreateOBJ(m_TileOBJ[0], StartX * m_TileSize, 0, z * m_TileSize);
-                m_TileFactory.CreateOBJ(m_TileOBJ[0], StartX * m_TileSize, m_wallHeight, z * m_TileSize);
+                newTileOBJ = m_TileFactory.CreateOBJ(m_TileOBJ[0], StartX * m_TileSize, 0, z * m_TileSize);
+                newTileOBJ.transform.parent = m_PathOBJ.transform;
+                newTileOBJ = m_TileFactory.CreateOBJ(m_TileOBJ[0], StartX * m_TileSize, m_wallHeight, z * m_TileSize);
+                newTileOBJ.transform.parent = m_PathOBJ.transform;
             }
         }
     }
@@ -183,13 +187,16 @@ public class MapCreator : MonoBehaviour
 
         Max = dist * m_RoomSize;
 
+        GameObject newTileOBJ;
         for (int x = StartX; x < StartX + Max + m_MapInterval; x++)
         {
             if (m_TileisEmpty[x, StartZ])
             {
                 AddNewTile(x, StartZ);
-                m_TileFactory.CreateOBJ(m_TileOBJ[0], x * m_TileSize, 0, StartZ * m_TileSize);
-                m_TileFactory.CreateOBJ(m_TileOBJ[0], x * m_TileSize, m_wallHeight, StartZ * m_TileSize);
+                newTileOBJ = m_TileFactory.CreateOBJ(m_TileOBJ[0], x * m_TileSize, 0, StartZ * m_TileSize);
+                newTileOBJ.transform.parent = m_PathOBJ.transform;
+                newTileOBJ = m_TileFactory.CreateOBJ(m_TileOBJ[0], x * m_TileSize, m_wallHeight, StartZ * m_TileSize);
+                newTileOBJ.transform.parent = m_PathOBJ.transform;
             }
         }
     }
@@ -283,7 +290,6 @@ public class MapCreator : MonoBehaviour
             {   
                 GameObject tileobj = m_TileFactory.CreateOBJ(m_TileOBJ[0], x * m_TileSize, 0, z * m_TileSize);
                 tileobj.transform.parent = m_newOBJ.transform;
-
                 tileobj = m_TileFactory.CreateOBJ(m_TileOBJ[0], x * m_TileSize, m_wallHeight, z * m_TileSize);
                 tileobj.transform.parent = m_newOBJ.transform;
 
