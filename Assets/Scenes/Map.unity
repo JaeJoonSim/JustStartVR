@@ -246,49 +246,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &864718286
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 864718288}
-  - component: {fileID: 864718287}
-  m_Layer: 0
-  m_Name: TileFactory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &864718287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 864718286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8f4fc2ef0981924398011c819e08d8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &864718288
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 864718286}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030294395
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +392,7 @@ Transform:
   m_Children:
   - {fileID: 105258781}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1260738208026677915
 Transform:
@@ -480,7 +437,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae0358c0272f664da667af91f2b9d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TileFactoryOBJ: {fileID: 864718286}
   m_AllParentsOBJ: {fileID: 2129963910}
   m_PathOBJ: {fileID: 105258780}
   m_TileOBJ:
@@ -492,7 +448,7 @@ MonoBehaviour:
   m_WallOBJ: {fileID: 5926476773050608838, guid: 478d81caa6e58974a9c625659d71ddca, type: 3}
   m_wallHeight: 4
   m_TileSize: 2
-  m_RoomSize: 11
+  m_RoomSize: 10
   m_RoomCountX: 5
   m_RoomCountZ: 5
   m_TileCount: 80

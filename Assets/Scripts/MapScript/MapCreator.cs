@@ -7,12 +7,10 @@ public class MapCreator : MonoBehaviour
     private int m_RoomNumber;
     private GameObject[,] m_GroupOBJ;
     private GameObject m_newOBJ;
-    private TileFactory m_TileFactory;
 
     private Queue<Tile> m_TileQueue = new Queue<Tile>();
     private Stack<Tile> m_tileStack = new Stack<Tile>();
 
-    [SerializeField] private GameObject m_TileFactoryOBJ;
     [SerializeField] private GameObject m_AllParentsOBJ;
     [SerializeField] private GameObject m_PathOBJ;
 
@@ -43,8 +41,6 @@ public class MapCreator : MonoBehaviour
 
     private void Start()
     {
-        m_TileFactory = m_TileFactoryOBJ.GetComponent<TileFactory>();
-
         init();
     }
 
@@ -94,9 +90,6 @@ public class MapCreator : MonoBehaviour
 
     public void PathCreator()
     {
-        int CreateX = 0; 
-        int CreateZ = 0;
-
         int index = 0;
 
         int x = 0;
@@ -161,16 +154,15 @@ public class MapCreator : MonoBehaviour
 
         Max = dist * m_RoomSize;
 
-        GameObject newTileOBJ;
         for (int z = StartZ; z < StartZ + Max + m_MapInterval; z++)
         {
             if(m_TileisEmpty[StartX, z])
             {
                 AddNewTile(StartX, z);
-                newTileOBJ = m_TileFactory.CreateOBJ(m_TileOBJ[0], StartX * m_TileSize, 0, z * m_TileSize);
-                newTileOBJ.transform.parent = m_PathOBJ.transform;
-                newTileOBJ = m_TileFactory.CreateOBJ(m_TileOBJ[0], StartX * m_TileSize, m_wallHeight, z * m_TileSize);
-                newTileOBJ.transform.parent = m_PathOBJ.transform;
+                Instantiate(m_TileOBJ[0], new Vector3(StartX * m_TileSize, 0, z * m_TileSize),
+                    Quaternion.Euler(0,0,0), m_PathOBJ.transform);
+                Instantiate(m_TileOBJ[0], new Vector3(StartX * m_TileSize, m_wallHeight, z * m_TileSize),
+                    Quaternion.Euler(0, 0, 0), m_PathOBJ.transform);                
             }
         }
     }
@@ -193,10 +185,10 @@ public class MapCreator : MonoBehaviour
             if (m_TileisEmpty[x, StartZ])
             {
                 AddNewTile(x, StartZ);
-                newTileOBJ = m_TileFactory.CreateOBJ(m_TileOBJ[0], x * m_TileSize, 0, StartZ * m_TileSize);
-                newTileOBJ.transform.parent = m_PathOBJ.transform;
-                newTileOBJ = m_TileFactory.CreateOBJ(m_TileOBJ[0], x * m_TileSize, m_wallHeight, StartZ * m_TileSize);
-                newTileOBJ.transform.parent = m_PathOBJ.transform;
+                Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, 0, StartZ * m_TileSize),
+                  Quaternion.Euler(0, 0, 0), m_PathOBJ.transform);
+                Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, m_wallHeight, StartZ * m_TileSize),
+                    Quaternion.Euler(0, 0, 0), m_PathOBJ.transform);
             }
         }
     }
@@ -288,10 +280,10 @@ public class MapCreator : MonoBehaviour
 
             if (m_TileisEmpty[x, z])
             {   
-                GameObject tileobj = m_TileFactory.CreateOBJ(m_TileOBJ[0], x * m_TileSize, 0, z * m_TileSize);
-                tileobj.transform.parent = m_newOBJ.transform;
-                tileobj = m_TileFactory.CreateOBJ(m_TileOBJ[0], x * m_TileSize, m_wallHeight, z * m_TileSize);
-                tileobj.transform.parent = m_newOBJ.transform;
+                Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, 0, z * m_TileSize),
+                    Quaternion.Euler(0,0,0), m_newOBJ.transform);
+                Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, m_wallHeight, z * m_TileSize),
+                                    Quaternion.Euler(0, 0, 0), m_newOBJ.transform);
 
                 AddNewTile(x, z);
                 
