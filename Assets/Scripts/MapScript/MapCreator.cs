@@ -73,7 +73,6 @@ public class MapCreator : MonoBehaviour
         }
 
         int random = 0;
-
         for (int i = 0; i < m_RoomCountX; i++)
         {
             for(int j = 0; j < m_RoomCountZ; j++)
