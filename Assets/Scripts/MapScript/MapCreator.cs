@@ -11,8 +11,9 @@ public class MapCreator : MonoBehaviour
     private Queue<Tile> m_TileQueue = new Queue<Tile>();
     private Stack<Tile> m_tileStack = new Stack<Tile>();
 
-    [SerializeField] private GameObject m_AllParentsOBJ;
-    [SerializeField] private GameObject m_PathOBJ;
+    [SerializeField] private GameObject m_AllTilesParents;
+    [SerializeField] private GameObject m_WallParents;
+    [SerializeField] private GameObject m_PathParents;
 
     [SerializeField] private GameObject[] m_TileOBJ;
     [SerializeField] private GameObject[] m_CeilingOBJ;
@@ -41,10 +42,10 @@ public class MapCreator : MonoBehaviour
 
     private void Start()
     {
-        init();
+        CreateMap();
     }
 
-    public void init()
+    public void CreateMap()
     {
         int MaxTileIndex = m_RoomCountX * m_RoomCountZ * (m_RoomSize);
         m_TileisEmpty = new bool[MaxTileIndex, MaxTileIndex];
@@ -76,7 +77,7 @@ public class MapCreator : MonoBehaviour
             {
                 random = Random.Range(0, 6);
                 m_GroupOBJ[i, j] = new GameObject("Room (" + i + ", " + j + ")");
-                m_GroupOBJ[i, j].transform.parent = m_AllParentsOBJ.transform;
+                m_GroupOBJ[i, j].transform.parent = m_AllTilesParents.transform;
                 m_GroupOBJ[i, j].AddComponent<Room>();
                 m_newOBJ = m_GroupOBJ[i, j];
                 if (random >= 2)
@@ -85,7 +86,67 @@ public class MapCreator : MonoBehaviour
                 }
             }
         }
+
         PathCreator();
+        WallCreator();
+    }
+
+    public void WallCreator()
+    {
+        int count;
+        int dir;
+
+        int x, z;
+
+        GameObject newOBJ;
+
+        while(m_TileQueue.Count > 0)
+        {
+            dir = 0;
+            count = 0;                
+            Tile getTile = m_TileQueue.Dequeue();
+
+
+            while (count < 4)
+            {
+                x = getTile.x;
+                z = getTile.z;
+                dir = count++;
+
+                switch (dir)
+                {
+                    case 0:
+                        z += 1;
+                        break;
+                    case 1:
+                        z -= 1;
+                        break;
+                    case 2:
+                        x -= 1;
+                        break;
+                    case 3:
+                        x += 1;
+                        break;
+                }
+
+                int MaxTileIndex = m_RoomCountX * m_RoomCountZ * (m_RoomSize);
+                if (x > -1 && x < MaxTileIndex && z > -1 && z < MaxTileIndex)
+                {
+                    if (m_TileisEmpty[x, z])
+                    {
+                        newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2, z * m_TileSize),
+                        Quaternion.Euler(0, 0, 0), m_WallParents.transform);
+                        newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
+                    }
+                }
+                else
+                {
+                    newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2, z * m_TileSize),
+                     Quaternion.Euler(0, 0, 0), m_WallParents.transform);
+                    newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
+                }
+            }
+        }
     }
 
     public void PathCreator()
@@ -160,9 +221,9 @@ public class MapCreator : MonoBehaviour
             {
                 AddNewTile(StartX, z);
                 Instantiate(m_TileOBJ[0], new Vector3(StartX * m_TileSize, 0, z * m_TileSize),
-                    Quaternion.Euler(0,0,0), m_PathOBJ.transform);
+                    Quaternion.Euler(0,0,0), m_PathParents.transform);
                 Instantiate(m_TileOBJ[0], new Vector3(StartX * m_TileSize, m_wallHeight, z * m_TileSize),
-                    Quaternion.Euler(0, 0, 0), m_PathOBJ.transform);                
+                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);                
             }
         }
     }
@@ -179,16 +240,15 @@ public class MapCreator : MonoBehaviour
 
         Max = dist * m_RoomSize;
 
-        GameObject newTileOBJ;
         for (int x = StartX; x < StartX + Max + m_MapInterval; x++)
         {
             if (m_TileisEmpty[x, StartZ])
             {
                 AddNewTile(x, StartZ);
                 Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, 0, StartZ * m_TileSize),
-                  Quaternion.Euler(0, 0, 0), m_PathOBJ.transform);
+                  Quaternion.Euler(0, 0, 0), m_PathParents.transform);
                 Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, m_wallHeight, StartZ * m_TileSize),
-                    Quaternion.Euler(0, 0, 0), m_PathOBJ.transform);
+                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
             }
         }
     }
