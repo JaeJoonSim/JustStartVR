@@ -8,7 +8,7 @@ public class MapCreator : MonoBehaviour
     private GameObject[,] m_GroupOBJ;
     private GameObject m_newOBJ;
 
-    private Queue<Tile> m_TileQueue = new Queue<Tile>();
+    private List<Tile> m_TileList = new List<Tile>();
     private Stack<Tile> m_tileStack = new Stack<Tile>();
 
     [SerializeField] private GameObject m_AllTilesParents;
@@ -18,6 +18,7 @@ public class MapCreator : MonoBehaviour
     [SerializeField] private GameObject[] m_TileOBJ;
     [SerializeField] private GameObject[] m_CeilingOBJ;
     [SerializeField] private GameObject m_WallOBJ;
+    [SerializeField] private GameObject m_DoorOBJ;
 
     [SerializeField] private int m_wallHeight;
     [SerializeField] private int m_TileSize;
@@ -33,10 +34,12 @@ public class MapCreator : MonoBehaviour
     {
         public int x;
         public int z;
-        public Tile(int _x, int _z)
+        public bool isRoom;
+        public Tile(int _x, int _z, bool room)
         {
             x = _x;
             z = _z;
+            isRoom = room;
         }
     }
 
@@ -89,6 +92,18 @@ public class MapCreator : MonoBehaviour
 
         PathCreator();
         WallCreator();
+        DoorCreator();
+    }
+
+    public void DoorCreator()
+    {
+        for(int i = 0; i < m_TileList.Count; i++)
+        {
+            if(!m_TileList[i].isRoom)
+            {
+
+            }
+        }
     }
 
     public void WallCreator()
@@ -100,11 +115,11 @@ public class MapCreator : MonoBehaviour
 
         GameObject newOBJ;
 
-        while(m_TileQueue.Count > 0)
+        for(int i = 0; i < m_TileList.Count; i++)
         {
             dir = 0;
-            count = 0;                
-            Tile getTile = m_TileQueue.Dequeue();
+            count = 0;
+            Tile getTile = m_TileList[i];
 
 
             while (count < 4)
@@ -146,6 +161,7 @@ public class MapCreator : MonoBehaviour
                     newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
                 }
             }
+
         }
     }
 
@@ -219,11 +235,21 @@ public class MapCreator : MonoBehaviour
         {
             if(m_TileisEmpty[StartX, z])
             {
-                AddNewTile(StartX, z);
+                AddNewTile(StartX, z, false);
                 Instantiate(m_TileOBJ[0], new Vector3(StartX * m_TileSize, 0, z * m_TileSize),
                     Quaternion.Euler(0,0,0), m_PathParents.transform);
                 Instantiate(m_TileOBJ[0], new Vector3(StartX * m_TileSize, m_wallHeight, z * m_TileSize),
                     Quaternion.Euler(0, 0, 0), m_PathParents.transform);                
+            }
+            else if (z > (StartZ + m_RoomSize / 2))
+            {
+                int random = Random.Range(0, 3);
+                if (random == 0) break;
+                //Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 1, z * m_TileSize),
+                //    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                Instantiate(m_DoorOBJ, new Vector3(StartX* m_TileSize, 1, (StartZ + m_RoomSize / 2) * m_TileSize),
+                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                break;
             }
         }
     }
@@ -244,11 +270,21 @@ public class MapCreator : MonoBehaviour
         {
             if (m_TileisEmpty[x, StartZ])
             {
-                AddNewTile(x, StartZ);
+                AddNewTile(x, StartZ, false);
                 Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, 0, StartZ * m_TileSize),
                   Quaternion.Euler(0, 0, 0), m_PathParents.transform);
                 Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, m_wallHeight, StartZ * m_TileSize),
                     Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+            }
+            else if(x > (StartX + m_RoomSize / 2))
+            {
+                int random = Random.Range(0, 3);
+                if (random == 0) break;
+                //Instantiate(m_DoorOBJ, new Vector3(x * m_TileSize, 1, StartZ * m_TileSize),
+                //    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                Instantiate(m_DoorOBJ, new Vector3((StartX + m_RoomSize / 2) * m_TileSize, 1, StartZ * m_TileSize),
+                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                break;
             }
         }
     }
@@ -289,12 +325,12 @@ public class MapCreator : MonoBehaviour
         }               
     }
 
-    public void AddNewTile(int x, int z)
+    public void AddNewTile(int x, int z, bool room)
     {
         m_TileisEmpty[x, z] = false;
-        Tile createdTile = new Tile(x, z);
+        Tile createdTile = new Tile(x, z, room);
         m_tileStack.Push(createdTile);
-        m_TileQueue.Enqueue(createdTile);
+        m_TileList.Add(createdTile);        
     }
 
     public int FindEmpty(int StartX, int StartZ, int CreateX, int CreateZ)
@@ -345,7 +381,7 @@ public class MapCreator : MonoBehaviour
                 Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, m_wallHeight, z * m_TileSize),
                                     Quaternion.Euler(0, 0, 0), m_newOBJ.transform);
 
-                AddNewTile(x, z);
+                AddNewTile(x, z, true);
                 
                 return count;
             }
