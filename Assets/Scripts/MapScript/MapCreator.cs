@@ -83,7 +83,7 @@ public class MapCreator : MonoBehaviour
                 m_GroupOBJ[i, j].transform.parent = m_AllTilesParents.transform;
                 m_GroupOBJ[i, j].AddComponent<Room>();
                 m_newOBJ = m_GroupOBJ[i, j];
-                if (random >= 2)
+                if (random >= 2 || (i == 0 && j == 0))
                 {
                     RoomCreator(i, j);
                 }
