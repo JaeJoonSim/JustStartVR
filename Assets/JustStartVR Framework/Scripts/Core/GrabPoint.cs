@@ -208,7 +208,7 @@ namespace JustStartVR {
 
 #if UNITY_EDITOR
                     // Only set dirty if not in prefab mode
-                    if (UnityEditor.Experimental.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() == null) {
+                    if (UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() == null) {
                         UnityEditor.EditorUtility.SetDirty(animators[x].gameObject);
                     }
 #endif
