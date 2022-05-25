@@ -92,18 +92,6 @@ public class MapCreator : MonoBehaviour
 
         PathCreator();
         WallCreator();
-        DoorCreator();
-    }
-
-    public void DoorCreator()
-    {
-        for(int i = 0; i < m_TileList.Count; i++)
-        {
-            if(!m_TileList[i].isRoom)
-            {
-
-            }
-        }
     }
 
     public void WallCreator()
@@ -231,6 +219,8 @@ public class MapCreator : MonoBehaviour
 
         Max = dist * m_RoomSize;
 
+        int door = 0;
+
         for (int z = StartZ; z < StartZ + Max + m_MapInterval; z++)
         {
             if(m_TileisEmpty[StartX, z])
@@ -244,12 +234,14 @@ public class MapCreator : MonoBehaviour
             else if (z > (StartZ + m_RoomSize / 2))
             {
                 int random = Random.Range(0, 3);
-                if (random == 0) break;
-                //Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 1, z * m_TileSize),
-                //    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                Instantiate(m_DoorOBJ, new Vector3(StartX* m_TileSize, 1, (StartZ + m_RoomSize / 2) * m_TileSize),
-                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                break;
+                if (random != 0 && door == 0)
+                {
+                    //Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 1, z * m_TileSize),
+                    //    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                    Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 0, (StartZ + m_RoomSize / 2) * m_TileSize),
+                        Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                    door++;
+                }                
             }
         }
     }
@@ -263,6 +255,8 @@ public class MapCreator : MonoBehaviour
         StartZ = (StartZ * (m_RoomSize + m_MapInterval)) + 5;
 
         int Max = 0;
+
+        int door = 0;
 
         Max = dist * m_RoomSize;
 
@@ -279,12 +273,13 @@ public class MapCreator : MonoBehaviour
             else if(x > (StartX + m_RoomSize / 2))
             {
                 int random = Random.Range(0, 3);
-                if (random == 0) break;
-                //Instantiate(m_DoorOBJ, new Vector3(x * m_TileSize, 1, StartZ * m_TileSize),
-                //    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                Instantiate(m_DoorOBJ, new Vector3((StartX + m_RoomSize / 2) * m_TileSize, 1, StartZ * m_TileSize),
-                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                break;
+                if (random != 0 && door == 0)
+                {
+                    //Instantiate(m_DoorOBJ, new Vector3(x * m_TileSize, 1, StartZ * m_TileSize),
+                    //    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                    Instantiate(m_DoorOBJ, new Vector3((StartX + m_RoomSize / 2) * m_TileSize, 0, StartZ * m_TileSize),
+                        Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                }
             }
         }
     }
