@@ -82,7 +82,7 @@ public class MapCreator : MonoBehaviour
         {
             for (; j < m_RoomCountZ; j++)
             {
-                random = Random.Range(0, 6);
+                random = Random.Range(0, 8);
                 CreateRoom(i, j, (random >= 2) ? true : false);
             }
             j = 0;
@@ -152,7 +152,7 @@ public class MapCreator : MonoBehaviour
                         newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize),
                         Quaternion.Euler(0, 0, 0), m_WallParents.transform);
                         newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
-                        if (getTile.isRoom) CreateCabinet(getTile.x, getTile.z, dir);
+                        if (getTile.isRoom && count == 4) CreateCabinet(getTile.x, getTile.z, dir);
                     }
                 }
                 else
@@ -168,6 +168,8 @@ public class MapCreator : MonoBehaviour
     public void CreateCabinet(int _x, int _z, int dir)
     {
         int random = 0;
+        random = Random.Range(0, 10);
+        if (random != 0) return;
 
         float x = _x;
         float z = _z;
@@ -188,11 +190,7 @@ public class MapCreator : MonoBehaviour
                 break;
         }
 
-        random = Random.Range(0, 30);
-        if (random == 0)
-        {
-            Instantiate(m_CabinetOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize), Quaternion.Euler(0, 0, 0));
-        }
+        Instantiate(m_CabinetOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize), Quaternion.Euler(0, 0, 0));
     }
 
     public void PathCreator()
