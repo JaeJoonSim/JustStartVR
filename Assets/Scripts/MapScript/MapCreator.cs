@@ -19,6 +19,9 @@ public class MapCreator : MonoBehaviour
     [SerializeField] private GameObject[] m_CeilingOBJ;
     [SerializeField] private GameObject m_WallOBJ;
     [SerializeField] private GameObject m_DoorOBJ;
+    [SerializeField] private GameObject m_CabinetOBJ;
+
+    [SerializeField] private Transform m_PlayerSpawnTransform;
 
     [SerializeField] private int m_wallHeight;
     [SerializeField] private int m_TileSize;
@@ -50,47 +53,56 @@ public class MapCreator : MonoBehaviour
 
     public void CreateMap()
     {
-        int MaxTileIndex = m_RoomCountX * m_RoomCountZ * (m_RoomSize);
-        m_TileisEmpty = new bool[MaxTileIndex, MaxTileIndex];
-
+        int MaxTileIndexAxisX = (m_RoomCountX + m_MapInterval) * m_RoomSize;
+        int MaxTileIndexAxisZ = (m_RoomCountZ + m_MapInterval) * m_RoomSize;
+        m_TileisEmpty = new bool[MaxTileIndexAxisX, MaxTileIndexAxisZ];
 
         m_GroupOBJ = new GameObject[m_RoomCountX, m_RoomCountZ];
 
-        for (int i = 0; i < m_RoomCountX; i++)
+        for (int x = 0; x < m_RoomCountX; x++)
         {
-            for (int j = 0; j < m_RoomCountZ; j++)
+            for (int z = 0; z < m_RoomCountZ; z++)
             {
-                m_GroupOBJ[i, j] = null;
+                m_GroupOBJ[x, z] = null;
             }
         }
 
-        for (int i = 0; i < MaxTileIndex; i++)
+        for (int x = 0; x < MaxTileIndexAxisX; x++)
         {
-            for (int j = 0; j < MaxTileIndex; j++)
+            for (int z = 0; z < MaxTileIndexAxisZ; z++)
             {
-                m_TileisEmpty[i, j] = true;
+                m_TileisEmpty[x, z] = true;
             }
         }
 
         int random = 0;
+        CreateRoom(0, 0, true);
+        int j = 1;
         for (int i = 0; i < m_RoomCountX; i++)
         {
-            for(int j = 0; j < m_RoomCountZ; j++)
+            for (; j < m_RoomCountZ; j++)
             {
-                random = Random.Range(0, 6);
-                m_GroupOBJ[i, j] = new GameObject("Room (" + i + ", " + j + ")");
-                m_GroupOBJ[i, j].transform.parent = m_AllTilesParents.transform;
-                m_GroupOBJ[i, j].AddComponent<Room>();
-                m_newOBJ = m_GroupOBJ[i, j];
-                if (random >= 2 || (i == 0 && j == 0))
-                {
-                    RoomCreator(i, j);
-                }
+                random = Random.Range(0, 8);
+                CreateRoom(i, j, (random >= 2) ? true : false);
             }
+            j = 0;
         }
 
         PathCreator();
         WallCreator();
+
+        m_PlayerSpawnTransform.transform.position = new Vector3(m_TileList[0].x, 1, m_TileList[0].z);
+    }
+
+    public void CreateRoom(int x, int z, bool isCreate)
+    {
+        m_GroupOBJ[x, z] = new GameObject("Room (" + x + ", " + z + ")");
+        m_GroupOBJ[x, z].transform.parent = m_AllTilesParents.transform;
+        m_newOBJ = m_GroupOBJ[x, z];
+
+        if (!isCreate) return;       
+        RoomCreator(x, z);
+        m_GroupOBJ[x,  z].AddComponent<Room>();
     }
 
     public void WallCreator()
@@ -102,12 +114,12 @@ public class MapCreator : MonoBehaviour
 
         GameObject newOBJ;
 
-        for(int i = 0; i < m_TileList.Count; i++)
+        for (int i = 0; i < m_TileList.Count; i++)
         {
             dir = 0;
             count = 0;
-            Tile getTile = m_TileList[i];
 
+            Tile getTile = m_TileList[i];
 
             while (count < 4)
             {
@@ -131,25 +143,54 @@ public class MapCreator : MonoBehaviour
                         break;
                 }
 
-                int MaxTileIndex = m_RoomCountX * m_RoomCountZ * (m_RoomSize);
-                if (x > -1 && x < MaxTileIndex && z > -1 && z < MaxTileIndex)
+                int MaxTileIndexAxisX = (m_RoomCountX + m_MapInterval) * m_RoomSize;
+                int MaxTileIndexAxisZ = (m_RoomCountZ + m_MapInterval) * m_RoomSize;
+                if (x > -1 && x < MaxTileIndexAxisX && z > -1 && z < MaxTileIndexAxisZ)
                 {
                     if (m_TileisEmpty[x, z])
                     {
-                        newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2, z * m_TileSize),
+                        newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize),
                         Quaternion.Euler(0, 0, 0), m_WallParents.transform);
                         newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
+                        if (getTile.isRoom && count == 4) CreateCabinet(getTile.x, getTile.z, dir);
                     }
                 }
                 else
                 {
-                    newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2, z * m_TileSize),
+                    newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize),
                      Quaternion.Euler(0, 0, 0), m_WallParents.transform);
                     newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
                 }
             }
-
         }
+    }
+
+    public void CreateCabinet(int _x, int _z, int dir)
+    {
+        int random = 0;
+        random = Random.Range(0, 10);
+        if (random != 0) return;
+
+        float x = _x;
+        float z = _z;
+
+        switch (dir)
+        {
+            case 0:
+                z += 0.249f;
+                break;
+            case 1:
+                z -= 0.249f;
+                break;
+            case 2:
+                x -= 0.249f;
+                break;
+            case 3:
+                x += 0.249f;
+                break;
+        }
+
+        Instantiate(m_CabinetOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize), Quaternion.Euler(0, 0, 0));
     }
 
     public void PathCreator()
@@ -160,7 +201,7 @@ public class MapCreator : MonoBehaviour
         int z = 0;
 
         x = 0;
-        for(; x < m_RoomCountX; x++)
+        for (; x < m_RoomCountX; x++)
         {
             z = 0;
             for (; z < m_RoomCountZ - 1; z++)
@@ -202,7 +243,7 @@ public class MapCreator : MonoBehaviour
                         CreatePathAxisX(x, z, index, z);
                     }
                 }
-            }  
+            }
         }
     }
 
@@ -214,7 +255,7 @@ public class MapCreator : MonoBehaviour
         StartX = (StartX * (m_RoomSize + m_MapInterval)) + m_RoomSize / 2;
         StartZ = (StartZ * (m_RoomSize + m_MapInterval)) + m_RoomSize / 2;
 
-        int Max =  0;
+        int Max = 0;
 
         Max = dist * m_RoomSize;
 
@@ -222,13 +263,13 @@ public class MapCreator : MonoBehaviour
 
         for (int z = StartZ; z < StartZ + Max + m_MapInterval; z++)
         {
-            if(m_TileisEmpty[StartX, z])
+            if (m_TileisEmpty[StartX, z])
             {
                 AddNewTile(StartX, z, false);
                 Instantiate(m_TileOBJ[0], new Vector3(StartX * m_TileSize, 0, z * m_TileSize),
-                    Quaternion.Euler(0,0,0), m_PathParents.transform);
-                Instantiate(m_TileOBJ[0], new Vector3(StartX * m_TileSize, m_wallHeight, z * m_TileSize),
-                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);                
+                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                Instantiate(m_CeilingOBJ[0], new Vector3(StartX * m_TileSize, m_wallHeight + 1, z * m_TileSize),
+                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
             }
             else if (z > (StartZ + m_RoomSize / 2))
             {
@@ -240,7 +281,7 @@ public class MapCreator : MonoBehaviour
                     Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 0, (StartZ + m_RoomSize / 2) * m_TileSize),
                         Quaternion.Euler(0, 0, 0), m_PathParents.transform);
                     door++;
-                }                
+                }
             }
         }
     }
@@ -266,10 +307,10 @@ public class MapCreator : MonoBehaviour
                 AddNewTile(x, StartZ, false);
                 Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, 0, StartZ * m_TileSize),
                   Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, m_wallHeight, StartZ * m_TileSize),
+                Instantiate(m_CeilingOBJ[0], new Vector3(x * m_TileSize, m_wallHeight + 1, StartZ * m_TileSize),
                     Quaternion.Euler(0, 0, 0), m_PathParents.transform);
             }
-            else if(x > (StartX + m_RoomSize / 2))
+            else if (x > (StartX + m_RoomSize / 2))
             {
                 int random = Random.Range(0, 3);
                 if (random != 0 && door == 0)
@@ -293,7 +334,7 @@ public class MapCreator : MonoBehaviour
 
         int count = 0;
 
-        while(count < m_TileCount)
+        while (count < m_TileCount)
         {
             if (FindEmpty(StartX, StartZ, CreateX, CreateZ) < 4)
             {
@@ -316,7 +357,7 @@ public class MapCreator : MonoBehaviour
                 } while (FindEmpty(StartX, StartZ, CreateX, CreateZ) >= 4);
                 count++;
             }
-        }               
+        }
     }
 
     public void AddNewTile(int x, int z, bool room)
@@ -324,7 +365,7 @@ public class MapCreator : MonoBehaviour
         m_TileisEmpty[x, z] = false;
         Tile createdTile = new Tile(x, z, room);
         m_tileStack.Push(createdTile);
-        m_TileList.Add(createdTile);        
+        m_TileList.Add(createdTile);
     }
 
     public int FindEmpty(int StartX, int StartZ, int CreateX, int CreateZ)
@@ -369,14 +410,14 @@ public class MapCreator : MonoBehaviour
             else if (z >= MaxZ) z = MaxZ - 1;
 
             if (m_TileisEmpty[x, z])
-            {   
+            {
                 Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, 0, z * m_TileSize),
-                    Quaternion.Euler(0,0,0), m_newOBJ.transform);
-                Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, m_wallHeight, z * m_TileSize),
+                    Quaternion.Euler(0, 0, 0), m_newOBJ.transform);
+                Instantiate(m_CeilingOBJ[0], new Vector3(x * m_TileSize, m_wallHeight + 1, z * m_TileSize),
                                     Quaternion.Euler(0, 0, 0), m_newOBJ.transform);
 
                 AddNewTile(x, z, true);
-                
+
                 return count;
             }
         }
