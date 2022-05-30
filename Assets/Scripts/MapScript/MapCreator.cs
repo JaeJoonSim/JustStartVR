@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MapCreator : MonoBehaviour
 {
-    private int m_RoomNumber;
     private GameObject[,] m_GroupOBJ;
     private GameObject m_newOBJ;
 
@@ -14,6 +13,7 @@ public class MapCreator : MonoBehaviour
     [SerializeField] private GameObject m_AllTilesParents;
     [SerializeField] private GameObject m_WallParents;
     [SerializeField] private GameObject m_PathParents;
+    [SerializeField] private GameObject m_CabinetParents;
 
     [SerializeField] private GameObject[] m_TileOBJ;
     [SerializeField] private GameObject[] m_CeilingOBJ;
@@ -190,7 +190,7 @@ public class MapCreator : MonoBehaviour
                 break;
         }
 
-        Instantiate(m_CabinetOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize), Quaternion.Euler(0, 0, 0));
+        Instantiate(m_CabinetOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize), Quaternion.Euler(0, 0, 0), m_CabinetParents.transform);
     }
 
     public void PathCreator()

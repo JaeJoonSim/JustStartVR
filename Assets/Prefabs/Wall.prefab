@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2939062795193877920}
   - component: {fileID: 7007232609223164689}
   - component: {fileID: 5105912669748064763}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Wall
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.2504113, y: 0.36875, z: -1.1877501}
   m_LocalScale: {x: 2, y: 1, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,6 +54,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -61,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8939b07da3cc1f045a0b1edfe97ecc82, type: 2}
+  - {fileID: 2100000, guid: e45e6e5611b9fea48b25851cf7f1df09, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
