@@ -11,6 +11,7 @@ namespace JustStartVR {
     public class Projectile : MonoBehaviour {
 
         public GameObject HitFXPrefab;
+        public GameObject HitEnemyFXPrefab;
         private bool _checkRaycast;
         public float Damage = 25;
 
@@ -80,11 +81,29 @@ namespace JustStartVR {
         public virtual void DoHitFX(Vector3 pos, Quaternion rot, Collider col) {
 
             // Create FX at impact point / rotation
-            if(HitFXPrefab) {
-                GameObject impact = Instantiate(HitFXPrefab, pos, rot) as GameObject;
-                BulletHole hole = impact.GetComponent<BulletHole>();
-                if (hole) {
-                    hole.TryAttachTo(col);
+
+            if (col.tag == "Enemy")
+            {
+                if (HitEnemyFXPrefab)
+                {
+                    GameObject impact = Instantiate(HitEnemyFXPrefab, pos, rot) as GameObject;
+                    BulletHole hole = impact.GetComponent<BulletHole>();
+                    if (hole)
+                    {
+                        hole.TryAttachTo(col);
+                    }
+                }
+            }
+            else
+            {
+                if (HitFXPrefab)
+                {
+                    GameObject impact = Instantiate(HitFXPrefab, pos, rot) as GameObject;
+                    BulletHole hole = impact.GetComponent<BulletHole>();
+                    if (hole)
+                    {
+                        hole.TryAttachTo(col);
+                    }
                 }
             }
 
