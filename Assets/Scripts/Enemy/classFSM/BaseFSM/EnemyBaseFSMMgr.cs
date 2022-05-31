@@ -54,6 +54,8 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     //FieldOfView
     FieldOfView fow;
 
+    public GameObject ragdoll;
+
 
     private void Start()
     {
@@ -67,6 +69,16 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     private void Update()
     {
+        if (CalcTargetDistance() > 50)
+        {
+            ragdoll.SetActive(false);
+        }
+        else
+        {
+            ragdoll.SetActive(true);
+        } 
+
+
         if (currentState != null)
             currentState.Update(this);
     }
