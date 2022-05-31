@@ -3089,7 +3089,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9170885867518551167}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ae12dcba6395994d8a82b4d6920e577, type: 3}
   m_Name: 
@@ -3105,7 +3105,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 9170885867518551167}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3
+  m_Radius: 0.6
   m_Speed: 1
   m_Acceleration: 50
   avoidancePriority: 50
@@ -3153,3 +3153,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   attackPosition: {x: 0, y: 0, z: 0}
+  ragdoll: {fileID: 5327425562086594944}
