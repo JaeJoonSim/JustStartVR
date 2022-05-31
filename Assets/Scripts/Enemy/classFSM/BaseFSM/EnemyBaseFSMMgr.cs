@@ -69,7 +69,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     private void Update()
     {
-        if (CalcTargetDistance() > 50)
+        if (CalcTargetDistance() > 25)
         {
             ragdoll.SetActive(false);
         }
