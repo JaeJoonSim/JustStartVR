@@ -22,7 +22,7 @@ public class MapInstance : MonoBehaviour
     public List<Tile> m_TileList = new List<Tile>();
     public const int m_TileSize = 2;
 
-    void Start()
+    void Awake()
     {
         if (Instance == null)
             Instance = this;
