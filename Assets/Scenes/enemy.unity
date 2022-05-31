@@ -450,7 +450,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4567605641618450651, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
       propertyPath: FiringMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567605641618450651, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
+      propertyPath: ReloadMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567605641618450651, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
+      propertyPath: BulletInChamber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567605641618450651, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
+      propertyPath: AlwaysFireProjectile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567605641618450651, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
+      propertyPath: FireProjectileInSlowMo
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6024261396410624979, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
       propertyPath: m_RootOrder
@@ -1061,7 +1077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8362719105163706053, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.02
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 8362719105163706053, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1069,7 +1085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8362719105163706053, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.23
+      value: 13.1
       objectReference: {fileID: 0}
     - target: {fileID: 8362719105163706053, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
       propertyPath: m_LocalRotation.w

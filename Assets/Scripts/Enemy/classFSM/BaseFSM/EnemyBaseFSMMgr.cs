@@ -67,7 +67,8 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     private void Update()
     {
-        currentState.Update(this);
+        if (currentState != null)
+            currentState.Update(this);
     }
 
     public void Damaged(float demage, Vector3 BulletForword, Rigidbody hitPoint)
@@ -77,7 +78,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         if (!IsAlive())
         {
             Die();
-            hitPoint.AddForce(BulletForword * 10f, ForceMode.VelocityChange);
+            //hitPoint.AddForce(BulletForword * 10f, ForceMode.VelocityChange);
         }
         else
         {
@@ -87,8 +88,9 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     public void Die()
     {
+        agent.enabled = false;
         anim.enabled = false;
-        ChangeState(IdleState);
+        currentState = null;
         StartCoroutine(DestroyObject());
     }
 
