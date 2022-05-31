@@ -70,7 +70,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         currentState.Update(this);
     }
 
-    public void Damaged(float demage, Vector3 BulletForword, Rigidbody hitPoint)
+    public void Damaged(float demage,float Force, Vector3 BulletForword, Rigidbody hitPoint)
     {
         Status.Hp -= demage;
         print(Status.Hp);
