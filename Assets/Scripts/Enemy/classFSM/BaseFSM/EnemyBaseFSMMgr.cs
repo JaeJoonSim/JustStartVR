@@ -88,7 +88,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     public void Die()
     {
         anim.enabled = false;
-        
+        ChangeState(IdleState);
         StartCoroutine(DestroyObject());
     }
 
