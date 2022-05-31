@@ -7,19 +7,19 @@ public class MapCreator : MonoBehaviour
     private GameObject[,] m_GroupOBJ;
     private GameObject m_newOBJ;
 
-    private List<Tile> m_TileList = new List<Tile>();
-    private Stack<Tile> m_tileStack = new Stack<Tile>();
+
+    private Stack<MapInstance.Tile> m_tileStack = new Stack<MapInstance.Tile>();
 
     [SerializeField] private GameObject m_AllTilesParents;
     [SerializeField] private GameObject m_WallParents;
     [SerializeField] private GameObject m_PathParents;
     [SerializeField] private GameObject m_CabinetParents;
-
     [SerializeField] private GameObject[] m_TileOBJ;
     [SerializeField] private GameObject[] m_CeilingOBJ;
     [SerializeField] private GameObject m_WallOBJ;
     [SerializeField] private GameObject m_DoorOBJ;
     [SerializeField] private GameObject m_CabinetOBJ;
+    [SerializeField] private EnemyCreator m_EnemyCreator;
 
     [SerializeField] private Transform m_PlayerSpawnTransform;
 
@@ -33,21 +33,9 @@ public class MapCreator : MonoBehaviour
 
     public bool[,] m_TileisEmpty;
 
-    public class Tile
-    {
-        public int x;
-        public int z;
-        public bool isRoom;
-        public Tile(int _x, int _z, bool room)
-        {
-            x = _x;
-            z = _z;
-            isRoom = room;
-        }
-    }
 
     private void Start()
-    {
+    {    
         CreateMap();
     }
 
@@ -90,8 +78,10 @@ public class MapCreator : MonoBehaviour
 
         PathCreator();
         WallCreator();
+            
+        m_PlayerSpawnTransform.transform.position = new Vector3(MapInstance.Instance.m_TileList[0].x, 1, MapInstance.Instance.m_TileList[0].z);
 
-        m_PlayerSpawnTransform.transform.position = new Vector3(m_TileList[0].x, 1, m_TileList[0].z);
+        m_EnemyCreator.init();
     }
 
     public void CreateRoom(int x, int z, bool isCreate)
@@ -114,12 +104,12 @@ public class MapCreator : MonoBehaviour
 
         GameObject newOBJ;
 
-        for (int i = 0; i < m_TileList.Count; i++)
+        for (int i = 0; i < MapInstance.Instance.m_TileList.Count; i++)
         {
             dir = 0;
             count = 0;
 
-            Tile getTile = m_TileList[i];
+            MapInstance.Tile getTile = MapInstance.Instance.m_TileList[i];
 
             while (count < 4)
             {
@@ -349,7 +339,7 @@ public class MapCreator : MonoBehaviour
             {
                 do
                 {
-                    Tile lastTile = m_tileStack.Pop();
+                    MapInstance.Tile lastTile = m_tileStack.Pop();
 
                     CreateX = lastTile.x;
                     CreateZ = lastTile.z;
@@ -363,9 +353,9 @@ public class MapCreator : MonoBehaviour
     public void AddNewTile(int x, int z, bool room)
     {
         m_TileisEmpty[x, z] = false;
-        Tile createdTile = new Tile(x, z, room);
+        MapInstance.Tile createdTile = new MapInstance.Tile(x, z, room);
         m_tileStack.Push(createdTile);
-        m_TileList.Add(createdTile);
+        MapInstance.Instance.m_TileList.Add(createdTile);
     }
 
     public int FindEmpty(int StartX, int StartZ, int CreateX, int CreateZ)
