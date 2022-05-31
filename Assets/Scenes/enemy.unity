@@ -647,6 +647,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1651767159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7175487125016417409, guid: ff9b677a99e231749b810bf160af864c, type: 3}
+  m_PrefabInstance: {fileID: 4351302539004482618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1836736183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -835,6 +840,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1992165015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5327425562086594944, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
+  m_PrefabInstance: {fileID: 8324026272573396049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2111906238
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +967,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5988010918866283969, guid: ff9b677a99e231749b810bf160af864c, type: 3}
+      propertyPath: ragdoll
+      value: 
+      objectReference: {fileID: 1651767159}
     - target: {fileID: 6142675472727157118, guid: ff9b677a99e231749b810bf160af864c, type: 3}
       propertyPath: m_Name
       value: zombie_S
@@ -1071,6 +1085,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8324026271354509782, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
+      propertyPath: ragdoll
+      value: 
+      objectReference: {fileID: 1992165015}
     - target: {fileID: 8362719105163706053, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
       propertyPath: m_RootOrder
       value: 11
