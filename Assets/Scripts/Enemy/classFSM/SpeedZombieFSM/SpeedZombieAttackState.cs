@@ -16,6 +16,11 @@ public class SpeedZombieAttackState : EnemyBaseState
     }
     public override void Update(EnemyBaseFSMMgr mgr)
     {
+        if (!mgr.IsAliveTarget())
+        {
+            mgr.ChangeState(mgr.IdleState);
+            return;
+        }
         mgr.transform.position = mgr.attackPosition;
         currntTime += Time.deltaTime;
         if (currntTime > mgr.Status.AttackSpeed)

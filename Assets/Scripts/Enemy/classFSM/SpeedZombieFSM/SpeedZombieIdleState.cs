@@ -10,6 +10,12 @@ public class SpeedZombieIdleState : EnemyBaseState
         {
             mgr.SetAnimator("MoveToIdle");
         }
+        else if(mgr.PrevState == mgr.AttackState)
+        {
+            mgr.SetAnimator("AttackToIdle");
+        }
+            
+
     }
     public override void Update(EnemyBaseFSMMgr mgr)
     {

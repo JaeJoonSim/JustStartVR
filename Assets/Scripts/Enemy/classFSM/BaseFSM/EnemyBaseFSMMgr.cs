@@ -54,8 +54,6 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     //FieldOfView
     FieldOfView fow;
 
-    //public Rigidbody hitPoint;
-
 
     private void Start()
     {
@@ -76,7 +74,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     {
         Status.Hp -= demage;
         print(Status.Hp);
-        if (Status.Hp <= 0)
+        if (!IsAlive())
         {
             Die();
             hitPoint.AddForce(BulletForword * 10f, ForceMode.VelocityChange);

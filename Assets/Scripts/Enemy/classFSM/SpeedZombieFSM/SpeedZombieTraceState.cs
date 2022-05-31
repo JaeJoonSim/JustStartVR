@@ -23,6 +23,11 @@ public class SpeedZombieTraceState : EnemyBaseState
     }
     public override void Update(EnemyBaseFSMMgr mgr)
     {
+        if (!mgr.IsAliveTarget())
+        {
+            mgr.ChangeState(mgr.IdleState);
+            return;
+        }
         //타겟이 공격범위 안에 들어오면 
         if (mgr.CheckInAttackRange())
         {
