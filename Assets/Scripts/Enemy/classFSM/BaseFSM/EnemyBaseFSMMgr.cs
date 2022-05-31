@@ -77,7 +77,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         if (!IsAlive())
         {
             Die();
-            hitPoint.AddForce(BulletForword * Force, ForceMode.VelocityChange);
+            hitPoint.AddForce(BulletForword * 10f, ForceMode.VelocityChange);
         }
         else
         {
