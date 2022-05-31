@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JustStartVR;
 
 public class EnemyRegCollision : MonoBehaviour
 {
@@ -37,8 +38,9 @@ public class EnemyRegCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "bullet")
         {
-            FSM.Damaged(damage, (transform.position - other.transform.position).normalized, gid);
-            //Destroy(other.gameObject);
+            FSM.Damaged(other.gameObject.GetComponent<Projectile>().Damage,
+                other.gameObject.GetComponent<Projectile>().AddRigidForce,
+                (transform.position - other.transform.position).normalized, gid);
         }
     }
 }
