@@ -81,6 +81,10 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             Die();
             hitPoint.AddForce(BulletForword * 10f, ForceMode.VelocityChange);
         }
+        else
+        {
+            ChangeState(TraceState);
+        }
     }
 
     public void Die()
