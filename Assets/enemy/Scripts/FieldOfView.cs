@@ -143,7 +143,7 @@ public class FieldOfView : MonoBehaviour
             m_State = EnemyState.Move;
             anim.SetTrigger("IdelToMove");
             print("Idle => move");
-            DoRagDoll(false);
+            //DoRagDoll(false);
 
         }
 
