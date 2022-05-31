@@ -39,9 +39,7 @@ public class EnemyChestCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "bullet")
         {
-            FSM.Damaged(other.gameObject.GetComponent<Projectile>().Damage, 
-                other.gameObject.GetComponent<Projectile>().AddRigidForce, 
-                (transform.position - other.transform.position).normalized, gid);
+            FSM.Damaged(damage, (transform.position - other.transform.position).normalized, gid);
             //Destroy(other.gameObject);
         }
     }
