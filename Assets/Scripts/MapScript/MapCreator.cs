@@ -79,7 +79,7 @@ public class MapCreator : MonoBehaviour
         WallCreator();
 
         m_PlayerSpawnTransform.transform.position = new Vector3(MapInstance.Instance.m_TileList[0].x, 1, MapInstance.Instance.m_TileList[0].z);
-        m_EnemyCreator.init();
+        //m_EnemyCreator.init();
     }
 
     public void CreateRoom(int x, int z, bool isCreate)
@@ -140,7 +140,7 @@ public class MapCreator : MonoBehaviour
                         newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize),
                         Quaternion.Euler(0, 0, 0), m_WallParents.transform);
                         newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
-                        if (getTile.isRoom && count == 4) CreateCabinet(getTile.x, getTile.z, dir);
+                        if (getTile.isRoom) CreateCabinet(getTile.x, getTile.z, dir);
                     }
                 }
                 else
@@ -148,6 +148,7 @@ public class MapCreator : MonoBehaviour
                     newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize),
                      Quaternion.Euler(0, 0, 0), m_WallParents.transform);
                     newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
+                    if (getTile.isRoom) CreateCabinet(getTile.x, getTile.z, dir);
                 }
             }
         }
@@ -156,29 +157,35 @@ public class MapCreator : MonoBehaviour
     public void CreateCabinet(int _x, int _z, int dir)
     {
         int random = 0;
-        random = Random.Range(0, 10);
+        random = Random.Range(0, 15);
         if (random != 0) return;
 
         float x = _x;
         float z = _z;
 
+        float angle = 0;
+
         switch (dir)
         {
             case 0:
-                z += 0.249f;
+                z += 0.349f;
+                angle = 90;
                 break;
             case 1:
-                z -= 0.249f;
+                z -= 0.349f;
+                angle = -90;
                 break;
             case 2:
-                x -= 0.249f;
+                x -= 0.349f;
+                angle = 0;
                 break;
             case 3:
-                x += 0.249f;
+                x += 0.349f;
+                angle = 0;
                 break;
         }
 
-        Instantiate(m_CabinetOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize), Quaternion.Euler(0, 0, 0), m_CabinetParents.transform);
+        Instantiate(m_CabinetOBJ, new Vector3(x * m_TileSize, 2.0f, z * m_TileSize), Quaternion.Euler(0, angle, 0), m_CabinetParents.transform);
     }
 
     public void PathCreator()
@@ -247,7 +254,7 @@ public class MapCreator : MonoBehaviour
 
         Max = dist * m_RoomSize;
 
-        int door = 0;
+        int random = Random.Range(0, 3);
 
         for (int z = StartZ; z < StartZ + Max + m_MapInterval; z++)
         {
@@ -259,19 +266,11 @@ public class MapCreator : MonoBehaviour
                 Instantiate(m_CeilingOBJ[0], new Vector3(StartX * m_TileSize, m_wallHeight + 1, z * m_TileSize),
                     Quaternion.Euler(0, 0, 0), m_PathParents.transform);
             }
-            else if (z > (StartZ + m_RoomSize / 2))
-            {
-                int random = Random.Range(0, 3);
-                if (random != 0 && door == 0)
-                {
-                    //Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 1, z * m_TileSize),
-                    //    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                    Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 0, (StartZ + m_RoomSize / 2) * m_TileSize),
-                        Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                    door++;
-                }
-            }
         }
+
+        if(random <= 1)
+        Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 2.0f, (StartZ + Max - m_MapInterval - 4) * m_TileSize),
+            Quaternion.Euler(0, 0, 0), m_PathParents.transform);
     }
 
     public void CreatePathAxisX(int StartX, int StartZ, int EndX, int EndZ)
@@ -284,9 +283,9 @@ public class MapCreator : MonoBehaviour
 
         int Max = 0;
 
-        int door = 0;
-
         Max = dist * m_RoomSize;
+
+        int random = Random.Range(0, 3);
 
         for (int x = StartX; x < StartX + Max + m_MapInterval; x++)
         {
@@ -294,22 +293,15 @@ public class MapCreator : MonoBehaviour
             {
                 AddNewTile(x, StartZ, false);
                 Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, 0, StartZ * m_TileSize),
-                  Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
                 Instantiate(m_CeilingOBJ[0], new Vector3(x * m_TileSize, m_wallHeight + 1, StartZ * m_TileSize),
                     Quaternion.Euler(0, 0, 0), m_PathParents.transform);
             }
-            else if (x > (StartX + m_RoomSize / 2))
-            {
-                int random = Random.Range(0, 3);
-                if (random != 0 && door == 0)
-                {
-                    //Instantiate(m_DoorOBJ, new Vector3(x * m_TileSize, 1, StartZ * m_TileSize),
-                    //    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                    Instantiate(m_DoorOBJ, new Vector3((StartX + m_RoomSize / 2) * m_TileSize, 0, StartZ * m_TileSize),
-                        Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                }
-            }
         }
+
+        if(random <= 1)
+        Instantiate(m_DoorOBJ, new Vector3((StartX + Max - m_MapInterval - 2) * m_TileSize, 2.0f, StartZ * m_TileSize),
+            Quaternion.Euler(0, 90, 0), m_PathParents.transform);        
     }
 
     public void RoomCreator(int _X, int _Z)
