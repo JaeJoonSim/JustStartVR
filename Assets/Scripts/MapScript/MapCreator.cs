@@ -19,7 +19,9 @@ public class MapCreator : MonoBehaviour
     [SerializeField] private GameObject m_WallOBJ;
     [SerializeField] private GameObject m_DoorOBJ;
     [SerializeField] private GameObject m_CabinetOBJ;
+
     [SerializeField] private EnemyCreator m_EnemyCreator;
+    [SerializeField] private LampCreator m_LampCreator;
 
     [SerializeField] private Transform m_PlayerSpawnTransform;
 
@@ -79,7 +81,8 @@ public class MapCreator : MonoBehaviour
         WallCreator();
 
         m_PlayerSpawnTransform.transform.position = new Vector3(MapInstance.Instance.m_TileList[0].x, 1, MapInstance.Instance.m_TileList[0].z);
-        //m_EnemyCreator.init();
+        m_EnemyCreator.init();
+        m_LampCreator.init();
     }
 
     public void CreateRoom(int x, int z, bool isCreate)

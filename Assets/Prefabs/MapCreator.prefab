@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &833492549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833492550}
+  - component: {fileID: 833492551}
+  m_Layer: 0
+  m_Name: CreateLamp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &833492550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833492549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3411164848459321658}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &833492551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833492549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6858245e8e97949a91057f42128ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LampObj: {fileID: 7567036204803226901, guid: d5bc53d1f18afc746941cc3fd6ec9111, type: 3}
 --- !u!1 &3411164848459321604
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,6 +81,7 @@ Transform:
   - {fileID: 4479373963288682623}
   - {fileID: 4479373965001827633}
   - {fileID: 4479373964575587255}
+  - {fileID: 833492550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,6 +123,7 @@ MonoBehaviour:
   m_DoorOBJ: {fileID: 3535120632348003285, guid: 25b73a14ad3679c4385cbb8b422d6564, type: 3}
   m_CabinetOBJ: {fileID: 6449600613551209619, guid: 675c5c5ca00f87348a66ea8c1f36ea2c, type: 3}
   m_EnemyCreator: {fileID: 4479373965001827630}
+  m_LampCreator: {fileID: 833492551}
   m_PlayerSpawnTransform: {fileID: 4479373963288682623}
   m_wallHeight: 4
   m_TileSize: 2
