@@ -10,6 +10,10 @@ public class SceneLoader : MonoBehaviour
 
     [SerializeField]
     Image progressBar;
+    [SerializeField]
+    GameObject Done;
+
+    public bool progressAll = false;
 
     private void Start()
     {
@@ -34,7 +38,30 @@ public class SceneLoader : MonoBehaviour
         {
             yield return null;
 
-            timer += Time.deltaTime; if (op.progress < 0.9f) { progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer); if (progressBar.fillAmount >= op.progress) { timer = 0f; } } else { progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer); if (progressBar.fillAmount == 1.0f) { op.allowSceneActivation = true; yield break; } }
+            timer += Time.deltaTime;
+            if (op.progress < 0.9f)
+            {
+                progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
+                if (progressBar.fillAmount >= op.progress)
+                {
+                    timer = 0f;
+                }
+            }
+            else
+            {
+                progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer);
+                if (progressBar.fillAmount == 1.0f)
+                {
+                    Done.SetActive(true);
+                    if (progressAll)
+                    {
+                        op.allowSceneActivation = true;
+                        yield break;
+                    }
+                }
+            }
         }
     }
 }
+
+

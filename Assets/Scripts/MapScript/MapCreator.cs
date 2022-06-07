@@ -7,8 +7,7 @@ public class MapCreator : MonoBehaviour
     private GameObject[,] m_GroupOBJ;
     private GameObject m_newOBJ;
 
-    private List<Tile> m_TileList = new List<Tile>();
-    private Stack<Tile> m_tileStack = new Stack<Tile>();
+    private Stack<MapInstance.Tile> m_tileStack = new Stack<MapInstance.Tile>();
 
     [SerializeField] private GameObject m_AllTilesParents;
     [SerializeField] private GameObject m_WallParents;
@@ -21,6 +20,9 @@ public class MapCreator : MonoBehaviour
     [SerializeField] private GameObject m_DoorOBJ;
     [SerializeField] private GameObject m_CabinetOBJ;
 
+    [SerializeField] private EnemyCreator m_EnemyCreator;
+    [SerializeField] private LampCreator m_LampCreator;
+
     [SerializeField] private Transform m_PlayerSpawnTransform;
 
     [SerializeField] private int m_wallHeight;
@@ -32,19 +34,6 @@ public class MapCreator : MonoBehaviour
     [SerializeField] private int m_MapInterval;
 
     public bool[,] m_TileisEmpty;
-
-    public class Tile
-    {
-        public int x;
-        public int z;
-        public bool isRoom;
-        public Tile(int _x, int _z, bool room)
-        {
-            x = _x;
-            z = _z;
-            isRoom = room;
-        }
-    }
 
     private void Start()
     {
@@ -91,7 +80,9 @@ public class MapCreator : MonoBehaviour
         PathCreator();
         WallCreator();
 
-        m_PlayerSpawnTransform.transform.position = new Vector3(m_TileList[0].x, 1, m_TileList[0].z);
+        m_PlayerSpawnTransform.transform.position = new Vector3(MapInstance.Instance.m_TileList[0].x, 1, MapInstance.Instance.m_TileList[0].z);
+        m_EnemyCreator.init();
+        m_LampCreator.init();
     }
 
     public void CreateRoom(int x, int z, bool isCreate)
@@ -114,12 +105,12 @@ public class MapCreator : MonoBehaviour
 
         GameObject newOBJ;
 
-        for (int i = 0; i < m_TileList.Count; i++)
+        for (int i = 0; i < MapInstance.Instance.m_TileList.Count; i++)
         {
             dir = 0;
             count = 0;
 
-            Tile getTile = m_TileList[i];
+            MapInstance.Tile getTile = MapInstance.Instance.m_TileList[i];
 
             while (count < 4)
             {
@@ -152,7 +143,7 @@ public class MapCreator : MonoBehaviour
                         newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize),
                         Quaternion.Euler(0, 0, 0), m_WallParents.transform);
                         newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
-                        if (getTile.isRoom && count == 4) CreateCabinet(getTile.x, getTile.z, dir);
+                        if (getTile.isRoom) CreateCabinet(getTile.x, getTile.z, dir);
                     }
                 }
                 else
@@ -160,6 +151,7 @@ public class MapCreator : MonoBehaviour
                     newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize),
                      Quaternion.Euler(0, 0, 0), m_WallParents.transform);
                     newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
+                    if (getTile.isRoom) CreateCabinet(getTile.x, getTile.z, dir);
                 }
             }
         }
@@ -168,29 +160,35 @@ public class MapCreator : MonoBehaviour
     public void CreateCabinet(int _x, int _z, int dir)
     {
         int random = 0;
-        random = Random.Range(0, 10);
+        random = Random.Range(0, 15);
         if (random != 0) return;
 
         float x = _x;
         float z = _z;
 
+        float angle = 0;
+
         switch (dir)
         {
             case 0:
-                z += 0.249f;
+                z += 0.349f;
+                angle = 90;
                 break;
             case 1:
-                z -= 0.249f;
+                z -= 0.349f;
+                angle = -90;
                 break;
             case 2:
-                x -= 0.249f;
+                x -= 0.349f;
+                angle = 0;
                 break;
             case 3:
-                x += 0.249f;
+                x += 0.349f;
+                angle = 0;
                 break;
         }
 
-        Instantiate(m_CabinetOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize), Quaternion.Euler(0, 0, 0), m_CabinetParents.transform);
+        Instantiate(m_CabinetOBJ, new Vector3(x * m_TileSize, 2.0f, z * m_TileSize), Quaternion.Euler(0, angle, 0), m_CabinetParents.transform);
     }
 
     public void PathCreator()
@@ -259,7 +257,7 @@ public class MapCreator : MonoBehaviour
 
         Max = dist * m_RoomSize;
 
-        int door = 0;
+        int random = Random.Range(0, 3);
 
         for (int z = StartZ; z < StartZ + Max + m_MapInterval; z++)
         {
@@ -271,19 +269,11 @@ public class MapCreator : MonoBehaviour
                 Instantiate(m_CeilingOBJ[0], new Vector3(StartX * m_TileSize, m_wallHeight + 1, z * m_TileSize),
                     Quaternion.Euler(0, 0, 0), m_PathParents.transform);
             }
-            else if (z > (StartZ + m_RoomSize / 2))
-            {
-                int random = Random.Range(0, 3);
-                if (random != 0 && door == 0)
-                {
-                    //Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 1, z * m_TileSize),
-                    //    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                    Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 0, (StartZ + m_RoomSize / 2) * m_TileSize),
-                        Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                    door++;
-                }
-            }
         }
+
+        if(random <= 1)
+        Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 2.0f, (StartZ + Max - m_MapInterval - 4) * m_TileSize),
+            Quaternion.Euler(0, 0, 0), m_PathParents.transform);
     }
 
     public void CreatePathAxisX(int StartX, int StartZ, int EndX, int EndZ)
@@ -296,9 +286,9 @@ public class MapCreator : MonoBehaviour
 
         int Max = 0;
 
-        int door = 0;
-
         Max = dist * m_RoomSize;
+
+        int random = Random.Range(0, 3);
 
         for (int x = StartX; x < StartX + Max + m_MapInterval; x++)
         {
@@ -306,22 +296,15 @@ public class MapCreator : MonoBehaviour
             {
                 AddNewTile(x, StartZ, false);
                 Instantiate(m_TileOBJ[0], new Vector3(x * m_TileSize, 0, StartZ * m_TileSize),
-                  Quaternion.Euler(0, 0, 0), m_PathParents.transform);
+                    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
                 Instantiate(m_CeilingOBJ[0], new Vector3(x * m_TileSize, m_wallHeight + 1, StartZ * m_TileSize),
                     Quaternion.Euler(0, 0, 0), m_PathParents.transform);
             }
-            else if (x > (StartX + m_RoomSize / 2))
-            {
-                int random = Random.Range(0, 3);
-                if (random != 0 && door == 0)
-                {
-                    //Instantiate(m_DoorOBJ, new Vector3(x * m_TileSize, 1, StartZ * m_TileSize),
-                    //    Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                    Instantiate(m_DoorOBJ, new Vector3((StartX + m_RoomSize / 2) * m_TileSize, 0, StartZ * m_TileSize),
-                        Quaternion.Euler(0, 0, 0), m_PathParents.transform);
-                }
-            }
         }
+
+        if(random <= 1)
+        Instantiate(m_DoorOBJ, new Vector3((StartX + Max - m_MapInterval - 2) * m_TileSize, 2.0f, StartZ * m_TileSize),
+            Quaternion.Euler(0, 90, 0), m_PathParents.transform);        
     }
 
     public void RoomCreator(int _X, int _Z)
@@ -349,7 +332,7 @@ public class MapCreator : MonoBehaviour
             {
                 do
                 {
-                    Tile lastTile = m_tileStack.Pop();
+                    MapInstance.Tile lastTile = m_tileStack.Pop();
 
                     CreateX = lastTile.x;
                     CreateZ = lastTile.z;
@@ -363,9 +346,9 @@ public class MapCreator : MonoBehaviour
     public void AddNewTile(int x, int z, bool room)
     {
         m_TileisEmpty[x, z] = false;
-        Tile createdTile = new Tile(x, z, room);
+        MapInstance.Tile createdTile = new MapInstance.Tile(x, z, room);
         m_tileStack.Push(createdTile);
-        m_TileList.Add(createdTile);
+        MapInstance.Instance.m_TileList.Add(createdTile);
     }
 
     public int FindEmpty(int StartX, int StartZ, int CreateX, int CreateZ)

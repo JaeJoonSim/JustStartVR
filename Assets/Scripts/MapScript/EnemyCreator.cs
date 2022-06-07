@@ -14,13 +14,14 @@ public class EnemyCreator : MonoBehaviour
         TileList = MapInstance.Instance.m_TileList;
 
         int random = 0;
+        int type = 0;
 
         for (int i = 0; i < count; i++)
         {
-            random = Random.Range(0, 10);
-
+            random = Random.Range(0, 6);
+            type = Random.Range(0, 2);
             if(random == 0)
-            CreateEnemy(TileList[i].x * 2, TileList[i].z * 2, 0);
+            CreateEnemy(TileList[i].x * 2, TileList[i].z * 2, type);
         }
     }
 
