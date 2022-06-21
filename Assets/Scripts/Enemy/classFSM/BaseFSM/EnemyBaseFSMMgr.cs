@@ -26,48 +26,64 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     public EnemyBaseState AttackState;
 
-
+    public EnemyBaseState Attack2State;
 
     //스테이터스
-    private EnemyStatus status;
+    protected EnemyStatus status;
     public EnemyStatus Status
     {
         get { return status; }
     }
 
+    protected BossStatus bStatus;
+    public BossStatus BStatus
+    {
+        get { return bStatus; }
+    }
 
 
     //플레이어 위치
     [HideInInspector]
+    public GameObject targetOBJ;
+    [HideInInspector]
     public Transform target;
 
     //네비게이션 용 
-    private NavMeshAgent agent;
+    protected NavMeshAgent agent;
 
     //애니메이션
-    private Animator anim;
+    protected Animator anim;
 
     //공격시 포지션 바뀜 방지용 
     [HideInInspector]
     public Vector3 attackPosition;
 
     //FieldOfView
-    FieldOfView fow;
+    protected FieldOfView fow;
 
     public GameObject ragdoll;
 
+    //공격용
+    public bool attackCollision;
+    public bool bulletCollision;
 
-    private void Start()
+
+
+    protected void Start()
     {
         ChangeState(IdleState);
         status = GetComponent<EnemyStatus>();
+        bStatus = GetComponent<BossStatus>();
         fow = GetComponent<FieldOfView>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        targetOBJ = GameObject.FindGameObjectWithTag("Player");
+        target = targetOBJ.transform;
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Status.Speed;
         anim = GetComponentInChildren<Animator>();
+        attackCollision = false;
+        bulletCollision = false;
     }
-    private void Update()
+    protected void Update()
     {
         if (CalcTargetDistance() > 25)
         {
@@ -76,11 +92,15 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         else
         {
             ragdoll.SetActive(true);
-        } 
-
+        }
 
         if (currentState != null)
             currentState.Update(this);
+
+        if (Status.EnemyType == 3)
+        {
+            BStatus.Attack2Count += Time.deltaTime;
+        }
     }
 
     public void Damaged(float demage, Vector3 BulletForword, Rigidbody hitPoint)
@@ -120,8 +140,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     public float CalcTargetDistance()
     {
-        return (target.position -
-        transform.position).magnitude;
+        return (target.position - transform.position).magnitude;
     }
     public bool IsTarget()
     {
@@ -129,8 +148,12 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     public bool CheckInAttackRange()
     {
-        return ((CalcTargetDistance() < status.AttackRange) ?
-        true : false);
+
+       return ((CalcTargetDistance() < status.AttackRange) ? true : false);
+    }
+    public bool CheckInAttack2Range()
+    {
+       return ((CalcTargetDistance() < bStatus.Attack2Range && BStatus.Attack2Count >= BStatus.Attack2Range) ? true : false);
     }
     public bool IsAlive()
     {

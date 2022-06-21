@@ -37,6 +37,7 @@ public class EnemyChestCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+
         if (other.gameObject.tag == "bullet")
         {
             FSM.Damaged(damage, (transform.position - other.transform.position).normalized, gid);
