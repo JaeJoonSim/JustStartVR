@@ -64,9 +64,12 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     public GameObject ragdoll;
 
     //°ø°Ý¿ë
+    [HideInInspector]
     public bool attackCollision;
+    [HideInInspector]
     public bool bulletCollision;
 
+    public GameObject attackCollider;
 
 
     protected void Start()
@@ -97,7 +100,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         if (currentState != null)
             currentState.Update(this);
 
-        if (Status.EnemyType == 3)
+        if (Status.EnemyType == 4)
         {
             BStatus.Attack2Count += Time.deltaTime;
         }
@@ -106,7 +109,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     public void Damaged(float demage, Vector3 BulletForword, Rigidbody hitPoint)
     {
         Status.Hp -= demage;
-        print(Status.Hp);
+        //print(Status.Hp);
         if (!IsAlive())
         {
             Die();
@@ -114,7 +117,11 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         }
         else
         {
-            ChangeState(TraceState);
+            if (CurrentState == IdleState)
+            {
+                ChangeState(TraceState);
+            }
+            
         }
     }
 
@@ -133,10 +140,15 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     public void ChangeState(EnemyBaseState state)
     {
-        currentState.End(this);
-        prevState = currentState;
-        currentState = state;
-        currentState.Begin(this);
+        if (currentState != state)
+        {
+            currentState.End(this);
+            prevState = currentState;
+            currentState = state;
+            currentState.Begin(this);
+
+        }
+       
     }
     public float CalcTargetDistance()
     {
