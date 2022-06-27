@@ -17,11 +17,15 @@ public class MapCreator : MonoBehaviour
     [SerializeField] private GameObject[] m_TileOBJ;
     [SerializeField] private GameObject[] m_CeilingOBJ;
     [SerializeField] private GameObject m_WallOBJ;
-    [SerializeField] private GameObject m_DoorOBJ;
+    [SerializeField] private GameObject[] m_DoorOBJ;
     [SerializeField] private GameObject m_CabinetOBJ;
+    [SerializeField] private GameObject m_ExitOBJ;
+
+    [SerializeField] private GameObject m_HintOBJ;
+
 
     [SerializeField] private EnemyCreator m_EnemyCreator;
-    [SerializeField] private LampCreator m_LampCreator;
+    [SerializeField] private GameObject m_LampObj;
 
     [SerializeField] private Transform m_PlayerSpawnTransform;
 
@@ -33,7 +37,15 @@ public class MapCreator : MonoBehaviour
     [SerializeField] private int m_TileCount;
     [SerializeField] private int m_MapInterval;
 
+
+    private int MaxTileIndexAxisX;
+    private int MaxTileIndexAxisZ;
+
+    private int m_hintCount = 4;
+
     public bool[,] m_TileisEmpty;
+
+    private bool m_ExitPoint;
 
     private void Start()
     {
@@ -42,8 +54,9 @@ public class MapCreator : MonoBehaviour
 
     public void CreateMap()
     {
-        int MaxTileIndexAxisX = (m_RoomCountX + m_MapInterval) * m_RoomSize;
-        int MaxTileIndexAxisZ = (m_RoomCountZ + m_MapInterval) * m_RoomSize;
+        m_ExitPoint = false;
+        MaxTileIndexAxisX = (m_RoomCountX + m_MapInterval) * m_RoomSize;
+        MaxTileIndexAxisZ = (m_RoomCountZ + m_MapInterval) * m_RoomSize;
         m_TileisEmpty = new bool[MaxTileIndexAxisX, MaxTileIndexAxisZ];
 
         m_GroupOBJ = new GameObject[m_RoomCountX, m_RoomCountZ];
@@ -82,7 +95,8 @@ public class MapCreator : MonoBehaviour
 
         m_PlayerSpawnTransform.transform.position = new Vector3(MapInstance.Instance.m_TileList[0].x, 1, MapInstance.Instance.m_TileList[0].z);
         m_EnemyCreator.init();
-        m_LampCreator.init();
+
+        CreateLight();
     }
 
     public void CreateRoom(int x, int z, bool isCreate)
@@ -105,7 +119,8 @@ public class MapCreator : MonoBehaviour
 
         GameObject newOBJ;
 
-        for (int i = 0; i < MapInstance.Instance.m_TileList.Count; i++)
+        int wallCount = MapInstance.Instance.m_TileList.Count;
+        for (int i = 0; i < wallCount; i++)
         {
             dir = 0;
             count = 0;
@@ -135,15 +150,25 @@ public class MapCreator : MonoBehaviour
                 }
 
                 int MaxTileIndexAxisX = (m_RoomCountX + m_MapInterval) * m_RoomSize;
-                int MaxTileIndexAxisZ = (m_RoomCountZ + m_MapInterval) * m_RoomSize;
+                int MaxTileIndexAxisZ = (m_RoomCountZ + m_MapInterval) * m_RoomSize;               
+
                 if (x > -1 && x < MaxTileIndexAxisX && z > -1 && z < MaxTileIndexAxisZ)
                 {
                     if (m_TileisEmpty[x, z])
                     {
+                        if (m_ExitPoint == false && i > 1000)
+                        {
+                            Instantiate(m_ExitOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize),
+                                Quaternion.identity, m_WallParents.transform);
+                            m_ExitPoint = true;
+                            continue;
+                        }
+
                         newOBJ = Instantiate(m_WallOBJ, new Vector3(x * m_TileSize, 2.5f, z * m_TileSize),
                         Quaternion.Euler(0, 0, 0), m_WallParents.transform);
                         newOBJ.transform.localScale = new Vector3(m_TileSize, m_wallHeight, m_TileSize);
                         if (getTile.isRoom) CreateCabinet(getTile.x, getTile.z, dir);
+
                     }
                 }
                 else
@@ -272,7 +297,7 @@ public class MapCreator : MonoBehaviour
         }
 
         if(random <= 1)
-        Instantiate(m_DoorOBJ, new Vector3(StartX * m_TileSize, 2.0f, (StartZ + Max - m_MapInterval - 4) * m_TileSize),
+        Instantiate(m_DoorOBJ[0], new Vector3(StartX * m_TileSize, 0.5f, (StartZ + Max - m_MapInterval - 2) * m_TileSize),
             Quaternion.Euler(0, 0, 0), m_PathParents.transform);
     }
 
@@ -303,7 +328,7 @@ public class MapCreator : MonoBehaviour
         }
 
         if(random <= 1)
-        Instantiate(m_DoorOBJ, new Vector3((StartX + Max - m_MapInterval - 2) * m_TileSize, 2.0f, StartZ * m_TileSize),
+        Instantiate(m_DoorOBJ[0], new Vector3((StartX + Max - m_MapInterval - 2) * m_TileSize, 0.5f, StartZ * m_TileSize),
             Quaternion.Euler(0, 90, 0), m_PathParents.transform);        
     }
 
@@ -325,8 +350,6 @@ public class MapCreator : MonoBehaviour
                 CreateZ = m_tileStack.Peek().z;
 
                 count++;
-
-                continue;
             }
             else
             {
@@ -399,11 +422,43 @@ public class MapCreator : MonoBehaviour
                 Instantiate(m_CeilingOBJ[0], new Vector3(x * m_TileSize, m_wallHeight + 1, z * m_TileSize),
                                     Quaternion.Euler(0, 0, 0), m_newOBJ.transform);
 
+
                 AddNewTile(x, z, true);
 
                 return count;
             }
         }
         return count;
+    }
+
+    private void CreateLight()
+    {
+        int random = 0;
+
+        int max = (MaxTileIndexAxisX + MaxTileIndexAxisZ) * 3;
+
+        for (int x = 0; x < MaxTileIndexAxisX; x++)
+        {
+            for(int z = 0; z < MaxTileIndexAxisZ; z++)
+            {
+                if(x % 3 == 0 && z % 3 == 0)
+                {
+                    if (m_TileisEmpty[x, z] == false)
+                    {
+                        Instantiate(m_LampObj, new Vector3(x * m_TileSize, 4.5f, z * m_TileSize), Quaternion.identity);
+                    }
+                }
+
+                if (m_TileisEmpty[x, z] == false && m_hintCount > 0)
+                {
+                    random = Random.Range(0, max - (x - z * 2));
+                    if(random == 0)
+                    {
+                        Instantiate(m_HintOBJ, new Vector3(x * m_TileSize, 4.5f, z * m_TileSize), Quaternion.identity);
+                        m_hintCount--;
+                    }
+                }
+            }
+        }
     }
 }
