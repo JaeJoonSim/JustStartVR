@@ -31,7 +31,7 @@ public class BossZombieAttack2State : EnemyBaseState
             return;
         }
         count += Time.deltaTime;
-        Debug.Log(mgr.attackCollision);
+        //Debug.Log(mgr.attackCollision);
         tongue.transform.localScale = new Vector3(tScale, 1, 1);
         if (tongueBack)
         {
