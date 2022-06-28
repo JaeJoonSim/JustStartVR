@@ -10,5 +10,6 @@ public class GetHeadTransform : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(0, 90, 0) * head.rotation; 
     }
+   
 
 }
