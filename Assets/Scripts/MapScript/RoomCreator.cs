@@ -6,8 +6,12 @@ public class RoomCreator : MonoBehaviour
 {
     public GameObject[,] m_GroupOBJ;
 
+    [SerializeField] private Transform playerTransform;
+
     [SerializeField]private GameObject m_Parents;
     [SerializeField]public GameObject m_TileOBJ;
+    [SerializeField]public GameObject m_CellingOBJ;
+    [SerializeField] private ObjectCreator objCreator;
 
     public int m_RoomSize;
     public int m_TileCount;
@@ -110,7 +114,7 @@ public class RoomCreator : MonoBehaviour
         int x = (int)parent.transform.localPosition.x / m_TileSize;
         int z = (int)parent.transform.localPosition.z / m_TileSize;
 
-
+        playerTransform.position = new Vector3(m_RoomSize / 2 * m_TileSize, 1.0f, m_TileSize);
         for (int i = 0; i < 6; i++)
         {
             AddNewTile(m_RoomSize / 2 * m_TileSize, i * m_TileSize, parent);
@@ -199,6 +203,11 @@ public class RoomCreator : MonoBehaviour
             int value = Random.Range(0, count);            
 
             AddNewTile((int)position[value].x * m_TileSize, (int)position[value].y * m_TileSize, parent);
+
+
+            objCreator.CreaetObj(position[value].x * m_TileSize, 0.5f, position[value].y * m_TileSize, -1, parent, 1);
+
+
             m_TileisEmpty[(int)position[value].x, (int)position[value].y] = false;
 
             Tile newTile = new Tile((int)position[value].x, (int)position[value].y);
@@ -208,7 +217,6 @@ public class RoomCreator : MonoBehaviour
             int _x = (int)parent.transform.localPosition.x / m_TileSize + (int)position[value].x;
             int _z = (int)parent.transform.localPosition.z / m_TileSize + (int)position[value].y;
             m_WorldTileisEmpty[_x, _z] = false;
-
             return true;
         }
         return false;
@@ -218,8 +226,7 @@ public class RoomCreator : MonoBehaviour
     {
         GameObject newOBJ = Instantiate(m_TileOBJ, parent.transform);
         newOBJ.transform.localPosition = new Vector3(x, 0, z);
-        newOBJ = Instantiate(m_TileOBJ, parent.transform);
-        newOBJ.transform.localPosition = new Vector3(x, 3, z);
-
+        newOBJ = Instantiate(m_CellingOBJ, parent.transform);
+        newOBJ.transform.localPosition = new Vector3(x, 4, z);
     }
 }

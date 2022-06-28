@@ -5,7 +5,6 @@ using UnityEngine;
 public class WallCreator : MonoBehaviour
 {
     [SerializeField]private RoomCreator roomCreator;
-    [SerializeField]private ObjectCreator objCreator;
     [SerializeField] private GameObject m_WallOBJ;
 
     private void Start()
@@ -48,16 +47,14 @@ public class WallCreator : MonoBehaviour
                         {
                             if (roomCreator.m_WorldTileisEmpty[x, z])
                             {
-                                Instantiate(m_WallOBJ, new Vector3(x * roomCreator.m_TileSize, 0, z * roomCreator.m_TileSize)
+                                Instantiate(m_WallOBJ, new Vector3(x * roomCreator.m_TileSize, 0.5f, z * roomCreator.m_TileSize)
                                     , Quaternion.identity);
-                                objCreator.CreaetObj(x * roomCreator.m_TileSize, 0.5f, z * roomCreator.m_TileSize, dir);
                             }
                         }
                         else
                         {
-                            Instantiate(m_WallOBJ, new Vector3(x * roomCreator.m_TileSize, 0, z * roomCreator.m_TileSize)
+                            Instantiate(m_WallOBJ, new Vector3(x * roomCreator.m_TileSize, 0.5f, z * roomCreator.m_TileSize)
                                 , Quaternion.identity);
-                                objCreator.CreaetObj(x * roomCreator.m_TileSize, 0.5f, z * roomCreator.m_TileSize, dir);
                         }
                     }
                 }  

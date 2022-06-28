@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2948b7db0be41574680fa756c0875046, type: 2}
+  - {fileID: 2100000, guid: e6bdc12500d5e5a42b72a49ea0cd59da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -257,7 +257,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2948b7db0be41574680fa756c0875046, type: 2}
+  - {fileID: 2100000, guid: e6bdc12500d5e5a42b72a49ea0cd59da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -732,7 +732,7 @@ Transform:
   m_GameObject: {fileID: 2871499901593167902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7719423358683410587}
@@ -832,7 +832,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2948b7db0be41574680fa756c0875046, type: 2}
+  - {fileID: 2100000, guid: e6bdc12500d5e5a42b72a49ea0cd59da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -971,7 +971,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2948b7db0be41574680fa756c0875046, type: 2}
+  - {fileID: 2100000, guid: e6bdc12500d5e5a42b72a49ea0cd59da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1100,6 +1100,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 30a5283b7184fc14f8a63ac8331f1e6f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e6bdc12500d5e5a42b72a49ea0cd59da, type: 2}
     - target: {fileID: 919132149155446097, guid: 30a5283b7184fc14f8a63ac8331f1e6f, type: 3}
       propertyPath: m_Name
       value: n_frame (1)
