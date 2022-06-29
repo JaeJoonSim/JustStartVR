@@ -11,7 +11,6 @@ public class RoomCreator : MonoBehaviour
     [SerializeField]private GameObject m_Parents;
     [SerializeField]public GameObject m_TileOBJ;
     [SerializeField]public GameObject m_CellingOBJ;
-    [SerializeField] private ObjectCreator objCreator;
 
     public int m_RoomSize;
     public int m_TileCount;
@@ -102,6 +101,9 @@ public class RoomCreator : MonoBehaviour
 
         if (!isCreate) return;
         TileCreator(m_GroupOBJ[x, z]);
+        m_GroupOBJ[x, z].AddComponent<ObjectCreator>();
+        ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();
+        room.initTile(m_RoomSize, m_TileisEmpty);
     }
 
     private void TileCreator(GameObject parent)
@@ -115,22 +117,8 @@ public class RoomCreator : MonoBehaviour
         int z = (int)parent.transform.localPosition.z / m_TileSize;
 
         playerTransform.position = new Vector3(m_RoomSize / 2 * m_TileSize, 1.0f, m_TileSize);
-        for (int i = 0; i < 6; i++)
-        {
-            AddNewTile(m_RoomSize / 2 * m_TileSize, i * m_TileSize, parent);
-            m_WorldTileisEmpty[x + m_RoomSize / 2, z + i] = false;
 
-            AddNewTile(i * m_TileSize, m_RoomSize / 2 * m_TileSize, parent);
-            m_WorldTileisEmpty[x + i, z + m_RoomSize / 2] = false;
-        }
 
-        for (int i = 1; i < 6; i++)
-        {
-            AddNewTile(m_RoomSize / 2 * m_TileSize, (m_RoomSize - i) * m_TileSize, parent);
-            m_WorldTileisEmpty[x + m_RoomSize / 2, z + m_RoomSize - i] = false;
-            AddNewTile((m_RoomSize - i) * m_TileSize, m_RoomSize / 2 * m_TileSize, parent);
-            m_WorldTileisEmpty[x + m_RoomSize - i, z + m_RoomSize / 2] = false;
-        }
 
         while (count < m_TileCount)
         {
@@ -138,7 +126,7 @@ public class RoomCreator : MonoBehaviour
             {
                 CreateX = m_tileStack.Peek().x;
                 CreateZ = m_tileStack.Peek().z;
-        
+
                 count++;
             }
             else
@@ -146,12 +134,48 @@ public class RoomCreator : MonoBehaviour
                 do
                 {
                     Tile lastTile = m_tileStack.Pop();
-        
+
                     CreateX = lastTile.x;
                     CreateZ = lastTile.z;
-        
+
                 } while (!FindEmpty(CreateX, CreateZ, parent));
                 count++;
+            }
+        }
+
+        int halfSize = m_RoomSize / 2 * m_TileSize;
+
+        for (int i = 0; i < 7; i++)
+        {
+            if (m_TileisEmpty[m_RoomSize / 2, i])
+            {
+                AddNewTile(halfSize, i * m_TileSize, parent);
+                m_WorldTileisEmpty[x + m_RoomSize / 2, z + i] = false;
+                m_TileisEmpty[m_RoomSize / 2, i] = false;
+            }
+
+            if (m_TileisEmpty[i, m_RoomSize / 2])
+            {
+                AddNewTile(i * m_TileSize, halfSize, parent);
+                m_WorldTileisEmpty[x + i, z + m_RoomSize / 2] = false;
+                m_TileisEmpty[i, m_RoomSize / 2] = false;
+            }
+        }
+
+        for (int i = 1; i < 7; i++)
+        {
+            if (m_TileisEmpty[m_RoomSize / 2, m_RoomSize - i])
+            {
+                AddNewTile(halfSize, (m_RoomSize - i) * m_TileSize, parent);
+                m_WorldTileisEmpty[x + m_RoomSize / 2, z + m_RoomSize - i] = false;
+                m_TileisEmpty[m_RoomSize / 2, m_RoomSize - i] = false;
+            }
+
+            if (m_TileisEmpty[m_RoomSize - i, m_RoomSize / 2])
+            {
+                AddNewTile((m_RoomSize - i) * m_TileSize, halfSize, parent);
+                m_WorldTileisEmpty[x + m_RoomSize - i, z + m_RoomSize / 2] = false;
+                m_TileisEmpty[m_RoomSize - i, m_RoomSize / 2] = false;
             }
         }
     }
@@ -203,10 +227,6 @@ public class RoomCreator : MonoBehaviour
             int value = Random.Range(0, count);            
 
             AddNewTile((int)position[value].x * m_TileSize, (int)position[value].y * m_TileSize, parent);
-
-
-            objCreator.CreaetObj(position[value].x * m_TileSize, 0.5f, position[value].y * m_TileSize, -1, parent, 1);
-
 
             m_TileisEmpty[(int)position[value].x, (int)position[value].y] = false;
 

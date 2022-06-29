@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &128217308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,6 +737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 6184643849896591379, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6313778890842125903, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -863,9 +867,8 @@ MonoBehaviour:
   m_Parents: {fileID: 68742958}
   m_TileOBJ: {fileID: 7437226025447069454, guid: 7bc83f221ede37e4ba491d795581896c, type: 3}
   m_CellingOBJ: {fileID: 3190468711544671928, guid: bb1d812b822734441a35d80cc2c39a26, type: 3}
-  objCreator: {fileID: 2037949385}
   m_RoomSize: 13
-  m_TileCount: 110
+  m_TileCount: 100
   m_RoomCountX: 4
   m_RoomCountZ: 4
   m_TileSize: 2

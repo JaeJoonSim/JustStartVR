@@ -97,9 +97,10 @@ public class PathCreator : MonoBehaviour
             roomCreator.AddNewTile((int)(x * roomCreator.m_TileSize),
                (int)(_z + i) * roomCreator.m_TileSize, parent);
         }
-
         GameObject newDoor = Instantiate(m_DoorOBJ, parent.transform);
-        newDoor.transform.localPosition = new Vector3(x * roomCreator.m_TileSize, 0.5f, _z + count / 2 * roomCreator.m_TileSize);
+        newDoor.SetActive(false);
+        newDoor.transform.localPosition = new Vector3(x * roomCreator.m_TileSize, 0.5f, _z + count / 3 * roomCreator.m_TileSize);
+        newDoor.SetActive(true);
     }
 
     private void CreatePathAxisX(int _x, int x, int z, GameObject parent)
@@ -136,8 +137,10 @@ public class PathCreator : MonoBehaviour
         }
 
         GameObject newDoor = Instantiate(m_DoorOBJ, parent.transform);
+        newDoor.SetActive(false);
         newDoor.transform.Rotate(new Vector3(0, 90, 0));
         newDoor.transform.localPosition =
-            new Vector3(_x + count / 2  * roomCreator.m_TileSize, 0.5f, z * roomCreator.m_TileSize);
+            new Vector3(_x + count / 3  * roomCreator.m_TileSize, 0.5f, z * roomCreator.m_TileSize);
+        newDoor.SetActive(true);
     }
 }
