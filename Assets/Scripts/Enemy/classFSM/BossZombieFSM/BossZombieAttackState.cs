@@ -29,9 +29,9 @@ public class BossZombieAttackState : EnemyBaseState
             if (mgr.CheckInAttackRange())
             {
                 mgr.SetAnimator("delayToAttack");
-                mgr.attackCollider.SetActive(true);
                 mgr.transform.LookAt(new Vector3(
                 mgr.target.transform.position.x, mgr.transform.position.y, mgr.target.transform.position.z));
+                mgr.attackCollider.SetActive(true);
             }
             else
             {

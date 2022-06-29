@@ -8,13 +8,13 @@ public class EnemyChestCollision : MonoBehaviour
 
     EnemyBaseFSMMgr FSM;
     EnemyStatus Es;
-    Rigidbody gid;
+
     float damage;
     void Start()
     {
         FSM = GetComponentInParent<EnemyBaseFSMMgr>();
         Es = GetComponentInParent<EnemyStatus>();
-        gid = GetComponent<Rigidbody>();
+
         switch (Es.EnemyType)
         {
             case 1:
@@ -24,7 +24,7 @@ public class EnemyChestCollision : MonoBehaviour
                 damage = 70;
                 break;
             case 3:
-                damage = 10;
+                damage = 0;
                 break;
             case 4:
                 damage = 10;
@@ -40,7 +40,7 @@ public class EnemyChestCollision : MonoBehaviour
 
         if (other.gameObject.tag == "bullet")
         {
-            FSM.Damaged(damage, (transform.position - other.transform.position).normalized, gid);
+            FSM.Damaged(damage, (transform.position - other.transform.position).normalized);
             //Destroy(other.gameObject);
         }
     }
