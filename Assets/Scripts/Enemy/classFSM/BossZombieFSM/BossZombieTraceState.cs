@@ -7,6 +7,7 @@ public class BossZombieTraceState : EnemyBaseState
     float currntTime;
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
+        BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
         //네비 잠금 해제
         mgr.NavStop(false);
 
@@ -18,7 +19,7 @@ public class BossZombieTraceState : EnemyBaseState
         {
             mgr.SetAnimator("attackToMove");
         }
-        else if (mgr.PrevState == mgr.Attack2State)
+        else if (mgr.PrevState == Bmgr.Attack2State)
         {
             mgr.SetAnimator("attack2ToMove");
         }
@@ -27,18 +28,19 @@ public class BossZombieTraceState : EnemyBaseState
     }
     public override void Update(EnemyBaseFSMMgr mgr)
     {
+        BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
         if (!mgr.IsAliveTarget())
         {
             mgr.ChangeState(mgr.IdleState);
             return;
         }
-        if (mgr.CheckInAttack2Range())
+        if (Bmgr.CheckInAttack2Range())
         {
             //현재 위치 저장
             mgr.attackPosition = mgr.transform.position;
 
             //move => attack2
-            mgr.ChangeState(mgr.Attack2State);
+            mgr.ChangeState(Bmgr.Attack2State);
 
             return;
         }

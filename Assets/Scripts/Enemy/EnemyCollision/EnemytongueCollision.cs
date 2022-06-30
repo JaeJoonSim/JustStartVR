@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemytongueCollision : MonoBehaviour
 {
-    EnemyBaseFSMMgr FSM;
+    BossZombieFSMMgr FSM;
 
     void Start()
     {
-        FSM = GetComponentInParent<EnemyBaseFSMMgr>();
+        FSM = GetComponentInParent<BossZombieFSMMgr>();
 
     }
     void Update()

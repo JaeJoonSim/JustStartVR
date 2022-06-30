@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 3440
     height: 1349
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -245,8 +245,8 @@ MonoBehaviour:
     y: 0
     width: 427
     height: 645
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 127
+  controlID: 148
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -322,8 +322,8 @@ MonoBehaviour:
     y: 0
     width: 765
     height: 835
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 23}
@@ -387,7 +387,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 34644
+  m_LastSelectedObjectID: -10264
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1215,9 +1215,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.2102256, y: 1.4087019, z: -5.2750735}
+    m_Target: {x: 1.7685027, y: 0.193322, z: -9.594149}
     speed: 2
-    m_Value: {x: 1.2102256, y: 1.4087019, z: -5.2750735}
+    m_Value: {x: 1.7685027, y: 0.193322, z: -9.594149}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1264,13 +1264,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.19917427, y: -0.64233196, z: 0.17876957, w: 0.7183826}
+    m_Target: {x: 0.09897427, y: -0.8636408, z: 0.18781959, w: 0.4575463}
     speed: 2
-    m_Value: {x: 0.19914512, y: -0.64223796, z: 0.1787434, w: 0.71827745}
+    m_Value: {x: 0.09895962, y: -0.86351293, z: 0.18779178, w: 0.45747855}
   m_Size:
-    m_Target: 2.052589
+    m_Target: 0.7203509
     speed: 2
-    m_Value: 2.052589
+    m_Value: 0.7203509
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1429,11 +1429,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 9f18e757633f03d41b025d8615baae3d, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 50449da4c2e53174497aeb795c607602, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -7337605739277883822, guid: 9f18e757633f03d41b025d8615baae3d, type: 2}
-    m_ScrollPosition: {x: 0, y: 0}
-  - m_Target: {fileID: 6990865277294789600, guid: 9f18e757633f03d41b025d8615baae3d, type: 2}
+  - m_Target: {fileID: -7337605739277883822, guid: 50449da4c2e53174497aeb795c607602, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -2456,23 +2454,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d00a0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 6ae3ffff3ef1ffff2afbffff
+      m_SelectedIDs: 5e650000
+      m_LastClickedID: 25950
+      m_ExpandedIDs: 2cd9ffff2afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: grabPos
+        m_OriginalName: grabPos
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -13434
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -2523,7 +2521,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Enemy/EnemyCollision
+    - Assets/Scripts/Enemy/classFSM/BossZombieFSM
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
@@ -2538,7 +2536,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 8a8d0000
     m_LastClickedID: 36234
-    m_ExpandedIDs: 000000001a6600001c6600001e66000020660000
+    m_ExpandedIDs: 0000000076870000788700007a8700007c8700007e870000808700008287000084870000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2566,18 +2564,18 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000001a6600001e66000062680000706f00007c6f0000
+    m_ExpandedIDs: ffffffff0000000076870000788700007c8700008087000084870000348a0000728a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: EnemyBlisterCollision
-      m_OriginalName: EnemyBlisterCollision
+      m_Name: BossZombieAttackState
+      m_OriginalName: BossZombieAttackState
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 2768
+      m_UserData: 6552
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0

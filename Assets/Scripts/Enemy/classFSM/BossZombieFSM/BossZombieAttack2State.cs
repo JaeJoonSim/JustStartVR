@@ -4,28 +4,30 @@ using UnityEngine;
 
 public class BossZombieAttack2State : EnemyBaseState
 {
-    private CharacterController characterController;
+    //private CharacterController characterController;
     GameObject tongue;
     float tScale;
     float count;
     bool tongueBack;
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
+        BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
         mgr.SetAnimator("MoveToAttack2");
         tongue = GameObject.Find("BossTongue");
         tScale = 0;
-        mgr.attackCollision = false;
-        mgr.bulletCollision = false;
+        Bmgr.attackCollision = false;
+        Bmgr.bulletCollision = false;
         tongueBack = false;
         tongue.transform.localScale = new Vector3(0, 1, 1);
         count = 0f;
 
-        characterController = mgr.targetOBJ.GetComponent<CharacterController>();
+        //characterController = mgr.targetOBJ.GetComponent<CharacterController>();
 
     }
     public override void Update(EnemyBaseFSMMgr mgr)
     {
-        if (!mgr.IsAliveTarget()|| mgr.bulletCollision)
+        BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
+        if (!mgr.IsAliveTarget()|| Bmgr.bulletCollision)
         {
             mgr.ChangeState(mgr.IdleState);
             return;
@@ -47,9 +49,10 @@ public class BossZombieAttack2State : EnemyBaseState
         {
             if (count >= 1f)
             {
-                if (mgr.attackCollision != true)
+
+                if (Bmgr.attackCollision != true)
                 {
-                    if (tScale <= mgr.BStatus.Attack2Range / 2)
+                    if (tScale <= Bmgr.BStatus.Attack2Range / 2)
                     {
                         tScale += 0.01f;
                     }
@@ -65,7 +68,12 @@ public class BossZombieAttack2State : EnemyBaseState
                         tScale -= 0.003f;
                         if (mgr.CalcTargetDistance() > 0.5f)
                         {
-                            characterController.Move((mgr.transform.position - mgr.targetOBJ.transform.position).normalized * 1.5f * Time.deltaTime);
+                            //characterController.Move((mgr.transform.position - mgr.targetOBJ.transform.position).normalized * 1.5f * Time.deltaTime);
+                            mgr.targetOBJ.transform.position = new Vector3(
+                                Bmgr.grabPos.position.x,
+                                mgr.targetOBJ.transform.position.y,
+                                Bmgr.grabPos.position.z
+                                );
                         }
                     }
                     else
@@ -89,6 +97,7 @@ public class BossZombieAttack2State : EnemyBaseState
     public override void End(EnemyBaseFSMMgr mgr)
     {
         tongue.transform.localScale = new Vector3(0, 0.1f, 0.1f);
-        mgr.BStatus.Attack2Count = 0;
+        BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
+        Bmgr.BStatus.Attack2Count = 0;
     }
 }
