@@ -8,10 +8,10 @@ public class randomBlister : MonoBehaviour
     int[] index = new int[8] { 0, 1, 2, 3, 4, 5, 6, 7 };
     void Start()
     {
-        index = ShuffleArray(index);
-        for (int i = 0; i < 8; i++)
+        Blister = ShuffleArray(Blister);
+        for (int i = 0; i < 5; i++)
         {
-            Debug.Log(index[i]);
+            Blister[i].SetActive(true);
         }
     }
 
