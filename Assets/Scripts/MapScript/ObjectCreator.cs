@@ -13,8 +13,10 @@ public class ObjectCreator : MonoBehaviour
     public void initTile(int max, bool[,] value)
     {
         maxSize = max;
+
         m_TileisEmpty = new bool[max, max];
         m_Object = new bool[max, max];
+
         m_TileisEmpty = value;
 
         for(int i = 0; i < max; i++)
@@ -36,7 +38,7 @@ public class ObjectCreator : MonoBehaviour
         int count = 0;
 
         int dir = -1;
-        
+
         while (count < maxCount)
         {
             dir = -1;
@@ -47,9 +49,11 @@ public class ObjectCreator : MonoBehaviour
             if (!m_TileisEmpty[x, z] && m_Object[x, z])
             {
                 m_Object[x, z] = false;
-                dir = checkWall(x, z);
                 if (!(x % (max / 2) == 0 || z % (max / 2) == 0))
-                CreateObj(x * 2, 0.5f, z * 2, dir, this.gameObject, Random.Range(0, 2));
+                {
+                    dir = checkWall(x, z);
+                    CreateObj(x * 2, 0.5f, z * 2, dir, this.gameObject, Random.Range(0, 2));
+                }
                 count++;
             }
         }

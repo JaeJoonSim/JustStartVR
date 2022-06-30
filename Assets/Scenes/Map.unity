@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017033932, g: 0.000000025772884, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.177579, g: 0.22232251, b: 0.30451912, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -813,9 +813,9 @@ GameObject:
   - component: {fileID: 2037949384}
   - component: {fileID: 2037949383}
   - component: {fileID: 2037949382}
-  - component: {fileID: 2037949381}
-  - component: {fileID: 2037949385}
+  - component: {fileID: 2037949387}
   - component: {fileID: 2037949386}
+  - component: {fileID: 2037949381}
   m_Layer: 0
   m_Name: MapCreator
   m_TagString: Untagged
@@ -837,6 +837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomCreator: {fileID: 2037949383}
   m_WallOBJ: {fileID: 1597594873689503562, guid: 478d81caa6e58974a9c625659d71ddca, type: 3}
+  m_ExitOBJ: {fileID: 1597594873689503562, guid: 7b8372180b696344ba0c5af770de9e44, type: 3}
 --- !u!114 &2037949382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,22 +890,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2037949385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037949380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82006947ef14d94ab000c3c80693c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Obj:
-  - {fileID: 5883514482027474693, guid: 7b4233bf8494db2469baaff70dd4a7d5, type: 3}
-  - {fileID: 2914938793178305767, guid: db0e25f987fbcfc42bd0b4f1b9b08965, type: 3}
-  - {fileID: 4331269713537719737, guid: 92747740bbca09644bb359338c497f83, type: 3}
 --- !u!114 &2037949386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,6 +904,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_roomCreator: {fileID: 2037949383}
   m_LampOBJ: {fileID: 7567036204803226901, guid: d5bc53d1f18afc746941cc3fd6ec9111, type: 3}
+--- !u!114 &2037949387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037949380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cecd7184d935a944a29565ada9b10ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_hintOBJ: {fileID: 5723954797103059318, guid: 138ecbe6033320b41b660954c81bde9b, type: 3}
+  m_roomCreator: {fileID: 2037949383}
 --- !u!1 &2038858912
 GameObject:
   m_ObjectHideFlags: 0
