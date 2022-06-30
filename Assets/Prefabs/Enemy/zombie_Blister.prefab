@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyType: 3
-  Hp: 100
+  Hp: 200
   Atk: 40
   Speed: 0.6
   ViewDistance: 6
@@ -3476,6 +3476,10 @@ PrefabInstance:
     - target: {fileID: 8266180731587723189, guid: 25247eb92e89dc14aab23788007d2854, type: 3}
       propertyPath: m_Name
       value: Blister
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266180731587723189, guid: 25247eb92e89dc14aab23788007d2854, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8790058046920762639, guid: 25247eb92e89dc14aab23788007d2854, type: 3}
       propertyPath: m_RootOrder

@@ -31,7 +31,6 @@ public class BossZombieAttackState : EnemyBaseState
                 mgr.SetAnimator("delayToAttack");
                 mgr.transform.LookAt(new Vector3(
                 mgr.target.transform.position.x, mgr.transform.position.y, mgr.target.transform.position.z));
-                mgr.attackCollider.SetActive(true);
             }
             else
             {
