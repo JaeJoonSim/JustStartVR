@@ -6,13 +6,13 @@ public class EnemyArmCollision : MonoBehaviour
 {
     EnemyBaseFSMMgr FSM;
     EnemyStatus Es;
-   
+    Rigidbody gid;
     float damage;
     void Start()
     {
         FSM = GetComponentInParent<EnemyBaseFSMMgr>();
         Es = GetComponentInParent<EnemyStatus>();
-        
+        gid = GetComponent<Rigidbody>();
         switch (Es.EnemyType)
         {
             case 1:
@@ -37,7 +37,7 @@ public class EnemyArmCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "bullet")
         {
-            FSM.Damaged(damage, (transform.position - other.transform.position).normalized);
+            FSM.Damaged(damage, (transform.position - other.transform.position).normalized, gid);
             //Destroy(other.gameObject);
         }
     }
