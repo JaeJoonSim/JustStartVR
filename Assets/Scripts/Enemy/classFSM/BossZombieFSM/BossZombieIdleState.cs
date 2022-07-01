@@ -6,7 +6,6 @@ public class BossZombieIdleState : EnemyBaseState
 {
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
-        BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
         if (mgr.PrevState == mgr.TraceState)
         {
             mgr.SetAnimator("MoveToIdle");
@@ -15,7 +14,7 @@ public class BossZombieIdleState : EnemyBaseState
         {
             mgr.SetAnimator("AttackToIdle");
         }
-        else if (mgr.PrevState == Bmgr.Attack2State)
+        else if (mgr.PrevState == mgr.Attack2State)
         {
             mgr.SetAnimator("Attack2ToIdle");
         }

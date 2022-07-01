@@ -26,6 +26,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("LoadingScene");
     }
 
+    public void Progress_All()
+    {
+        progressAll = true;
+    }
+
     IEnumerator LoadScene()
     {
         yield return null;
@@ -58,6 +63,10 @@ public class SceneLoader : MonoBehaviour
                         op.allowSceneActivation = true;
                         yield break;
                     }
+                }
+                else
+                {
+                    progressAll = false;
                 }
             }
         }

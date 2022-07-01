@@ -28,6 +28,7 @@ public class LargeZombieAttackState : EnemyBaseState
             currntTime = 0;
             if (mgr.CheckInAttackRange())
             {
+                mgr.attackCollider.SetActive(true);
                 mgr.SetAnimator("delayToAttack");
 
                 mgr.transform.LookAt(new Vector3(
