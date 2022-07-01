@@ -12,6 +12,8 @@ public class RoomCreator : MonoBehaviour
     [SerializeField]public GameObject m_TileOBJ;
     [SerializeField]public GameObject m_CellingOBJ;
 
+    [SerializeField]public GameObject m_EnemySpawner;
+
     public int m_RoomSize;
     public int m_TileCount;
     public int m_RoomCountX;
@@ -190,6 +192,8 @@ public class RoomCreator : MonoBehaviour
 
         Vector2[] position = new Vector2[4];
 
+        GameObject newOBJ;
+
         int dir;
 
         for(dir = 0; dir < 4; dir++)
@@ -228,6 +232,10 @@ public class RoomCreator : MonoBehaviour
             int value = Random.Range(0, count);            
 
             AddNewTile((int)position[value].x * m_TileSize, (int)position[value].y * m_TileSize, parent);
+
+
+            newOBJ = Instantiate(m_EnemySpawner, parent.transform);
+            newOBJ.transform.localPosition = new Vector3((int)position[value].x * m_TileSize, 0, (int)position[value].y * m_TileSize);
 
             m_TileisEmpty[(int)position[value].x, (int)position[value].y] = false;
 

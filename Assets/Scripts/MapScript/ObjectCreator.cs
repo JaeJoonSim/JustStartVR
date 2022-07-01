@@ -28,9 +28,9 @@ public class ObjectCreator : MonoBehaviour
         }
 
         m_Obj = new GameObject[3];
-        m_Obj[0] = Resources.Load<GameObject>("Room/cabinet 1");
-        m_Obj[1] = Resources.Load<GameObject>("Room/Drawer 1");
-        m_Obj[2] = Resources.Load<GameObject>("Room/Shelf 1");
+        m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
+        m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
+        m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
 
         int x = 0;
         int z = 0;
@@ -136,8 +136,10 @@ public class ObjectCreator : MonoBehaviour
         GameObject newObj;
 
         newObj = Instantiate(m_Obj[type], parent.transform);
+        newObj.SetActive(false);
         newObj.transform.Rotate(new Vector3(0, angle, 0));
         newObj.transform.localPosition = new Vector3(x, y, z);
-        
+        newObj.SetActive(true);
+
     }
 }
