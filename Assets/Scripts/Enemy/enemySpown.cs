@@ -12,7 +12,7 @@ public class enemySpown : MonoBehaviour
         {
             int random = Random.Range(0, enemy.Length);
             Instantiate(enemy[random], gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         
     }
