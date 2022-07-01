@@ -1,27 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LampCreator : MonoBehaviour
 {
-    [SerializeField] private GameObject m_LampObj;
+    [SerializeField] private RoomCreator m_roomCreator;
+    [SerializeField] private GameObject m_LampOBJ;
 
-    public void init()
+    void Start()
     {
-        int count = MapInstance.Instance.m_TileList.Count;
-        int random = 0;
-
-        float x = 0;
-        float z = 0;
-
-        for (int i = 0; i < count; i++)
+        for(int i = 0; i < m_roomCreator.m_MaxCount; i++)
         {
-            random = Random.Range(0, 40);
-            if(random == 0)
+            for (int j = 0; j < m_roomCreator.m_MaxCount; j++)
             {
-                x = MapInstance.Instance.m_TileList[i].x;
-                z = MapInstance.Instance.m_TileList[i].z;
-                Instantiate(m_LampObj, new Vector3(x * 2, 4.5f, z * 2), Quaternion.Euler(0, 0, 0));
+                if(!m_roomCreator.m_WorldTileisEmpty[i, j])
+                {
+                    if (i % 5 == 0 && j % 5 == 0)
+                    {
+                        Instantiate(m_LampOBJ,
+                            new Vector3(i * m_roomCreator.m_TileSize, 3.51f, j * m_roomCreator.m_TileSize),
+                            Quaternion.identity);
+                    }
+                }
             }
         }
     }
