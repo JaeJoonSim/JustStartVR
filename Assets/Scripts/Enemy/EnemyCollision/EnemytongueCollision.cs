@@ -5,22 +5,31 @@ using UnityEngine;
 public class EnemytongueCollision : MonoBehaviour
 {
     EnemyBaseFSMMgr FSM;
+    Rigidbody gid;
     void Start()
     {
         FSM = GetComponentInParent<EnemyBaseFSMMgr>();
-
+        gid = GetComponent<Rigidbody>();
+    }
+    void Update()
+    {
+        if (FSM.Status.Hp <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "bullet")
         {
-            Debug.Log("Çú¹Ù´Ú  ÃÑ¾Ë Ãæµ¹");
+            //Debug.Log("Çú¹Ù´Ú  ÃÑ¾Ë Ãæµ¹");
             FSM.bulletCollision = true;
+            FSM.Damaged(100, (transform.position - other.transform.position).normalized, gid);
         }
         else if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Çú¹Ù´Ú Ãæµ¹");
+            //Debug.Log("Çú¹Ù´Ú Ãæµ¹");
             FSM.attackCollision = true;
         }
         
