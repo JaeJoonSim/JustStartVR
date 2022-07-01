@@ -188,9 +188,4 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     {
         agent.isStopped = isStop;
     }
-
-    public void AttackColliderOn()
-    {
-        attackCollider.SetActive(true);
-    }
 }
