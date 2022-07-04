@@ -17,6 +17,9 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     public bool attackCollision;
     [HideInInspector]
     public bool bulletCollision;
+    [HideInInspector]
+    public CharacterController characterController;
+
     //BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
 
     public Transform grabPos;
@@ -31,6 +34,8 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         Attack2State = new BossZombieAttack2State();
 
         currentState = IdleState;
+
+     
     }
     private new void Start()
     {
@@ -38,6 +43,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         bStatus = GetComponent<BossStatus>();
         attackCollision = false;
         bulletCollision = false;
+        characterController = targetOBJ.GetComponent<CharacterController>();
     }
     private new void Update()
     {
