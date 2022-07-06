@@ -40,14 +40,14 @@ namespace JustStartVR
         /// <summary>
         /// Instantiate this if Glock equipped
         /// </summary>
-        public GameObject RifleClip;
+        public GameObject AK74MClip;
 
         /// <summary>
         /// Amount of M1911 Clips currently available
         /// </summary>
         public int CurrentM1911Clips = 5;
 
-        public int CurrentRifleClips = 5;
+        public int CurrentAK74MClips = 5;
 
         public int CurrentGlockClips = 30;
 
@@ -76,9 +76,9 @@ namespace JustStartVR
                 return false;
             }
 
-            // Holding Glock, M1911, or rifle
+            // Holding Glock, M1911, or AK74MClip
             string grabName = g.HeldGrabbable.transform.name;
-            if (grabName.Contains("Glock") || grabName.Contains("M1911") || grabName.Contains("Rifle"))
+            if (grabName.Contains("Glock") || grabName.Contains("M1911") || grabName.Contains("AK74M"))
             {
                 return true;
             }
@@ -104,16 +104,16 @@ namespace JustStartVR
                 return GlockClip;
             }
 
-            // Rifle
-            if (leftGrabberValid && LeftGrabber.HeldGrabbable.transform.name.Contains("Rifle") && CurrentRifleClips > 0)
+            // AK74MClip
+            if (leftGrabberValid && LeftGrabber.HeldGrabbable.transform.name.Contains("AK74M") && CurrentAK74MClips > 0)
             {
-                CurrentRifleClips--;
-                return RifleClip;
+                CurrentAK74MClips--;
+                return AK74MClip;
             }
-            else if (rightGrabberValid && RightGrabber.HeldGrabbable.transform.name.Contains("Rifle") && CurrentRifleClips > 0)
+            else if (rightGrabberValid && RightGrabber.HeldGrabbable.transform.name.Contains("AK74M") && CurrentAK74MClips > 0)
             {
-                CurrentRifleClips--;
-                return RifleClip;
+                CurrentAK74MClips--;
+                return AK74MClip;
             }
 
             // M1911
@@ -165,9 +165,9 @@ namespace JustStartVR
             {
                 CurrentGlockClips++;
             }
-            else if (AmmoName.Contains("Rifle"))
+            else if (AmmoName.Contains("AK74M"))
             {
-                CurrentRifleClips--;
+                CurrentAK74MClips--;
             }
             else if (AmmoName.Contains("M1911"))
             {
