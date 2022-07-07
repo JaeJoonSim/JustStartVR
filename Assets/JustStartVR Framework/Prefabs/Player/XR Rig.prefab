@@ -21221,7 +21221,6 @@ GameObject:
   - component: {fileID: 6184643849863876727}
   - component: {fileID: 6184643849857894599}
   - component: {fileID: 4861487460232761985}
-  - component: {fileID: 5454223264713337259}
   - component: {fileID: 8136004075799573697}
   - component: {fileID: 8136004075325307323}
   m_Layer: 0
@@ -21317,23 +21316,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5454223264713337259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6184643849857191547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac09bf699d4234448aa42c086c9f964c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FadeOnSceneLoaded: 1
-  FadeColor: {r: 0, g: 0, b: 0, a: 0.9882353}
-  FadeInSpeed: 2
-  FadeOutSpeed: 1
-  SceneFadeInDelay: 0.5
 --- !u!114 &8136004075799573697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26721,7 +26703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ControllerType: 0
-  MovementSpeed: 1.25
+  MovementSpeed: 2.5
   MovementForce: 500
   MaxHorizontalVelocity: 5
   MaxVerticalVelocity: 10
