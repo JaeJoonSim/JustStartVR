@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemytongueCollision : MonoBehaviour
 {
-    BossZombieFSMMgr FSM;
+    EnemyBaseFSMMgr FSM;
 
     void Start()
     {
-        FSM = GetComponentInParent<BossZombieFSMMgr>();
+        FSM = GetComponentInParent<EnemyBaseFSMMgr>();
 
     }
     void Update()
@@ -26,13 +26,11 @@ public class EnemytongueCollision : MonoBehaviour
             //Debug.Log("Çú¹Ù´Ú  ÃÑ¾Ë Ãæµ¹");
             FSM.bulletCollision = true;
             FSM.Damaged(100, (transform.position - other.transform.position).normalized);
-            FSM.characterController.enabled = true;
         }
         else if (other.gameObject.tag == "Player")
         {
             //Debug.Log("Çú¹Ù´Ú Ãæµ¹");
             FSM.attackCollision = true;
-            FSM.characterController.enabled = false;
         }
         
     }

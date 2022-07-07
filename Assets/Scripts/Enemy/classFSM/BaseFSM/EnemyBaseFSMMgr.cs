@@ -26,7 +26,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     public EnemyBaseState AttackState;
 
-   
+    public EnemyBaseState Attack2State;
 
     //스테이터스
     protected EnemyStatus status;
@@ -35,7 +35,11 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         get { return status; }
     }
 
-    
+    protected BossStatus bStatus;
+    public BossStatus BStatus
+    {
+        get { return bStatus; }
+    }
 
 
     //플레이어 위치
@@ -60,8 +64,10 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     public GameObject ragdoll;
 
     //공격용
-   
-
+    [HideInInspector]
+    public bool attackCollision;
+    [HideInInspector]
+    public bool bulletCollision;
 
     public GameObject attackCollider;
 
@@ -70,15 +76,15 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     {
         ChangeState(IdleState);
         status = GetComponent<EnemyStatus>();
-
+        bStatus = GetComponent<BossStatus>();
         fow = GetComponent<FieldOfView>();
         targetOBJ = GameObject.FindGameObjectWithTag("Player");
         target = targetOBJ.transform;
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Status.Speed;
         anim = GetComponentInChildren<Animator>();
-        
-
+        attackCollision = false;
+        bulletCollision = false;
     }
     protected void Update()
     {
@@ -94,7 +100,10 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         if (currentState != null)
             currentState.Update(this);
 
-       
+        if (Status.EnemyType == 4)
+        {
+            BStatus.Attack2Count += Time.deltaTime;
+        }
     }
 
     public void Damaged(float demage, Vector3 BulletForword)
@@ -154,7 +163,10 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
        return ((CalcTargetDistance() < status.AttackRange) ? true : false);
     }
-   
+    public bool CheckInAttack2Range()
+    {
+       return ((CalcTargetDistance() < bStatus.Attack2Range && BStatus.Attack2Count >= BStatus.Attack2Range) ? true : false);
+    }
     public bool IsAlive()
     {
         return (status.Hp > 0) ? true : false;
@@ -175,10 +187,5 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     public void NavStop(bool isStop)
     {
         agent.isStopped = isStop;
-    }
-
-    public void AttackColliderOn()
-    {
-        attackCollider.SetActive(true);
     }
 }
