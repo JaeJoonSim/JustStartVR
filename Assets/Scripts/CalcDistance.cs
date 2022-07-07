@@ -5,7 +5,7 @@ using UnityEngine;
 public class CalcDistance : MonoBehaviour
 {
     //상호작용할 거리 
-    public float distance = 10;
+    private float distance = 30;
 
     //플레이어 좌표
     [HideInInspector]
@@ -22,6 +22,11 @@ public class CalcDistance : MonoBehaviour
         GameObject targetOBJ = GameObject.FindGameObjectWithTag("Player");
         target = targetOBJ.transform;
 
+        if (OnOffObject == null)
+        {
+            distance = 60;
+            OnOffObject = gameObject.transform.GetChild(0).gameObject;
+        }
     }
 
     // Update is called once per frame
@@ -45,6 +50,6 @@ public class CalcDistance : MonoBehaviour
     }
     public float CalcTargetDistance()
     {
-        return (target.position - transform.position).magnitude;
+        return (target.position - OnOffObject.transform.position).magnitude;
     }
 }

@@ -99,7 +99,7 @@ public class PathCreator : MonoBehaviour
         }
         GameObject newDoor = Instantiate(m_DoorOBJ, parent.transform);
         newDoor.SetActive(false);
-        newDoor.transform.localPosition = new Vector3(x * roomCreator.m_TileSize, 0.5f, _z + count / 3 * roomCreator.m_TileSize);
+        newDoor.transform.localPosition = new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, _z + count / 3 * roomCreator.m_TileSize);
         newDoor.SetActive(true);
     }
 
@@ -140,7 +140,7 @@ public class PathCreator : MonoBehaviour
         newDoor.SetActive(false);
         newDoor.transform.Rotate(new Vector3(0, 90, 0));
         newDoor.transform.localPosition =
-            new Vector3(_x + count / 3  * roomCreator.m_TileSize, 0.5f, z * roomCreator.m_TileSize);
+            new Vector3(_x + count / 3  * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize);
         newDoor.SetActive(true);
     }
 }

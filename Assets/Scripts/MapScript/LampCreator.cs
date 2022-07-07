@@ -16,7 +16,7 @@ public class LampCreator : MonoBehaviour
                     if (i % 5 == 0 && j % 5 == 0)
                     {
                         Instantiate(m_LampOBJ,
-                            new Vector3(i * m_roomCreator.m_TileSize, 3.51f, j * m_roomCreator.m_TileSize),
+                            new Vector3(i * m_roomCreator.m_TileSize, m_roomCreator.m_Y + 3.51f, j * m_roomCreator.m_TileSize),
                             Quaternion.identity);
                     }
                 }

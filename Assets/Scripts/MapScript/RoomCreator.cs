@@ -16,6 +16,7 @@ public class RoomCreator : MonoBehaviour
     public int m_RoomSize;
     public int m_TileCount;
     public int m_RoomCountX;
+    public int m_Y;
     public int m_RoomCountZ;
     public int m_TileSize;
 
@@ -96,8 +97,12 @@ public class RoomCreator : MonoBehaviour
 
     private void CreateRoom(int x, int z, bool isCreate)
     {
+        GameObject parent = new GameObject("Room");
+        parent.transform.parent = m_Parents.transform;
+
+
         m_GroupOBJ[x, z] = new GameObject("Room (" + x + ", " + z + ")");
-        m_GroupOBJ[x, z].transform.parent = m_Parents.transform;
+        m_GroupOBJ[x, z].transform.parent = parent.transform;
         m_GroupOBJ[x, z].transform.localPosition =
             new Vector3(x * m_mapinterval * m_TileSize, 0, z * m_mapinterval * m_TileSize);
 
@@ -105,7 +110,8 @@ public class RoomCreator : MonoBehaviour
         TileCreator(m_GroupOBJ[x, z]);
         m_GroupOBJ[x, z].AddComponent<ObjectCreator>();
         ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();        
-        room.initTile(m_RoomSize, m_TileisEmpty);
+        parent.AddComponent<CalcDistance>();
+        room.initTile(m_RoomSize, m_TileisEmpty, this);
     }
 
     private void TileCreator(GameObject parent)
@@ -118,7 +124,7 @@ public class RoomCreator : MonoBehaviour
         int x = (int)parent.transform.localPosition.x / m_TileSize;
         int z = (int)parent.transform.localPosition.z / m_TileSize;
 
-        playerTransform.position = new Vector3(m_RoomSize / 2 * m_TileSize, 1.0f, m_TileSize);
+        playerTransform.position = new Vector3(m_RoomSize / 2 * m_TileSize,  1.0f, m_TileSize);
 
 
 
@@ -193,7 +199,6 @@ public class RoomCreator : MonoBehaviour
 
         Vector2[] position = new Vector2[4];
 
-        GameObject newOBJ;
 
         int dir;
 
@@ -251,8 +256,8 @@ public class RoomCreator : MonoBehaviour
     public void AddNewTile(int x, int z, GameObject parent)
     {
         GameObject newOBJ = Instantiate(m_TileOBJ, parent.transform);
-        newOBJ.transform.localPosition = new Vector3(x, 0, z);
+        newOBJ.transform.localPosition = new Vector3(x, m_Y, z);
         newOBJ = Instantiate(m_CellingOBJ, parent.transform);
-        newOBJ.transform.localPosition = new Vector3(x, 4, z);
+        newOBJ.transform.localPosition = new Vector3(x, m_Y + 4, z);
     }
 }

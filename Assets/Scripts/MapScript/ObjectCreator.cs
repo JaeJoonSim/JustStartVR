@@ -5,13 +5,15 @@ public class ObjectCreator : MonoBehaviour
     [SerializeField] private GameObject[] m_Obj;
     [SerializeField] private bool[,] m_TileisEmpty;
     [SerializeField] private bool[,] m_Object;
+    [SerializeField] private RoomCreator roomCreator;
 
-    const int maxCount = 40;
+    const int maxCount = 20;
 
     int maxSize;
 
-    public void initTile(int max, bool[,] value)
+    public void initTile(int max, bool[,] value, RoomCreator room)
     {
+        roomCreator = room;
         maxSize = max;
 
         m_TileisEmpty = new bool[max, max];
@@ -54,8 +56,8 @@ public class ObjectCreator : MonoBehaviour
                 {
                     dir = checkWall(x, z);
                     CreateObj(x * 2, 0.5f, z * 2, dir, this.gameObject, Random.Range(0, 2));
+                    count++;
                 }
-                count++;
             }
         }
     }
@@ -139,7 +141,7 @@ public class ObjectCreator : MonoBehaviour
 
         newObj = Instantiate(m_Obj[type], parent.transform);
         newObj.transform.Rotate(new Vector3(0, angle, 0));
-        newObj.transform.localPosition = new Vector3(x, y, z);
+        newObj.transform.localPosition = new Vector3(x, roomCreator.m_Y + y, z);
         newObj.SetActive(true);
 
     }

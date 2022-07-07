@@ -52,7 +52,8 @@ public class WallCreator : MonoBehaviour
             return false;
         }
 
-        Instantiate(m_ExitOBJ, new Vector3(_x * roomCreator.m_TileSize, 1.5f, _z * roomCreator.m_TileSize), Quaternion.identity);
+        Instantiate(m_ExitOBJ, new Vector3(_x * roomCreator.m_TileSize, roomCreator.m_Y + 1.5f, _z * roomCreator.m_TileSize), Quaternion.identity);
+        
         created = true;
         roomCreator.m_WorldTileisEmpty[_x, _z] = false;
         m_WallisEmpty[_x, _z] = false;
@@ -94,7 +95,7 @@ public class WallCreator : MonoBehaviour
                     if(!CreateExitPoint(x, z))
                     {
                         Instantiate(m_WallOBJ,
-                            new Vector3(x * roomCreator.m_TileSize, 0.5f, z * roomCreator.m_TileSize)
+                            new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
                             , Quaternion.identity);
                         m_WallisEmpty[x, z] = false;
                     }
@@ -103,7 +104,7 @@ public class WallCreator : MonoBehaviour
             else
             {
                     Instantiate(m_WallOBJ,
-                        new Vector3(x * roomCreator.m_TileSize, 0.5f, z * roomCreator.m_TileSize)
+                        new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
                         , Quaternion.identity);
             }
         }
