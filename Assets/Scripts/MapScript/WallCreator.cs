@@ -52,7 +52,7 @@ public class WallCreator : MonoBehaviour
             return false;
         }
 
-        Instantiate(m_ExitOBJ, new Vector3(_x * roomCreator.m_TileSize, 0.5f, _z * roomCreator.m_TileSize), Quaternion.identity);
+        Instantiate(m_ExitOBJ, new Vector3(_x * roomCreator.m_TileSize, 1.5f, _z * roomCreator.m_TileSize), Quaternion.identity);
         created = true;
         roomCreator.m_WorldTileisEmpty[_x, _z] = false;
         m_WallisEmpty[_x, _z] = false;
