@@ -31,6 +31,7 @@ public class ObjectCreator : MonoBehaviour
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
         m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
+        m_Obj[3] = Resources.Load<GameObject>("Room/test tube-1");
 
         int x = 0;
         int z = 0;
@@ -112,8 +113,9 @@ public class ObjectCreator : MonoBehaviour
         switch (dir)
         {
             case -1:
+                if(type == 2)
                 angle = Random.Range(0, 2) * 90;
-                type = 2;
+                type = Random.Range(2, 4);
                 break;
             case 0:
                 angle = 180;

@@ -147,7 +147,9 @@ public class RoomCreator : MonoBehaviour
 
         int halfSize = m_RoomSize / 2 * m_TileSize;
 
-        for (int i = 0; i < 7; i++)
+        int max = m_RoomSize / 2 + 1;
+
+        for (int i = 0; i < max; i++)
         {
             if (m_TileisEmpty[m_RoomSize / 2, i])
             {
@@ -164,7 +166,7 @@ public class RoomCreator : MonoBehaviour
             }
         }
 
-        for (int i = 1; i < 7; i++)
+        for (int i = 1; i < max; i++)
         {
             if (m_TileisEmpty[m_RoomSize / 2, m_RoomSize - i])
             {
