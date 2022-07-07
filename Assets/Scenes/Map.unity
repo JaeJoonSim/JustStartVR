@@ -614,6 +614,74 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1251464559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1859194402780764670, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+  m_PrefabInstance: {fileID: 1421089139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1421089139
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1859194402780764666, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_Name
+      value: Flash_Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.900485
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2983
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.269
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859194402780764667, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d6e4bf7df2d6f446a126c3902570d85, type: 3}
 --- !u!1001 &1667226572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -621,6 +689,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 964307506493491186, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: HeldItem
+      value: 
+      objectReference: {fileID: 1251464559}
+    - target: {fileID: 964307506493491186, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: StartingItem
+      value: 
+      objectReference: {fileID: 1251464559}
+    - target: {fileID: 964307506493491186, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: OnlyAllowNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 964307506493491186, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: OnlyAllowNames.Array.data[0]
+      value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 964307506493491186, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: OnlyAllowNames.Array.data[1]
+      value: Pistol
+      objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_RootOrder
       value: 4
