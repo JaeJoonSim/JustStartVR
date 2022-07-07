@@ -138,7 +138,6 @@ public class ObjectCreator : MonoBehaviour
         GameObject newObj;
 
         newObj = Instantiate(m_Obj[type], parent.transform);
-        newObj.SetActive(false);
         newObj.transform.Rotate(new Vector3(0, angle, 0));
         newObj.transform.localPosition = new Vector3(x, y, z);
         newObj.SetActive(true);

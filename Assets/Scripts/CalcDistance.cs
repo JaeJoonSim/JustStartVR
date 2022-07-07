@@ -21,6 +21,7 @@ public class CalcDistance : MonoBehaviour
     {
         GameObject targetOBJ = GameObject.FindGameObjectWithTag("Player");
         target = targetOBJ.transform;
+
     }
 
     // Update is called once per frame
