@@ -104,7 +104,7 @@ public class RoomCreator : MonoBehaviour
         if (!isCreate) return;
         TileCreator(m_GroupOBJ[x, z]);
         m_GroupOBJ[x, z].AddComponent<ObjectCreator>();
-        ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();
+        ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();        
         room.initTile(m_RoomSize, m_TileisEmpty);
     }
 
