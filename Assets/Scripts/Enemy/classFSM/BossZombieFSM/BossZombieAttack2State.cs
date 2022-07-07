@@ -21,7 +21,7 @@ public class BossZombieAttack2State : EnemyBaseState
         tongue.transform.localScale = new Vector3(0, 1, 1);
         count = 0f;
 
-        //characterController = mgr.targetOBJ.GetComponent<CharacterController>();
+       
 
     }
     public override void Update(EnemyBaseFSMMgr mgr)
@@ -78,6 +78,7 @@ public class BossZombieAttack2State : EnemyBaseState
                     }
                     else
                     {
+                        Bmgr.characterController.enabled = true;
                         mgr.ChangeState(mgr.TraceState);
                         return;
                     }
