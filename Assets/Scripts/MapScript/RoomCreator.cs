@@ -8,11 +8,9 @@ public class RoomCreator : MonoBehaviour
 
     [SerializeField] private Transform playerTransform;
 
-    [SerializeField]private GameObject m_Parents;
-    [SerializeField]public GameObject m_TileOBJ;
-    [SerializeField]public GameObject m_CellingOBJ;
-
-
+    public GameObject m_Parents;
+    public GameObject m_TileOBJ;
+    public GameObject m_CellingOBJ;
     public int m_RoomSize;
     public int m_TileCount;
     public int m_RoomCountX;
@@ -97,7 +95,7 @@ public class RoomCreator : MonoBehaviour
 
     private void CreateRoom(int x, int z, bool isCreate)
     {
-        GameObject parent = new GameObject("Room");
+        GameObject parent = new GameObject("Room (" + x + ", " + z + ")");
         parent.transform.parent = m_Parents.transform;
 
 

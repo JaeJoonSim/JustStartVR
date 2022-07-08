@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WallCreator : MonoBehaviour
@@ -7,6 +5,7 @@ public class WallCreator : MonoBehaviour
     [SerializeField]private RoomCreator roomCreator;
     [SerializeField] private GameObject m_WallOBJ;
     [SerializeField] private GameObject m_ExitOBJ;
+    [SerializeField] private Transform m_Parent;
     [SerializeField] private bool[,] m_WallisEmpty;
 
     int m_count;
@@ -52,8 +51,9 @@ public class WallCreator : MonoBehaviour
             return false;
         }
 
-        Instantiate(m_ExitOBJ, new Vector3(_x * roomCreator.m_TileSize, roomCreator.m_Y + 1.5f, _z * roomCreator.m_TileSize), Quaternion.identity);
-        
+        GameObject newObj = Instantiate(m_ExitOBJ, new Vector3(_x * roomCreator.m_TileSize, roomCreator.m_Y + 1.5f, _z * roomCreator.m_TileSize), Quaternion.identity);
+        newObj.transform.parent = m_Parent.transform;
+
         created = true;
         roomCreator.m_WorldTileisEmpty[_x, _z] = false;
         m_WallisEmpty[_x, _z] = false;
@@ -65,7 +65,8 @@ public class WallCreator : MonoBehaviour
     {
         int x;
         int z;
-        
+
+
         for (int dir = 0; dir < 4; dir++)
         {
             x = _x;
@@ -94,18 +95,22 @@ public class WallCreator : MonoBehaviour
                 {
                     if(!CreateExitPoint(x, z))
                     {
+                        GameObject newObj = 
                         Instantiate(m_WallOBJ,
                             new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
                             , Quaternion.identity);
+                        newObj.transform.parent = m_Parent;
                         m_WallisEmpty[x, z] = false;
                     }
                 }
             }
             else
             {
-                    Instantiate(m_WallOBJ,
-                        new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
-                        , Quaternion.identity);
+                 GameObject newObj = 
+                 Instantiate(m_WallOBJ,
+                     new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
+                     , Quaternion.identity);
+                     newObj.transform.parent = m_Parent;
             }
         }
     }

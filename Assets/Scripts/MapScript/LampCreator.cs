@@ -4,9 +4,11 @@ public class LampCreator : MonoBehaviour
 {
     [SerializeField] private RoomCreator m_roomCreator;
     [SerializeField] private GameObject m_LampOBJ;
+    [SerializeField] private Transform m_Parent;
 
     void Start()
     {
+        GameObject newObj = null;
         for(int i = 0; i < m_roomCreator.m_MaxCount; i++)
         {
             for (int j = 0; j < m_roomCreator.m_MaxCount; j++)
@@ -15,9 +17,12 @@ public class LampCreator : MonoBehaviour
                 {
                     if (i % 5 == 0 && j % 5 == 0)
                     {
+                        newObj =
                         Instantiate(m_LampOBJ,
                             new Vector3(i * m_roomCreator.m_TileSize, m_roomCreator.m_Y + 3.51f, j * m_roomCreator.m_TileSize),
                             Quaternion.identity);
+
+                        newObj.transform.parent = m_Parent;
                     }
                 }
             }

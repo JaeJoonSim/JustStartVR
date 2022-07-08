@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawn_Item : MonoBehaviour
@@ -10,6 +8,10 @@ public class Spawn_Item : MonoBehaviour
     GameObject[] Item;
     [SerializeField]
     Transform[] Spawn_Point;
+
+    [SerializeField]
+    Transform m_Parent;
+
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -21,6 +23,7 @@ public class Spawn_Item : MonoBehaviour
                 int Count = Item.Length;
                 _Random = Random.Range(0, Count);
                 GameObject newOBJ = Instantiate(Item[_Random]);
+                newOBJ.transform.parent = m_Parent;
                 newOBJ.transform.position = Point.position;
             }
         }

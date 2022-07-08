@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PathCreator : MonoBehaviour
 {
     [SerializeField] private RoomCreator roomCreator;
-    [SerializeField] private GameObject[,] m_Parents;
+    private GameObject[,] m_Parents;
+    [SerializeField] private Transform m_Parent;
     [SerializeField] private GameObject m_DoorOBJ;
 
     void Start()
@@ -37,6 +36,7 @@ public class PathCreator : MonoBehaviour
                             if (roomCreator.m_GroupOBJ[x, index].transform.childCount > 0 && !Xislinked)
                             {
                                 m_Parents[x, z] = new GameObject("Path");
+                                m_Parents[x, z].transform.parent = m_Parent.transform;
         
                                 CreatePathAxisZ(x, index, z, m_Parents[x, z]);
         
@@ -52,7 +52,8 @@ public class PathCreator : MonoBehaviour
                             if (roomCreator.m_GroupOBJ[x + i, z].transform.childCount > 0 && !Zislinked)
                             {
                                 m_Parents[x, z] = new GameObject("Path");
-        
+                                m_Parents[x, z].transform.parent = m_Parent.transform;
+
                                 CreatePathAxisX(x, index, z, m_Parents[x, z]);
         
         

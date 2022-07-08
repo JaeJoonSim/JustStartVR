@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class ObjectCreator : MonoBehaviour
 {
-    [SerializeField] private GameObject[] m_Obj;
-    [SerializeField] private bool[,] m_TileisEmpty;
-    [SerializeField] private bool[,] m_Object;
-    [SerializeField] private RoomCreator roomCreator;
+    private GameObject[] m_Obj;
+    private bool[,] m_TileisEmpty;
+    private bool[,] m_Object;
+    private RoomCreator roomCreator;
+    private Transform m_Parent;
 
     const int maxCount = 20;
 
@@ -15,6 +16,8 @@ public class ObjectCreator : MonoBehaviour
     {
         roomCreator = room;
         maxSize = max;
+
+        m_Parent = room.m_Parents.transform;
 
         m_TileisEmpty = new bool[max, max];
         m_Object = new bool[max, max];
@@ -142,6 +145,7 @@ public class ObjectCreator : MonoBehaviour
         newObj = Instantiate(m_Obj[type], parent.transform);
         newObj.transform.Rotate(new Vector3(0, angle, 0));
         newObj.transform.localPosition = new Vector3(x, roomCreator.m_Y + y, z);
+        newObj.transform.parent = m_Parent;
         newObj.SetActive(true);
 
     }
