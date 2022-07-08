@@ -49,9 +49,7 @@ public class RoomCreator : MonoBehaviour
 
         initTileEmpty();
 
-        CreateRoom(0, 0, true);
 
-        int j = 1;
 
         int count = 2;
         int random = 0;
@@ -61,11 +59,17 @@ public class RoomCreator : MonoBehaviour
         {
             value = 2;
 
-            for(; j < m_RoomCountZ; j++)
+            for(int j = 0; j < m_RoomCountZ; j++)
             {
                 random = Random.Range(0, value);
                 initTileEmpty();
 
+                if(i == 1 && j == 1)
+                {
+                    CreateRoom(i, j, true);
+                    count--;
+                    continue;
+                }
                 if (random == 0 && count > 0)
                 {                
                     CreateRoom(i, j, true);
@@ -78,7 +82,6 @@ public class RoomCreator : MonoBehaviour
                 }
             }
             count = m_RoomCountZ - 1;
-            j = 0;
         }
     }
 
