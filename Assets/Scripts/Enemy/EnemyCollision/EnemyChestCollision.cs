@@ -24,7 +24,7 @@ public class EnemyChestCollision : MonoBehaviour
                 damage = 70;
                 break;
             case 3:
-                damage = 0;
+                damage = 20;
                 break;
             case 4:
                 damage = 10;

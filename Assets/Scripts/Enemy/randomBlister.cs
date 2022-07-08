@@ -5,11 +5,11 @@ using UnityEngine;
 public class randomBlister : MonoBehaviour
 {
     public GameObject[] Blister = new GameObject[8];
-    int[] index = new int[8] { 0, 1, 2, 3, 4, 5, 6, 7 };
+    int[] index = new int[6] { 0, 1, 2, 3, 4, 5};
     void Start()
     {
         Blister = ShuffleArray(Blister);
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
             Blister[i].SetActive(true);
         }
