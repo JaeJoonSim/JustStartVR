@@ -118,7 +118,8 @@ public class ObjectCreator : MonoBehaviour
         switch (dir)
         {
             case -1:
-                angle = Random.Range(0, 360);
+                if(type == 2)
+                angle = Random.Range(0, 2) * 90;
                 type = Random.Range(2, 4);
                 break;
             case 0:

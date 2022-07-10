@@ -15,7 +15,7 @@ public class CheckFloor : MonoBehaviour
     bool isSameFloor()
     {
         float y = m_playerTransform.position.y - this.transform.position.y;
-        return Mathf.Abs(y) < 10;
+        return Mathf.Abs(y) < 3;
     }
 
     void FixedUpdate()
