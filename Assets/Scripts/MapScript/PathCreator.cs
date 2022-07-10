@@ -6,7 +6,6 @@ public class PathCreator : MonoBehaviour
     private GameObject[,] m_Parents;
     [SerializeField] private Transform m_Parent;
     [SerializeField] private GameObject m_DoorOBJ;
-    [SerializeField] private GameObject m_aa;
 
     void Start()
     {
@@ -99,15 +98,9 @@ public class PathCreator : MonoBehaviour
             roomCreator.AddNewTile((int)(x * roomCreator.m_TileSize),
                (int)(_z + i) * roomCreator.m_TileSize, parent);
         }
-
-        GameObject newDoor;
-        if ((roomCreator.m_keyCardRoom.x == x && roomCreator.m_keyCardRoom.y == z) || (roomCreator.m_keyCardRoom.y == z - 1 && roomCreator.m_keyCardRoom.x == x))
-            newDoor = Instantiate(m_aa, parent.transform);
-        else
-            newDoor = Instantiate(m_DoorOBJ, parent.transform);
-
+        GameObject newDoor = Instantiate(m_DoorOBJ, parent.transform);
         newDoor.SetActive(false);
-        newDoor.transform.localPosition = new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, _z + count / 1.5f * roomCreator.m_TileSize - 1.0f);
+        newDoor.transform.localPosition = new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, _z + count / 3 * roomCreator.m_TileSize - 1.0f);
         newDoor.SetActive(true);
     }
 
@@ -144,16 +137,11 @@ public class PathCreator : MonoBehaviour
                (int)(z * roomCreator.m_TileSize), parent);
         }
 
-        GameObject newDoor;
-        if ((roomCreator.m_keyCardRoom.x == x && roomCreator.m_keyCardRoom.y == z) || (roomCreator.m_keyCardRoom.x == x - 1 && roomCreator.m_keyCardRoom.y == z))
-            newDoor = Instantiate(m_aa, parent.transform);
-        else
-            newDoor = Instantiate(m_DoorOBJ, parent.transform);
-
+        GameObject newDoor = Instantiate(m_DoorOBJ, parent.transform);
         newDoor.SetActive(false);
         newDoor.transform.Rotate(new Vector3(0, 90, 0));
         newDoor.transform.localPosition =
-            new Vector3(_x + count / 1.5f * roomCreator.m_TileSize - 1.0f, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize);
+            new Vector3(_x + count / 3  * roomCreator.m_TileSize - 1.0f, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize);
         newDoor.SetActive(true);
     }
 }
