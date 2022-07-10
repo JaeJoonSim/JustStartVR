@@ -15,7 +15,7 @@ public class LampCreator : MonoBehaviour
             {
                 if(!m_roomCreator.m_WorldTileisEmpty[i, j])
                 {
-                    if (i % 5 == 0 && j % 5 == 0)
+                    if (i % 5 == 0 && j % 6 == 0)
                     {
                         newObj =
                         Instantiate(m_LampOBJ,

@@ -12,12 +12,12 @@ public class ObjectCreator : MonoBehaviour
 
     int maxSize;
 
-    public void initTile(int max, bool[,] value, RoomCreator room)
+    public void initTile(int max, bool[,] value, RoomCreator room, Transform parent)
     {
         roomCreator = room;
         maxSize = max;
 
-        m_Parent = room.m_Parents.transform;
+        m_Parent = parent;
 
         m_TileisEmpty = new bool[max, max];
         m_Object = new bool[max, max];

@@ -4,6 +4,7 @@ public class WallCreator : MonoBehaviour
 {
     [SerializeField]private RoomCreator roomCreator;
     [SerializeField] private GameObject m_WallOBJ;
+    [SerializeField] private GameObject m_roomCreatorObj;
     [SerializeField] private GameObject m_ExitOBJ;
     [SerializeField] private Transform m_Parent;
     [SerializeField] private bool[,] m_WallisEmpty;
@@ -35,6 +36,7 @@ public class WallCreator : MonoBehaviour
                 }
             }
         }
+        Destroy(m_roomCreatorObj);
     }
 
     private bool CreateExitPoint(int _x, int _z)
@@ -93,7 +95,7 @@ public class WallCreator : MonoBehaviour
             {
                 if (roomCreator.m_WorldTileisEmpty[x, z] && m_WallisEmpty[x, z])
                 {
-                    if(!CreateExitPoint(x, z))
+                    //if(!CreateExitPoint(x, z))
                     {
                         GameObject newObj = 
                         Instantiate(m_WallOBJ,

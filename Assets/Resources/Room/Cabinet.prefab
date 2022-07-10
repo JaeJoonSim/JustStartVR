@@ -1425,14 +1425,13 @@ GameObject:
   - component: {fileID: 5948711226533110723}
   - component: {fileID: 3811081911518711086}
   - component: {fileID: 7763546135119733128}
-  - component: {fileID: 2146290803659720369}
   m_Layer: 0
   m_Name: Cabinet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5948711226533110723
 Transform:
   m_ObjectHideFlags: 0
@@ -1494,20 +1493,6 @@ MonoBehaviour:
   - {fileID: 7552654568130436788}
   - {fileID: 5494506355190707881}
   m_Parent: {fileID: 3699280901737409971}
---- !u!114 &2146290803659720369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7522475620697596062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 537f28e3e0c90b449aa9cf28479bab71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  OnOffObject: {fileID: 674257452131206065}
 --- !u!1 &7644847509783144922
 GameObject:
   m_ObjectHideFlags: 0

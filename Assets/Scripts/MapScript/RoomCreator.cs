@@ -112,7 +112,7 @@ public class RoomCreator : MonoBehaviour
         m_GroupOBJ[x, z].AddComponent<ObjectCreator>();
         ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();        
         parent.AddComponent<CalcDistance>();
-        room.initTile(m_RoomSize, m_TileisEmpty, this);
+        room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform);
     }
 
     private void TileCreator(GameObject parent)
@@ -125,9 +125,22 @@ public class RoomCreator : MonoBehaviour
         int x = (int)parent.transform.localPosition.x / m_TileSize;
         int z = (int)parent.transform.localPosition.z / m_TileSize;
 
-        playerTransform.position = new Vector3(m_RoomSize / 2 * m_TileSize,  1.0f, m_TileSize);
-
-
+        
+        //6, 6
+        if(parent.name == "Room (" + 1 + ", " + 1 + ")")
+        {
+            for(int i = 5; i <= 7; i++)
+            {
+                for(int j = 5; j <= 7; j++)
+                {
+                    m_WorldTileisEmpty[i + m_mapinterval, j + m_mapinterval] = false;
+                    m_TileisEmpty[i, j] = false;
+                    if (i == 6 && j == 6) continue;
+                    AddNewTile(i * m_TileSize, j * m_TileSize, parent);
+                    count++;
+                }
+            }
+        }
 
         while (count < m_TileCount)
         {
