@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RoomCreator : MonoBehaviour
 {
     public GameObject[,] m_GroupOBJ;
+    public Vector2 m_keyCardRoom;
 
     [SerializeField] private Transform playerTransform;
 
@@ -38,7 +40,10 @@ public class RoomCreator : MonoBehaviour
 
         m_WorldTileisEmpty = new bool[m_MaxCount, m_MaxCount];
 
-        for(int x = 0; x < m_MaxCount; x++)
+        m_keyCardRoom.x = -1;
+        m_keyCardRoom.y = -1;
+
+        for (int x = 0; x < m_MaxCount; x++)
         {
             for (int z = 0; z < m_MaxCount; z++)
             {
@@ -49,11 +54,11 @@ public class RoomCreator : MonoBehaviour
 
         initTileEmpty();
 
-
-
         int count = 2;
         int random = 0;
+        int random2 = 0;
         int value = 0;
+        int roomCount = 10;
 
         for (int i = 0; i < m_RoomCountX; i++)
         {
@@ -63,15 +68,24 @@ public class RoomCreator : MonoBehaviour
             {
                 random = Random.Range(0, value);
                 initTileEmpty();
+                roomCount--;
 
-                if(i == 1 && j == 1)
+                if (i == 1 && j == 1)
                 {
                     CreateRoom(i, j, true);
                     count--;
                     continue;
                 }
                 if (random == 0 && count > 0)
-                {                
+                {
+                    random2 = Random.Range(0, roomCount);
+
+                    if(random2 == 0 && m_keyCardRoom.x == -1)
+                    {
+                        m_keyCardRoom.x = i;
+                        m_keyCardRoom.y = j;
+                    }
+
                     CreateRoom(i, j, true);
                     count--;
                 }
