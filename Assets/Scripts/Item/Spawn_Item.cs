@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Spawn_Item : MonoBehaviour
 {
-    public int SpawnCount = 1;
-
     [SerializeField]
     int RadomProbability = 2;
     [SerializeField]
@@ -17,21 +15,17 @@ public class Spawn_Item : MonoBehaviour
     // Start is called before the first frame update
     private void OnEnable()
     {
-        if (SpawnCount > 0)
+        foreach(Transform Point in Spawn_Point)
         {
-            foreach (Transform Point in Spawn_Point)
+            int _Random = Random.Range(0, 2);
+            if(_Random == 0)
             {
-                int _Random = Random.Range(0, 2);
-                if (_Random == 0)
-                {
-                    int Count = Item.Length;
-                    _Random = Random.Range(0, Count);
-                    GameObject newOBJ = Instantiate(Item[_Random]);
-                    newOBJ.transform.parent = m_Parent;
-                    newOBJ.transform.position = Point.position;
-                }
+                int Count = Item.Length;
+                _Random = Random.Range(0, Count);
+                GameObject newOBJ = Instantiate(Item[_Random]);
+                newOBJ.transform.parent = m_Parent;
+                newOBJ.transform.position = Point.position;
             }
-            SpawnCount--;
         }
     }
 }
