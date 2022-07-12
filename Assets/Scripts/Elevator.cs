@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JustStartVR;
 
 public class Elevator : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class Elevator : MonoBehaviour
     [SerializeField]
     Transform[] Floor_Point;
 
-    public float smoothTimeY;
+    public float Speed;
 
-    Vector2 velocity = Vector2.zero;
+    //Vector2 velocity = Vector2.zero;
 
     bool its = false;
 
@@ -25,15 +26,17 @@ public class Elevator : MonoBehaviour
         if (its) return;
         Player_YPoint.position = Player.transform.position;
         its = true;
+        Player.transform.GetComponent<PlayerGravity>().GravityEnabled = false;
         StartCoroutine(Move(floor));
+   
     }
-    IEnumerator Move(int floor) 
+    IEnumerator Move(int floor)
     {
         bool y_Ppint = true;
         while (y_Ppint)
         {
-            float posY = Mathf.SmoothDamp(transform.position.y, Floor_Point[floor].transform.position.y, ref velocity.y, smoothTimeY);
-            transform.position = new Vector3(transform.position.x, posY, transform.position.z);
+            //float posY = Mathf.SmoothDamp(transform.position.y, Floor_Point[floor].transform.position.y, ref velocity.y, smoothTimeY);
+            transform.position =  Vector3.MoveTowards(transform.position, Floor_Point[floor].transform.position, Speed);
 
             Player.transform.position = new Vector3(Player.transform.position.x, Player_YPoint.transform.position.y, Player.transform.position.z);
             float dist = Vector3.Distance(transform.position, Floor_Point[floor].transform.position);
@@ -42,7 +45,8 @@ public class Elevator : MonoBehaviour
             Debug.Log(y_Ppint);
             yield return null;
         }
+        Player.transform.GetComponent<PlayerGravity>().GravityEnabled = true;
         its = false;
     }
 
-}
+}d
