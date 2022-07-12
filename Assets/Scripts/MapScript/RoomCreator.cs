@@ -84,8 +84,6 @@ public class RoomCreator : MonoBehaviour
                     {
                         m_keyCardRoom.x = i;
                         m_keyCardRoom.y = j;
-
-                        Debug.Log(i + ", " + j);
                     }
 
                     CreateRoom(i, j, true);
@@ -114,11 +112,22 @@ public class RoomCreator : MonoBehaviour
 
     private void CreateRoom(int x, int z, bool isCreate)
     {
-        GameObject parent = new GameObject("Room (" + x + ", " + z + ")");
+        string name = "Room (" + x + ", " + z + ")";
+
+
+        GameObject parent = new GameObject(name);
         parent.transform.parent = m_Parents.transform;
 
 
-        m_GroupOBJ[x, z] = new GameObject("Room (" + x + ", " + z + ")");
+        if (x == m_keyCardRoom.x && z == m_keyCardRoom.y)
+        {
+            name = "keyCardRoom (" + x + ", " + z + ")";
+            parent.tag = "keycardroom";
+
+        }
+
+
+        m_GroupOBJ[x, z] = new GameObject(name);
         m_GroupOBJ[x, z].transform.parent = parent.transform;
         m_GroupOBJ[x, z].transform.localPosition =
             new Vector3(x * m_mapinterval * m_TileSize, 0, z * m_mapinterval * m_TileSize);
