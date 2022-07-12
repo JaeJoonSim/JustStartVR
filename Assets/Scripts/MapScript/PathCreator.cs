@@ -40,7 +40,9 @@ public class PathCreator : MonoBehaviour
 
                                 m_Parents[x, z].AddComponent<DoorCreatorAxisZ>();
                                 DoorCreatorAxisZ door = m_Parents[x, z].GetComponent<DoorCreatorAxisZ>();
-                                door.m_roomCreator = roomCreator;
+                                door.m_keyCardRoom = roomCreator.m_keyCardRoom;
+                                door.m_curRoomPos = new Vector2(x, z);
+                                door.roomCreator = roomCreator;
                                 Xislinked = true;
                             }
                         }
@@ -56,7 +58,10 @@ public class PathCreator : MonoBehaviour
 
                                 CreatePathAxisX(x, index, z, m_Parents[x, z]);
                                 m_Parents[x, z].AddComponent<DoorCreatorAxisX>();
-
+                                DoorCreatorAxisX door = m_Parents[x, z].GetComponent<DoorCreatorAxisX>();
+                                door.m_keyCardRoom = roomCreator.m_keyCardRoom;
+                                door.m_curRoomPos = new Vector2(x, z);
+                                door.roomCreator = roomCreator;
                                 Zislinked = true;
                             }
                         }                            

@@ -63,7 +63,6 @@ public class RoomCreator : MonoBehaviour
         for (int i = 0; i < m_RoomCountX; i++)
         {
             value = 2;
-
             for(int j = 0; j < m_RoomCountZ; j++)
             {
                 random = Random.Range(0, value);
@@ -113,21 +112,21 @@ public class RoomCreator : MonoBehaviour
     private void CreateRoom(int x, int z, bool isCreate)
     {
         string name = "Room (" + x + ", " + z + ")";
-
+        if (x == m_keyCardRoom.x && z == m_keyCardRoom.y)
+        {
+            name = "keyCardRoom (" + x + ", " + z + ")";
+        }
 
         GameObject parent = new GameObject(name);
         parent.transform.parent = m_Parents.transform;
 
-
         if (x == m_keyCardRoom.x && z == m_keyCardRoom.y)
         {
-            name = "keyCardRoom (" + x + ", " + z + ")";
             parent.tag = "keycardroom";
-
         }
 
 
-        m_GroupOBJ[x, z] = new GameObject(name);
+            m_GroupOBJ[x, z] = new GameObject(name);
         m_GroupOBJ[x, z].transform.parent = parent.transform;
         m_GroupOBJ[x, z].transform.localPosition =
             new Vector3(x * m_mapinterval * m_TileSize, 0, z * m_mapinterval * m_TileSize);
@@ -135,7 +134,7 @@ public class RoomCreator : MonoBehaviour
         if (!isCreate) return;
         TileCreator(m_GroupOBJ[x, z]);
         m_GroupOBJ[x, z].AddComponent<ObjectCreator>();
-        ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();        
+        ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();
         parent.AddComponent<CalcDistance>();
         room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform);
     }

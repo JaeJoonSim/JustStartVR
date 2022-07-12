@@ -3,22 +3,38 @@ using UnityEngine;
 public class DoorCreatorAxisZ : MonoBehaviour
 {
     private GameObject[] m_DoorObj = new GameObject[2];
-    public RoomCreator m_roomCreator;
-
+    public Vector2 m_keyCardRoom;
+    public Vector2 m_curRoomPos;
+    public RoomCreator roomCreator;
+    int type;
     void Start()
     {
+        type = 0;
         m_DoorObj[0] = Resources.Load<GameObject>("Room/HingeDoor");
-        m_DoorObj[1] = Resources.Load<GameObject>("Room/Exit");
+        m_DoorObj[1] = Resources.Load<GameObject>("Room/CardeKey_HingeDoor");
+        int index = 4;
 
-        GameObject newObj = Instantiate(m_DoorObj[0], this.transform);
+        if (m_curRoomPos.x == m_keyCardRoom.x && m_curRoomPos.y == m_keyCardRoom.y)
+        {
+            type = 1;
+        }
+        else if (m_curRoomPos.x  == m_keyCardRoom.x && m_curRoomPos.y + 1 == m_keyCardRoom.y)
+        {
+            type = 1;
+        }
+        else if (m_curRoomPos.x  == m_keyCardRoom.x && m_curRoomPos.y + 2 == m_keyCardRoom.y)
+        {
+            if(roomCreator.m_GroupOBJ[(int)m_curRoomPos.x, (int)m_curRoomPos.y + 1].transform.childCount == 0)
+            {
+                type = 1;
+                index = 38;
 
-        GameObject tile = this.transform.GetChild(3).gameObject;
+            }
+        }
+
+        GameObject newObj = Instantiate(m_DoorObj[type], this.transform);
+        GameObject tile = this.transform.GetChild(index).gameObject;
 
         newObj.transform.position = tile.transform.position + new Vector3(0, 0.5f, -1);
-    }
-
-    void Update()
-    {
-        
     }
 }
