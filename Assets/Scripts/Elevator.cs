@@ -49,8 +49,4 @@ public class Elevator : MonoBehaviour
         its = false;
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> cd9750883076d566022232c4f6faafe080da61b7
