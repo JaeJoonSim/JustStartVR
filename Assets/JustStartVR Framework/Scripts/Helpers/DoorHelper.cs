@@ -51,6 +51,10 @@ namespace JustStartVR {
 
         [Tooltip("If true the door will not respond to user input")]
         public bool DoorIsLocked = false;
+        public void Door_Is_Locked(bool Lock)
+        {
+            DoorIsLocked = Lock;
+        }
 
         public float lockPos;
 
