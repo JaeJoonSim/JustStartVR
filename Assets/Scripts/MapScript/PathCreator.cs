@@ -5,8 +5,6 @@ public class PathCreator : MonoBehaviour
     [SerializeField] private RoomCreator roomCreator;
     private GameObject[,] m_Parents;
     [SerializeField] private Transform m_Parent;
-    [SerializeField] private GameObject m_DoorOBJ;
-    [SerializeField] private GameObject m_aa;
 
     void Start()
     {
@@ -37,11 +35,12 @@ public class PathCreator : MonoBehaviour
                             if (roomCreator.m_GroupOBJ[x, index].transform.childCount > 0 && !Xislinked)
                             {
                                 m_Parents[x, z] = new GameObject("Path");
-                                m_Parents[x, z].transform.parent = m_Parent.transform;
-        
+                                m_Parents[x, z].transform.parent = roomCreator.m_GroupOBJ[x, z].transform;
                                 CreatePathAxisZ(x, index, z, m_Parents[x, z]);
-        
-        
+
+                                m_Parents[x, z].AddComponent<DoorCreatorAxisZ>();
+                                DoorCreatorAxisZ door = m_Parents[x, z].GetComponent<DoorCreatorAxisZ>();
+                                door.m_roomCreator = roomCreator;
                                 Xislinked = true;
                             }
                         }
@@ -50,14 +49,14 @@ public class PathCreator : MonoBehaviour
                         index = x + i;
                         if (index < roomCreator.m_RoomCountX)
                         {
-                            if (roomCreator.m_GroupOBJ[x + i, z].transform.childCount > 0 && !Zislinked)
+                            if (roomCreator.m_GroupOBJ[index, z].transform.childCount > 0 && !Zislinked)
                             {
                                 m_Parents[x, z] = new GameObject("Path");
-                                m_Parents[x, z].transform.parent = m_Parent.transform;
+                                m_Parents[x, z].transform.parent = roomCreator.m_GroupOBJ[x, z].transform;
 
                                 CreatePathAxisX(x, index, z, m_Parents[x, z]);
-        
-        
+                                m_Parents[x, z].AddComponent<DoorCreatorAxisX>();
+
                                 Zislinked = true;
                             }
                         }                            
@@ -90,6 +89,7 @@ public class PathCreator : MonoBehaviour
             new Vector3((x * (roomCreator.m_mapinterval - 1) * roomCreator.m_TileSize) + (roomCreator.m_RoomSize - 1),
             0, (_z * (roomCreator.m_mapinterval - 1) + roomCreator.m_RoomSize) * roomCreator.m_TileSize);
 
+
         int xx = x * roomCreator.m_mapinterval + roomCreator.m_RoomSize - 7;
         int zz = _z * (roomCreator.m_mapinterval - 1) + roomCreator.m_RoomSize;
 
@@ -100,26 +100,6 @@ public class PathCreator : MonoBehaviour
             roomCreator.AddNewTile((int)(x * roomCreator.m_TileSize),
                (int)(_z + i) * roomCreator.m_TileSize, parent);
         }
-
-        //GameObject newDoor = null;
-        //float posz = z;
-        //for (i = 0; i < roomCreator.m_RoomCountZ; i++)
-        //{
-        //    posz -= i;
-        //    if (posz <= 0) posz = 0;
-        //    if (roomCreator.m_keyCardRoom.y == posz && roomCreator.m_keyCardRoom.x == x)
-        //    {
-        //        newDoor = Instantiate(m_aa, parent.transform);
-        //        break;
-        //    }
-        //}
-        //
-        //if (i >= 3)
-        //    newDoor = Instantiate(m_DoorOBJ, parent.transform);
-        //
-        //newDoor.SetActive(false);
-        //newDoor.transform.localPosition = new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, _z + count / 1.5f * roomCreator.m_TileSize - 1.0f);
-        //newDoor.SetActive(true);
     }
 
     private void CreatePathAxisX(int _x, int x, int z, GameObject parent)
@@ -155,28 +135,5 @@ public class PathCreator : MonoBehaviour
             roomCreator.AddNewTile((int)((_x + i) * roomCreator.m_TileSize),
                (int)(z * roomCreator.m_TileSize), parent);
         }
-
-        //GameObject newDoor = null;
-        //
-        //float posx = x;
-        //for (i = 0; i < roomCreator.m_RoomCountX; i++)
-        //{
-        //    posx -= i;
-        //    if (posx <= 0) posx = 0;
-        //    if(roomCreator.m_keyCardRoom.x == posx && roomCreator.m_keyCardRoom.y == z)
-        //    {
-        //        newDoor = Instantiate(m_aa, parent.transform);
-        //        break;
-        //    }
-        //}
-        //
-        //if(i >= 3)
-        //newDoor = Instantiate(m_DoorOBJ, parent.transform);
-        //
-        //newDoor.SetActive(false);
-        //newDoor.transform.Rotate(new Vector3(0, 90, 0));
-        //newDoor.transform.localPosition =
-        //    new Vector3(_x + count / 1.5f * roomCreator.m_TileSize - 1.0f, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize);
-        //newDoor.SetActive(true);
     }
 }

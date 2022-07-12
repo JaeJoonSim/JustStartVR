@@ -471,6 +471,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3179353572326344057, guid: 120aa1c57f3e1334d9e72df4290c8e70, type: 3}
+      propertyPath: Speed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5246012337613802056, guid: 120aa1c57f3e1334d9e72df4290c8e70, type: 3}
       propertyPath: m_Name
       value: Elevator 1
@@ -1105,7 +1109,6 @@ GameObject:
   - component: {fileID: 1137096712}
   - component: {fileID: 1137096711}
   - component: {fileID: 1137096710}
-  - component: {fileID: 1137096715}
   - component: {fileID: 1137096709}
   m_Layer: 0
   m_Name: MapCreator2
@@ -1153,8 +1156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomCreator: {fileID: 1137096709}
   m_Parent: {fileID: 1133008901}
-  m_DoorOBJ: {fileID: 2871499901593167902, guid: 2a0c9adeb1b50e344acb742002b9022a, type: 3}
-  m_aa: {fileID: 5926476773050608838, guid: dd749212cae4ff84d8c3cacc982eb8c4, type: 3}
 --- !u!114 &1137096711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,21 +1217,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1137096715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137096708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04257423c6e6844e9435cd6274d5f0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DoorObj:
-  - {fileID: 2871499901593167902, guid: 2a0c9adeb1b50e344acb742002b9022a, type: 3}
-  - {fileID: 5926476773050608838, guid: dd749212cae4ff84d8c3cacc982eb8c4, type: 3}
 --- !u!1 &1148152333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,7 +1287,6 @@ GameObject:
   - component: {fileID: 1256071524}
   - component: {fileID: 1256071523}
   - component: {fileID: 1256071522}
-  - component: {fileID: 1256071527}
   - component: {fileID: 1256071521}
   m_Layer: 0
   m_Name: MapCreator3
@@ -1349,8 +1334,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomCreator: {fileID: 1256071521}
   m_Parent: {fileID: 288075766}
-  m_DoorOBJ: {fileID: 2871499901593167902, guid: 2a0c9adeb1b50e344acb742002b9022a, type: 3}
-  m_aa: {fileID: 5926476773050608838, guid: dd749212cae4ff84d8c3cacc982eb8c4, type: 3}
 --- !u!114 &1256071523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1412,21 +1395,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1256071527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1256071520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04257423c6e6844e9435cd6274d5f0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DoorObj:
-  - {fileID: 2871499901593167902, guid: 2a0c9adeb1b50e344acb742002b9022a, type: 3}
-  - {fileID: 5926476773050608838, guid: dd749212cae4ff84d8c3cacc982eb8c4, type: 3}
 --- !u!1 &1356637809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,13 +1585,29 @@ PrefabInstance:
       propertyPath: StartingItem
       value: 
       objectReference: {fileID: 200247960}
+    - target: {fileID: 6184643849857894599, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184643849857894599, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184643849857894599, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184643849857894599, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 52
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2071,7 +2055,6 @@ GameObject:
   - component: {fileID: 4479373963969348516}
   - component: {fileID: 4479373963969348517}
   - component: {fileID: 4479373963969348518}
-  - component: {fileID: 4479373963969348520}
   - component: {fileID: 4479373963969348519}
   m_Layer: 0
   m_Name: MapCreator1
@@ -2145,8 +2128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomCreator: {fileID: 4479373963969348519}
   m_Parent: {fileID: 566847728}
-  m_DoorOBJ: {fileID: 2871499901593167902, guid: 2a0c9adeb1b50e344acb742002b9022a, type: 3}
-  m_aa: {fileID: 5926476773050608838, guid: dd749212cae4ff84d8c3cacc982eb8c4, type: 3}
 --- !u!114 &4479373963969348519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2172,21 +2153,6 @@ MonoBehaviour:
   m_TileSize: 2
   m_mapinterval: 0
   m_MaxCount: 0
---- !u!114 &4479373963969348520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260738208026677925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04257423c6e6844e9435cd6274d5f0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DoorObj:
-  - {fileID: 2871499901593167902, guid: 2a0c9adeb1b50e344acb742002b9022a, type: 3}
-  - {fileID: 5926476773050608838, guid: dd749212cae4ff84d8c3cacc982eb8c4, type: 3}
 --- !u!1001 &4874145389809418140
 PrefabInstance:
   m_ObjectHideFlags: 0

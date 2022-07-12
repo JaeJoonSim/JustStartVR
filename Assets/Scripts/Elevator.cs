@@ -49,4 +49,4 @@ public class Elevator : MonoBehaviour
         its = false;
     }
 
-}d
+}
