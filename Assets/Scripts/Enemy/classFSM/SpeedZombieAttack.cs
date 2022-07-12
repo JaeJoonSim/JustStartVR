@@ -14,7 +14,7 @@ public class SpeedZombieAttack : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             gameObject.SetActive(false);
-            Debug.Log("플레이어 공격 - 데미지 = " + FSM.Status.Atk );
+            //Debug.Log("플레이어 공격 - 데미지 = " + FSM.Status.Atk );
             //플레이어 hp 깎음
             //플레이어의 hp 깍는 함수 호출
             //player_hp -= FSM.Status.Atk;

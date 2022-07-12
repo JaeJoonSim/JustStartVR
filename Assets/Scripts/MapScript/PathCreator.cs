@@ -93,22 +93,33 @@ public class PathCreator : MonoBehaviour
         int xx = x * roomCreator.m_mapinterval + roomCreator.m_RoomSize - 7;
         int zz = _z * (roomCreator.m_mapinterval - 1) + roomCreator.m_RoomSize;
 
-        for (int i = 0; i < count; i++)
+        int i;
+        for (i = 0; i < count; i++)
         {
             roomCreator.m_WorldTileisEmpty[xx, zz + _z + i] = false;
             roomCreator.AddNewTile((int)(x * roomCreator.m_TileSize),
                (int)(_z + i) * roomCreator.m_TileSize, parent);
         }
 
-        GameObject newDoor;
-        if ((roomCreator.m_keyCardRoom.x == x && roomCreator.m_keyCardRoom.y == z) || (roomCreator.m_keyCardRoom.y == z - 1 && roomCreator.m_keyCardRoom.x == x))
-            newDoor = Instantiate(m_aa, parent.transform);
-        else
-            newDoor = Instantiate(m_DoorOBJ, parent.transform);
-
-        newDoor.SetActive(false);
-        newDoor.transform.localPosition = new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, _z + count / 1.5f * roomCreator.m_TileSize - 1.0f);
-        newDoor.SetActive(true);
+        //GameObject newDoor = null;
+        //float posz = z;
+        //for (i = 0; i < roomCreator.m_RoomCountZ; i++)
+        //{
+        //    posz -= i;
+        //    if (posz <= 0) posz = 0;
+        //    if (roomCreator.m_keyCardRoom.y == posz && roomCreator.m_keyCardRoom.x == x)
+        //    {
+        //        newDoor = Instantiate(m_aa, parent.transform);
+        //        break;
+        //    }
+        //}
+        //
+        //if (i >= 3)
+        //    newDoor = Instantiate(m_DoorOBJ, parent.transform);
+        //
+        //newDoor.SetActive(false);
+        //newDoor.transform.localPosition = new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, _z + count / 1.5f * roomCreator.m_TileSize - 1.0f);
+        //newDoor.SetActive(true);
     }
 
     private void CreatePathAxisX(int _x, int x, int z, GameObject parent)
@@ -137,23 +148,35 @@ public class PathCreator : MonoBehaviour
         int xx = _x * (roomCreator.m_mapinterval - 1) + roomCreator.m_RoomSize;
         int zz = z * roomCreator.m_mapinterval + roomCreator.m_RoomSize - 7;
 
-        for (int i = 0; i < count; i++)
+        int i = 0;
+        for (i = 0; i < count; i++)
         {
             roomCreator.m_WorldTileisEmpty[xx + _x + i, zz] = false;
             roomCreator.AddNewTile((int)((_x + i) * roomCreator.m_TileSize),
                (int)(z * roomCreator.m_TileSize), parent);
         }
 
-        GameObject newDoor;
-        if ((roomCreator.m_keyCardRoom.x == x && roomCreator.m_keyCardRoom.y == z) || (roomCreator.m_keyCardRoom.x == x - 1 && roomCreator.m_keyCardRoom.y == z))
-            newDoor = Instantiate(m_aa, parent.transform);
-        else
-            newDoor = Instantiate(m_DoorOBJ, parent.transform);
-
-        newDoor.SetActive(false);
-        newDoor.transform.Rotate(new Vector3(0, 90, 0));
-        newDoor.transform.localPosition =
-            new Vector3(_x + count / 1.5f * roomCreator.m_TileSize - 1.0f, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize);
-        newDoor.SetActive(true);
+        //GameObject newDoor = null;
+        //
+        //float posx = x;
+        //for (i = 0; i < roomCreator.m_RoomCountX; i++)
+        //{
+        //    posx -= i;
+        //    if (posx <= 0) posx = 0;
+        //    if(roomCreator.m_keyCardRoom.x == posx && roomCreator.m_keyCardRoom.y == z)
+        //    {
+        //        newDoor = Instantiate(m_aa, parent.transform);
+        //        break;
+        //    }
+        //}
+        //
+        //if(i >= 3)
+        //newDoor = Instantiate(m_DoorOBJ, parent.transform);
+        //
+        //newDoor.SetActive(false);
+        //newDoor.transform.Rotate(new Vector3(0, 90, 0));
+        //newDoor.transform.localPosition =
+        //    new Vector3(_x + count / 1.5f * roomCreator.m_TileSize - 1.0f, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize);
+        //newDoor.SetActive(true);
     }
 }

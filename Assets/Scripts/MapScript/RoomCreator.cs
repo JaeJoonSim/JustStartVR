@@ -84,6 +84,8 @@ public class RoomCreator : MonoBehaviour
                     {
                         m_keyCardRoom.x = i;
                         m_keyCardRoom.y = j;
+
+                        Debug.Log(i + ", " + j);
                     }
 
                     CreateRoom(i, j, true);

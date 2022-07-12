@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.07
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f2df6fd2e141c47aa3310a243fcd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerTransform: {fileID: 2087348404}
+  m_playerTransform: {fileID: 650511258}
 --- !u!1001 &200247959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1105,6 +1105,7 @@ GameObject:
   - component: {fileID: 1137096712}
   - component: {fileID: 1137096711}
   - component: {fileID: 1137096710}
+  - component: {fileID: 1137096715}
   - component: {fileID: 1137096709}
   m_Layer: 0
   m_Name: MapCreator2
@@ -1215,6 +1216,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1137096715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137096708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04257423c6e6844e9435cd6274d5f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DoorObj:
+  - {fileID: 2871499901593167902, guid: 2a0c9adeb1b50e344acb742002b9022a, type: 3}
+  - {fileID: 5926476773050608838, guid: dd749212cae4ff84d8c3cacc982eb8c4, type: 3}
 --- !u!1 &1148152333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,6 +1301,7 @@ GameObject:
   - component: {fileID: 1256071524}
   - component: {fileID: 1256071523}
   - component: {fileID: 1256071522}
+  - component: {fileID: 1256071527}
   - component: {fileID: 1256071521}
   m_Layer: 0
   m_Name: MapCreator3
@@ -1395,6 +1412,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1256071527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256071520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04257423c6e6844e9435cd6274d5f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DoorObj:
+  - {fileID: 2871499901593167902, guid: 2a0c9adeb1b50e344acb742002b9022a, type: 3}
+  - {fileID: 5926476773050608838, guid: dd749212cae4ff84d8c3cacc982eb8c4, type: 3}
 --- !u!1 &1356637809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f2df6fd2e141c47aa3310a243fcd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerTransform: {fileID: 2087348404}
+  m_playerTransform: {fileID: 650511258}
 --- !u!1001 &1726012461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2039,6 +2071,7 @@ GameObject:
   - component: {fileID: 4479373963969348516}
   - component: {fileID: 4479373963969348517}
   - component: {fileID: 4479373963969348518}
+  - component: {fileID: 4479373963969348520}
   - component: {fileID: 4479373963969348519}
   m_Layer: 0
   m_Name: MapCreator1
@@ -2139,6 +2172,21 @@ MonoBehaviour:
   m_TileSize: 2
   m_mapinterval: 0
   m_MaxCount: 0
+--- !u!114 &4479373963969348520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260738208026677925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04257423c6e6844e9435cd6274d5f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DoorObj:
+  - {fileID: 2871499901593167902, guid: 2a0c9adeb1b50e344acb742002b9022a, type: 3}
+  - {fileID: 5926476773050608838, guid: dd749212cae4ff84d8c3cacc982eb8c4, type: 3}
 --- !u!1001 &4874145389809418140
 PrefabInstance:
   m_ObjectHideFlags: 0
