@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f2df6fd2e141c47aa3310a243fcd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerTransform: {fileID: 2087348404}
+  m_playerTransform: {fileID: 650511258}
 --- !u!1001 &200247959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -471,6 +471,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3179353572326344057, guid: 120aa1c57f3e1334d9e72df4290c8e70, type: 3}
+      propertyPath: smoothTimeY
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5246012337613802056, guid: 120aa1c57f3e1334d9e72df4290c8e70, type: 3}
       propertyPath: m_Name
       value: Elevator 1
@@ -1126,7 +1130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_keyCardRoom: {x: 0, y: 0}
-  playerTransform: {fileID: 650511258}
   m_Parents: {fileID: 1133008900}
   m_TileOBJ: {fileID: 6809218130283055981, guid: 35be11a3104cd944389dcc4413ea4852, type: 3}
   m_CellingOBJ: {fileID: 3190468711544671928, guid: bb1d812b822734441a35d80cc2c39a26, type: 3}
@@ -1306,7 +1309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_keyCardRoom: {x: 0, y: 0}
-  playerTransform: {fileID: 650511258}
   m_Parents: {fileID: 288075765}
   m_TileOBJ: {fileID: 6809218130283055981, guid: 35be11a3104cd944389dcc4413ea4852, type: 3}
   m_CellingOBJ: {fileID: 3190468711544671928, guid: bb1d812b822734441a35d80cc2c39a26, type: 3}
@@ -1585,13 +1587,29 @@ PrefabInstance:
       propertyPath: StartingItem
       value: 
       objectReference: {fileID: 200247960}
+    - target: {fileID: 6184643849857894599, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184643849857894599, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184643849857894599, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184643849857894599, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 52
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1603,7 +1621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1611,7 +1629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1623,7 +1641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1765,7 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f2df6fd2e141c47aa3310a243fcd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerTransform: {fileID: 2087348404}
+  m_playerTransform: {fileID: 650511258}
 --- !u!1001 &1726012461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2127,7 +2145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_keyCardRoom: {x: 0, y: 0}
-  playerTransform: {fileID: 650511258}
   m_Parents: {fileID: 566847727}
   m_TileOBJ: {fileID: 6809218130283055981, guid: 35be11a3104cd944389dcc4413ea4852, type: 3}
   m_CellingOBJ: {fileID: 3190468711544671928, guid: bb1d812b822734441a35d80cc2c39a26, type: 3}

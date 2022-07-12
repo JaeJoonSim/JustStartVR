@@ -8,8 +8,6 @@ public class RoomCreator : MonoBehaviour
     public GameObject[,] m_GroupOBJ;
     public Vector2 m_keyCardRoom;
 
-    [SerializeField] private Transform playerTransform;
-
     public GameObject m_Parents;
     public GameObject m_TileOBJ;
     public GameObject m_CellingOBJ;

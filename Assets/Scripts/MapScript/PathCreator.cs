@@ -101,7 +101,9 @@ public class PathCreator : MonoBehaviour
         }
 
         GameObject newDoor;
-        if ((roomCreator.m_keyCardRoom.x == x && roomCreator.m_keyCardRoom.y == z) || (roomCreator.m_keyCardRoom.y == z - 1 && roomCreator.m_keyCardRoom.x == x))
+        if (roomCreator.m_keyCardRoom.x == x && roomCreator.m_keyCardRoom.y == z)
+            newDoor = Instantiate(m_aa, parent.transform);
+        else if ((roomCreator.m_keyCardRoom.y == z - 1 || roomCreator.m_keyCardRoom.y == z - 2) && roomCreator.m_keyCardRoom.x == x)
             newDoor = Instantiate(m_aa, parent.transform);
         else
             newDoor = Instantiate(m_DoorOBJ, parent.transform);
@@ -145,7 +147,9 @@ public class PathCreator : MonoBehaviour
         }
 
         GameObject newDoor;
-        if ((roomCreator.m_keyCardRoom.x == x && roomCreator.m_keyCardRoom.y == z) || (roomCreator.m_keyCardRoom.x == x - 1 && roomCreator.m_keyCardRoom.y == z))
+        if (roomCreator.m_keyCardRoom.x == x && roomCreator.m_keyCardRoom.y == z)
+            newDoor = Instantiate(m_aa, parent.transform);
+        else if((roomCreator.m_keyCardRoom.x == x - 1 || roomCreator.m_keyCardRoom.x == x -2) && roomCreator.m_keyCardRoom.y == z)
             newDoor = Instantiate(m_aa, parent.transform);
         else
             newDoor = Instantiate(m_DoorOBJ, parent.transform);
