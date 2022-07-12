@@ -36,7 +36,7 @@ public class Elevator : MonoBehaviour
         while (y_Ppint)
         {
             //float posY = Mathf.SmoothDamp(transform.position.y, Floor_Point[floor].transform.position.y, ref velocity.y, smoothTimeY);
-            transform.position =  Vector3.MoveTowards(transform.position, Floor_Point[floor].transform.position, Speed);
+            transform.position =  Vector3.MoveTowards(transform.position, Floor_Point[floor].transform.position, Speed * Time.deltaTime);
 
             Player.transform.position = new Vector3(Player.transform.position.x, Player_YPoint.transform.position.y, Player.transform.position.z);
             float dist = Vector3.Distance(transform.position, Floor_Point[floor].transform.position);
@@ -49,4 +49,4 @@ public class Elevator : MonoBehaviour
         its = false;
     }
 
-}d
+}

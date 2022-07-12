@@ -26,6 +26,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("LoadingScene");
     }
 
+    public void ProgressAll()
+    {
+        progressAll = true;
+    }
+
     IEnumerator LoadScene()
     {
         yield return null;
