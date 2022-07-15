@@ -14,7 +14,7 @@ public class KeyCarde : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
+        //Debug.Log(other.tag);
         if(other.tag == "KeyPade")
         {
             other.GetComponent<KeyPad>().TouchCard(SetCard);
