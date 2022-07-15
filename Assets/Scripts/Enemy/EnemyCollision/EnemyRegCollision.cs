@@ -35,7 +35,7 @@ public class EnemyRegCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "bullet")
+        if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
         {
             FSM.Damaged(damage, (transform.position - other.transform.position).normalized);
             //Destroy(other.gameObject);

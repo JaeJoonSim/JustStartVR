@@ -163,7 +163,7 @@ namespace JustStartVR
         {
             if (AmmoName.Contains("Glock"))
             {
-                CurrentGlockClips++;
+                CurrentGlockClips--;
             }
             else if (AmmoName.Contains("AK74M"))
             {
@@ -171,7 +171,7 @@ namespace JustStartVR
             }
             else if (AmmoName.Contains("M1911"))
             {
-                CurrentM1911Clips++;
+                CurrentM1911Clips--;
             }
         }
     }

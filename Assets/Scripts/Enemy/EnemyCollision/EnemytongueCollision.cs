@@ -21,7 +21,7 @@ public class EnemytongueCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "bullet")
+        if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
         {
             //Debug.Log("Çú¹Ù´Ú  ÃÑ¾Ë Ãæµ¹");
             FSM.bulletCollision = true;
