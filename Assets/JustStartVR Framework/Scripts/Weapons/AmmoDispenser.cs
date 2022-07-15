@@ -45,11 +45,11 @@ namespace JustStartVR
         /// <summary>
         /// Amount of M1911 Clips currently available
         /// </summary>
-        public int CurrentM1911Clips = 5;
+        public int CurrentM1911Clips = 999;
 
-        public int CurrentAK74MClips = 5;
+        public int CurrentAK74MClips = 999;
 
-        public int CurrentGlockClips = 30;
+        public int CurrentGlockClips = 999;
 
         // Update is called once per frame
         void Update()
