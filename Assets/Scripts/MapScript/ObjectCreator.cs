@@ -32,12 +32,13 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[5];
+        m_Obj = new GameObject[6];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
         m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
         m_Obj[3] = Resources.Load<GameObject>("Room/table");
-        m_Obj[4] = Resources.Load<GameObject>("Room/test tube-1");
+        m_Obj[4] = Resources.Load<GameObject>("Room/tube(withzombie)");
+        m_Obj[5] = Resources.Load<GameObject>("Room/tube(withoutzombie)");
 
         int x = 0;
         int z = 0;
@@ -130,7 +131,7 @@ public class ObjectCreator : MonoBehaviour
             case -1:
                 angle = Random.Range(0, 360);
                 min = 2;
-                max = 5;
+                max = 6;
                 if (isCardRoom == true)
                 {
                     max = 4;

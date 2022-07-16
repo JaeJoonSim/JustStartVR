@@ -9,6 +9,11 @@ public class LampCreator : MonoBehaviour
     void Start()
     {
         GameObject newObj = null;
+
+        bool isNotThirdFloor = true;
+
+        if (m_roomCreator.m_Y == 40) isNotThirdFloor = false;
+
         for(int i = 0; i < m_roomCreator.m_MaxCount; i++)
         {
             for (int j = 0; j < m_roomCreator.m_MaxCount; j++)
@@ -21,7 +26,7 @@ public class LampCreator : MonoBehaviour
                         Instantiate(m_LampOBJ,
                             new Vector3(i * m_roomCreator.m_TileSize, m_roomCreator.m_Y + 3.51f, j * m_roomCreator.m_TileSize),
                             Quaternion.identity);
-
+                        newObj.SetActive(isNotThirdFloor);
                         newObj.transform.parent = m_Parent;
                     }
                 }

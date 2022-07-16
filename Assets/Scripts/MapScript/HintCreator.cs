@@ -24,7 +24,8 @@ public class HintCreator : MonoBehaviour
                 if(!m_roomCreator.m_WorldTileisEmpty[x, z])
                 {
                     Instantiate(m_hintOBJ,
-                        new Vector3(x * m_roomCreator.m_TileSize, m_roomCreator.m_Y + 0.5f, z * m_roomCreator.m_TileSize), Quaternion.identity);
+                        new Vector3(x * m_roomCreator.m_TileSize, m_roomCreator.m_Y + 0.5f, z * m_roomCreator.m_TileSize),
+                        Quaternion.Euler(new Vector3(-90, 0, 0)));
                     break;
                 }
             }
