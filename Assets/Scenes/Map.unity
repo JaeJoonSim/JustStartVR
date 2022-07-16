@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.07
@@ -1132,7 +1132,9 @@ MonoBehaviour:
   m_keyCardRoom: {x: 0, y: 0}
   playerTransform: {fileID: 650511258}
   m_Parents: {fileID: 1133008900}
-  m_TileOBJ: {fileID: 6809218130283055981, guid: 35be11a3104cd944389dcc4413ea4852, type: 3}
+  m_TileOBJ:
+  - {fileID: 6809218130283055981, guid: 35be11a3104cd944389dcc4413ea4852, type: 3}
+  - {fileID: 6809218130283055981, guid: 641421a5efbccfb49996ac25b27aae0a, type: 3}
   m_CellingOBJ: {fileID: 3190468711544671928, guid: bb1d812b822734441a35d80cc2c39a26, type: 3}
   m_RoomSize: 13
   m_TileCount: 100
@@ -1310,7 +1312,9 @@ MonoBehaviour:
   m_keyCardRoom: {x: 0, y: 0}
   playerTransform: {fileID: 650511258}
   m_Parents: {fileID: 288075765}
-  m_TileOBJ: {fileID: 6809218130283055981, guid: 35be11a3104cd944389dcc4413ea4852, type: 3}
+  m_TileOBJ:
+  - {fileID: 6809218130283055981, guid: 35be11a3104cd944389dcc4413ea4852, type: 3}
+  - {fileID: 6809218130283055981, guid: 641421a5efbccfb49996ac25b27aae0a, type: 3}
   m_CellingOBJ: {fileID: 3190468711544671928, guid: bb1d812b822734441a35d80cc2c39a26, type: 3}
   m_RoomSize: 13
   m_TileCount: 100
@@ -2191,7 +2195,9 @@ MonoBehaviour:
   m_keyCardRoom: {x: 0, y: 0}
   playerTransform: {fileID: 650511258}
   m_Parents: {fileID: 566847727}
-  m_TileOBJ: {fileID: 6809218130283055981, guid: 35be11a3104cd944389dcc4413ea4852, type: 3}
+  m_TileOBJ:
+  - {fileID: 6809218130283055981, guid: 35be11a3104cd944389dcc4413ea4852, type: 3}
+  - {fileID: 6809218130283055981, guid: 641421a5efbccfb49996ac25b27aae0a, type: 3}
   m_CellingOBJ: {fileID: 3190468711544671928, guid: bb1d812b822734441a35d80cc2c39a26, type: 3}
   m_RoomSize: 13
   m_TileCount: 100

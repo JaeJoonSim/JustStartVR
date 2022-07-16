@@ -32,11 +32,12 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[4];
+        m_Obj = new GameObject[5];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
         m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
-        m_Obj[3] = Resources.Load<GameObject>("Room/test tube-1");
+        m_Obj[3] = Resources.Load<GameObject>("Room/table");
+        m_Obj[4] = Resources.Load<GameObject>("Room/test tube-1");
 
         int x = 0;
         int z = 0;
@@ -58,7 +59,7 @@ public class ObjectCreator : MonoBehaviour
                 if (!(x % (max / 2) == 0 || z % (max / 2) == 0))
                 {
                     dir = checkWall(x, z);
-                    CreateObj(x * 2, 0.5f, z * 2, dir, this.gameObject, Random.Range(0, 2));
+                    CreateObj(x * 2, 0.5f, z * 2, dir, this.gameObject);
                     count++;
                 }
             }
@@ -111,15 +112,29 @@ public class ObjectCreator : MonoBehaviour
 
 
 
-    public void CreateObj(float x, float y, float z, int dir, GameObject parent, int type)
+    public void CreateObj(float x, float y, float z, int dir, GameObject parent)
     {
         float angle = 0;
-        
+        int type;
+
+
+        float _x = parent.transform.position.x / roomCreator.m_mapinterval / roomCreator.m_TileSize;
+        float _z = parent.transform.position.z / roomCreator.m_mapinterval / roomCreator.m_TileSize; ;
+        bool isCardRoom = roomCreator.isCardRoom(_x, _z);
+
+        int min = 0;
+        int max = 2;
+
         switch (dir)
         {
             case -1:
                 angle = Random.Range(0, 360);
-                type = Random.Range(2, 4);
+                min = 2;
+                max = 5;
+                if (isCardRoom == true)
+                {
+                    max = 4;
+                }
                 break;
             case 0:
                 angle = 180;
@@ -135,10 +150,11 @@ public class ObjectCreator : MonoBehaviour
                 break;
             case 3:
                 angle = -90;
-                x +=0.7f;
+                x += 0.7f;
                 break;
         }
 
+        type = Random.Range(min, max);
         GameObject newObj;
 
         newObj = Instantiate(m_Obj[type], parent.transform);

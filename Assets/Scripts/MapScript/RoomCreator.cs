@@ -11,7 +11,7 @@ public class RoomCreator : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
     public GameObject m_Parents;
-    public GameObject m_TileOBJ;
+    public GameObject[] m_TileOBJ;
     public GameObject m_CellingOBJ;
     public int m_RoomSize;
     public int m_TileCount;
@@ -291,9 +291,24 @@ public class RoomCreator : MonoBehaviour
         return false;
     }
 
+    public bool isCardRoom(float x, float z)
+    {
+        return (m_keyCardRoom.x == x && m_keyCardRoom.y == z);
+    }
+
     public void AddNewTile(int x, int z, GameObject parent)
     {
-        GameObject newOBJ = Instantiate(m_TileOBJ, parent.transform);
+        float _x = parent.transform.position.x /  m_mapinterval / m_TileSize;
+        float _z = parent.transform.position.z /  m_mapinterval / m_TileSize;
+        GameObject newOBJ;
+        if(!isCardRoom(_x, _z))
+        {
+            newOBJ = Instantiate(m_TileOBJ[0], parent.transform);
+        }
+        else
+        {
+            newOBJ = Instantiate(m_TileOBJ[1], parent.transform);
+        }
         newOBJ.transform.localPosition = new Vector3(x, m_Y, z);
         newOBJ = Instantiate(m_CellingOBJ, parent.transform);
         newOBJ.transform.localPosition = new Vector3(x, m_Y + 4, z);
