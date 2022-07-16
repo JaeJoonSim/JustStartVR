@@ -45,11 +45,11 @@ namespace JustStartVR
         /// <summary>
         /// Amount of M1911 Clips currently available
         /// </summary>
-        public int CurrentM1911Clips = 5;
+        public int CurrentM1911Clips = 999;
 
-        public int CurrentAK74MClips = 5;
+        public int CurrentAK74MClips = 999;
 
-        public int CurrentGlockClips = 30;
+        public int CurrentGlockClips = 999;
 
         // Update is called once per frame
         void Update()
@@ -163,7 +163,7 @@ namespace JustStartVR
         {
             if (AmmoName.Contains("Glock"))
             {
-                CurrentGlockClips++;
+                CurrentGlockClips--;
             }
             else if (AmmoName.Contains("AK74M"))
             {
@@ -171,7 +171,7 @@ namespace JustStartVR
             }
             else if (AmmoName.Contains("M1911"))
             {
-                CurrentM1911Clips++;
+                CurrentM1911Clips--;
             }
         }
     }

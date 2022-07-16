@@ -121,7 +121,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         agent.enabled = false;
         anim.enabled = false;
         currentState = null;
-        StartCoroutine(DestroyObject());
+        //StartCoroutine(DestroyObject());
     }
 
     IEnumerator DestroyObject()

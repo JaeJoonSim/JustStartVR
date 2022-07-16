@@ -13,7 +13,7 @@ public class EnemyBlisterCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "bullet")
+        if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
         {
             //Debug.Log("¼öÆ÷");
             GameObject impact = Instantiate(BlisterEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
