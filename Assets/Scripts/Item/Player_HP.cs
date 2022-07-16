@@ -8,9 +8,9 @@ using UnityEngine.UI;
 public class Player_HP : MonoBehaviour
 {
     [SerializeField]
-    int Set_HP = 100;
+    float Set_HP = 100;
     [HideInInspector]
-    public int HP;
+    public float HP;
 
     public Image HP_Bar;
 
@@ -24,7 +24,7 @@ public class Player_HP : MonoBehaviour
     {
         HP_Bar.fillAmount = HP / Set_HP;
     }
-    public void change_HP(int Val)
+    public void change_HP(float Val)
     {
         HP += Val;
         Show_UI();

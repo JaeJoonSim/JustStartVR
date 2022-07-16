@@ -9651,6 +9651,7 @@ GameObject:
   - component: {fileID: 387833335261779354}
   - component: {fileID: 3035284991366840545}
   - component: {fileID: 4428851833375628022}
+  - component: {fileID: 6014895290523819524}
   m_Layer: 9
   m_Name: Collider
   m_TagString: Player
@@ -9703,6 +9704,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &6014895290523819524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2887595513622962171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe57c6d07f9334d438407a636451c41e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set_HP: 100
+  HP: 0
+  HP_Bar: {fileID: 6041713329092161915}
 --- !u!1 &2893816733435022927
 GameObject:
   m_ObjectHideFlags: 0
@@ -32220,6 +32236,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05859677ecaf09c409510984a9f609f7, type: 3}
+--- !u!114 &6041713329092161915 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7299271846781179111, guid: 05859677ecaf09c409510984a9f609f7, type: 3}
+  m_PrefabInstance: {fileID: 3932842391469368732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6041713330290721550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7299271845861762706, guid: 05859677ecaf09c409510984a9f609f7, type: 3}
