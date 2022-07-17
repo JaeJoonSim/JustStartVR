@@ -15,7 +15,7 @@ public class Spawn_Item : MonoBehaviour
     Transform m_Parent;
 
     // Start is called before the first frame update
-    private void OnEnable()
+    private void Start()
     {
         if (SpawnCount > 0)
         {
