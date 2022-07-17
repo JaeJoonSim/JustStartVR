@@ -10,6 +10,10 @@ public class CheckFloor : MonoBehaviour
     private void Start()
     {
         m_OnOffObject = this.transform.GetChild(0).gameObject;
+        if(m_playerTransform == null)
+        {
+            m_playerTransform = GameObject.Find("XR Rig").transform.GetChild(0).gameObject.transform;
+        }
     }
 
     bool isSameFloor()

@@ -4,11 +4,10 @@ public class ObjectCreator : MonoBehaviour
 {
     private GameObject[] m_Obj;
     private bool[,] m_TileisEmpty;
-    private bool[,] m_Object;
+    public bool[,] m_Object;
     private RoomCreator roomCreator;
     private Transform m_Parent;
-
-    const int maxCount = 20;
+    private int maxCount = 20;
 
     int maxSize;
 
@@ -33,7 +32,7 @@ public class ObjectCreator : MonoBehaviour
         }
 
         m_Obj = new GameObject[6];
-        m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
+        m_Obj[0] = Resources.Load<GameObject>("Room/cabinet 1");
         m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
         m_Obj[3] = Resources.Load<GameObject>("Room/table");
@@ -60,7 +59,7 @@ public class ObjectCreator : MonoBehaviour
                 if (!(x % (max / 2) == 0 || z % (max / 2) == 0))
                 {
                     dir = checkWall(x, z);
-                    CreateObj(x * 2, 0.5f, z * 2, dir, this.gameObject);
+                    CreateObj(x * 2, 0.5f, z * 2, dir, m_Parent);
                     count++;
                 }
             }
@@ -113,7 +112,7 @@ public class ObjectCreator : MonoBehaviour
 
 
 
-    public void CreateObj(float x, float y, float z, int dir, GameObject parent)
+    public void CreateObj(float x, float y, float z, int dir, Transform parent)
     {
         float angle = 0;
         int type;
@@ -158,10 +157,9 @@ public class ObjectCreator : MonoBehaviour
         type = Random.Range(min, max);
         GameObject newObj;
 
-        newObj = Instantiate(m_Obj[type], parent.transform);
+        newObj = Instantiate(m_Obj[type], parent);
         newObj.transform.Rotate(new Vector3(0, angle, 0));
         newObj.transform.localPosition = new Vector3(x, roomCreator.m_Y + y, z);
-        newObj.transform.parent = m_Parent;
         newObj.SetActive(true);
 
     }
