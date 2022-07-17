@@ -9,8 +9,7 @@ public class enemySpown : MonoBehaviour
         if (SpowRrandom == 0)
         {
             int random = Random.Range(0, enemy.Length);
-            Instantiate(enemy[random], gameObject.transform.position,
-                Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+            Instantiate(enemy[random], gameObject.transform.position, gameObject.transform.rotation);
             Destroy(this.gameObject);
         }
         

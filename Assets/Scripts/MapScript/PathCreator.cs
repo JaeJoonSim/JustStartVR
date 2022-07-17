@@ -145,7 +145,7 @@ public class PathCreator : MonoBehaviour
     public void AddNewTile(int x, int z, GameObject parent)
     {
         GameObject newOBJ;
-        newOBJ = Instantiate(roomCreator.m_TileOBJ, parent.transform);
+        newOBJ = Instantiate(roomCreator.m_TileOBJ[1], parent.transform);
         newOBJ.transform.localPosition = new Vector3(x, roomCreator.m_Y, z);
         newOBJ = Instantiate(roomCreator.m_CellingOBJ, parent.transform);
         newOBJ.transform.localPosition = new Vector3(x, roomCreator.m_Y + 4, z);

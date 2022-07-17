@@ -37,7 +37,7 @@ public class BossZombieAttack2State : EnemyBaseState
         tongue.transform.localScale = new Vector3(tScale, 1, 1);
         if (tongueBack)
         {
-            tScale -= 0.05f;
+            tScale -= 0.01f;
             if (tScale < 0)
             {
                 mgr.ChangeState(mgr.TraceState);
@@ -54,7 +54,7 @@ public class BossZombieAttack2State : EnemyBaseState
                 {
                     if (tScale <= Bmgr.BStatus.Attack2Range / 2)
                     {
-                        tScale += 0.05f;
+                        tScale += 0.01f;
                     }
                     else
                     {
@@ -65,7 +65,7 @@ public class BossZombieAttack2State : EnemyBaseState
                 {
                     if (tScale >= 0.3f)
                     {
-                        tScale -= 0.01f;
+                        tScale -= 0.003f;
                         if (mgr.CalcTargetDistance() > 0.5f)
                         {
                             //characterController.Move((mgr.transform.position - mgr.targetOBJ.transform.position).normalized * 1.5f * Time.deltaTime);
