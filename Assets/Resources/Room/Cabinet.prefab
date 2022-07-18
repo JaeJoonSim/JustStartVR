@@ -1431,7 +1431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5948711226533110723
 Transform:
   m_ObjectHideFlags: 0
@@ -1476,6 +1476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc84ee985841a5e49ba3fb52ea2ed95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnCount: 1
   RadomProbability: 2
   Item:
   - {fileID: 6580706055548250824, guid: dfe5ff6e0a11be24ba750fd65cf2d098, type: 3}
