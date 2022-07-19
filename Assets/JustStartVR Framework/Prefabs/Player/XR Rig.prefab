@@ -20499,8 +20499,8 @@ MonoBehaviour:
   LeftGrabber: {fileID: 1179811824172538497}
   RightGrabber: {fileID: 488380648060929909}
   AmmoDispenserObject: {fileID: 4585631068492775403}
-  M1911Clip: {fileID: 2003334711007980501, guid: 0e329b9e122316b43a2dc3b486ed51bf, type: 3}
-  GlockClip: {fileID: 6970025308905670833, guid: d67544e4468dd0748a81cca8dafdb14b, type: 3}
+  M1911Clip: {fileID: 8918725207756237492, guid: 0e329b9e122316b43a2dc3b486ed51bf, type: 3}
+  GlockClip: {fileID: 7184116923718441334, guid: 987961f7d69b4ed48b80d8058aca3581, type: 3}
   AK74MClip: {fileID: 2902700608415231782, guid: bfec8c0c70010ac46aa9e2ca6bb43897, type: 3}
   CurrentM1911Clips: 999
   CurrentAK74MClips: 999
@@ -21282,8 +21282,8 @@ Camera:
   m_GameObject: {fileID: 6184643849857191547}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -28778,7 +28778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8167093705376883952}
   m_LocalRotation: {x: 0.6776517, y: -0.05871144, z: 0.05442579, w: 0.7310124}
-  m_LocalPosition: {x: 0.2855, y: -0.184, z: 0.0381}
+  m_LocalPosition: {x: 0.2855, y: -0.184, z: 0.1337}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30188,7 +30188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8643043468473142297}
   m_LocalRotation: {x: -0.66852254, y: -0.12544793, z: 0.14390726, w: -0.7187706}
-  m_LocalPosition: {x: -0.2828, y: -0.186, z: 0.047}
+  m_LocalPosition: {x: -0.2828, y: -0.186, z: 0.14260012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32276,6 +32276,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4242958893143557271, guid: 5b0e0c4c21a9d0647a3dd33e70469244, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242958893143557271, guid: 5b0e0c4c21a9d0647a3dd33e70469244, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242958893143557271, guid: 5b0e0c4c21a9d0647a3dd33e70469244, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 60
       objectReference: {fileID: 0}
@@ -32293,7 +32301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242958894283963898, guid: 5b0e0c4c21a9d0647a3dd33e70469244, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4242958894283963898, guid: 5b0e0c4c21a9d0647a3dd33e70469244, type: 3}
       propertyPath: m_LocalPosition.z
@@ -32351,7 +32359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 681930773713750355, guid: 2dfea762faa08c444b4ea052bdd1f752, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0025000114
+      value: 0.7941678
       objectReference: {fileID: 0}
     - target: {fileID: 5184168461228052946, guid: 2dfea762faa08c444b4ea052bdd1f752, type: 3}
       propertyPath: m_IsActive
