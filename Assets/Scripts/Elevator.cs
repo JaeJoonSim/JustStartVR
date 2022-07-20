@@ -43,7 +43,7 @@ public class Elevator : MonoBehaviour
             y_Ppint = dist > 0.01f;
             //y_Ppint = !(transform.position.y< Floor_Point[floor].transform.position.y+0.5f && transform.position.y > Floor_Point[floor].transform.position.y - 0.5f);
             //Debug.Log(y_Ppint);
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
         Player.transform.GetComponent<PlayerGravity>().GravityEnabled = true;
         its = false;

@@ -35,7 +35,7 @@ namespace JustStartVR {
             }
         }
 
-        public virtual void Update() {
+        public virtual void FixedUpdate() {
             if (PhysicsCheckType == RemoteGrabType.Raycast) {
 
                 RaycastHit hit;

@@ -224,7 +224,7 @@ namespace JustStartVR {
             }
         }
         
-        void Update() {
+        void FixedUpdate() {
 
             // Keep track of how long an object has been trying to fly to our hand
             if(flyingGrabbable != null) {
