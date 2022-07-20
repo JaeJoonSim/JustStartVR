@@ -4,8 +4,8 @@ public class WallCreator : MonoBehaviour
 {
     [SerializeField]private RoomCreator roomCreator;
     [SerializeField] private GameObject m_WallOBJ;
-    [SerializeField] private GameObject m_roomCreatorObj;
     [SerializeField] private GameObject m_ExitOBJ;
+    [SerializeField] private GameObject m_roomCreatorObj;
     [SerializeField] private Transform m_Parent;
     [SerializeField] private bool[,] m_WallisEmpty;
 
@@ -36,32 +36,10 @@ public class WallCreator : MonoBehaviour
                 }
             }
         }
+
         Destroy(m_roomCreatorObj);
     }
 
-    private bool CreateExitPoint(int _x, int _z)
-    {
-        if(created == true || (_x < roomCreator.m_mapinterval && _z < roomCreator.m_mapinterval) || !m_WallisEmpty[_x, _z])
-        {
-            return false;
-        }
-
-        int random = Random.Range(0, m_count);
-        if (random != 0)
-        {
-            m_count -= 1;
-            return false;
-        }
-
-        GameObject newObj = Instantiate(m_ExitOBJ, new Vector3(_x * roomCreator.m_TileSize, roomCreator.m_Y + 1.5f, _z * roomCreator.m_TileSize), Quaternion.identity);
-        newObj.transform.parent = m_Parent.transform;
-
-        created = true;
-        roomCreator.m_WorldTileisEmpty[_x, _z] = false;
-        m_WallisEmpty[_x, _z] = false;
-
-        return true;
-    }
 
     private void CreateWall(int _x, int _z)
     {
@@ -95,15 +73,12 @@ public class WallCreator : MonoBehaviour
             {
                 if (roomCreator.m_WorldTileisEmpty[x, z] && m_WallisEmpty[x, z])
                 {
-                    //if(!CreateExitPoint(x, z))
-                    {
-                        GameObject newObj = 
-                        Instantiate(m_WallOBJ,
-                            new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
-                            , Quaternion.identity);
-                        newObj.transform.parent = m_Parent;
-                        m_WallisEmpty[x, z] = false;
-                    }
+                    GameObject newObj = 
+                    Instantiate(m_WallOBJ,
+                        new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
+                        , Quaternion.identity);
+                    newObj.transform.parent = m_Parent;
+                    m_WallisEmpty[x, z] = false;
                 }
             }
             else

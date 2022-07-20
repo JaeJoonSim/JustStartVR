@@ -8,10 +8,11 @@ public class ObjectCreator : MonoBehaviour
     private RoomCreator roomCreator;
     private Transform m_Parent;
     private int maxCount = 30;
+    int count = 0;
 
     int maxSize;
 
-    public void initTile(int max, bool[,] value, RoomCreator room, Transform parent)
+    public void initTile(int max, bool[,] value, RoomCreator room, Transform parent, int roomx, int roomy)
     {
         roomCreator = room;
         maxSize = max;
@@ -31,7 +32,7 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[10];
+        m_Obj = new GameObject[11];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
         m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
@@ -42,11 +43,11 @@ public class ObjectCreator : MonoBehaviour
         m_Obj[7] = Resources.Load<GameObject>("Room/blood4");
         m_Obj[8] = Resources.Load<GameObject>("Room/blood1");
         m_Obj[9] = Resources.Load<GameObject>("Room/blood2");
+        m_Obj[10] = Resources.Load<GameObject>("Room/table(withHint)");
 
         int x = 0;
         int z = 0;
 
-        int count = 0;
 
         int dir = -1;
 
@@ -56,8 +57,10 @@ public class ObjectCreator : MonoBehaviour
             x = Random.Range(0, maxSize);
             z = Random.Range(0, maxSize);
 
+            int _x = x + roomx * roomCreator.m_mapinterval;
+            int _z = z + roomy * roomCreator.m_mapinterval;
 
-            if (!m_TileisEmpty[x, z] && m_Object[x, z])
+            if (m_Object[x, z] && !m_TileisEmpty[x, z])
             {
                 m_Object[x, z] = false;
                 if (!(x % (max / 2) == 0 || z % (max / 2) == 0))
@@ -123,7 +126,7 @@ public class ObjectCreator : MonoBehaviour
 
 
         float _x = parent.transform.position.x / roomCreator.m_mapinterval / roomCreator.m_TileSize;
-        float _z = parent.transform.position.z / roomCreator.m_mapinterval / roomCreator.m_TileSize; ;
+        float _z = parent.transform.position.z / roomCreator.m_mapinterval / roomCreator.m_TileSize;
         bool isCardRoom = roomCreator.isCardRoom(_x, _z);
 
         int min = 0;
@@ -160,6 +163,15 @@ public class ObjectCreator : MonoBehaviour
 
         type = Random.Range(min, max);
         GameObject newObj;
+
+        max = 4 - roomCreator.m_hintCount;
+
+        int random = Random.Range(0, max);
+        if (count == 29 && roomCreator.m_hintCount < 4 && random <= 1)
+        {
+            type = 10;
+            roomCreator.m_hintCount++;
+        }
 
         newObj = Instantiate(m_Obj[type], parent);
         newObj.transform.Rotate(new Vector3(0, angle, 0));

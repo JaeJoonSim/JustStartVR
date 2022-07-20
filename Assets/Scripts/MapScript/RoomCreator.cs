@@ -20,6 +20,8 @@ public class RoomCreator : MonoBehaviour
     public int m_RoomCountZ;
     public int m_TileSize;
 
+    public int m_hintCount = 0;
+
     public bool[,] m_TileisEmpty;
     public bool[,] m_WorldTileisEmpty;
 
@@ -137,8 +139,8 @@ public class RoomCreator : MonoBehaviour
         m_GroupOBJ[x, z].AddComponent<EnemyCreator>();
         ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();
         EnemyCreator enemy = m_GroupOBJ[x, z].GetComponent<EnemyCreator>();
-        parent.AddComponent<CalcDistance>();
-        room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform);
+        //parent.AddComponent<CalcDistance>();
+        room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform, x, z);
         enemy.CreateEnemy(m_RoomSize, m_TileisEmpty, room.m_Object, m_GroupOBJ[x, z].transform, this);
     }
 

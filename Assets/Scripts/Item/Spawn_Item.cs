@@ -11,9 +11,6 @@ public class Spawn_Item : MonoBehaviour
     [SerializeField]
     Transform[] Spawn_Point;
 
-    [SerializeField]
-    Transform m_Parent;
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -26,9 +23,7 @@ public class Spawn_Item : MonoBehaviour
                 {
                     int Count = Item.Length;
                     _Random = Random.Range(0, Count);
-                    GameObject newOBJ = Instantiate(Item[_Random]);
-                    newOBJ.transform.parent = m_Parent;
-                    newOBJ.transform.position = Point.position;
+                    Instantiate(Item[_Random], Point.position, Quaternion.identity, this.transform.parent);
                 }
             }
             SpawnCount--;
