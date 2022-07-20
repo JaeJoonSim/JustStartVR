@@ -7,7 +7,7 @@ public class ObjectCreator : MonoBehaviour
     public bool[,] m_Object;
     private RoomCreator roomCreator;
     private Transform m_Parent;
-    private int maxCount = 20;
+    private int maxCount = 30;
 
     int maxSize;
 
@@ -31,13 +31,17 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[6];
+        m_Obj = new GameObject[10];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
         m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
         m_Obj[3] = Resources.Load<GameObject>("Room/table");
         m_Obj[4] = Resources.Load<GameObject>("Room/tube(withzombie)");
         m_Obj[5] = Resources.Load<GameObject>("Room/tube(withoutzombie)");
+        m_Obj[6] = Resources.Load<GameObject>("Room/blood3");
+        m_Obj[7] = Resources.Load<GameObject>("Room/blood4");
+        m_Obj[8] = Resources.Load<GameObject>("Room/blood1");
+        m_Obj[9] = Resources.Load<GameObject>("Room/blood2");
 
         int x = 0;
         int z = 0;
@@ -130,7 +134,7 @@ public class ObjectCreator : MonoBehaviour
             case -1:
                 angle = Random.Range(0, 360);
                 min = 2;
-                max = 6;
+                max = 10;
                 if (isCardRoom == true)
                 {
                     max = 4;
@@ -159,7 +163,13 @@ public class ObjectCreator : MonoBehaviour
 
         newObj = Instantiate(m_Obj[type], parent);
         newObj.transform.Rotate(new Vector3(0, angle, 0));
-        newObj.transform.localPosition = new Vector3(x, roomCreator.m_Y + y, z);
+
+        float _y = 0.0f;
+        if(type >= 6)
+        {
+            _y = 0.1f;
+        }
+        newObj.transform.localPosition = new Vector3(x, roomCreator.m_Y + y + _y, z);
         newObj.SetActive(true);
 
     }
