@@ -37,7 +37,7 @@ public class KeyPad : MonoBehaviour
                 CardType = Card.Exit;
                 break;
         }
-    }
+    } 
     public void TouchCard(Card Card)
     {
         if (CardType == Card)
