@@ -34,13 +34,31 @@ public class BossZombieTraceState : EnemyBaseState
             mgr.ChangeState(mgr.IdleState);
             return;
         }
-        if (Bmgr.CheckInAttack2Range())
+
+        if (Bmgr.CheckCooldown())
         {
             //현재 위치 저장
             mgr.attackPosition = mgr.transform.position;
 
-            //move => attack2
-            mgr.ChangeState(Bmgr.Attack2State);
+            int randomAttack = Random.Range(0, 2);
+
+            switch (randomAttack)
+            {
+                case 0:
+                    //move => attack2
+                    mgr.ChangeState(Bmgr.Attack2State);
+                    return;
+                case 1:
+                    //move => attack2
+                    mgr.ChangeState(Bmgr.DeshState);
+                    return;
+                case 2:
+                    //move => attack2
+                    mgr.ChangeState(Bmgr.Attack2State);
+                    return;
+                default:
+                    break;
+            }
 
             return;
         }

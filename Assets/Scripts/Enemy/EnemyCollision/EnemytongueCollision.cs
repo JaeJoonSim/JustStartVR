@@ -31,8 +31,13 @@ public class EnemytongueCollision : MonoBehaviour
         else if (other.gameObject.tag == "Player")
         {
             //Debug.Log("Çú¹Ù´Ú Ãæµ¹");
-            FSM.attackCollision = true;
-            FSM.characterController.enabled = false;
+           
+            if (FSM.CurrentState == FSM.Attack2State)
+            {
+                FSM.attackCollision = true;
+                FSM.characterController.enabled = false;
+            }
+            
         }
         
     }

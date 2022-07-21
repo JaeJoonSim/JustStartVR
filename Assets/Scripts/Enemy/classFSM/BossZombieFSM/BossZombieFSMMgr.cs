@@ -6,12 +6,16 @@ using UnityEngine.AI;
 public class BossZombieFSMMgr : EnemyBaseFSMMgr
 {
     public EnemyBaseState Attack2State;
+    public EnemyBaseState DeshState;
 
     protected BossStatus bStatus;
     public BossStatus BStatus
     {
         get { return bStatus; }
     }
+
+    public float Cooldown;
+
 
     [HideInInspector]
     public bool attackCollision;
@@ -33,6 +37,8 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
 
         Attack2State = new BossZombieAttack2State();
 
+        DeshState = new BossZombieDeshState();
+
         currentState = IdleState;
 
      
@@ -49,13 +55,24 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     {
         base.Update();
 
-        BStatus.Attack2Count += Time.deltaTime;
+        Cooldown += Time.deltaTime;
 
     }
 
-    public bool CheckInAttack2Range()
+    public bool CheckCooldown()
     {
-        return ((CalcTargetDistance() < bStatus.Attack2Range && BStatus.Attack2Count >= BStatus.Attack2Range) ? true : false);
+        return Cooldown > BStatus.Cooldown ? true : false;
+    }
+   
+    public Vector3 CalcTargetdirection()
+    {
+        return this.target.position - this.transform.position;
+    }
+    
+    public void MoveFront()
+    {
+        agent.speed = 5f;
+        agent.SetDestination(transform.position + transform.forward);
     }
 
 }

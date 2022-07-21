@@ -151,7 +151,6 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     public bool CheckInAttackRange()
     {
-
        return ((CalcTargetDistance() < status.AttackRange) ? true : false);
     }
    
@@ -166,6 +165,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     public void MoveTarget()
     {
+        agent.speed = Status.Speed;
         agent.SetDestination(target.position);
     }
     public void SetAnimator(string trigger)
