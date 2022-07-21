@@ -30,7 +30,7 @@ public class EnemyDeshCollider : MonoBehaviour
         }
         else if(other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            GameObject impact = Instantiate(DashEffect, gameObject.transform.position + gameObject.transform.up, gameObject.transform.rotation) as GameObject;
+            GameObject impact = Instantiate(DashEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
             
             GameObject.Destroy(impact, 1f);
             gameObject.SetActive(false);
