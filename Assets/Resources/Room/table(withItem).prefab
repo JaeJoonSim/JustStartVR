@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 931060221574459735}
   m_Layer: 0
-  m_Name: table(withHint)
+  m_Name: table(withItem)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,9 +189,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6812625646218368324}
-  - component: {fileID: 5949859326986294484}
+  - component: {fileID: 5380423554960498065}
   m_Layer: 0
-  m_Name: HintSpawner
+  m_Name: ItemSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ Transform:
   m_Father: {fileID: 931060221574459735}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5949859326986294484
+--- !u!114 &5380423554960498065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,11 +221,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7466211880671971871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cecd7184d935a944a29565ada9b10ca, type: 3}
+  m_Script: {fileID: 11500000, guid: cc84ee985841a5e49ba3fb52ea2ed95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hintObj: {fileID: 8480093513916527493, guid: 27b1b6a6d06f4c24fa7712c0cc5fe8c2, type: 3}
-  m_Position: {fileID: 6812625646218368324}
+  SpawnCount: 1
+  RadomProbability: 2
+  Item:
+  - {fileID: 986092443048242083, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+  - {fileID: 6681540828967737144, guid: 3e1415a93451ee64780fd0c417d24009, type: 3}
+  Spawn_Point:
+  - {fileID: 6812625646218368324}
 --- !u!1 &8216682246681276962
 GameObject:
   m_ObjectHideFlags: 0

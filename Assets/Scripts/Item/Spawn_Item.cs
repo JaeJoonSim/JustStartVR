@@ -23,7 +23,8 @@ public class Spawn_Item : MonoBehaviour
                 {
                     int Count = Item.Length;
                     _Random = Random.Range(0, Count);
-                    Instantiate(Item[_Random], Point.position, Quaternion.identity, this.transform.parent);
+                    Instantiate(Item[_Random], Point.position,
+                        Quaternion.identity, this.transform.parent);
                 }
             }
             SpawnCount--;

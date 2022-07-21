@@ -32,7 +32,7 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[11];
+        m_Obj = new GameObject[12];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
         m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
@@ -43,7 +43,8 @@ public class ObjectCreator : MonoBehaviour
         m_Obj[7] = Resources.Load<GameObject>("Room/blood4");
         m_Obj[8] = Resources.Load<GameObject>("Room/blood1");
         m_Obj[9] = Resources.Load<GameObject>("Room/blood2");
-        m_Obj[10] = Resources.Load<GameObject>("Room/table(withHint)");
+        m_Obj[10] = Resources.Load<GameObject>("Room/table(withItem)");
+        m_Obj[11] = Resources.Load<GameObject>("Room/table(withHint)");
 
         int x = 0;
         int z = 0;
@@ -162,6 +163,10 @@ public class ObjectCreator : MonoBehaviour
         }
 
         type = Random.Range(min, max);
+
+        if (type == 3 && isCardRoom == true)
+            type = 10;
+
         GameObject newObj;
 
         max = 4 - roomCreator.m_hintCount;
@@ -169,7 +174,7 @@ public class ObjectCreator : MonoBehaviour
         int random = Random.Range(0, max);
         if (count == 29 && roomCreator.m_hintCount < 4 && random <= 1)
         {
-            type = 10;
+            type = 11;
             roomCreator.m_hintCount++;
         }
 

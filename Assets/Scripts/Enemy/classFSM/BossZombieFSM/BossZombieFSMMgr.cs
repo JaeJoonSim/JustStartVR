@@ -39,11 +39,12 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     }
     private new void Start()
     {
-        base.Start();
+        //base.Awake();
+        base.OnEnable();
         bStatus = GetComponent<BossStatus>();
         attackCollision = false;
         bulletCollision = false;
-        characterController = targetOBJ.GetComponent<CharacterController>();
+        characterController = target.GetComponent<CharacterController>();
     }
     private new void Update()
     {

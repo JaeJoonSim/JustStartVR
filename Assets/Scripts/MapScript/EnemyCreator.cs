@@ -13,6 +13,8 @@ public class EnemyCreator : MonoBehaviour
 
     public void CreateEnemy(int max, bool[,] value, bool[,] value2, Transform parent, RoomCreator room)
     {
+
+
         m_Parent = parent;
         maxSize = max;
         m_roomCreator = room;
@@ -41,6 +43,7 @@ public class EnemyCreator : MonoBehaviour
             x = Random.Range(0, maxSize);
             z = Random.Range(0, maxSize);
 
+            if ((x >= 5 && x <= 7) || (z >= 5 && z <= 7)) continue;
 
             if (!m_TileisEmpty[x, z] && m_Object[x, z])
             {

@@ -69,9 +69,9 @@ public class BossZombieAttack2State : EnemyBaseState
                         if (mgr.CalcTargetDistance() > 0.5f)
                         {
                             //characterController.Move((mgr.transform.position - mgr.targetOBJ.transform.position).normalized * 1.5f * Time.deltaTime);
-                            mgr.targetOBJ.transform.position = new Vector3(
+                            mgr.target.transform.position = new Vector3(
                                 Bmgr.grabPos.position.x,
-                                mgr.targetOBJ.transform.position.y,
+                                mgr.target.transform.position.y,
                                 Bmgr.grabPos.position.z
                                 );
                         }
