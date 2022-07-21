@@ -33,7 +33,7 @@ public class FieldOfView : MonoBehaviour
                 {
                     return true;
                 }
-            }
+            } 
         }
         return false;
     }

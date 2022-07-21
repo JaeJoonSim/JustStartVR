@@ -39,6 +39,11 @@ public class EnemytongueCollision : MonoBehaviour
             }
             
         }
+        else
+        {
+            var Bmgr = FSM.CurrentState as BossZombieAttack2State;
+            Bmgr.tongueBack = true;
+        }
         
     }
 }

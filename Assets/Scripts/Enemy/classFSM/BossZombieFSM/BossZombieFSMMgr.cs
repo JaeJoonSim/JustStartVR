@@ -48,7 +48,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
 
      
     }
-    private new void Start()
+    private  void Start()
     {
         //base.Awake();
         base.OnEnable();
@@ -77,7 +77,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     
     public void MoveFront()
     {
-        agent.speed = 5f;
+        agent.speed = 4f;
         agent.SetDestination(transform.position + transform.forward);
     }
     public void DeshColliderOn()

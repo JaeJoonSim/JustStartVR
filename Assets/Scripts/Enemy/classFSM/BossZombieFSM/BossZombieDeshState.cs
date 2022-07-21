@@ -37,7 +37,7 @@ public class BossZombieDeshState : EnemyBaseState
             Bmgr.transform.rotation = Quaternion.Euler(0, addAngle, 0) * Bmgr.transform.rotation;
         }
 
-        if (Bmgr.CalcTargetDistance() <= 3)
+        if (Bmgr.CalcTargetDistance() <= 2)
         {
             isTurn = false;
         }

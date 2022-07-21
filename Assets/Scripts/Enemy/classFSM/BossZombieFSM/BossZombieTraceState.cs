@@ -35,7 +35,23 @@ public class BossZombieTraceState : EnemyBaseState
             return;
         }
 
-        if (Bmgr.CheckCooldown() && Bmgr.CalcTargetDistance() > 7f)
+        //시야에 타겟이 보이면
+        if (mgr.IsTarget())
+        {
+            currntTime = 0;
+        }
+        else //안보이면 
+        {
+            currntTime += Time.deltaTime;
+            if (currntTime > mgr.Status.TraceTime)
+            {
+                //move => Idle
+                mgr.ChangeState(mgr.IdleState);
+                return;
+            }
+        }
+
+        if (Bmgr.CheckCooldown())
         {
             //현재 위치 저장
             mgr.attackPosition = mgr.transform.position;
@@ -45,20 +61,26 @@ public class BossZombieTraceState : EnemyBaseState
             switch (randomAttack)
             {
                 case 0:
-                    //move => attack2
-                    mgr.ChangeState(Bmgr.DeshState);
-                    mgr.SetAnimator("MoveToDesh");
-                    return;
+                    if (Bmgr.CalcTargetDistance() > 5f && Bmgr.IsTarget())
+                    {
+                        mgr.ChangeState(Bmgr.DeshState);
+                        mgr.SetAnimator("MoveToDesh");
+                        return;
+                    }
+                    break;
                 case 1:
-                    //move => attack2
-                    mgr.ChangeState(Bmgr.DeshState);
-                    mgr.SetAnimator("MoveToDesh");
-                    return;
+                    if (Bmgr.IsTarget())
+                    {
+                        mgr.ChangeState(Bmgr.Attack2State);
+                        return;
+                    }
+                    //mgr.SetAnimator("MoveToDesh");
+                    break;
                 case 2:
-                    //move => attack2
-                    mgr.ChangeState(Bmgr.DeshState);
-                    mgr.SetAnimator("MoveToDesh");
-                    return;
+                    ////move => attack2
+                    //mgr.ChangeState(Bmgr.Attack2State);
+                    ////mgr.SetAnimator("MoveToDesh");
+                    //return;
                 default:
                     break;
             }
@@ -82,23 +104,7 @@ public class BossZombieTraceState : EnemyBaseState
             mgr.MoveTarget();
         }
 
-        //시야에 타겟이 보이면
-        if (mgr.IsTarget())
-        {
-            currntTime = 0;
-        }
-        else //안보이면 
-        {
-            currntTime += Time.deltaTime;
-            if (currntTime > mgr.Status.TraceTime)
-            {
-                //move => Idle
-                mgr.ChangeState(mgr.IdleState);
-                return;
-            }
-        }
-
-
+ 
     }
 
     public override void End(EnemyBaseFSMMgr mgr)

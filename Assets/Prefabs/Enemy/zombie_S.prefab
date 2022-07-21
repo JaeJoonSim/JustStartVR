@@ -2384,7 +2384,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6847492064012046685}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 2.47, y: -1, z: 10.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2435,7 +2435,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.08
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &6422615998208792032
@@ -2481,7 +2481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbba792c77279240adfbc34afb98615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetOBJ: {fileID: 0}
   target: {fileID: 0}
   attackPosition: {x: 0, y: 0, z: 0}
   ragdoll: {fileID: 7614589203466726562}
@@ -2502,8 +2501,8 @@ MonoBehaviour:
   Hp: 70
   Atk: 10
   Speed: 1
-  ViewDistance: 10
-  ViewAngle: 114
+  ViewDistance: 6
+  ViewAngle: 250
   AttackRange: 1.2
   AttackSpeed: 1
   TraceTime: 10

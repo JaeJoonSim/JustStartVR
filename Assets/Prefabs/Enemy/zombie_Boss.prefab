@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a94f499fb6311d45a180a54bbe8da69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DashEffect: {fileID: 8380161220285449684, guid: f1f70366c00cc4f41aa16272c05cafc0, type: 3}
 --- !u!1 &187680614497951055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,7 +1737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d852463b5b65274da3c69b7742370ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetOBJ: {fileID: 0}
   target: {fileID: 0}
   attackPosition: {x: 0, y: 0, z: 0}
   ragdoll: {fileID: 1050069126257322362}
@@ -1763,8 +1763,8 @@ MonoBehaviour:
   Hp: 1000
   Atk: 60
   Speed: 0.5
-  ViewDistance: 10
-  ViewAngle: 114
+  ViewDistance: 20
+  ViewAngle: 360
   AttackRange: 1.5
   AttackSpeed: 1.5
   TraceTime: 10
@@ -1777,7 +1777,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4051481576792003717}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.6
+  m_Radius: 1
   m_Speed: 1
   m_Acceleration: 50
   avoidancePriority: 50
@@ -1787,7 +1787,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3816986323653927142
@@ -1833,9 +1833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fde8f9f855ee73418ca1c5de63dd652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 1
+  Cooldown: 10
   GrabAtk: 20
-  GrabRange: 3
+  GrabRange: 10
   DeshAtk: 30
 --- !u!1 &4051481576819104235
 GameObject:
@@ -1863,7 +1863,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4051481576819104235}
-  m_LocalRotation: {x: 0.027760854, y: 0.7065616, z: 0.027760854, w: 0.7065616}
+  m_LocalRotation: {x: 0.01850988, y: 0.7068645, z: 0.01850988, w: 0.7068645}
   m_LocalPosition: {x: 0, y: 1.533, z: 0.12900019}
   m_LocalScale: {x: 0, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
@@ -1873,7 +1873,7 @@ Transform:
   - {fileID: 6028009111419978625}
   m_Father: {fileID: 3707044873108082239}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 4.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 3}
 --- !u!114 &4051481576819104230
 MonoBehaviour:
   m_ObjectHideFlags: 0

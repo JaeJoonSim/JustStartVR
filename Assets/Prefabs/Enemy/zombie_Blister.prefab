@@ -1408,7 +1408,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.08
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &2908189473438162926
@@ -1428,7 +1428,7 @@ MonoBehaviour:
   Atk: 40
   Speed: 0.6
   ViewDistance: 6
-  ViewAngle: 114
+  ViewAngle: 250
   AttackRange: 1
   AttackSpeed: 1
   TraceTime: 10
@@ -1444,7 +1444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4d208d67ecd334a90a57e6450f017a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetOBJ: {fileID: 0}
   target: {fileID: 0}
   attackPosition: {x: 0, y: 0, z: 0}
   ragdoll: {fileID: 1311047163116314553}

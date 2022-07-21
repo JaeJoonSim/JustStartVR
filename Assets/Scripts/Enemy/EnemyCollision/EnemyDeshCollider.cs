@@ -23,7 +23,7 @@ public class EnemyDeshCollider : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            
+            GameObject impact = Instantiate(DashEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
             gameObject.SetActive(false);
             FSM.ChangeState(FSM.TraceState);
             FSM.SetAnimator("DeshToMove");
@@ -32,7 +32,7 @@ public class EnemyDeshCollider : MonoBehaviour
         {
             GameObject impact = Instantiate(DashEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
             
-            GameObject.Destroy(impact, 1f);
+        
             gameObject.SetActive(false);
             FSM.ChangeState(FSM.StunState);
             FSM.SetAnimator("DeshToStun");
