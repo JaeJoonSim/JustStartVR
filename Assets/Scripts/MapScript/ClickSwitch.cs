@@ -1,22 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickSwitch : MonoBehaviour
 {
     public bool m_isWorking = false;
-    //[SerializeField] private CalcDistance m_calc;
 
 
+    private List<TurnOnLamp> m_lampList = new List<TurnOnLamp>();
 
-    void Start()
+    public void AddNewLamp(TurnOnLamp add)
     {
-        
-        //m_calc.enabled = m_isWorking;
+        m_lampList.Add(add);
     }
+
 
     public void KickSwitch()
     {
-        m_isWorking = m_isWorking ? true : false;
-        //this.gameObject.transform.GetChild(0).gameObject.SetActive(m_isWorking);
-        //m_calc.enabled = m_isWorking;
+        if (m_isWorking == false)
+        {
+            m_isWorking = true;
+            for(int i = 0; i < m_lampList.Count; i++)
+            {
+                m_lampList[i].LampOn(m_isWorking);
+            }
+        }
     }
 }

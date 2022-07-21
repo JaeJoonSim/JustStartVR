@@ -32,7 +32,7 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[12];
+        m_Obj = new GameObject[13];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
         m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
@@ -45,6 +45,7 @@ public class ObjectCreator : MonoBehaviour
         m_Obj[9] = Resources.Load<GameObject>("Room/blood2");
         m_Obj[10] = Resources.Load<GameObject>("Room/table(withItem)");
         m_Obj[11] = Resources.Load<GameObject>("Room/table(withHint)");
+        m_Obj[12] = Resources.Load<GameObject>("Room/Light Control Panel");
 
         int x = 0;
         int z = 0;
@@ -167,6 +168,15 @@ public class ObjectCreator : MonoBehaviour
         if (type == 3 && isCardRoom == true)
             type = 10;
 
+        float _y = 0.0f;
+        if (roomCreator.m_Y == 40 && isCardRoom != true
+            && roomCreator.m_Panel == false && dir == -1)
+        {
+            roomCreator.m_Panel = true;
+            type = 12;
+            _y = 0.5f;
+        }
+
         GameObject newObj;
 
         max = 4 - roomCreator.m_hintCount;
@@ -181,8 +191,7 @@ public class ObjectCreator : MonoBehaviour
         newObj = Instantiate(m_Obj[type], parent);
         newObj.transform.Rotate(new Vector3(0, angle, 0));
 
-        float _y = 0.0f;
-        if(type >= 6)
+        if(type >= 6 && type <= 9)
         {
             _y = 0.1f;
         }
