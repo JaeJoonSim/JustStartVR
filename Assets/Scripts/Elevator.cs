@@ -41,8 +41,8 @@ public class Elevator : MonoBehaviour
             Player.transform.position = new Vector3(Player.transform.position.x, Player_YPoint.transform.position.y, Player.transform.position.z);
             float dist = Vector3.Distance(transform.position, Floor_Point[floor].transform.position);
             y_Ppint = dist > 0.01f;
-            //y_Ppint = !(transform.position.y< Floor_Point[floor].transform.position.y+0.5f && transform.position.y > Floor_Point[floor].transform.position.y - 0.5f);
-            //Debug.Log(y_Ppint);
+            y_Ppint = !(transform.position.y < Floor_Point[floor].transform.position.y + 0.5f && transform.position.y > Floor_Point[floor].transform.position.y - 0.5f);
+            Debug.Log(y_Ppint);
             yield return new WaitForFixedUpdate();
         }
         Player.transform.GetComponent<PlayerGravity>().GravityEnabled = true;
