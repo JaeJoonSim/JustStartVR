@@ -32,7 +32,7 @@ public class EnemyDeshCollider : MonoBehaviour
         {
             GameObject impact = Instantiate(DashEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
             
-            GameObject.Destroy(impact, 1f);
+            //GameObject.Destroy(impact, 1f);
             gameObject.SetActive(false);
             FSM.ChangeState(FSM.StunState);
             FSM.SetAnimator("DeshToStun");

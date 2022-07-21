@@ -169,8 +169,7 @@ public class ObjectCreator : MonoBehaviour
             type = 10;
 
         float _y = 0.0f;
-        if (roomCreator.m_Y == 40 && isCardRoom != true
-            && roomCreator.m_Panel == false && dir == -1)
+        if (roomCreator.m_Panel == false && dir == -1)
         {
             roomCreator.m_Panel = true;
             type = 12;
@@ -193,7 +192,7 @@ public class ObjectCreator : MonoBehaviour
 
         if(type >= 6 && type <= 9)
         {
-            _y = 0.1f;
+            _y = 0.01f;
         }
         newObj.transform.localPosition = new Vector3(x, roomCreator.m_Y + y + _y, z);
         newObj.SetActive(true);

@@ -7,7 +7,7 @@ public class TurnOnLamp : MonoBehaviour
     public void Start()
     {
         m_calcDistance = this.gameObject.GetComponent<CalcDistance>();
-        m_calcDistance.enabled = true;
+        m_calcDistance.enabled = false;
     }
 
     public void LampOn(bool onoff)

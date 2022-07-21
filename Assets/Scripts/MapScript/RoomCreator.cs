@@ -20,7 +20,7 @@ public class RoomCreator : MonoBehaviour
     public int m_RoomCountZ;
     public int m_TileSize;
 
-    public bool m_Panel = false;
+    public bool m_Panel;
     public int m_hintCount = 0;
 
     public bool[,] m_TileisEmpty;
