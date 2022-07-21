@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1119195891721659589}
   - component: {fileID: 2912942693249552399}
   - component: {fileID: 5145297732299831692}
+  - component: {fileID: 8073666546327020215}
   m_Layer: 0
   m_Name: Light Control Panel
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_LocalScale: {x: 1.8, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2094019343565814352}
+  - {fileID: 4499448613086078920}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -94,11 +95,25 @@ BoxCollider:
   m_GameObject: {fileID: 3705377833772265946}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.0341499, y: 1, z: 1.8}
   m_Center: {x: -0.00068870187, y: -0.125, z: -0.35}
---- !u!1001 &8351900743398593886
+--- !u!64 &8073666546327020215
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705377833772265946}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 256196e72d57a0b41b91030f215b789e, type: 3}
+--- !u!1001 &5807913622102329542
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -119,27 +134,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7991806890530139918, guid: 1a2225d499d240d4a91efe5eacd491e4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.6666667
       objectReference: {fileID: 0}
     - target: {fileID: 7991806890530139918, guid: 1a2225d499d240d4a91efe5eacd491e4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 3.3333335
       objectReference: {fileID: 0}
     - target: {fileID: 7991806890530139918, guid: 1a2225d499d240d4a91efe5eacd491e4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 3.3333335
       objectReference: {fileID: 0}
     - target: {fileID: 7991806890530139918, guid: 1a2225d499d240d4a91efe5eacd491e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.003
       objectReference: {fileID: 0}
     - target: {fileID: 7991806890530139918, guid: 1a2225d499d240d4a91efe5eacd491e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.54
+      value: 0.524
       objectReference: {fileID: 0}
     - target: {fileID: 7991806890530139918, guid: 1a2225d499d240d4a91efe5eacd491e4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.037
       objectReference: {fileID: 0}
     - target: {fileID: 7991806890530139918, guid: 1a2225d499d240d4a91efe5eacd491e4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -169,14 +184,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7991806890530139918, guid: 1a2225d499d240d4a91efe5eacd491e4, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a2225d499d240d4a91efe5eacd491e4, type: 3}
---- !u!4 &2094019343565814352 stripped
+--- !u!4 &4499448613086078920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7991806890530139918, guid: 1a2225d499d240d4a91efe5eacd491e4, type: 3}
-  m_PrefabInstance: {fileID: 8351900743398593886}
+  m_PrefabInstance: {fileID: 5807913622102329542}
   m_PrefabAsset: {fileID: 0}

@@ -9,6 +9,6 @@ public class HintCreator : MonoBehaviour
     void Start()
     {
         Instantiate(m_hintObj, m_Position.position, Quaternion.Euler(-90, Random.Range(0, 360), 0),
-            this.transform.root.GetChild(0).transform);
+            this.transform.parent);
     }
 }
