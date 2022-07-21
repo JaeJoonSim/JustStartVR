@@ -7,12 +7,15 @@ public class FollowRotation : MonoBehaviour
 
     private void Start()
     {
-        if(!stay)
+        if (!stay)
+        {
             transform.rotation = FollowOBJ.transform.rotation;
+            transform.position = FollowOBJ.transform.position;
+        }
     }
     private void Update()
     {
-        if(stay)
+        if (!stay) return;
         transform.rotation = FollowOBJ.transform.rotation;
     }
 }
