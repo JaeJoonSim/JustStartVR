@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossZombieAttack2State : EnemyBaseState
 {
+    
     //private CharacterController characterController;
     GameObject tongue;
     float tScale;
@@ -52,7 +53,7 @@ public class BossZombieAttack2State : EnemyBaseState
 
                 if (Bmgr.attackCollision != true)
                 {
-                    if (tScale <= Bmgr.BStatus.Attack2Range / 2)
+                    if (tScale <= Bmgr.BStatus.GrabRange)
                     {
                         tScale += 0.05f;
                     }
@@ -99,6 +100,6 @@ public class BossZombieAttack2State : EnemyBaseState
     {
         tongue.transform.localScale = new Vector3(0, 0.1f, 0.1f);
         BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
-        Bmgr.BStatus.Attack2Count = 0;
+        Bmgr.Cooldown = 0 ;
     }
 }

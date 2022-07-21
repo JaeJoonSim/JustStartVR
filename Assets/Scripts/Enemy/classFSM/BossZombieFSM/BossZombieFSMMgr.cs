@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class BossZombieFSMMgr : EnemyBaseFSMMgr
 {
     public EnemyBaseState Attack2State;
+    public EnemyBaseState DeshState;
+    public EnemyBaseState StunState;
 
     protected BossStatus bStatus;
     public BossStatus BStatus
@@ -13,12 +15,17 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         get { return bStatus; }
     }
 
+    public float Cooldown;
+    public GameObject DeshCollider;
+
     [HideInInspector]
     public bool attackCollision;
     [HideInInspector]
     public bool bulletCollision;
     [HideInInspector]
     public CharacterController characterController;
+
+
 
     //BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
 
@@ -32,6 +39,10 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         AttackState = new BossZombieAttackState();
 
         Attack2State = new BossZombieAttack2State();
+
+        DeshState = new BossZombieDeshState();
+
+        StunState = new BossZombieStunState();
 
         currentState = IdleState;
 
@@ -50,13 +61,28 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     {
         base.Update();
 
-        BStatus.Attack2Count += Time.deltaTime;
+        Cooldown += Time.deltaTime;
 
     }
 
-    public bool CheckInAttack2Range()
+    public bool CheckCooldown()
     {
-        return ((CalcTargetDistance() < bStatus.Attack2Range && BStatus.Attack2Count >= BStatus.Attack2Range) ? true : false);
+        return Cooldown > BStatus.Cooldown ? true : false;
+    }
+   
+    public Vector3 CalcTargetdirection()
+    {
+        return (this.target.position - this.transform.position).normalized; ;
+    }
+    
+    public void MoveFront()
+    {
+        agent.speed = 5f;
+        agent.SetDestination(transform.position + transform.forward);
+    }
+    public void DeshColliderOn()
+    {
+        DeshCollider.SetActive(true);
     }
 
 }
