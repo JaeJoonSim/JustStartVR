@@ -20,6 +20,7 @@ public class RoomCreator : MonoBehaviour
     public int m_RoomCountZ;
     public int m_TileSize;
 
+    public bool m_Panel = false;
     public int m_hintCount = 0;
 
     public bool[,] m_TileisEmpty;
@@ -114,7 +115,7 @@ public class RoomCreator : MonoBehaviour
     private void CreateRoom(int x, int z, bool isCreate)
     {
         string name = "Room (" + x + ", " + z + ")";
-        if (x == m_keyCardRoom.x && z == m_keyCardRoom.y)
+        if (isCardRoom(x, z))
         {
             name = "keyCardRoom (" + x + ", " + z + ")";
         }
@@ -141,7 +142,11 @@ public class RoomCreator : MonoBehaviour
         EnemyCreator enemy = m_GroupOBJ[x, z].GetComponent<EnemyCreator>();
         //parent.AddComponent<CalcDistance>();
         room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform, x, z);
-        enemy.CreateEnemy(m_RoomSize, m_TileisEmpty, room.m_Object, m_GroupOBJ[x, z].transform, this);
+
+        if(!isCardRoom(x, z))
+        {
+            enemy.CreateEnemy(m_RoomSize, m_TileisEmpty, room.m_Object, m_GroupOBJ[x, z].transform, this);
+        }
     }
 
     private void TileCreator(GameObject parent)

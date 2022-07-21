@@ -13,6 +13,8 @@ public class EnemyCreator : MonoBehaviour
 
     public void CreateEnemy(int max, bool[,] value, bool[,] value2, Transform parent, RoomCreator room)
     {
+
+
         m_Parent = parent;
         maxSize = max;
         m_roomCreator = room;
@@ -28,7 +30,7 @@ public class EnemyCreator : MonoBehaviour
         m_EnemyObj[0] = Resources.Load<GameObject>("Enemy/zombie_S");
         m_EnemyObj[1] = Resources.Load<GameObject>("Enemy/zombie_L");
         m_EnemyObj[2] = Resources.Load<GameObject>("Enemy/zombie_Blister");
-        m_EnemyObj[3] = Resources.Load<GameObject>("Enemy/Sphere");
+        m_EnemyObj[3] = Resources.Load<GameObject>("Enemy/Tongue");
 
         int x = 0;
         int z = 0;
@@ -41,6 +43,7 @@ public class EnemyCreator : MonoBehaviour
             x = Random.Range(0, maxSize);
             z = Random.Range(0, maxSize);
 
+            if ((x >= 5 && x <= 7) || (z >= 5 && z <= 7)) continue;
 
             if (!m_TileisEmpty[x, z] && m_Object[x, z])
             {
@@ -65,6 +68,6 @@ public class EnemyCreator : MonoBehaviour
 
         newObj = Instantiate(m_EnemyObj[random], m_Parent);
         newObj.transform.Rotate(new Vector3(0, isTongue ? 0 : angle, 0));
-        newObj.transform.localPosition = new Vector3(x * 2, isTongue ? m_roomCreator.m_Y + 4 : m_roomCreator.m_Y, z * 2);
+        newObj.transform.localPosition = new Vector3(x * 2, isTongue ? m_roomCreator.m_Y + 3.4f : m_roomCreator.m_Y + 2, z * 2);
     }
 }

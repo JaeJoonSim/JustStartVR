@@ -40,8 +40,6 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     //플레이어 위치
     [HideInInspector]
-    public GameObject targetOBJ;
-    [HideInInspector]
     public Transform target;
 
     //네비게이션 용 
@@ -66,20 +64,23 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     public GameObject attackCollider;
 
 
-    protected void Start()
+    //protected void Awake()
+    //{   
+    //}
+
+    protected void OnEnable()
     {
-        ChangeState(IdleState);
+
         status = GetComponent<EnemyStatus>();
-
         fow = GetComponent<FieldOfView>();
-        targetOBJ = GameObject.FindGameObjectWithTag("Player");
-        target = targetOBJ.transform;
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = Status.Speed;
         anim = GetComponentInChildren<Animator>();
-        
 
+        ChangeState(IdleState);
+        agent.speed = Status.Speed;
+            target = GameObject.FindGameObjectWithTag("Player").transform;
     }
+
     protected void Update()
     {
         if (CalcTargetDistance() > 25)

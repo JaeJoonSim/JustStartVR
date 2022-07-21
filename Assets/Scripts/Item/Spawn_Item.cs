@@ -1,6 +1,16 @@
 using UnityEngine;
+using UnityEditor;
 
-public class Spawn_Item : MonoBehaviour
+[CustomEditor(typeof(item_list))]
+public class item_list : Editor
+{
+    public override void OnInspectorGUI()
+    {
+
+    }
+}
+
+    public class Spawn_Item : MonoBehaviour
 {
     public int SpawnCount = 1;
 
@@ -11,7 +21,7 @@ public class Spawn_Item : MonoBehaviour
     [SerializeField]
     Transform[] Spawn_Point;
 
-    // Start is called before the first frame update
+
     private void Start()
     {
         if (SpawnCount > 0)
@@ -23,7 +33,8 @@ public class Spawn_Item : MonoBehaviour
                 {
                     int Count = Item.Length;
                     _Random = Random.Range(0, Count);
-                    Instantiate(Item[_Random], Point.position, Quaternion.identity, this.transform.parent);
+                    Instantiate(Item[_Random], Point.position,
+                        Quaternion.identity, this.transform.parent);
                 }
             }
             SpawnCount--;
