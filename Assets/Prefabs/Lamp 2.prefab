@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1110903439606164995
 Transform:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 6346916146863730291}
   - component: {fileID: 2364276960154006634}
   - component: {fileID: 2575666152287532296}
+  - component: {fileID: 2238354959381118569}
   m_Layer: 0
   m_Name: Lamp 2
   m_TagString: Untagged
@@ -212,6 +213,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537f28e3e0c90b449aa9cf28479bab71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 30
   target: {fileID: 0}
   OnOffObject: {fileID: 3043644029470141686}
+--- !u!114 &2238354959381118569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7567036204803226901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6370b199fc3ba94b82b674f3a697b15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_calc: {fileID: 2575666152287532296}
