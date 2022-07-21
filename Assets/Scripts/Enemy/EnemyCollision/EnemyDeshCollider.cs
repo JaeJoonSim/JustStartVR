@@ -5,11 +5,10 @@ using UnityEngine;
 public class EnemyDeshCollider : MonoBehaviour
 {
     BossZombieFSMMgr FSM;
-
+    public GameObject DashEffect;
     void Start()
     {
         FSM = GetComponentInParent<BossZombieFSMMgr>();
-
     }
     private void Update()
     {
@@ -31,7 +30,12 @@ public class EnemyDeshCollider : MonoBehaviour
         }
         else if(other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            Debug.Log("123");
+            GameObject impact = Instantiate(DashEffect, gameObject.transform.position + gameObject.transform.up, gameObject.transform.rotation) as GameObject;
+            
+            GameObject.Destroy(impact, 1f);
+            gameObject.SetActive(false);
+            FSM.ChangeState(FSM.StunState);
+            FSM.SetAnimator("DeshToStun");
         }
     }
  

@@ -11,7 +11,7 @@ public class BossZombieDeshState : EnemyBaseState
 
     bool isTurn = false;
 
-BossZombieFSMMgr Bmgr;
+    BossZombieFSMMgr Bmgr;
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
 

@@ -7,6 +7,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
 {
     public EnemyBaseState Attack2State;
     public EnemyBaseState DeshState;
+    public EnemyBaseState StunState;
 
     protected BossStatus bStatus;
     public BossStatus BStatus
@@ -40,6 +41,8 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         Attack2State = new BossZombieAttack2State();
 
         DeshState = new BossZombieDeshState();
+
+        StunState = new BossZombieStunState();
 
         currentState = IdleState;
 
