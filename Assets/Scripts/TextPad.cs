@@ -6,5 +6,8 @@ public class TextPad : MonoBehaviour
 {
     TextAsset TextAsset;
 
-
+    private void Start()
+    {
+       
+    }
 }

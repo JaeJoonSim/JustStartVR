@@ -1,8 +1,16 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Spawn_Item))]
-public class Spawn_Item : MonoBehaviour
+[CustomEditor(typeof(item_list))]
+public class item_list : Editor
+{
+    public override void OnInspectorGUI()
+    {
+
+    }
+}
+
+    public class Spawn_Item : MonoBehaviour
 {
     public int SpawnCount = 1;
 
@@ -13,10 +21,6 @@ public class Spawn_Item : MonoBehaviour
     [SerializeField]
     Transform[] Spawn_Point;
 
-    public override void OnInspectorGUI()
-    {
-        GUILayout.Label("This is a Label in a Custom Editor");
-    }
 
     private void Start()
     {
