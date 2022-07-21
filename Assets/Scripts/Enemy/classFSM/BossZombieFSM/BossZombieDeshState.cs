@@ -4,53 +4,56 @@ using UnityEngine;
 
 public class BossZombieDeshState : EnemyBaseState
 {
-    private float turnPoint;
-    private float count = 0;
+
+    Vector3 cross;
+    float inner;
+    float addAngle;
+
+    bool isTurn = false;
+
+BossZombieFSMMgr Bmgr;
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
 
+        Bmgr = mgr as BossZombieFSMMgr;
         //네비 잠금
         mgr.NavStop(false);
-        //애니메이션
-
         mgr.transform.LookAt(new Vector3(
                mgr.target.transform.position.x, mgr.transform.position.y, mgr.target.transform.position.z));
-
-        mgr.SetAnimator("MoveToAttack2");
+        Bmgr.DeshColliderOn();
     }
 
     public override void Update(EnemyBaseFSMMgr mgr)
     {
-        count += Time.deltaTime;
-        if (count >= 1f)
+
+        if (isTurn)
         {
-            BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
-
-            if (Vector3.Cross(Bmgr.transform.forward, Bmgr.CalcTargetdirection()).y > 0)
-            {
-                turnPoint = 1;
-            }
-            else if (Vector3.Cross(Bmgr.transform.forward, Bmgr.CalcTargetdirection()).y < 0)
-            {
-                turnPoint = -1;
-            }
-            else
-            {
-                turnPoint = 0;
-            }
-            if (Bmgr.CalcTargetDistance() > 5)
-            {
-                Bmgr.transform.rotation = Quaternion.Euler(0, turnPoint * Bmgr.CalcTargetDistance() * 2, 0) * Bmgr.transform.rotation;
-
-            }
-
-            Bmgr.MoveFront();
+            // 바라보는 방향과 타겟 방향 외적
+            Vector3 cross = Vector3.Cross(Bmgr.transform.forward, Bmgr.CalcTargetdirection());
+            // 상향 벡터와 외적으로 생성한 벡터 내적
+            float inner = Vector3.Dot(Bmgr.transform.up, cross);
+            // 내적이 0보다 크면 오른쪽 0보다 작으면 왼쪽으로 회전
+            float addAngle = inner > 0 ? 180 * Time.deltaTime : -180 * Time.deltaTime;
+            Bmgr.transform.rotation = Quaternion.Euler(0, addAngle, 0) * Bmgr.transform.rotation;
         }
+
+        if (Bmgr.CalcTargetDistance() <= 3)
+        {
+            isTurn = false;
+        }
+        else if (Bmgr.CalcTargetDistance() > 5)
+        {
+            isTurn = true;
+        }
+
+        Bmgr.MoveFront();
+
     }
     public override void End(EnemyBaseFSMMgr mgr)
     {
-        BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
         Bmgr.Cooldown = 0;
+        //네비 잠금
+        mgr.NavStop(true);
     }
 
 }

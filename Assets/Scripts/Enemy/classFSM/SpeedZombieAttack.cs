@@ -9,6 +9,13 @@ public class SpeedZombieAttack : MonoBehaviour
     {
         FSM = GetComponentInParent<EnemyBaseFSMMgr>();
     }
+    private void Update()
+    {
+        if (FSM.CurrentState != FSM.AttackState)
+        {
+            gameObject.SetActive(false);
+        }
+    }
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player")

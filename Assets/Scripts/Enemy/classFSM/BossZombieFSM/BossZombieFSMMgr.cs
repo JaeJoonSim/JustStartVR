@@ -15,7 +15,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     }
 
     public float Cooldown;
-
+    public GameObject DeshCollider;
 
     [HideInInspector]
     public bool attackCollision;
@@ -23,6 +23,8 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     public bool bulletCollision;
     [HideInInspector]
     public CharacterController characterController;
+
+
 
     //BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
 
@@ -66,13 +68,17 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
    
     public Vector3 CalcTargetdirection()
     {
-        return this.target.position - this.transform.position;
+        return (this.target.position - this.transform.position).normalized; ;
     }
     
     public void MoveFront()
     {
         agent.speed = 5f;
         agent.SetDestination(transform.position + transform.forward);
+    }
+    public void DeshColliderOn()
+    {
+        DeshCollider.SetActive(true);
     }
 
 }
