@@ -34,7 +34,7 @@ public class item_list : Editor
                     int Count = Item.Length;
                     _Random = Random.Range(0, Count);
                     Instantiate(Item[_Random], Point.position,
-                        Quaternion.identity, this.transform.root.GetChild(0).transform);
+                        Quaternion.identity, this.transform.parent);
                 }
             }
             SpawnCount--;
