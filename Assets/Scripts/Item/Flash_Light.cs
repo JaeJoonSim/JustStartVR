@@ -61,22 +61,24 @@ namespace JustStartVR
 
         IEnumerator Shake()
         {
-
             float Old_Distance = 0;
+            Vector3 pos = transform.position;
             while (_Grab)
             {
-                Vector3 pos = transform.position;
                 yield return new WaitForSeconds(0.1f);
                 float Distance = Vector3.Distance(pos, transform.position);
-
-                float Difference = Mathf.Abs(Distance - Old_Distance);
-                Old_Distance = Distance;
-                Debug.Log("Distance" + Distance);
-                if (Difference > 0.02f && Difference < 0.3f)
+                if (Distance< 0.1)
                 {
-                    batter += 0.1f;
-                    Debug.Log("Shake");
+                    float Difference = Mathf.Abs(Distance - Old_Distance);
+                    Old_Distance = Distance;
+                    Debug.Log("Distance" + Distance);
+                    if (Difference > 0.02f && Difference < 0.3f)
+                    {
+                        batter += 0.1f;
+                        Debug.Log("Shake");
+                    }
                 }
+
             }
             yield return null;
         }

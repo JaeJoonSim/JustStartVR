@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEditor;
 
+[CustomEditor(typeof(Spawn_Item))]
 public class Spawn_Item : MonoBehaviour
 {
     public int SpawnCount = 1;
@@ -11,7 +13,11 @@ public class Spawn_Item : MonoBehaviour
     [SerializeField]
     Transform[] Spawn_Point;
 
-    // Start is called before the first frame update
+    public override void OnInspectorGUI()
+    {
+        GUILayout.Label("This is a Label in a Custom Editor");
+    }
+
     private void Start()
     {
         if (SpawnCount > 0)
