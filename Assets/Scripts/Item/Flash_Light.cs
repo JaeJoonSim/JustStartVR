@@ -22,11 +22,12 @@ namespace JustStartVR
         public void OnGrab(bool Grab)
         {
             _Grab = Grab;
+            if(_Grab)
             StartCoroutine(Shake());
         }
-
         void OnOffFlash()
         {
+            if (batter < 0) return;
             if (On_Off)
             {
                 On_Off = false;
@@ -67,18 +68,28 @@ namespace JustStartVR
             {
                 yield return new WaitForSeconds(0.1f);
                 float Distance = Vector3.Distance(pos, transform.position);
-                if (Distance< 0.1)
+                //Debug.Log("Distance" + Distance);
+                if (Distance< 0.1f)
                 {
                     float Difference = Mathf.Abs(Distance - Old_Distance);
                     Old_Distance = Distance;
-                    Debug.Log("Distance" + Distance);
-                    if (Difference > 0.02f && Difference < 0.3f)
+                    Debug.Log("Difference" + Difference);
+                    if (Difference > 0.025f)
                     {
-                        batter += 0.1f;
-                        Debug.Log("Shake");
+                        if (batter < 1)
+                        {
+                            batter_UI.fillAmount = batter;
+                            batter += 0.01f;
+                        }
+                     
+                       //Debug.Log("Shake");
+
                     }
                 }
-
+                else
+                {
+                    pos = transform.position;
+                }
             }
             yield return null;
         }
