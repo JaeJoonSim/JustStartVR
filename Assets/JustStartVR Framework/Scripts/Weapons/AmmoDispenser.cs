@@ -43,11 +43,18 @@ namespace JustStartVR
         public GameObject AK74MClip;
 
         /// <summary>
+        /// Instantiate this if Glock equipped
+        /// </summary>
+        public GameObject M4A1Clip;
+
+        /// <summary>
         /// Amount of M1911 Clips currently available
         /// </summary>
         public int CurrentM1911Clips = 999;
 
         public int CurrentAK74MClips = 999;
+
+        public int CurrentM4A1Clips = 999;
 
         public int CurrentGlockClips = 999;
 
@@ -78,7 +85,7 @@ namespace JustStartVR
 
             // Holding Glock, M1911, or AK74MClip
             string grabName = g.HeldGrabbable.transform.name;
-            if (grabName.Contains("Glock") || grabName.Contains("M1911") || grabName.Contains("AK74M"))
+            if (grabName.Contains("Glock") || grabName.Contains("M1911") || grabName.Contains("AK74M") || grabName.Contains("M4A1"))
             {
                 return true;
             }
@@ -127,6 +134,17 @@ namespace JustStartVR
                 CurrentM1911Clips--;
                 return M1911Clip;
             }
+            // M4A1
+            if (leftGrabberValid && LeftGrabber.HeldGrabbable.transform.name.Contains("M4A1") && CurrentM4A1Clips > 0)
+            {
+                CurrentM4A1Clips--;
+                return M4A1Clip;
+            }
+            else if (rightGrabberValid && RightGrabber.HeldGrabbable.transform.name.Contains("M4A1") && CurrentM4A1Clips > 0)
+            {
+                CurrentM4A1Clips--;
+                return M4A1Clip;
+            }
 
             // Default to nothing
             return null;
@@ -172,6 +190,10 @@ namespace JustStartVR
             else if (AmmoName.Contains("M1911"))
             {
                 CurrentM1911Clips--;
+            }
+            else if (AmmoName.Contains("M4A1"))
+            {
+                CurrentM4A1Clips--;
             }
         }
     }
