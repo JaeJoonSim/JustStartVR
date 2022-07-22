@@ -5,10 +5,17 @@ using UnityEngine;
 public class ClickSwitch : MonoBehaviour
 {
     public bool m_isWorking = false;
-
+    [SerializeField] private TurnOnLamp m_lamp;
 
     private List<TurnOnLamp> m_lampList = new List<TurnOnLamp>();
 
+    private void Start()
+    {
+        if(m_lamp != null)
+        {
+            m_lampList.Add(m_lamp);
+        }
+    }
     public void AddNewLamp(TurnOnLamp add)
     {
         m_lampList.Add(add);
@@ -20,8 +27,9 @@ public class ClickSwitch : MonoBehaviour
         if (m_isWorking == false)
         {
             m_isWorking = true;
+
             for(int i = 0; i < m_lampList.Count; i++)
-            {
+            {                
                 m_lampList[i].LampOn(m_isWorking);
             }
         }

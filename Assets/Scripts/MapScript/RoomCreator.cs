@@ -170,7 +170,9 @@ public class RoomCreator : MonoBehaviour
                     m_WorldTileisEmpty[i + m_mapinterval, j + m_mapinterval] = false;
                     m_TileisEmpty[i, j] = false;
                     if (i == 6 && j == 6) continue;
+                    if ((i >= 5 || i <= 7)  && j == 6) continue;
                     AddNewTile(i * m_TileSize, j * m_TileSize, parent);
+                    
                     count++;
                 }
             }

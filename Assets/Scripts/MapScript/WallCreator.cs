@@ -71,12 +71,24 @@ public class WallCreator : MonoBehaviour
 
             if (x > -1 && x < roomCreator.m_MaxCount && z > -1 && z < roomCreator.m_MaxCount)
             {
-                if (roomCreator.m_WorldTileisEmpty[x, z] && m_WallisEmpty[x, z])
+                if (roomCreator.m_WorldTileisEmpty[x, z])
                 {
-                    GameObject newObj = 
-                    Instantiate(m_WallOBJ,
-                        new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
-                        , Quaternion.identity);
+                    if (m_WallisEmpty[x, z])
+                    {
+                        GameObject newObj =
+                        Instantiate(m_WallOBJ,
+                            new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
+                            , Quaternion.identity);
+                        newObj.transform.parent = m_Parent;
+                        m_WallisEmpty[x, z] = false;
+                    }
+                }
+                else if((x == 24 || x == 26 )&& z == 25)
+                {
+                    GameObject newObj =
+                        Instantiate(m_WallOBJ,
+                            new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
+                            , Quaternion.identity);
                     newObj.transform.parent = m_Parent;
                     m_WallisEmpty[x, z] = false;
                 }
