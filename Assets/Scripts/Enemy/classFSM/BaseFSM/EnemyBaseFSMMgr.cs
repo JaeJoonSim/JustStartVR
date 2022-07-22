@@ -26,7 +26,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     public EnemyBaseState AttackState;
 
-   
+
 
     //스테이터스
     protected EnemyStatus status;
@@ -35,7 +35,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         get { return status; }
     }
 
-    
+
 
 
     //플레이어 위치
@@ -58,7 +58,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     public GameObject ragdoll;
 
     //공격용
-   
+
 
 
     public GameObject attackCollider;
@@ -77,8 +77,11 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
 
         ChangeState(IdleState);
+        prevState = IdleState;
+        ResetAllTriggers();
+
         agent.speed = Status.Speed;
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     protected void Update()
@@ -98,6 +101,16 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
        
     }
 
+    private void ResetAllTriggers()
+    {
+        foreach (var param in anim.parameters)
+        {
+            if (param.type == AnimatorControllerParameterType.Trigger)
+            {
+                anim.ResetTrigger(param.name);
+            }
+        }
+    }
     public void Damaged(float demage, Vector3 BulletForword)
     {
         Status.Hp -= demage;
@@ -113,7 +126,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             {
                 ChangeState(TraceState);
             }
-            
+
         }
     }
 
@@ -140,7 +153,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             currentState.Begin(this);
 
         }
-       
+
     }
     public float CalcTargetDistance()
     {
@@ -152,9 +165,9 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     public bool CheckInAttackRange()
     {
-       return ((CalcTargetDistance() < status.AttackRange) ? true : false);
+        return ((CalcTargetDistance() < status.AttackRange) ? true : false);
     }
-   
+
     public bool IsAlive()
     {
         return (status.Hp > 0) ? true : false;

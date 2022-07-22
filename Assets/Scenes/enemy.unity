@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -390,6 +390,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: zombie_Blister
       objectReference: {fileID: 0}
+    - target: {fileID: 2637595607862272582, guid: 74e644fc19d96b14ca7a2266afc0b438, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3445622702179793148, guid: 74e644fc19d96b14ca7a2266afc0b438, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -618,6 +622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: zombie_L
       objectReference: {fileID: 0}
+    - target: {fileID: 6504292947452594819, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
 --- !u!1001 &2055479017
@@ -805,7 +813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6074508638637968359, guid: ff9b677a99e231749b810bf160af864c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.279999
+      value: 3.03
       objectReference: {fileID: 0}
     - target: {fileID: 6074508638637968359, guid: ff9b677a99e231749b810bf160af864c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -813,7 +821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6074508638637968359, guid: ff9b677a99e231749b810bf160af864c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.06
+      value: 3.01
       objectReference: {fileID: 0}
     - target: {fileID: 6074508638637968359, guid: ff9b677a99e231749b810bf160af864c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -903,6 +911,10 @@ PrefabInstance:
     - target: {fileID: 4051481576792003717, guid: d5edfc58b4adb844692f08d441508a2e, type: 3}
       propertyPath: m_Name
       value: zombie_Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051481576792003717, guid: d5edfc58b4adb844692f08d441508a2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5edfc58b4adb844692f08d441508a2e, type: 3}
