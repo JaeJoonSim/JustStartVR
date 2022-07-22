@@ -11,25 +11,36 @@ public class Elevator : MonoBehaviour
     [SerializeField]
     Transform[] Floor_Point;
 
+    Animator animator;
+
     public float Speed;
+    public bool Open = false;
 
     //Vector2 velocity = Vector2.zero;
+    int Floor;
 
     bool its = false;
 
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
     }
     public void MoveElevator(int floor)
     {
         if (its) return;
-        Player_YPoint.position = Player.transform.position;
+        Floor = floor;
         its = true;
+        Player_YPoint.position = Player.transform.position;
         Player.transform.GetComponent<PlayerGravity>().GravityEnabled = false;
-        StartCoroutine(Move(floor));
-   
+        animator.SetBool("Close", true);
     }
+
+    public void Start_Move()
+    {
+        StartCoroutine(Move(Floor));
+    }
+
     IEnumerator Move(int floor)
     {
         bool y_Ppint = true;
@@ -46,6 +57,7 @@ public class Elevator : MonoBehaviour
             Debug.Log(y_Ppint);
             yield return new WaitForFixedUpdate();
         }
+        animator.SetBool("Close", false);
         Player.transform.GetComponent<PlayerGravity>().GravityEnabled = true;
         its = false;
     }
