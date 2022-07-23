@@ -1,39 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
-[CustomEditor(typeof(item_list))]
-public class item_list : Editor
-{
-    public override void OnInspectorGUI()
-    {
 
-    }
-}
-
-    public class Spawn_Item : MonoBehaviour
+public class Spawn_Item : MonoBehaviour
 {
     public int SpawnCount = 1;
 
     [SerializeField]
-    int RadomProbability = 2;
-    [SerializeField]
     GameObject[] Item;
+    [SerializeField]
+    List<int> RadomProbability = new List<int>();
     [SerializeField]
     Transform[] Spawn_Point;
 
-
+    public virtual int Setitem()
+    {
+        int Count = Item.Length - RadomProbability.Count;
+        if (Count == 0)
+        {
+            return 0;
+        }
+        else if (Count > 0)
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                RadomProbability.Add(2);
+            }
+        }
+        else
+        {
+            Count = Mathf.Abs(Count);
+            for (int i = 0; i < Count; i++)
+            {
+                RadomProbability.RemoveAt(RadomProbability.Count - 1);
+            }
+        }
+        return 0;
+    }
     private void Start()
     {
         if (SpawnCount > 0)
         {
             foreach (Transform Point in Spawn_Point)
             {
-                int _Random = Random.Range(0, 2);
+                int ItemCount = Item.Length;
+                ItemCount = Random.Range(0, ItemCount);
+              
+                int _Random = Random.Range(0, RadomProbability[ItemCount]);
+
                 if (_Random == 0)
                 {
-                    int Count = Item.Length;
-                    _Random = Random.Range(0, Count);
-                    Instantiate(Item[_Random], Point.position,
+                    Instantiate(Item[ItemCount], Point.position,
                         Quaternion.identity, this.transform.parent);
                 }
             }
@@ -41,3 +59,6 @@ public class item_list : Editor
         }
     }
 }
+
+
+
