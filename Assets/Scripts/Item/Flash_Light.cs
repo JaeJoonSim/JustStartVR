@@ -47,7 +47,8 @@ namespace JustStartVR
             {
                 batter -= 0.001f;
                 //Debug.Log(batter);
-                batter_UI.fillAmount = batter;
+                if(batter_UI != null)
+                    batter_UI.fillAmount = batter;
                 if (batter < 0) batter_End();
                 yield return new WaitForSeconds(0.1f);
             }
