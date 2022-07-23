@@ -3,45 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using JustStartVR;
 
-public class EnemyChestCollision : MonoBehaviour
+public class EnemyChestCollision : EnemyBaseCollision
 {
-
-    EnemyBaseFSMMgr FSM;
-    EnemyStatus Es;
-
-    float damage;
-    void Start()
+    public override void setDamage()
     {
-        FSM = GetComponentInParent<EnemyBaseFSMMgr>();
-        Es = GetComponentInParent<EnemyStatus>();
-
         switch (Es.EnemyType)
         {
             case 1:
-                damage = 70;
+                damage = 1f;
                 break;
             case 2:
-                damage = 70;
+                damage = 1f;
                 break;
             case 3:
-                damage = 20;
+                damage = 0.5f;
                 break;
             case 4:
-                damage = 10;
+                damage = 0.5f;
                 break;
             default:
-                damage = 0;
+                damage = 1;
                 break;
-        }
-    }
-
-    void OnCollisionEnter(Collision other)
-    {
-
-        if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
-        {
-            FSM.Damaged(damage, (transform.position - other.transform.position).normalized);
-            //Destroy(other.gameObject);
         }
     }
 }
