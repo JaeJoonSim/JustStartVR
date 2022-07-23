@@ -35,9 +35,6 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         get { return status; }
     }
 
-
-
-
     //플레이어 위치
     [HideInInspector]
     public Transform target;
@@ -55,22 +52,21 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     //FieldOfView
     protected FieldOfView fow;
 
+    private bool distanceCheck;
+
+    //물리
     public GameObject ragdoll;
 
+    //렌더링
+    public GameObject rendering;
+
     //공격용
-
-
-
     public GameObject attackCollider;
 
 
-    //protected void Awake()
-    //{   
-    //}
 
     protected void OnEnable()
     {
-
         status = GetComponent<EnemyStatus>();
         fow = GetComponent<FieldOfView>();
         agent = GetComponent<NavMeshAgent>();
@@ -86,19 +82,19 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     protected void Update()
     {
-        if (CalcTargetDistance() > 25)
-        {
-            ragdoll.SetActive(false);
+        InvokeRepeating("DistanceCheck", 0f, 1f);
+        if (distanceCheck)
+        {  
+            if (currentState != null)
+                currentState.Update(this);
         }
-        else
-        {
-            ragdoll.SetActive(true);
-        }
+    }
 
-        if (currentState != null)
-            currentState.Update(this);
-
-       
+    private void DistanceCheck()
+    {
+        distanceCheck = (CalcTargetDistance() > 15) ? false : true;
+        ragdoll.SetActive(distanceCheck);
+        rendering.SetActive(distanceCheck);
     }
 
     private void ResetAllTriggers()
