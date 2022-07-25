@@ -16,7 +16,7 @@ namespace JustStartVR
 
         public float batter = 1;
         public bool _Grab = false;
-        bool On_Off = false, Shake_bool = false;
+        bool On_Off = false;
 
 
         public void OnGrab(bool Grab)

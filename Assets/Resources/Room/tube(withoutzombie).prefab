@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 6573755115795937046}
   - component: {fileID: -850319351186044760}
   - component: {fileID: -2992265625783277316}
+  - component: {fileID: 1719801126774045252}
   m_Layer: 0
   m_Name: tube(withoutzombie)
   m_TagString: Untagged
@@ -315,3 +316,17 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 1.5, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1719801126774045252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796550390155324844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3d52301c439e64ba6dafdebe77a7a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SellOBJ: {fileID: 4704511370056472234, guid: 4023d805239019746b90a271c253875a, type: 3}
+  OriginalOBJ: {fileID: 1951773360188938635}
