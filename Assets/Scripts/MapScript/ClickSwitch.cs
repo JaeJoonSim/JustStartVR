@@ -6,6 +6,7 @@ public class ClickSwitch : MonoBehaviour
 {
     public bool m_isWorking = false;
     [SerializeField] private TurnOnLamp m_lamp;
+    [SerializeField] private ElevatorPowerOn elevator;
 
     private List<TurnOnLamp> m_lampList = new List<TurnOnLamp>();
 
@@ -27,6 +28,11 @@ public class ClickSwitch : MonoBehaviour
         if (m_isWorking == false)
         {
             m_isWorking = true;
+
+            if(elevator != null)
+            {
+                elevator.setSpeed(1.0f);
+            }
 
             for(int i = 0; i < m_lampList.Count; i++)
             {                

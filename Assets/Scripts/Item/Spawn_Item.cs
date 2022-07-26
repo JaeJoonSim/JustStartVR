@@ -16,8 +16,7 @@ public class Spawn_Item : MonoBehaviour
 
     GameObject Player;
     
-    [SerializeField]
-    float Set_Distance = 10;
+    const float Set_Distance = 7;
 
     public virtual int Setitem()
     {
@@ -71,7 +70,7 @@ public class Spawn_Item : MonoBehaviour
                 if (_Random == 0)
                 {
                     Instantiate(Item[item], Point.position,
-                        Quaternion.identity, this.transform.parent);
+                        Quaternion.identity, this.transform.GetChild(0).transform);
                 }
             }
             SpawnCount--;
