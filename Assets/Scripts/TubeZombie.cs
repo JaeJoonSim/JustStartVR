@@ -13,11 +13,11 @@ public class TubeZombie : MonoBehaviour
     {
         GetComponentInParent<NavMeshObstacle>().enabled = false;
         anim = GetComponentInParent<Animator>();
-        Invoke("zombieAwake", 3f);
+        //Invoke("zombieAwake", 3f);
 
     }
 
-    void zombieAwake()
+    public void zombieAwake()
     {
         anim.SetTrigger("Awake");
         Invoke("Spown", 0.5f);
