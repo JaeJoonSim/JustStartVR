@@ -13,6 +13,8 @@ public class Player_HP : MonoBehaviour
     Color GameOverColor;
     [SerializeField]
     CenterEye_UI CenterEye_UI;
+    [SerializeField]
+    GameObject GameOver_UI;
 
     [HideInInspector]
     public float HP;
@@ -26,7 +28,7 @@ public class Player_HP : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         RenderSettings.fog = true;
         RenderSettings.fogColor = new Color(0, 0, 0);
-        //RenderSettings.fogDensity = 0.f;
+        RenderSettings.fogDensity = 0.3f;
         HP = Set_HP;
     }
 
@@ -35,7 +37,7 @@ public class Player_HP : MonoBehaviour
         Player.GetComponent<CharacterController>().enabled = false;
         RenderSettings.fogColor = GameOverColor;
         RenderSettings.fogDensity = 0.7f;
-
+        GameOver_UI.SetActive(true);
     }
 
     void Show_UI()
