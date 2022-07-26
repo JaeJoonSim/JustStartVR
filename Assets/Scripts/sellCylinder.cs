@@ -17,6 +17,8 @@ public class sellCylinder : MonoBehaviour
 
     public void Sell()
     {
+        TubeZombie tubeZombie = GetComponentInChildren<TubeZombie>();
+        if(tubeZombie != null)
         GetComponentInChildren<TubeZombie>().zombieAwake();
 
         if (Destruction) return;
