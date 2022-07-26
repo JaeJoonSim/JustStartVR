@@ -107,7 +107,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             }
         }
     }
-    public void Damaged(float demage)
+    public void Damaged(float demage, Vector3 BulletForword)
     {
         Status.Hp -= demage;
         //print(Status.Hp);

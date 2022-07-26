@@ -16,8 +16,6 @@ public class FireLight : MonoBehaviour
         m_time = 0.0f;
     }
 
-
-
     void FixedUpdate()
     {
         m_time += Time.deltaTime;
@@ -26,7 +24,7 @@ public class FireLight : MonoBehaviour
 
         if(isDying == false)
         {
-            if(m_Light.range < 10)
+            if(m_Light.range < 5)
             {
                 m_Light.range += Time.deltaTime * 10;
             }
@@ -43,7 +41,7 @@ public class FireLight : MonoBehaviour
 
             if (m_time > 10.0f)
             {
-                Destroy(this.transform.parent.gameObject);
+                Destroy(this.transform.parent.gameObject);                
             }
         }
     }

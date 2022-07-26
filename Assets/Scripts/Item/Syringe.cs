@@ -11,21 +11,22 @@ namespace JustStartVR
         bool Activation = false;
         bool Use = false;
 
-        [SerializeField]
+        //[SerializeField]
         Animator animator;
         [SerializeField]
-        GameObject Needle;
+        BoxCollider Needle;
+
+        Player_HP Player_HP;
+
+        //GameObject Needle;
 
         void Start()
         {
-
+            animator = GetComponent<Animator>();
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+            Player_HP = gameObjects[1].GetComponent<Player_HP>();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
 
         void Activate()
         {
@@ -33,14 +34,14 @@ namespace JustStartVR
             {
                 Activation = true;
                 animator.SetBool("Use", true);
-                Needle.SetActive(true);
+                Needle.enabled = true;
                 Debug.Log("Ativete");
             }
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if( Activation && other.tag == "Player")
+            if( Activation && other.tag == "Hand")
             {
                 Debug.Log("Use");
                 Recovery();
@@ -51,6 +52,8 @@ namespace JustStartVR
         {
             Activation = false;
             Use = true;
+            Needle.enabled = false;
+            Player_HP.change_HP(Amount_Of_Recovery);
             animator.SetBool("Use", false);
         }
 
