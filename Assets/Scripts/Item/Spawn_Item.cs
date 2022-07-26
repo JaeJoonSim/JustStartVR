@@ -70,7 +70,7 @@ public class Spawn_Item : MonoBehaviour
                 if (_Random == 0)
                 {
                     Instantiate(Item[item], Point.position,
-                        Quaternion.identity, this.transform.GetChild(0).transform);
+                        Quaternion.identity, this.transform.parent);
                 }
             }
             SpawnCount--;
