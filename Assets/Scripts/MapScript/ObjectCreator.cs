@@ -137,7 +137,7 @@ public class ObjectCreator : MonoBehaviour
             case -1:
                 angle = Random.Range(0, 360);
                 min = 1;
-                max = 9;
+                max = 8;
                 if (isCardRoom == true)
                 {
                     max = 4;
@@ -163,7 +163,7 @@ public class ObjectCreator : MonoBehaviour
 
         type = Random.Range(min, max);
 
-        if (type == 3 && isCardRoom == true)
+        if (type == 2 && isCardRoom == true)
             type = 8;
 
         float _y = 0.0f;

@@ -163,14 +163,14 @@ public class RoomCreator : MonoBehaviour
         //6, 6
         if(parent.name == "Room (" + 1 + ", " + 1 + ")")
         {
-            for(int i = 5; i <= 7; i++)
+            for(int i = 4; i <= 8; i++)
             {
-                for(int j = 5; j <= 7; j++)
+                for(int j = 4; j <= 8; j++)
                 {
                     m_WorldTileisEmpty[i + m_mapinterval, j + m_mapinterval] = false;
                     m_TileisEmpty[i, j] = false;
                     if (i == 6 && j == 6) continue;
-                    if ((i >= 5 || i <= 7)  && j == 6) continue;
+                    if ((i >= 5 && i <= 7)  && j == 6) continue;
                     AddNewTile(i * m_TileSize, j * m_TileSize, parent);
                     
                     count++;
