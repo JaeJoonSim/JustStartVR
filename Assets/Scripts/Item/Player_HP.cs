@@ -18,9 +18,12 @@ public class Player_HP : MonoBehaviour
     public float HP;
 
     public Image HP_Bar;
+    GameObject Player;
+
 
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         RenderSettings.fog = true;
         RenderSettings.fogColor = new Color(0, 0, 0);
         //RenderSettings.fogDensity = 0.f;
@@ -29,8 +32,10 @@ public class Player_HP : MonoBehaviour
 
     void GameOver()
     {
+        Player.GetComponent<CharacterController>().enabled = false;
         RenderSettings.fogColor = GameOverColor;
         RenderSettings.fogDensity = 0.7f;
+
     }
 
     void Show_UI()
