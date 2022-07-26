@@ -17,7 +17,7 @@ namespace JustStartVR
         public float batter = 1;
         public bool _Grab = false;
         bool On_Off = false, Shake_bool = false;
-
+        public GameObject xrRig;
 
         public void OnGrab(bool Grab)
         {
@@ -101,6 +101,11 @@ namespace JustStartVR
         public override void OnButton2Down()
         {
             OnOffFlash();
+        }
+
+        public void ExitParent()
+        {
+            transform.parent = xrRig.transform;
         }
     }
 }
