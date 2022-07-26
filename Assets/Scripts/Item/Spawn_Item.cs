@@ -64,7 +64,7 @@ public class Spawn_Item : MonoBehaviour
             {
                 int ItemCount = Item.Length;
                 int item = Random.Range(0, ItemCount);
-                Debug.Log(item);
+                //Debug.Log(item);
                 int _Random = Random.Range(0, RadomProbability[item]);
 
                 if (_Random == 0)
