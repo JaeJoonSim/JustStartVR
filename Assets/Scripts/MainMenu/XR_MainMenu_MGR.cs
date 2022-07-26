@@ -23,11 +23,18 @@ public class XR_MainMenu_MGR : MonoBehaviour
         }
     }
 
-    public void LoadScene()
+    public void LoadScene(string Scene)
     {
-        Debug.Log("Lode");
+        //Debug.Log("Lode");
+        SceneLoader.LoadScene(Scene);
+    }
+
+    public void MainMenu()
+    {
+        //Debug.Log("Lode");
         SceneLoader.LoadScene(Scene_Name);
     }
+
     public void Setting()
     {
         Debug.Log("Setting");

@@ -8,8 +8,17 @@ public class sellCylinder : MonoBehaviour
     GameObject SellOBJ, OriginalOBJ;
     GameObject copy;
     bool Destruction = false;
+
+    //±úÁü Å×½ºÆ® ¿ë
+    //void Start()
+    //{
+    //    Invoke("Sell", 3f);
+    //}
+
     public void Sell()
     {
+        GetComponentInChildren<TubeZombie>().zombieAwake();
+
         if (Destruction) return;
         Destruction = true;
         Destroy(OriginalOBJ);
