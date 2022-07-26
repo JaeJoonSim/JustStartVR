@@ -527,6 +527,7 @@ GameObject:
   - component: {fileID: 1859194402780764668}
   - component: {fileID: 1859194402780764643}
   - component: {fileID: 8123387833817562259}
+  - component: {fileID: 1536721886007188768}
   m_Layer: 10
   m_Name: Flash_Light
   m_TagString: Untagged
@@ -727,9 +728,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1859194402780764642}
-        m_TargetAssemblyTypeName: JustStartVR.Flash_Light, Assembly-CSharp
-        m_MethodName: ExitParent
+      - m_Target: {fileID: 1536721886007188768}
+        m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
+        m_MethodName: Setparents
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -766,9 +767,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1859194402780764642}
-        m_TargetAssemblyTypeName: JustStartVR.Flash_Light, Assembly-CSharp
-        m_MethodName: ExitParent
+      - m_Target: {fileID: 1536721886007188768}
+        m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
+        m_MethodName: Setparents
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -840,6 +841,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LocalPositionOffset: {x: 0, y: 0, z: 0}
   LocalRotationOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &1536721886007188768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859194402780764666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2573604591517751240
 GameObject:
   m_ObjectHideFlags: 0

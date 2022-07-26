@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 2837040775098147977}
   - component: {fileID: 2837040775098147990}
   - component: {fileID: 5633454242259698150}
+  - component: {fileID: 3445472267646528806}
   m_Layer: 10
   m_Name: LaserPointer
   m_TagString: Untagged
@@ -337,6 +338,7 @@ MonoBehaviour:
   batter_UI: {fileID: 0}
   batter: 9999
   _Grab: 0
+  xrRig: {fileID: 0}
 --- !u!114 &2837040775098147979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +464,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 3445472267646528806}
+        m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
+        m_MethodName: Setparents
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onRelease:
     m_PersistentCalls:
       m_Calls:
@@ -469,6 +483,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: JustStartVR.Flash_Light, Assembly-CSharp
         m_MethodName: OnGrab
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3445472267646528806}
+        m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
+        m_MethodName: Setparents
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -539,6 +565,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LocalPositionOffset: {x: 0, y: 0, z: 0}
   LocalRotationOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &3445472267646528806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2837040775098147983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2837040775293114936
 GameObject:
   m_ObjectHideFlags: 0
