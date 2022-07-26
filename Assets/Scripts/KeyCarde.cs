@@ -17,19 +17,19 @@ public class KeyCarde : MonoBehaviour
 
         switch (posy)
         {
-            case 0.0f:
+            case 20.0f:
                 CardType = Card.First;
                 Cardname.text = "First";
                 break;
-            case 20.0f:
+            case 40.0f:
                 CardType = Card.Second;
                 Cardname.text = "Second";
                 break;
-            case 40.0f:
+            case 60.0f:
                 CardType = Card.Third;
                 Cardname.text = "Third";
                 break;
-            case 60.0f:
+            case 80.0f:
                 CardType = Card.Exit;
                 Cardname.text = "Exit";
                 break;
