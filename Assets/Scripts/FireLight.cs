@@ -16,7 +16,21 @@ public class FireLight : MonoBehaviour
         m_time = 0.0f;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
 
+       // if (m_time % 1.0f != 0) return;
+
+        if(other.tag == "Player")
+        {
+            Player_HP playerhp = other.GetComponent<Player_HP>();
+            playerhp.change_HP(-10);
+        }
+        else if(other.tag == "Enemy")
+        {
+            EnemyBaseFSMMgr enemyhp = other.GetComponent<EnemyBaseFSMMgr>();            
+        }
+    }
 
     void FixedUpdate()
     {
