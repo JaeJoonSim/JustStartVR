@@ -73,8 +73,8 @@ GameObject:
   - component: {fileID: 7139491920176873560}
   - component: {fileID: 7849568282695875496}
   - component: {fileID: 7849568283782187028}
+  - component: {fileID: 566070422}
   - component: {fileID: 566070421}
-  - component: {fileID: 8265233670483505067}
   m_Layer: 19
   m_Name: Knife
   m_TagString: Melee
@@ -234,8 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821cfb7c3eab3764bbb57d764c6e26d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 5
-  speed: 3
+  Damage: 25
   ColliderRigidbody: {fileID: 2775381336460495314}
   MinForce: 0.1
   LastRelativeVelocity: 0
@@ -290,19 +289,7 @@ MonoBehaviour:
   PuncturedObject: {fileID: 0}
   PunctureValue: 0
   TargetDistance: 0
---- !u!114 &566070421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2775381336460495313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8265233670483505067
+--- !u!114 &566070422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,7 +306,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 566070421}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
-        m_MethodName: Setparents
+        m_MethodName: SetParentsNull
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -334,7 +321,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 566070421}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
-        m_MethodName: Setparents
+        m_MethodName: SetParentsReturn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -392,6 +379,18 @@ MonoBehaviour:
   onSnapZoneExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &566070421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2775381336460495313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3909098048103213231
 GameObject:
   m_ObjectHideFlags: 0

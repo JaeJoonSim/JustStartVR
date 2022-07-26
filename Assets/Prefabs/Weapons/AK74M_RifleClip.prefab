@@ -530,11 +530,11 @@ GameObject:
   - component: {fileID: 2902700608415231800}
   - component: {fileID: 2902700608415231803}
   - component: {fileID: -7226144363582442723}
-  - component: {fileID: 582017026}
-  - component: {fileID: 582017032}
+  - component: {fileID: 4566478093514107597}
+  - component: {fileID: 2208568148758735592}
   m_Layer: 10
   m_Name: AK74M_RifleClip
-  m_TagString: Untagged
+  m_TagString: Clip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -689,19 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   OnOffObject: {fileID: 2902700608415231782}
---- !u!114 &582017026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2902700608415231782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &582017032
+--- !u!114 &4566478093514107597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -716,9 +704,9 @@ MonoBehaviour:
   onGrab:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 582017026}
+      - m_Target: {fileID: 2208568148758735592}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
-        m_MethodName: Setparents
+        m_MethodName: SetParentsNull
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -731,9 +719,9 @@ MonoBehaviour:
   onRelease:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 582017026}
+      - m_Target: {fileID: 2208568148758735592}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
-        m_MethodName: Setparents
+        m_MethodName: SetParentsReturn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -791,6 +779,18 @@ MonoBehaviour:
   onSnapZoneExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2208568148758735592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2902700608415231782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3180777069318587792
 GameObject:
   m_ObjectHideFlags: 0
