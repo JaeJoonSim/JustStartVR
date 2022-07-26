@@ -133,6 +133,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5342571367158615084, guid: 482a32942cd9b2045b5371186b98409e, type: 3}
   m_PrefabInstance: {fileID: 1287255608}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &264769631 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 593739938690306357, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+  m_PrefabInstance: {fileID: 938845742}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &270785140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1525360715461004555, guid: dfe5ff6e0a11be24ba750fd65cf2d098, type: 3}
@@ -602,7 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7357997953617923048, guid: f29f35ec703cf6946bb046889460c305, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.62001073
+      value: -0.159
       objectReference: {fileID: 0}
     - target: {fileID: 7357997953617923048, guid: f29f35ec703cf6946bb046889460c305, type: 3}
       propertyPath: m_LocalPosition.z
@@ -639,10 +644,6 @@ PrefabInstance:
     - target: {fileID: 7357997953617923055, guid: f29f35ec703cf6946bb046889460c305, type: 3}
       propertyPath: m_Name
       value: M1911_Pistol
-      objectReference: {fileID: 0}
-    - target: {fileID: 7357997953617923055, guid: f29f35ec703cf6946bb046889460c305, type: 3}
-      propertyPath: m_TagString
-      value: Gun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f29f35ec703cf6946bb046889460c305, type: 3}
@@ -891,6 +892,14 @@ PrefabInstance:
     - target: {fileID: 986092443048242083, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
       propertyPath: m_Name
       value: AK74M_Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 986092443048242091, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: MuzzleFlashObject
+      value: 
+      objectReference: {fileID: 264769631}
+    - target: {fileID: 6345735080911794365, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
@@ -1322,6 +1331,22 @@ PrefabInstance:
     - target: {fileID: 6024261396410624980, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
       propertyPath: m_TagString
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340558974432068037, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340558974432068037, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340558974432068037, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340558974432068037, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}

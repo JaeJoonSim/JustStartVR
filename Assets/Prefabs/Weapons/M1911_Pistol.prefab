@@ -2198,7 +2198,7 @@ GameObject:
   - component: {fileID: 492664676}
   m_Layer: 10
   m_Name: M1911_Pistol
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2218,7 +2218,7 @@ Transform:
   - {fileID: 6147698923365130711}
   - {fileID: 8307170561299976570}
   - {fileID: 7357997955081746288}
-  - {fileID: 7388107444896436110}
+  - {fileID: 3873271990303899133}
   - {fileID: 7726628143483247057}
   - {fileID: 1987856892340343430}
   - {fileID: 1165226516902946873}
@@ -2448,7 +2448,7 @@ MonoBehaviour:
   AlwaysFireProjectile: 1
   FireProjectileInSlowMo: 1
   SlowMoRateOfFire: 0.3
-  ShotForce: 20
+  ShotForce: 100
   BulletCasingForce: 3
   ValidLayers:
     serializedVersion: 2
@@ -2458,9 +2458,9 @@ MonoBehaviour:
   MuzzlePointTransform: {fileID: 7357997955081746288}
   EjectPointTransform: {fileID: 7357997955297728838}
   ChamberedBullet: {fileID: 1635064172833049317}
-  MuzzleFlashObject: {fileID: 7388107444896436081}
+  MuzzleFlashObject: {fileID: 3873271990303898882}
   BulletCasingPrefab: {fileID: 4293907302815737054, guid: f8313a7c0e07bba40ac0f3634a590caf, type: 3}
-  ProjectilePrefab: {fileID: 1449094533667961452, guid: 4af46545725f628459794cfc7c0f7d54, type: 3}
+  ProjectilePrefab: {fileID: 1449094533667961452, guid: 8e9eab5d3447a114a8fc8ac91546bf1d, type: 3}
   HitFXPrefab: {fileID: 3454612190511497970, guid: fa39ce2ce96bec94b82f2c8124ce3930, type: 3}
   HitEnemyFXPrefab: {fileID: 648505865360065259, guid: ca31f0121f60d1346a15a57353f04a47, type: 3}
   GunShotSound: {fileID: 8300000, guid: 727ff3abbdb797f45b714a1795efc4e2, type: 3}
@@ -2947,7 +2947,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7357997955081746295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0338, z: 0.171}
+  m_LocalPosition: {x: 0, y: 0.025, z: 0.1876}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4039,7 +4039,7 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
---- !u!1001 &1727784467071901434
+--- !u!1001 &4953157053384371337
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4056,11 +4056,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8177840117864108404, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 8177840117864108404, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.222
+      value: 0.1876
       objectReference: {fileID: 0}
     - target: {fileID: 8177840117864108404, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4094,19 +4094,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooting_effect
       objectReference: {fileID: 0}
-    - target: {fileID: 8177840117864108425, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
---- !u!198 &7388107444896436081 stripped
+--- !u!198 &3873271990303898882 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8177840117864108427, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
-  m_PrefabInstance: {fileID: 1727784467071901434}
+  m_PrefabInstance: {fileID: 4953157053384371337}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7388107444896436110 stripped
+--- !u!4 &3873271990303899133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8177840117864108404, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
-  m_PrefabInstance: {fileID: 1727784467071901434}
+  m_PrefabInstance: {fileID: 4953157053384371337}
   m_PrefabAsset: {fileID: 0}
