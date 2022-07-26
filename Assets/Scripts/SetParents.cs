@@ -13,12 +13,13 @@ public class SetParents : MonoBehaviour
 
     public void SetParentsNull()
     {
+        m_parent = transform.parent;
         transform.parent = null;
     }
 
     public void SetParentsReturn()
     {
-        if(m_parent != null && transform.parent.tag != "ClipInsert")
+        if(m_parent != null)
             transform.parent = m_parent;
     }
 
