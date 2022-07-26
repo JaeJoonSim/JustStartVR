@@ -1415,7 +1415,7 @@ MonoBehaviour:
   MuzzlePointTransform: {fileID: 986092442624808408}
   EjectPointTransform: {fileID: 986092442279329065}
   ChamberedBullet: {fileID: 5436223833655853533}
-  MuzzleFlashObject: {fileID: 0}
+  MuzzleFlashObject: {fileID: 593739938690306357}
   BulletCasingPrefab: {fileID: 3207232661665563695, guid: 057143b0227917548a936590b07ffa7d, type: 3}
   ProjectilePrefab: {fileID: 1449094533667961452, guid: 4af46545725f628459794cfc7c0f7d54, type: 3}
   HitFXPrefab: {fileID: 3454612190511497970, guid: fa39ce2ce96bec94b82f2c8124ce3930, type: 3}
@@ -5897,6 +5897,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
+--- !u!198 &593739938690306357 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8177840117864108427, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
+  m_PrefabInstance: {fileID: 8737235160852037822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &593739938690306506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8177840117864108404, guid: 91f18d2489836404183322e82fb0aeb5, type: 3}
