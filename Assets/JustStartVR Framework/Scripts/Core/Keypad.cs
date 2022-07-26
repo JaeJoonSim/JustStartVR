@@ -61,6 +61,11 @@ namespace JustStartVR
                 }
             }
 
+            Set_Entry();
+        }
+
+        public void Set_Entry()
+        {
             Entry = "";
             if (display)
             {
@@ -87,8 +92,9 @@ namespace JustStartVR
             {
                 //if (code == Entry)
                 {
-                    Unlocked.Invoke();
+                    Unlocked.Invoke();         
                 }
+                Set_Entry();
             }
             else if (Index >= 0 && Index < MaxLength)
             {

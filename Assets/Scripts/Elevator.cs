@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using JustStartVR;
 
 public class Elevator : MonoBehaviour
@@ -10,7 +11,9 @@ public class Elevator : MonoBehaviour
     Transform Player_YPoint;
     [SerializeField]
     Transform[] Floor_Point;
-
+    [SerializeField]
+    Text text, Floor_text;
+   
     Animator animator;
     [SerializeField]
     Keypad keypad;
@@ -20,7 +23,7 @@ public class Elevator : MonoBehaviour
 
     public int[] password = new int[16];
 
-    bool[] Looked;
+    bool[] Locked;
 
     public float Speed;
     public bool Open = false;
@@ -48,13 +51,14 @@ public class Elevator : MonoBehaviour
         animator = GetComponent<Animator>();
         SetPassword();
         initKeyCode(0);
+        Locked[0] = true;
     }
     void SetPassword()
     {
-        Looked = new bool[Floor_Point.Length];
+        Locked = new bool[Floor_Point.Length];
         for (int i = 0; i< Floor_Point.Length; i++)
         {
-            Looked[i] = false;
+            Locked[i] = false;
         }
 
         for(int i = 0; i < 16; i++)
@@ -66,16 +70,29 @@ public class Elevator : MonoBehaviour
     {
         if (its) return;
         Floor = floor;
-        if (Looked[Floor])
+        Floor_text.text = (floor +1).ToString();
+        if (Locked[Floor])
         {
             Moving();
             initKeyCode(Floor);
+            text.gameObject.SetActive(false);
+            Floor_text.color = Color.green;
+        }
+        else
+        {
+            Floor_text.color = Color.red;
+            text.color = Color.red;
+            text.text = "비밀번호를\n입력하세요";
+            text.gameObject.SetActive(true);
         }
     }
 
     public void lift()
     {
-        Looked[Floor] = true;
+        Locked[Floor] = true;
+        Floor_text.color = Color.green;
+        text.color = Color.green;
+        text.text = "해제되었습니다.";
     }
 
     void Moving()

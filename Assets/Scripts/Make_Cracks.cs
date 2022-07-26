@@ -24,7 +24,7 @@ public class Make_Cracks : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         GameObject other = collision.gameObject;
-        if (other.tag == "Hand")
+        if (other.tag == "Melee")
         {
             Debug.Log(other);
             Vector3 dir = transform.position - other.transform.position;
