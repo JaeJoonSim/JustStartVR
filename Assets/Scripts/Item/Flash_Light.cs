@@ -102,5 +102,10 @@ namespace JustStartVR
         {
             OnOffFlash();
         }
+
+        public void ExitParent()
+        {
+            transform.parent = xrRig.transform;
+        }
     }
 }
