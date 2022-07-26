@@ -12,9 +12,14 @@ public class Elevator : MonoBehaviour
     Transform[] Floor_Point;
 
     Animator animator;
+    [SerializeField]
     Keypad keypad;
 
-    public string[] password;
+    [SerializeField]
+    PassWordManager passwordmgr;
+
+    public int[] password = new int[16];
+
     bool[] Looked;
 
     public float Speed;
@@ -25,25 +30,36 @@ public class Elevator : MonoBehaviour
 
     bool its = false;
 
-    private void Start()
+
+    private void initKeyCode(int number)
     {
+        int min = number * 4;
+        int max = min + 4;
+        keypad.code = null;
+        for (int i = min; i < max; i++)
+        {
+            keypad.code += password[i].ToString();
+        }
+    }
+
+    private void Start()
+    {   
         Player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
         SetPassword();
+        initKeyCode(0);
     }
     void SetPassword()
     {
-        password = new string[Floor_Point.Length];
         Looked = new bool[Floor_Point.Length];
-        for (int i =0; i< Floor_Point.Length; i++)
+        for (int i = 0; i< Floor_Point.Length; i++)
         {
-            password[i] = "";
             Looked[i] = false;
-            for (int j = 0; j < 4; j++)
-            {
-                char p =(char)Random.Range(0, 10);
-                password[i] += p;
-            }
+        }
+
+        for(int i = 0; i < 16; i++)
+        {
+            password[i] = passwordmgr.number[i];
         }
     }
     public void MoveElevator(int floor)
@@ -53,10 +69,7 @@ public class Elevator : MonoBehaviour
         if (Looked[Floor])
         {
             Moving();
-        }
-        else
-        {
-            keypad.code = password[Floor];
+            initKeyCode(Floor);
         }
     }
 

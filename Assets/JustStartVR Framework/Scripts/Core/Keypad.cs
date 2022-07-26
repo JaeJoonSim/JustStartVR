@@ -87,7 +87,6 @@ namespace JustStartVR
             {
                 if (code == Entry)
                 {
-                    //doorHelper.DoorIsLocked = false;
                     Unlocked.Invoke();
                 }
             }

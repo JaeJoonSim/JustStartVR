@@ -11,7 +11,7 @@ public class LampCreator : MonoBehaviour
     {
         GameObject newObj = null;
 
-        if(m_roomCreator.m_Y == 40)
+        if(m_roomCreator.m_Y == 60)
         {
             m_clickSwitch = GameObject.FindGameObjectWithTag("LightPanel").GetComponent<ClickSwitch>();
         }
@@ -30,7 +30,7 @@ public class LampCreator : MonoBehaviour
                             Quaternion.identity);
                         newObj.transform.parent = m_Parent;
 
-                        if(m_roomCreator.m_Y == 40)
+                        if(m_roomCreator.m_Y == 60)
                         {
                             m_clickSwitch.AddNewLamp(newObj.GetComponent<TurnOnLamp>());
                         }
