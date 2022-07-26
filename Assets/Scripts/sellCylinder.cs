@@ -37,6 +37,14 @@ public class sellCylinder : MonoBehaviour
             if (Destruction) return;
             Sell();
         }
+        else if (other.gameObject.tag == "EnemyAttack")
+        {
+            if (other.gameObject.name == "DeshCollider")
+            {
+                if (Destruction) return;
+                Sell();
+            }
+        }
     }
 
 }

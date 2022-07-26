@@ -21,28 +21,34 @@ public class EnemytongueCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
-        {
-            //Debug.Log("Çú¹Ù´Ú  ÃÑ¾Ë Ãæµ¹");
-            FSM.bulletCollision = true;
-            FSM.Damaged(100, (transform.position - other.transform.position).normalized);
-            FSM.characterController.enabled = true;
-        }
-        else if (other.gameObject.tag == "Player")
-        {
-            //Debug.Log("Çú¹Ù´Ú Ãæµ¹");
-           
-            if (FSM.CurrentState == FSM.Attack2State)
-            {
-                FSM.attackCollision = true;
-                FSM.characterController.enabled = false;
-            }
-            
-        }
-        else
+        if (FSM.CurrentState == FSM.Attack2State)
         {
             var Bmgr = FSM.CurrentState as BossZombieAttack2State;
-            Bmgr.tongueBack = true;
+
+            if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
+            {
+                //Debug.Log("Çú¹Ù´Ú  ÃÑ¾Ë Ãæµ¹");
+                FSM.bulletCollision = true;
+                FSM.Damaged(100, (transform.position - other.transform.position).normalized);
+                FSM.characterController.enabled = true;
+            }
+            else if (other.gameObject.tag == "Player")
+            {
+                //Debug.Log("Çú¹Ù´Ú Ãæµ¹");
+               
+                if (FSM.CurrentState == FSM.Attack2State && (FSM.target.position - FSM.grabPos.position).magnitude < 0.5f)
+                {
+                    FSM.attackCollision = true;
+                    FSM.characterController.enabled = false;
+                }
+
+            }
+            else
+            {
+               
+                Bmgr.tongueBack = true;
+
+            }
         }
         
     }
