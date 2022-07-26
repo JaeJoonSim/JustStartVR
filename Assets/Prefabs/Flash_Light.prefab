@@ -588,6 +588,7 @@ MonoBehaviour:
   batter_UI: {fileID: 1616295637524953080}
   batter: 1
   _Grab: 0
+  xrRig: {fileID: 0}
 --- !u!114 &1859194402780764670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,6 +727,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1859194402780764642}
+        m_TargetAssemblyTypeName: JustStartVR.Flash_Light, Assembly-CSharp
+        m_MethodName: ExitParent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onRelease:
     m_PersistentCalls:
       m_Calls:
@@ -745,6 +758,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: JustStartVR.Flash_Light, Assembly-CSharp
         m_MethodName: OnGrab
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1859194402780764642}
+        m_TargetAssemblyTypeName: JustStartVR.Flash_Light, Assembly-CSharp
+        m_MethodName: ExitParent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

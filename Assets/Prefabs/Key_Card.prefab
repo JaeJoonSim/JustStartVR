@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 8590413028307565292}
   - component: {fileID: 2181565648673464220}
   - component: {fileID: 8573310335997485825}
+  - component: {fileID: 2569477781065974299}
   m_Layer: 10
   m_Name: Key_Card
   m_TagString: Untagged
@@ -356,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cardname: {fileID: 5737556092061995766}
-  SetCard: 0
+  CardType: 0
   Card_Name: Frist Card
 --- !u!114 &8590413028307565297
 MonoBehaviour:
@@ -470,6 +471,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2569477781065974299}
+        m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
+        m_MethodName: Setparents
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onRelease:
     m_PersistentCalls:
       m_Calls:
@@ -477,6 +490,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2569477781065974299}
+        m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
+        m_MethodName: Setparents
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -560,6 +585,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.065, y: 0.1, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2569477781065974299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590413028307565301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8590413029203231810
 GameObject:
   m_ObjectHideFlags: 0
