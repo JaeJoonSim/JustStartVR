@@ -25,7 +25,7 @@ public class CenterEye_UI : MonoBehaviour
         int x = Random.Range(0, 10);
         int y = Random.Range(0, 5);
         images[images_Index].sprite = sprites[Ran];
-        images[images_Index].transform.position = new Vector3(x, y, 0);
+        images[images_Index].rectTransform.transform.localPosition = new Vector3(x, y, 0);
         images[images_Index].gameObject.SetActive(true);
         images_Index++;
         if (images_Index >= images_number)
