@@ -53,7 +53,7 @@ public class Spawn_Item : MonoBehaviour
                 if (_Random == 0)
                 {
                     Instantiate(Item[ItemCount], Point.position,
-                        Quaternion.identity, this.transform.parent);
+                        Quaternion.identity, this.transform.GetChild(0).transform);
                 }
             }
             SpawnCount--;

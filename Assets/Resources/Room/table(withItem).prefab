@@ -123,6 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 931060221574459735}
+  - component: {fileID: 3627703953788800205}
   m_Layer: 0
   m_Name: table(withItem)
   m_TagString: Untagged
@@ -143,10 +144,28 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6687415941753611097}
-  - {fileID: 6812625646218368324}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3627703953788800205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792334055088713197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc84ee985841a5e49ba3fb52ea2ed95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnCount: 1
+  Item:
+  - {fileID: 986092443048242083, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+  - {fileID: 6681540828967737144, guid: 3e1415a93451ee64780fd0c417d24009, type: 3}
+  RadomProbability: 0200000002000000
+  Spawn_Point:
+  - {fileID: 6812625646218368324}
 --- !u!1 &6306633712250550755
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +196,7 @@ Transform:
   m_Children:
   - {fileID: 5648777812760757238}
   - {fileID: 52598225274543456}
+  - {fileID: 6812625646218368324}
   m_Father: {fileID: 931060221574459735}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -189,7 +209,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6812625646218368324}
-  - component: {fileID: 5380423554960498065}
   m_Layer: 0
   m_Name: ItemSpawner
   m_TagString: Untagged
@@ -209,28 +228,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 931060221574459735}
-  m_RootOrder: 1
+  m_Father: {fileID: 6687415941753611097}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5380423554960498065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7466211880671971871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc84ee985841a5e49ba3fb52ea2ed95f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnCount: 1
-  Item:
-  - {fileID: 986092443048242083, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
-  - {fileID: 6681540828967737144, guid: 3e1415a93451ee64780fd0c417d24009, type: 3}
-  RadomProbability: 0200000002000000
-  Spawn_Point:
-  - {fileID: 6812625646218368324}
 --- !u!1 &8216682246681276962
 GameObject:
   m_ObjectHideFlags: 0
