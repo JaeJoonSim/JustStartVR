@@ -4,7 +4,7 @@ public class FireBottle : MonoBehaviour
 {
     [SerializeField]GameObject m_FireEffect;
 
-    public bool isHand;
+    public bool isHand { get; set; }
 
     private void Start()
     {

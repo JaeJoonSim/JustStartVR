@@ -12,9 +12,10 @@ public class Elevator : MonoBehaviour
     Transform[] Floor_Point;
 
     Animator animator;
+    Keypad keypad;
 
-
-    int[] password;
+    public string[] password;
+    bool[] Looked;
 
     public float Speed;
     public bool Open = false;
@@ -28,12 +29,44 @@ public class Elevator : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
-        password = new int[Floor_Point.Length];
+        SetPassword();
+    }
+    void SetPassword()
+    {
+        password = new string[Floor_Point.Length];
+        Looked = new bool[Floor_Point.Length];
+        for (int i =0; i< Floor_Point.Length; i++)
+        {
+            password[i] = "";
+            Looked[i] = false;
+            for (int j = 0; j < 4; j++)
+            {
+                char p =(char)Random.Range(0, 10);
+                password[i] += p;
+            }
+        }
     }
     public void MoveElevator(int floor)
     {
         if (its) return;
         Floor = floor;
+        if (Looked[Floor])
+        {
+            Moving();
+        }
+        else
+        {
+            keypad.code = password[Floor];
+        }
+    }
+
+    public void lift()
+    {
+        Looked[Floor] = true;
+    }
+
+    void Moving()
+    {
         its = true;
         Player_YPoint.position = Player.transform.position;
         Player.transform.GetComponent<PlayerGravity>().GravityEnabled = false;

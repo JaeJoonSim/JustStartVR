@@ -62,7 +62,7 @@ public class Spawn_Item : MonoBehaviour
         {
             foreach (Transform Point in Spawn_Point)
             {
-                int ItemCount = Item.Length - 1;
+                int ItemCount = Item.Length;
                 int item = Random.Range(0, ItemCount);
                 //Debug.Log(item);
                 int _Random = Random.Range(0, RadomProbability[item]);
