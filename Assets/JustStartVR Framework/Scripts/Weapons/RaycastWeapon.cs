@@ -251,13 +251,13 @@ namespace JustStartVR
 
         protected bool readyToShoot = true;
 
-        void Start()
+        void Awake()
         {
             weaponRigid = GetComponent<Rigidbody>();
 
-            //if (MuzzleFlashObject) {
-            //    MuzzleFlashObject.SetActive(false);
-            //}
+            if (MuzzleFlashObject) {
+                MuzzleFlashObject.Pause();
+            }
 
             ws = GetComponentInChildren<WeaponSlide>();
 
