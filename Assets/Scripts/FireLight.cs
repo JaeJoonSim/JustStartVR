@@ -16,22 +16,6 @@ public class FireLight : MonoBehaviour
         m_time = 0.0f;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-
-       // if (m_time % 1.0f != 0) return;
-
-        if(other.tag == "Player")
-        {
-            Player_HP playerhp = other.GetComponent<Player_HP>();
-            playerhp.change_HP(-10);
-        }
-        else if(other.tag == "Enemy")
-        {
-            EnemyBaseFSMMgr enemyhp = other.GetComponent<EnemyBaseFSMMgr>();            
-        }
-    }
-
     void FixedUpdate()
     {
         m_time += Time.deltaTime;
@@ -40,7 +24,7 @@ public class FireLight : MonoBehaviour
 
         if(isDying == false)
         {
-            if(m_Light.range < 10)
+            if(m_Light.range < 5)
             {
                 m_Light.range += Time.deltaTime * 10;
             }
@@ -57,7 +41,7 @@ public class FireLight : MonoBehaviour
 
             if (m_time > 10.0f)
             {
-                Destroy(this.transform.parent.gameObject);
+                Destroy(this.transform.parent.gameObject);                
             }
         }
     }
