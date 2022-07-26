@@ -52,6 +52,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     {
         //base.Awake();
         base.OnEnable();
+        renderingDistance = 50;
         bStatus = GetComponent<BossStatus>();
         attackCollision = false;
         bulletCollision = false;

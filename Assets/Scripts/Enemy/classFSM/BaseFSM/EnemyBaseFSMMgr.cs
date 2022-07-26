@@ -59,6 +59,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     //렌더링
     public GameObject rendering;
+    protected float renderingDistance;
 
     //공격용
     public GameObject attackCollider;
@@ -67,6 +68,8 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     protected void OnEnable()
     {
+        renderingDistance = 15f;
+
         status = GetComponent<EnemyStatus>();
         fow = GetComponent<FieldOfView>();
         agent = GetComponent<NavMeshAgent>();
@@ -92,7 +95,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     private void DistanceCheck()
     {
-        distanceCheck = (CalcTargetDistance() > 15) ? false : true;
+        distanceCheck = (CalcTargetDistance() > renderingDistance) ? false : true;
         ragdoll.SetActive(distanceCheck);
         rendering.SetActive(distanceCheck);
     }

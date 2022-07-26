@@ -36,6 +36,15 @@ public class sellCylinder : MonoBehaviour
         {
             if (Destruction) return;
             Sell();
+            GetComponent<CapsuleCollider>().enabled = false;
+        }
+        else if (other.gameObject.tag == "EnemyAttack")
+        {
+            if (other.gameObject.name == "DeshCollider")
+            {
+                if (Destruction) return;
+                Sell();
+            }
         }
     }
 
