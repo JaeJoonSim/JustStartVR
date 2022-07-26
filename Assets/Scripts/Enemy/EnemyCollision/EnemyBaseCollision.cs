@@ -23,14 +23,12 @@ public abstract class EnemyBaseCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "bullet")
         {
-            FSM.Damaged(other.gameObject.GetComponent<Projectile>().Damage * damage, 
-                (transform.position - other.transform.position).normalized);   
+            FSM.Damaged(other.gameObject.GetComponent<Projectile>().Damage * damage);   
         }
         else if (other.gameObject.tag == "Melee")
         {
             Debug.Log(other.gameObject.GetComponent<DamageCollider>().Damage);
-            FSM.Damaged(other.gameObject.GetComponent<DamageCollider>().Damage * damage, 
-                (transform.position - other.transform.position).normalized);   
+            FSM.Damaged(other.gameObject.GetComponent<DamageCollider>().Damage * damage);   
         }
     }
 

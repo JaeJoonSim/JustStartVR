@@ -191,14 +191,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3293997463294123008}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.8120001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6573755115795937046}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &5439430492024465932
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -360,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f5e9a813c51b93840ab1890ea132de9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14600003
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f5e9a813c51b93840ab1890ea132de9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -398,6 +398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: zombie_S_t_pose
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: f5e9a813c51b93840ab1890ea132de9f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 35ce75af123eda74fb240835f53d0885, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e9a813c51b93840ab1890ea132de9f, type: 3}
 --- !u!4 &1321436958675685245 stripped
@@ -405,3 +409,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f5e9a813c51b93840ab1890ea132de9f, type: 3}
   m_PrefabInstance: {fileID: 1575158798280206486}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1809742560548066759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f5e9a813c51b93840ab1890ea132de9f, type: 3}
+  m_PrefabInstance: {fileID: 1575158798280206486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7098171719049885886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809742560548066759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5235d46c96698e04cbcdedd6f68e078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 6847492064012046685, guid: ff9b677a99e231749b810bf160af864c, type: 3}

@@ -8,8 +8,17 @@ public class sellCylinder : MonoBehaviour
     GameObject SellOBJ, OriginalOBJ;
     GameObject copy;
     bool Destruction = false;
+
+    //±úÁü Å×½ºÆ® ¿ë
+    //void Start()
+    //{
+    //    Invoke("Sell", 3f);
+    //}
+
     public void Sell()
     {
+        GetComponentInChildren<TubeZombie>().zombieAwake();
+
         if (Destruction) return;
         Destruction = true;
         Destroy(OriginalOBJ);
@@ -20,5 +29,14 @@ public class sellCylinder : MonoBehaviour
     {
         if (copy == null) return;
         Destroy(copy);
+    }
+
+    protected void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "bullet"|| other.gameObject.tag == "Melee")
+        {
+            Sell();
+        }
+
     }
 }
