@@ -1854,11 +1854,11 @@ GameObject:
   - component: {fileID: 7434398901270756718}
   - component: {fileID: 7434398901270756717}
   - component: {fileID: 6112421839048302923}
+  - component: {fileID: 1103925729}
   - component: {fileID: 1103925728}
-  - component: {fileID: 2022286369389839961}
   m_Layer: 10
   m_Name: M4A1_RifleClip
-  m_TagString: Untagged
+  m_TagString: Clip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2012,19 +2012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   OnOffObject: {fileID: 7434398901270756720}
---- !u!114 &1103925728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7434398901270756720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2022286369389839961
+--- !u!114 &1103925729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2041,7 +2029,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1103925728}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
-        m_MethodName: Setparents
+        m_MethodName: SetParentsNull
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2056,7 +2044,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1103925728}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
-        m_MethodName: Setparents
+        m_MethodName: SetParentsReturn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2114,6 +2102,18 @@ MonoBehaviour:
   onSnapZoneExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1103925728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7434398901270756720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7576894617865943535
 GameObject:
   m_ObjectHideFlags: 0
