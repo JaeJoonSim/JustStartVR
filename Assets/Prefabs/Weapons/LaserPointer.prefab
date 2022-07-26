@@ -338,7 +338,6 @@ MonoBehaviour:
   batter_UI: {fileID: 0}
   batter: 9999
   _Grab: 0
-  xrRig: {fileID: 0}
 --- !u!114 &2837040775098147979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,7 +465,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3445472267646528806}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
-        m_MethodName: Setparents
+        m_MethodName: SetParentsNull
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -493,7 +492,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3445472267646528806}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
-        m_MethodName: Setparents
+        m_MethodName: SetParentsReturn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
