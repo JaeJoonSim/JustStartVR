@@ -28,7 +28,7 @@ public class Player_HP : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         RenderSettings.fog = true;
         RenderSettings.fogColor = new Color(0, 0, 0);
-        RenderSettings.fogDensity = 0.3f;
+        RenderSettings.fogDensity = 0.2f;
         HP = Set_HP;
     }
 

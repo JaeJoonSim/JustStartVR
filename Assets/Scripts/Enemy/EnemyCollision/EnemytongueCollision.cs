@@ -25,7 +25,7 @@ public class EnemytongueCollision : MonoBehaviour
         {
             //Debug.Log("Çú¹Ù´Ú  ÃÑ¾Ë Ãæµ¹");
             FSM.bulletCollision = true;
-            FSM.Damaged(100);
+            FSM.Damaged(100, (transform.position - other.transform.position).normalized);
             FSM.characterController.enabled = true;
         }
         else if (other.gameObject.tag == "Player")
