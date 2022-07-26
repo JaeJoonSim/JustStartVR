@@ -14,6 +14,11 @@ public class Spawn_Item : MonoBehaviour
     [SerializeField]
     Transform[] Spawn_Point;
 
+    GameObject Player;
+    
+    [SerializeField]
+    float Set_Distance = 10;
+
     public virtual int Setitem()
     {
         int Count = Item.Length - RadomProbability.Count;
@@ -40,19 +45,32 @@ public class Spawn_Item : MonoBehaviour
     }
     private void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         Setitem();
+    }
+    private void Update()
+    {
+        float Distance = Vector3.Distance(transform.position, Player.transform.position);
+
+        if(Distance< Set_Distance)
+        {
+            item_spawn();
+        }
+    }
+    void item_spawn()
+    {
         if (SpawnCount > 0)
         {
             foreach (Transform Point in Spawn_Point)
             {
-                int ItemCount = Item.Length-1;
+                int ItemCount = Item.Length - 1;
                 int item = Random.Range(0, ItemCount);
                 Debug.Log(item);
                 int _Random = Random.Range(0, RadomProbability[item]);
-                
+
                 if (_Random == 0)
                 {
-                    Instantiate(Item[ItemCount], Point.position,
+                    Instantiate(Item[item], Point.position,
                         Quaternion.identity, this.transform.parent);
                 }
             }

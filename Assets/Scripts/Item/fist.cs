@@ -106,19 +106,18 @@ public class fist : MonoBehaviour
             button2 = (device.TryGetFeatureValue(inputFeatureUsage2, out Value) && Value);
         }
 
+        Fist.SetActive(false);
+        if (!(button1 && button2)) return;
+
         currentPosition = transform.position;
         var dis = (currentPosition - oldPosition);
         var distance = Math.Sqrt(Math.Pow(dis.x, 2) + Math.Pow(dis.y, 2) + Math.Pow(dis.z, 2));
         velocity = distance / Time.deltaTime;
         //Debug.Log(velocity);
         oldPosition = currentPosition;
-        if (button1 && button2 && velocity > speed)
+        if (velocity > speed)
         {
             Fist.SetActive(true);
-        }
-        else
-        {
-            Fist.SetActive(false);
         }
     }
 }
