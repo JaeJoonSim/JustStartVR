@@ -4,7 +4,6 @@ public class WallCreator : MonoBehaviour
 {
     [SerializeField]private RoomCreator roomCreator;
     [SerializeField] private GameObject m_WallOBJ;
-    [SerializeField] private GameObject m_ExitOBJ;
     [SerializeField] private GameObject m_roomCreatorObj;
     [SerializeField] private Transform m_Parent;
     [SerializeField] private bool[,] m_WallisEmpty;
