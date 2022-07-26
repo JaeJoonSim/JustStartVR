@@ -24,7 +24,7 @@ public class CalcDistance : MonoBehaviour
         {
             OnOffObject = gameObject.transform.GetChild(0).gameObject;
         }
-        distance = 100;
+        distance = 60;
     }
 
     // Update is called once per frame

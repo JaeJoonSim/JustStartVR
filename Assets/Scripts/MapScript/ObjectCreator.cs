@@ -32,19 +32,18 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[12];
+        m_Obj = new GameObject[11];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
-        m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
-        m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
-        m_Obj[3] = Resources.Load<GameObject>("Room/table");
-        m_Obj[4] = Resources.Load<GameObject>("Room/tube(withzombie)");
-        m_Obj[5] = Resources.Load<GameObject>("Room/blood3");
-        m_Obj[6] = Resources.Load<GameObject>("Room/blood4");
-        m_Obj[7] = Resources.Load<GameObject>("Room/blood1");
-        m_Obj[8] = Resources.Load<GameObject>("Room/blood2");
-        m_Obj[9] = Resources.Load<GameObject>("Room/table(withItem)");
-        m_Obj[10] = Resources.Load<GameObject>("Room/table(withHint)");
-        m_Obj[11] = Resources.Load<GameObject>("Room/Light Control Panel");
+        m_Obj[1] = Resources.Load<GameObject>("Room/Shelf");
+        m_Obj[2] = Resources.Load<GameObject>("Room/table");
+        m_Obj[3] = Resources.Load<GameObject>("Room/tube(withzombie)");
+        m_Obj[4] = Resources.Load<GameObject>("Room/blood3");
+        m_Obj[5] = Resources.Load<GameObject>("Room/blood4");
+        m_Obj[6] = Resources.Load<GameObject>("Room/blood1");
+        m_Obj[7] = Resources.Load<GameObject>("Room/blood2");
+        m_Obj[8] = Resources.Load<GameObject>("Room/table(withItem)");
+        m_Obj[9] = Resources.Load<GameObject>("Room/table(withHint)");
+        m_Obj[10] = Resources.Load<GameObject>("Room/Light Control Panel");
 
         int x = 0;
         int z = 0;
@@ -131,13 +130,13 @@ public class ObjectCreator : MonoBehaviour
         bool isCardRoom = roomCreator.isCardRoom(_x, _z);
 
         int min = 0;
-        int max = 2;
+        int max = 1;
 
         switch (dir)
         {
             case -1:
                 angle = Random.Range(0, 360);
-                min = 2;
+                min = 1;
                 max = 9;
                 if (isCardRoom == true)
                 {
@@ -165,13 +164,13 @@ public class ObjectCreator : MonoBehaviour
         type = Random.Range(min, max);
 
         if (type == 3 && isCardRoom == true)
-            type = 9;
+            type = 8;
 
         float _y = 0.0f;
         if (roomCreator.m_Panel == false && dir == -1)
         {
             roomCreator.m_Panel = true;
-            type = 11;
+            type = 10;
             _y = 0.5f;
         }
 
@@ -182,14 +181,14 @@ public class ObjectCreator : MonoBehaviour
         int random = Random.Range(0, max);
         if (count == 29 && roomCreator.m_hintCount < 4 && random <= 1)
         {
-            type = 10;
+            type = 9;
             roomCreator.m_hintCount++;
         }
 
         newObj = Instantiate(m_Obj[type], parent);
         newObj.transform.Rotate(new Vector3(0, angle, 0));
 
-        if(type >= 5 && type <= 8)
+        if(type >= 4 && type <= 7)
         {
             _y = 0.01f;
         }
