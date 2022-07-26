@@ -30,4 +30,13 @@ public class sellCylinder : MonoBehaviour
         if (copy == null) return;
         Destroy(copy);
     }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
+        {
+            if (Destruction) return;
+            Sell();
+        }
+    }
+
 }
