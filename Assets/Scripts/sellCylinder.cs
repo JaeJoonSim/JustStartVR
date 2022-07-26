@@ -36,6 +36,7 @@ public class sellCylinder : MonoBehaviour
         {
             if (Destruction) return;
             Sell();
+            GetComponent<CapsuleCollider>().enabled = false;
         }
     }
 
