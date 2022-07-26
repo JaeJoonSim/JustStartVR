@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +12,10 @@ namespace JustStartVR {
         /// <summary>
         /// How much damage to apply to the Damageable object
         /// </summary>
+
+        float Set_Damage = 25f;
         public float Damage = 25f;
+        public float speed = 5;
 
         /// <summary>
         /// Used to determine velocity of this collider
@@ -44,12 +47,34 @@ namespace JustStartVR {
 
         Damageable thisDamageable;
 
+        private Vector3 oldPosition;
+        private Vector3 currentPosition;
+        private double velocity;
+
         private void Start() {
             if (ColliderRigidbody == null) {
                 ColliderRigidbody = GetComponent<Rigidbody>();
             }
-
+            Set_Damage = Damage;
             thisDamageable = GetComponent<Damageable>();
+        }
+
+        private void FixedUpdate()
+        {
+            currentPosition = transform.position;
+            var dis = (currentPosition - oldPosition);
+            var distance = Math.Sqrt(Math.Pow(dis.x, 2) + Math.Pow(dis.y, 2) + Math.Pow(dis.z, 2));
+            velocity = distance / Time.deltaTime;
+            //Debug.Log(velocity);
+            oldPosition = currentPosition;
+            if (velocity > speed)
+            {
+                Damage = Set_Damage * (float)velocity;
+            }
+            else
+            {
+                Damage = 0;
+            }
         }
 
         private void OnCollisionEnter(Collision collision) {
@@ -69,11 +94,13 @@ namespace JustStartVR {
 
                 // Can we damage what we hit?
                 Damageable d = collision.gameObject.GetComponent<Damageable>();
-                if (d) {
+                if (d) 
+                {
                     d.DealDamage(Damage, collision.GetContact(0).point, collision.GetContact(0).normal, true, gameObject, collision.gameObject);
                 }
                 // Otherwise, can we take damage ourselves from this collision?
-                else if (TakeCollisionDamage && thisDamageable != null) {
+                else if (TakeCollisionDamage && thisDamageable != null)
+                {
                     thisDamageable.DealDamage(CollisionDamage, collision.GetContact(0).point, collision.GetContact(0).normal, true, gameObject, collision.gameObject);
                 }
             }
