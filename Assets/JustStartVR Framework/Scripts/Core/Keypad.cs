@@ -8,10 +8,10 @@ namespace JustStartVR
 {
     public class Keypad : MonoBehaviour
     {
-        public DoorHelper doorHelper;
         public UnityEvent Unlocked = new UnityEvent();
 
         public string code;
+
         public Text display;
         public string Entry = "";
 
@@ -51,10 +51,13 @@ namespace JustStartVR
                 {
                     button.Key = '+';
                 }
-
                 if (button.keyText)
                 {
                     button.keyText.text = button.Key.ToString();
+                }
+                if(i == 11)
+                {
+                    button.keyText.text = "Enter";
                 }
             }
 
@@ -84,7 +87,8 @@ namespace JustStartVR
             {
                 if (code == Entry)
                 {
-                    doorHelper.DoorIsLocked = false;
+                    //doorHelper.DoorIsLocked = false;
+                    Unlocked.Invoke();
                 }
             }
             else if (Index >= 0 && Index < MaxLength)

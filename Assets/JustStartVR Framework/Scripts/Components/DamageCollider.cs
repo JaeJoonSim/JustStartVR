@@ -69,7 +69,7 @@ namespace JustStartVR {
             oldPosition = currentPosition;
             if (velocity > speed)
             {
-                Damage = Set_Damage * (float)velocity;
+                Damage = (float)velocity;
             }
             else
             {

@@ -34,7 +34,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525360715461004555}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -211,7 +211,7 @@ Transform:
   - {fileID: 7792375955310942202}
   - {fileID: 4861559871200857543}
   m_Father: {fileID: 1525360715461004555}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4332007530942675994
 GameObject:
@@ -388,10 +388,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4332007530942675993}
+  - {fileID: 8900875342171695803}
   - {fileID: 460503151785151646}
   - {fileID: 3242308161541458453}
   - {fileID: 6141875263867957807}
-  - {fileID: 8900875342171695803}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -552,7 +552,7 @@ BoxCollider:
   m_GameObject: {fileID: 6580706055548250824}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.05, z: 0.01}
   m_Center: {x: 0, y: -0.13, z: 0}
@@ -617,7 +617,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3661639628750336703, guid: 2cf0f31ab49c3c347be7e1124381ccab, type: 3}
+  - {fileID: 2100000, guid: bd5a65867252f6b4798634d5bee7b409, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -669,7 +669,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525360715461004555}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -29.96, y: 98, z: 0}
 --- !u!114 &6461859257987209462
 MonoBehaviour:
@@ -808,5 +808,5 @@ Transform:
   m_Children:
   - {fileID: 2261313874163181808}
   m_Father: {fileID: 1525360715461004555}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
