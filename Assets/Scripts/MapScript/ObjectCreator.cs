@@ -189,7 +189,7 @@ public class ObjectCreator : MonoBehaviour
         newObj = Instantiate(m_Obj[type], parent);
         newObj.transform.Rotate(new Vector3(0, angle, 0));
 
-        if(type >= 6 && type <= 9)
+        if(type >= 5 && type <= 8)
         {
             _y = 0.01f;
         }
