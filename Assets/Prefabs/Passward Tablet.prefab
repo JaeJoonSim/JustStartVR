@@ -68,24 +68,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: f5e1b0d64d6fbbc469beb78e508d9354, type: 3}
-    m_FontSize: 27
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
-    m_Alignment: 0
+    m_MaxSize: 100
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n\uACBD\uBE44 \uC911 \uC774\uC0C1\uD55C \uC0DD\uBA85\uCCB4\uB4E4\uC774
-    \uB098\uD0C0\uB0AC\uB2E4. \uB2E4\uD589\uD788 \uAC00\uC9C0\uACE0 \uC788\uB358
-    \uCD1D\uC73C\uB85C \uC800\uD5A5\uD574\uBD24\uC9C0\uB9CC\r\n\uD63C\uC790 \uAC10\uB2F9\uD560\uB9CC\uD55C
-    \uC218\uAC00 \uC544\uB2C8\uC5C8\uB2E4. \uADF8\uB4E4\uC740 \uB098\uB97C \uBC1C\uACAC\uD558\uB354\uB2C8
-    \uACF5\uACA9\uD588\uACE0\r\n\uC800\uD56D\uD558\uB294 \uACFC\uC815\uC5D0\uC11C
-    \uBBF8\uC57D\uD55C \uC0C1\uCC98\uB97C \uC785\uC5C8\uB2E4.\r\n\uADF8\uB4E4\uC774
-    \uC5C6\uB294 \uACF3\uC73C\uB85C \uD53C\uD588\uC9C0\uB9CC \uAE30\uBD84\uC774 \uC774\uC0C1\uD558\uB2E4."
+  m_Text: 
 --- !u!1 &4997288300602256123
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,6 +445,7 @@ GameObject:
   - component: {fileID: 5402907913150841396}
   - component: {fileID: 2561353411837060932}
   - component: {fileID: 784662096517745805}
+  - component: {fileID: 6311367284414576140}
   m_Layer: 10
   m_Name: Passward Tablet
   m_TagString: Untagged
@@ -673,6 +668,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.2, z: 0.02}
   m_Center: {x: 0, y: 0, z: 0.006}
+--- !u!114 &6311367284414576140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480093513916527493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925bff9eb82f3ed4c8be9f48a1be062b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  text: {fileID: 8237752085392910894}
 --- !u!1 &8701110824748309484
 GameObject:
   m_ObjectHideFlags: 0
