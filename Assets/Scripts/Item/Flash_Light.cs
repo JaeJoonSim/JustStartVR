@@ -73,13 +73,13 @@ namespace JustStartVR
                 {
                     float Difference = Mathf.Abs(Distance - Old_Distance);
                     Old_Distance = Distance;
-                    Debug.Log("Difference" + Difference);
+                    //Debug.Log("Difference" + Difference);
                     if (Difference > 0.025f)
                     {
                         if (batter < 1)
                         {
-                            batter_UI.fillAmount = batter;
                             batter += 0.01f;
+                            batter_UI.fillAmount = batter;
                         }
                      
                        //Debug.Log("Shake");

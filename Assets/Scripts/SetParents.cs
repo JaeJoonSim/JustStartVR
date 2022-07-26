@@ -28,7 +28,8 @@ public class SetParents : MonoBehaviour
         if(m_parent == null && 
             transform.parent == null &&
             collision.collider.tag != "XRRig" && 
-            collision.collider.tag != "Player" && 
+            collision.collider.tag != "Player" &&
+            collision.collider.tag == "Gun" &&
             collision.collider.tag != "Hand")
         {
             m_parent = collision.transform.parent;
