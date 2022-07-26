@@ -23,7 +23,7 @@ public class Player_HP : MonoBehaviour
     {
         RenderSettings.fog = true;
         RenderSettings.fogColor = new Color(0, 0, 0);
-        RenderSettings.fogDensity = 0.7f;
+        //RenderSettings.fogDensity = 0.f;
         HP = Set_HP;
     }
 
