@@ -14,8 +14,7 @@ public class Elevator : MonoBehaviour
     Animator animator;
     Keypad keypad;
 
-    string[] password;
-    char[][] P;
+    public string[] password;
     bool[] Looked;
 
     public float Speed;
@@ -35,18 +34,15 @@ public class Elevator : MonoBehaviour
     void SetPassword()
     {
         password = new string[Floor_Point.Length];
-        P = new char[Floor_Point.Length][];
         Looked = new bool[Floor_Point.Length];
         for (int i =0; i< Floor_Point.Length; i++)
         {
             password[i] = "";
             Looked[i] = false;
-            P[i] = new char[4];
             for (int j = 0; j < 4; j++)
             {
                 char p =(char)Random.Range(0, 10);
                 password[i] += p;
-                P[i][j] = p;
             }
         }
     }
