@@ -274,7 +274,7 @@ namespace JustStartVR
             // Update trigger graphics
             if (TriggerTransform)
             {
-                TriggerTransform.localEulerAngles = new Vector3(triggerValue * 15, 0, 0);
+                //TriggerTransform.localEulerAngles = new Vector3(triggerValue * 15, 0, 0);
             }
 
             // Trigger up, reset values

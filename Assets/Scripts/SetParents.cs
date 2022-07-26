@@ -4,8 +4,28 @@ using UnityEngine;
 
 public class SetParents : MonoBehaviour
 {
-    public void Setparents()
+    Transform m_Parent;
+
+    private void Awake()
     {
-        transform.parent = GameObject.FindWithTag("XRRig").transform;
+        m_Parent = transform.parent;
+    }
+
+    public void ReturnSetParents()
+    {
+        if(m_Parent != null)
+            transform.parent = m_Parent;
+    }
+
+    public void SetparentNull()
+    {
+        m_Parent = transform.parent;
+        transform.parent = null;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (m_Parent == null && collision.collider.tag != "XRRig" && collision.collider.tag != "Player" && collision.collider.tag != "Grabbable")
+            transform.parent = collision.transform.parent;
     }
 }
