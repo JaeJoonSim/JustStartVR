@@ -32,20 +32,19 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[13];
+        m_Obj = new GameObject[12];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
         m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
         m_Obj[3] = Resources.Load<GameObject>("Room/table");
         m_Obj[4] = Resources.Load<GameObject>("Room/tube(withzombie)");
-        m_Obj[5] = Resources.Load<GameObject>("Room/tube(withoutzombie)");
-        m_Obj[6] = Resources.Load<GameObject>("Room/blood3");
-        m_Obj[7] = Resources.Load<GameObject>("Room/blood4");
-        m_Obj[8] = Resources.Load<GameObject>("Room/blood1");
-        m_Obj[9] = Resources.Load<GameObject>("Room/blood2");
-        m_Obj[10] = Resources.Load<GameObject>("Room/table(withItem)");
-        m_Obj[11] = Resources.Load<GameObject>("Room/table(withHint)");
-        m_Obj[12] = Resources.Load<GameObject>("Room/Light Control Panel");
+        m_Obj[5] = Resources.Load<GameObject>("Room/blood3");
+        m_Obj[6] = Resources.Load<GameObject>("Room/blood4");
+        m_Obj[7] = Resources.Load<GameObject>("Room/blood1");
+        m_Obj[8] = Resources.Load<GameObject>("Room/blood2");
+        m_Obj[9] = Resources.Load<GameObject>("Room/table(withItem)");
+        m_Obj[10] = Resources.Load<GameObject>("Room/table(withHint)");
+        m_Obj[11] = Resources.Load<GameObject>("Room/Light Control Panel");
 
         int x = 0;
         int z = 0;
@@ -139,7 +138,7 @@ public class ObjectCreator : MonoBehaviour
             case -1:
                 angle = Random.Range(0, 360);
                 min = 2;
-                max = 10;
+                max = 9;
                 if (isCardRoom == true)
                 {
                     max = 4;
@@ -166,13 +165,13 @@ public class ObjectCreator : MonoBehaviour
         type = Random.Range(min, max);
 
         if (type == 3 && isCardRoom == true)
-            type = 10;
+            type = 9;
 
         float _y = 0.0f;
         if (roomCreator.m_Panel == false && dir == -1)
         {
             roomCreator.m_Panel = true;
-            type = 12;
+            type = 11;
             _y = 0.5f;
         }
 
