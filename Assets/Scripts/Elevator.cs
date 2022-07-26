@@ -13,6 +13,9 @@ public class Elevator : MonoBehaviour
 
     Animator animator;
 
+
+    int[] password;
+
     public float Speed;
     public bool Open = false;
 
@@ -25,6 +28,7 @@ public class Elevator : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
+        password = new int[Floor_Point.Length];
     }
     public void MoveElevator(int floor)
     {
