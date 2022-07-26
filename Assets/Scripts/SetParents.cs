@@ -14,27 +14,37 @@ public class SetParents : MonoBehaviour
     public void SetParentsNull()
     {
         m_parent = transform.parent;
-        transform.parent = null;
+        //transform.parent = null;
     }
 
     public void SetParentsReturn()
     {
-        if(m_parent != null)
-            transform.parent = m_parent;
+        if (transform.parent == null)
+            transform.SetParent(m_parent);
+        else
+            return;
+    }
+
+    private void Update()
+    {
+
+        if (transform.parent == null && m_parent != null)
+            transform.SetParent(m_parent);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(m_parent == null && 
+        if (m_parent == null &&
             transform.parent == null &&
-            collision.collider.tag == "Gun" &&
-            collision.collider.tag != "XRRig" && 
-            collision.collider.tag != "Player" && 
+            collision.collider.tag != "Gun" &&
+            collision.collider.tag != "XRRig" &&
+            collision.collider.tag != "Player" &&
             collision.collider.tag != "Hand" &&
-            collision.collider.tag != "ClipInsert")
+            collision.collider.tag != "ClipInsert" &&
+            collision.collider.tag == "Tile")
         {
-            m_parent = collision.transform.parent;
-            transform.parent = m_parent;
+            m_parent = collision.transform;
+            transform.SetParent(m_parent);
         }
     }
 }
