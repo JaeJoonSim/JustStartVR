@@ -22,22 +22,22 @@ public class KeyCarde : MonoBehaviour
             case 20.0f:
                 CardType = Card.First;
                 Cardname.text = "First";
-                material.color = new Color(255, 255, 255);
+                material.color = new Color(100 / 255.0f, 100 / 255.0f, 255 / 255.0f);
                 break;
             case 40.0f:
                 CardType = Card.Second;
                 Cardname.text = "Second";
-                material.color = new Color(255 / 2, 255 / 2, 255 / 2);
+                material.color = new Color(255 / 255.0f, 100 / 255.0f, 100 / 255.0f);
                 break;
             case 60.0f:
                 CardType = Card.Third;
                 Cardname.text = "Third";
-                material.color = new Color(255 / 3, 255 / 3, 255 / 3);
+                material.color = new Color(50 / 255.0f, 50 / 255.0f, 50 / 255.0f);
                 break;
             case 80.0f:
                 CardType = Card.Exit;
+                material.color = new Color(255 / 255.0f, 255 / 255.0f, 255 / 255.0f);
                 Cardname.text = "Exit";
-                material.color = new Color(255 / 4, 255 / 4, 255 / 4);
                 break;
         }
     }
