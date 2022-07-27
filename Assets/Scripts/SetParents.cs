@@ -14,12 +14,12 @@ public class SetParents : MonoBehaviour
     public void SetParentsNull()
     {
         m_parent = transform.parent;
-        //transform.parent = null;
+        transform.parent = null;
     }
 
     public void SetParentsReturn()
     {
-        if (transform.parent == null)
+        if (transform.parent == null && m_parent.gameObject.active == true)
             transform.SetParent(m_parent);
         else
             return;
@@ -27,9 +27,8 @@ public class SetParents : MonoBehaviour
 
     private void Update()
     {
-
-        if (transform.parent == null && m_parent != null)
-            transform.SetParent(m_parent);
+        if (transform.parent.tag == "ClipInsert")
+            transform.SetParent(transform.parent);
     }
 
     private void OnCollisionEnter(Collision collision)
