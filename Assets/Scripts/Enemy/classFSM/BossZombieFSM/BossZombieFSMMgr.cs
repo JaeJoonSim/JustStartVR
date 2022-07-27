@@ -8,6 +8,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     public EnemyBaseState Attack2State;
     public EnemyBaseState DeshState;
     public EnemyBaseState StunState;
+    public EnemyBaseState AreaAttack;
 
     protected BossStatus bStatus;
     public BossStatus BStatus
@@ -17,6 +18,8 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
 
     public float Cooldown;
     public GameObject DeshCollider;
+    public GameObject warning;
+    public GameObject tongue;
 
     [HideInInspector]
     public bool attackCollision;
@@ -44,6 +47,8 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
 
         StunState = new BossZombieStunState();
 
+        AreaAttack = new BossZombieAreaAttackState();
+
         currentState = IdleState;
 
      
@@ -52,6 +57,8 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     {
         //base.Awake();
         base.OnEnable();
+       
+        currentState.Begin(this);
         renderingDistance = 50;
         bStatus = GetComponent<BossStatus>();
         attackCollision = false;
@@ -66,6 +73,11 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
 
     }
 
+    public void Spown(Vector3 point)
+    {
+        Instantiate(warning, point, Quaternion.identity);
+    }
+
     public bool CheckCooldown()
     {
         return Cooldown > BStatus.Cooldown ? true : false;
@@ -73,7 +85,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
    
     public Vector3 CalcTargetdirection()
     {
-        return (this.target.position - this.transform.position).normalized; ;
+        return (this.target.position - this.transform.position).normalized;
     }
     
     public void MoveFront()

@@ -1744,6 +1744,8 @@ MonoBehaviour:
   attackCollider: {fileID: 3816986323838974832}
   Cooldown: 0
   DeshCollider: {fileID: 784063924}
+  warning: {fileID: 3949344998392466954, guid: fff35688e65368d46a5a12d2432481f5, type: 3}
+  tongue: {fileID: 4051481576819104235}
   attackCollision: 0
   bulletCollision: 0
   characterController: {fileID: 0}
@@ -1834,7 +1836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fde8f9f855ee73418ca1c5de63dd652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 10
+  Cooldown: 2
   GrabAtk: 20
   GrabRange: 10
   DeshAtk: 30
@@ -1865,7 +1867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4051481576819104235}
   m_LocalRotation: {x: 0.01850988, y: 0.7068645, z: 0.01850988, w: 0.7068645}
-  m_LocalPosition: {x: 0, y: 1.533, z: 0.12900019}
+  m_LocalPosition: {x: 0, y: 1.557, z: 0}
   m_LocalScale: {x: 0, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
