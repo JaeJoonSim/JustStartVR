@@ -7,7 +7,7 @@ public class ObjectCreator : MonoBehaviour
     public bool[,] m_Object;
     private RoomCreator roomCreator;
     private Transform m_Parent;
-    const int markCount = 10;
+    const int markCount = 5;
     private int maxCount = 30 + markCount;
     int count = 0;
 
