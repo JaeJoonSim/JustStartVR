@@ -8523,7 +8523,7 @@ Transform:
   m_Children:
   - {fileID: 1133008901}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &706290948
 MonoBehaviour:
@@ -22608,6 +22608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 6184643849896591379, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6311257804154376476, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -31386,13 +31390,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 6971630414198395836, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8156845132710960038, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
       propertyPath: m_playerTransform
       value: 
       objectReference: {fileID: 650511258}
     - target: {fileID: 8156845132710960039, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8156845132710960039, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
       propertyPath: m_LocalPosition.x
