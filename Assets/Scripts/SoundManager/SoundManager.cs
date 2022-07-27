@@ -26,6 +26,9 @@ public class SoundManager : MonoBehaviour
         motolov,
         CardKeyFailed,
         HealTrigger,
+        ElevatorMove,
+        Engine,
+        Drop,
     }
 
     private void Awake()
@@ -42,6 +45,31 @@ public class SoundManager : MonoBehaviour
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
         newAudio.volume = Volume;
+        newAudio.Play();
+        audioList.Add(newAudio);
+    }
+
+    public void PlaySound(Vector3 Position, SoundType type, Transform Parent)
+    {
+        int index = (int)type;
+
+        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity, Parent);
+        AudioSource newAudio = newObj.GetComponent<AudioSource>();
+        newAudio.clip = AudioArray[index];
+        newAudio.volume = Volume;
+        newAudio.Play();
+        audioList.Add(newAudio);
+    }
+
+    public void PlaySound(Vector3 Position, SoundType type, bool loop)
+    {
+        int index = (int)type;
+
+        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity);
+        AudioSource newAudio = newObj.GetComponent<AudioSource>();
+        newAudio.clip = AudioArray[index];
+        newAudio.volume = Volume;
+        newAudio.loop = true;
         newAudio.Play();
         audioList.Add(newAudio);
     }

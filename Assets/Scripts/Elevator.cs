@@ -105,6 +105,7 @@ public class Elevator : MonoBehaviour
 
     public void Start_Move()
     {
+        SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.ElevatorMove, this.transform);
         StartCoroutine(Move(Floor));
     }
 
