@@ -25,12 +25,6 @@ public class SetParents : MonoBehaviour
             return;
     }
 
-    private void Update()
-    {
-        if (transform.parent.tag == "ClipInsert")
-            transform.SetParent(transform.parent);
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (m_parent == null &&

@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 183951760}
   - component: {fileID: 183951759}
   - component: {fileID: 183951758}
+  - component: {fileID: 622209737}
   m_Layer: 2
   m_Name: HolsterRig (3)
   m_TagString: Untagged
@@ -191,7 +192,7 @@ SphereCollider:
   m_GameObject: {fileID: 183951755}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
@@ -340,6 +341,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &622209737
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183951755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.3
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &479597908
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +369,7 @@ GameObject:
   - component: {fileID: 479597913}
   - component: {fileID: 479597912}
   - component: {fileID: 479597911}
+  - component: {fileID: 2114736422}
   m_Layer: 2
   m_Name: HolsterRig (5)
   m_TagString: Untagged
@@ -386,7 +402,7 @@ SphereCollider:
   m_GameObject: {fileID: 479597908}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
@@ -535,6 +551,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &2114736422
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479597908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.3
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1368617380
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +724,7 @@ GameObject:
   - component: {fileID: 1414642601}
   - component: {fileID: 1414642600}
   - component: {fileID: 1414642599}
+  - component: {fileID: 599777748}
   m_Layer: 2
   m_Name: HolsterRig (4)
   m_TagString: Untagged
@@ -726,7 +757,7 @@ SphereCollider:
   m_GameObject: {fileID: 1414642596}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
@@ -875,6 +906,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &599777748
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414642596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.3
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1797474811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,6 +1293,7 @@ GameObject:
   - component: {fileID: 1981207045}
   - component: {fileID: 1981207044}
   - component: {fileID: 1981207043}
+  - component: {fileID: 706599342}
   m_Layer: 2
   m_Name: HolsterRig (2)
   m_TagString: Untagged
@@ -1280,7 +1326,7 @@ SphereCollider:
   m_GameObject: {fileID: 1981207040}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
@@ -1429,6 +1475,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &706599342
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981207040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.3
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1990633442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1836,7 @@ GameObject:
   - component: {fileID: 7432136944926408048}
   - component: {fileID: 1768291191336638516}
   - component: {fileID: 8985459359869939277}
+  - component: {fileID: 1113632608}
   m_Layer: 2
   m_Name: HolsterRig
   m_TagString: Untagged
@@ -1808,7 +1869,7 @@ SphereCollider:
   m_GameObject: {fileID: 82482669255193849}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
@@ -1957,6 +2018,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &1113632608
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82482669255193849}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.3
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &120421521360649955
 GameObject:
   m_ObjectHideFlags: 0
@@ -17771,6 +17846,7 @@ GameObject:
   - component: {fileID: 7895279083658965172}
   - component: {fileID: 4510996424165036260}
   - component: {fileID: 1533641070007472544}
+  - component: {fileID: 1410907916}
   m_Layer: 2
   m_Name: HolsterRig (6)
   m_TagString: Untagged
@@ -17803,7 +17879,7 @@ SphereCollider:
   m_GameObject: {fileID: 4552077514558857095}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
@@ -17952,6 +18028,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &1410907916
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552077514558857095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.07
+  m_Height: 0.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4568999520662310969
 GameObject:
   m_ObjectHideFlags: 0
@@ -31045,6 +31135,7 @@ GameObject:
   - component: {fileID: 8136004075368503034}
   - component: {fileID: 8136004075368503035}
   - component: {fileID: 8136004075368503032}
+  - component: {fileID: 2005700257}
   m_Layer: 2
   m_Name: HolsterRig (1)
   m_TagString: Untagged
@@ -31077,7 +31168,7 @@ SphereCollider:
   m_GameObject: {fileID: 8136004075368503039}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
@@ -31226,6 +31317,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &2005700257
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136004075368503039}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.3
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8136004075481394351
 GameObject:
   m_ObjectHideFlags: 0
@@ -31893,6 +31998,7 @@ GameObject:
   - component: {fileID: 1330257729481812380}
   - component: {fileID: 3492086203403579884}
   - component: {fileID: 5516670627181810032}
+  - component: {fileID: 1953631612}
   m_Layer: 2
   m_Name: RightLeg
   m_TagString: Untagged
@@ -31925,9 +32031,9 @@ SphereCollider:
   m_GameObject: {fileID: 8167093705376883952}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.06
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2512569120595742483
 MonoBehaviour:
@@ -32075,6 +32181,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &1953631612
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167093705376883952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8213991517682583037
 GameObject:
   m_ObjectHideFlags: 0
@@ -33448,6 +33568,7 @@ GameObject:
   - component: {fileID: 1059610405267046860}
   - component: {fileID: 5018616530599031768}
   - component: {fileID: 4587878851787051994}
+  - component: {fileID: 1161109346}
   m_Layer: 2
   m_Name: LeftLeg
   m_TagString: Untagged
@@ -33480,9 +33601,9 @@ SphereCollider:
   m_GameObject: {fileID: 8643043468473142297}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.06
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6446444434313156327
 MonoBehaviour:
@@ -33630,6 +33751,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &1161109346
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8643043468473142297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8645476728241610373
 GameObject:
   m_ObjectHideFlags: 0
