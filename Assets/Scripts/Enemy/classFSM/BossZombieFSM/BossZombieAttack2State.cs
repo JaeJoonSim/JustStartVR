@@ -4,30 +4,29 @@ using UnityEngine;
 
 public class BossZombieAttack2State : EnemyBaseState
 {
-    
-    //private CharacterController characterController;
-    GameObject tongue;
     float tScale;
     float count;
     public bool tongueBack;
+
+    BossZombieFSMMgr Bmgr;
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
-        BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
+        Bmgr = mgr as BossZombieFSMMgr;
         mgr.SetAnimator("MoveToAttack2");
-        tongue = GameObject.Find("BossTongue");
+
         tScale = 0;
         Bmgr.attackCollision = false;
         Bmgr.bulletCollision = false;
         tongueBack = false;
-        tongue.transform.localScale = new Vector3(0, 1, 1);
+        Bmgr.tongue.transform.localScale = new Vector3(0, 1, 1);
         count = 0f;
 
-       
+
+
 
     }
     public override void Update(EnemyBaseFSMMgr mgr)
     {
-        BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
         if (!mgr.IsAliveTarget()|| Bmgr.bulletCollision)
         {
             mgr.ChangeState(mgr.IdleState);
@@ -35,7 +34,7 @@ public class BossZombieAttack2State : EnemyBaseState
         }
         count += Time.deltaTime;
         //Debug.Log(mgr.attackCollision);
-        tongue.transform.localScale = new Vector3(tScale, 1, 1);
+        Bmgr.tongue.transform.localScale = new Vector3(tScale, 1, 1);
         if (tongueBack)
         {
             tScale -= 5f * Time.deltaTime;
@@ -98,8 +97,7 @@ public class BossZombieAttack2State : EnemyBaseState
 
     public override void End(EnemyBaseFSMMgr mgr)
     {
-        tongue.transform.localScale = new Vector3(0, 0.1f, 0.1f);
-        BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
+        Bmgr.tongue.transform.localScale = new Vector3(0, 0.1f, 0.1f);
         Bmgr.characterController.enabled = true;
         Bmgr.Cooldown = 0 ;
     }

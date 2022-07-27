@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossZombieDeshState : EnemyBaseState
 {
-
+    
     Vector3 cross;
     float inner;
     float addAngle;
@@ -29,11 +29,11 @@ public class BossZombieDeshState : EnemyBaseState
         if (isTurn)
         {
             // 바라보는 방향과 타겟 방향 외적
-            Vector3 cross = Vector3.Cross(Bmgr.transform.forward, Bmgr.CalcTargetdirection());
+            cross = Vector3.Cross(Bmgr.transform.forward, Bmgr.CalcTargetdirection());
             // 상향 벡터와 외적으로 생성한 벡터 내적
-            float inner = Vector3.Dot(Bmgr.transform.up, cross);
+            inner = Vector3.Dot(Bmgr.transform.up, cross);
             // 내적이 0보다 크면 오른쪽 0보다 작으면 왼쪽으로 회전
-            float addAngle = inner > 0 ? 180 * Time.deltaTime : -180 * Time.deltaTime;
+             addAngle = inner > 0 ? 180 * Time.deltaTime : -180 * Time.deltaTime;
             Bmgr.transform.rotation = Quaternion.Euler(0, addAngle, 0) * Bmgr.transform.rotation;
         }
 

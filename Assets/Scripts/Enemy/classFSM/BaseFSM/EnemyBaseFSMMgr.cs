@@ -96,8 +96,8 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     private void DistanceCheck()
     {
         distanceCheck = (CalcTargetDistance() > renderingDistance) ? false : true;
-        ragdoll.SetActive(distanceCheck);
-        rendering.SetActive(distanceCheck);
+        //ragdoll.SetActive(distanceCheck);
+        //rendering.SetActive(distanceCheck);
     }
 
     private void ResetAllTriggers()
@@ -134,7 +134,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         agent.enabled = false;
         anim.enabled = false;
         currentState = null;
-        //StartCoroutine(DestroyObject());
+        StartCoroutine(DestroyObject());
     }
 
     IEnumerator DestroyObject()
