@@ -7,7 +7,8 @@ public class ObjectCreator : MonoBehaviour
     public bool[,] m_Object;
     private RoomCreator roomCreator;
     private Transform m_Parent;
-    private int maxCount = 30;
+    const int markCount = 5;
+    private int maxCount = 30 + markCount;
     int count = 0;
 
     int maxSize;
@@ -32,7 +33,7 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[11];
+        m_Obj = new GameObject[12];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
         m_Obj[1] = Resources.Load<GameObject>("Room/Shelf");
         m_Obj[2] = Resources.Load<GameObject>("Room/table");
@@ -44,6 +45,7 @@ public class ObjectCreator : MonoBehaviour
         m_Obj[8] = Resources.Load<GameObject>("Room/table(withItem)");
         m_Obj[9] = Resources.Load<GameObject>("Room/table(withHint)");
         m_Obj[10] = Resources.Load<GameObject>("Room/Light Control Panel");
+        m_Obj[11] = Resources.Load<GameObject>("Room/TestMark");
 
         int x = 0;
         int z = 0;
@@ -118,7 +120,7 @@ public class ObjectCreator : MonoBehaviour
     }
 
 
-
+    int CountingMark = 0;
     public void CreateObj(float x, float y, float z, int dir, Transform parent)
     {
         float angle = 0;
@@ -132,6 +134,7 @@ public class ObjectCreator : MonoBehaviour
         int min = 0;
         int max = 1;
 
+
         switch (dir)
         {
             case -1:
@@ -140,7 +143,7 @@ public class ObjectCreator : MonoBehaviour
                 max = 8;
                 if (isCardRoom == true)
                 {
-                    max = 4;
+                    max = 3;
                 }
                 break;
             case 0:
@@ -163,8 +166,19 @@ public class ObjectCreator : MonoBehaviour
 
         type = Random.Range(min, max);
 
+        int rand = Random.Range(0, 2);
+
+        if (type == 0 && CountingMark < markCount)
+        {
+            
+            type += rand * 11;
+            CountingMark++;
+        }
+
         if (type == 2 && isCardRoom == true)
+        {
             type = 8;
+        }
 
         float _y = 0.0f;
         if (roomCreator.m_Panel == false && dir == -1)

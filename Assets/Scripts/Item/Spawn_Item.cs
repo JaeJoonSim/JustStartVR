@@ -14,9 +14,13 @@ public class Spawn_Item : MonoBehaviour
     [SerializeField]
     Transform[] Spawn_Point;
 
+
+    bool spawn;
+
     GameObject Player;
     
-    const float Set_Distance = 7;
+    const float Set_Distance = 1000;
+
 
     public virtual int Setitem()
     {
@@ -45,6 +49,17 @@ public class Spawn_Item : MonoBehaviour
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+
+
+        spawn = gameObject.name == "table(withitem)" ? true : false;
+        if (gameObject.name == "table(withitem)")
+        {
+            spawn = true;
+
+        }
+        else
+            spawn = false;
+
         Setitem();
     }
     private void Update()
@@ -67,10 +82,11 @@ public class Spawn_Item : MonoBehaviour
                 //Debug.Log(item);
                 int _Random = Random.Range(0, RadomProbability[item]);
 
-                if (_Random == 0)
+                if (_Random == 0 || spawn == true)
                 {
                     Instantiate(Item[item], Point.position,
-                        Quaternion.identity, this.transform.parent);
+                        Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)),
+                        this.transform.parent);
                 }
             }
             SpawnCount--;
