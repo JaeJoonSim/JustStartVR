@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,11 +47,6 @@ public class SetPassWord : MonoBehaviour
             }
         }
 
-        //if(playertablet != null)
-        //playertablet.inputPassWord(password, curIndex);
-
         manager.count++;
-
-        Debug.Log(floor + " " + password);        
     }
 }

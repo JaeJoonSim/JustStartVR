@@ -20,11 +20,15 @@ public class sellCylinder : MonoBehaviour
         TubeZombie tubeZombie = GetComponentInChildren<TubeZombie>();
         if(tubeZombie != null)
         GetComponentInChildren<TubeZombie>().zombieAwake();
+        SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CrashGlass2);
 
         if (Destruction) return;
         Destruction = true;
         Destroy(OriginalOBJ);
         copy = Instantiate(SellOBJ, transform.position, Quaternion.identity, this.transform.parent);
+
+        Invoke("elimination", 5f);
+
     }
 
     public void elimination()

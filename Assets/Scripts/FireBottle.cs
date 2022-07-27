@@ -22,8 +22,10 @@ public class FireBottle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (isHand == false) return;
+        //if (isHand == false) return;
         Destroy(this.gameObject);
         Instantiate(m_FireEffect, this.transform.position, Quaternion.identity);
+        SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.fire);
+        SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.motolov);
     }
 }
