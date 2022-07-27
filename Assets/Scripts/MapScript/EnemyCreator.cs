@@ -35,7 +35,7 @@ public class EnemyCreator : MonoBehaviour
         m_EnemyObj[0] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/zombie_S.prefab");
         m_EnemyObj[1] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/zombie_L.prefab");
         m_EnemyObj[2] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/zombie_Blister.prefab");
-        m_EnemyObj[3] = Resources.Load<GameObject>("Enemy/Tongue");
+        m_EnemyObj[3] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/tongueHole.prefab");
 
         int x = 0;
         int z = 0;
@@ -63,7 +63,7 @@ public class EnemyCreator : MonoBehaviour
     {
         GameObject newObj;
 
-        int max = 2 + m_roomCreator.m_Y / 20;
+        int max = 1 + m_roomCreator.m_Y / 20;
         int random = Random.Range(0, max);
 
         bool isTongue = false;

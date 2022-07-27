@@ -255,9 +255,12 @@ namespace JustStartVR
         {
             weaponRigid = GetComponent<Rigidbody>();
 
-            //if (MuzzleFlashObject) {
-            //    MuzzleFlashObject.SetActive(false);
-            //}
+            if (MuzzleFlashObject) {
+                //MuzzleFlashObject.SetActive(false);
+            }
+            if (MuzzleFlashObject) {
+                //MuzzleFlashObject.Pause();
+            }
 
             ws = GetComponentInChildren<WeaponSlide>();
 

@@ -48,6 +48,12 @@ namespace JustStartVR
         public GameObject M4A1Clip;
 
         /// <summary>
+        /// Instantiate this if Glock equipped
+        /// </summary>
+        public GameObject P320Clip;
+
+
+        /// <summary>
         /// Amount of M1911 Clips currently available
         /// </summary>
         public int CurrentM1911Clips = 999;
@@ -57,6 +63,8 @@ namespace JustStartVR
         public int CurrentM4A1Clips = 999;
 
         public int CurrentGlockClips = 999;
+
+        public int CurrentP320Clips = 999;
 
         // Update is called once per frame
         void Update()
@@ -85,7 +93,7 @@ namespace JustStartVR
 
             // Holding Glock, M1911, or AK74MClip
             string grabName = g.HeldGrabbable.transform.name;
-            if (grabName.Contains("Glock") || grabName.Contains("M1911") || grabName.Contains("AK74M") || grabName.Contains("M4A1"))
+            if (grabName.Contains("Glock") || grabName.Contains("M1911") || grabName.Contains("AK74M") || grabName.Contains("M4A1") || grabName.Contains("P320"))
             {
                 return true;
             }
@@ -145,6 +153,17 @@ namespace JustStartVR
                 CurrentM4A1Clips--;
                 return M4A1Clip;
             }
+            // P320
+            if (leftGrabberValid && LeftGrabber.HeldGrabbable.transform.name.Contains("P320") && CurrentP320Clips > 0)
+            {
+                CurrentP320Clips--;
+                return P320Clip;
+            }
+            else if (rightGrabberValid && RightGrabber.HeldGrabbable.transform.name.Contains("P320") && CurrentP320Clips > 0)
+            {
+                CurrentP320Clips--;
+                return P320Clip;
+            }
 
             // Default to nothing
             return null;
@@ -194,6 +213,10 @@ namespace JustStartVR
             else if (AmmoName.Contains("M4A1"))
             {
                 CurrentM4A1Clips--;
+            }
+            else if (AmmoName.Contains("P320"))
+            {
+                CurrentP320Clips--;
             }
         }
     }

@@ -7,13 +7,17 @@ public class ObjectCreator : MonoBehaviour
     public bool[,] m_Object;
     private RoomCreator roomCreator;
     private Transform m_Parent;
-    private int maxCount = 30;
+    const int markCount = 5;
+    private int maxCount = 30 + markCount;
     int count = 0;
 
     int maxSize;
 
-    public void initTile(int max, bool[,] value, RoomCreator room, Transform parent, int roomx, int roomy)
+    int roomType;
+
+    public void initTile(int max, bool[,] value, RoomCreator room, Transform parent, int roomx, int roomy, int _roomType)
     {
+        roomType = _roomType;
         roomCreator = room;
         maxSize = max;
 
@@ -32,9 +36,9 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[12];
+        m_Obj = new GameObject[18];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
-        m_Obj[1] = Resources.Load<GameObject>("Room/Drawer");
+        m_Obj[1] = Resources.Load<GameObject>("Room/Cabinet2");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
         m_Obj[3] = Resources.Load<GameObject>("Room/table");
         m_Obj[4] = Resources.Load<GameObject>("Room/tube(withzombie)");
@@ -45,6 +49,13 @@ public class ObjectCreator : MonoBehaviour
         m_Obj[9] = Resources.Load<GameObject>("Room/table(withItem)");
         m_Obj[10] = Resources.Load<GameObject>("Room/table(withHint)");
         m_Obj[11] = Resources.Load<GameObject>("Room/Light Control Panel");
+
+        m_Obj[12] = Resources.Load<GameObject>("Room/Mark(bishop)");
+        m_Obj[13] = Resources.Load<GameObject>("Room/Mark(horse)");
+        m_Obj[14] = Resources.Load<GameObject>("Room/Mark(king)");
+        m_Obj[15] = Resources.Load<GameObject>("Room/Mark(queen)");
+        m_Obj[16] = Resources.Load<GameObject>("Room/Mark(pawn)");
+        m_Obj[17] = Resources.Load<GameObject>("Room/Mark(rook)");
 
         int x = 0;
         int z = 0;
@@ -119,7 +130,7 @@ public class ObjectCreator : MonoBehaviour
     }
 
 
-
+    int CountingMark = 0;
     public void CreateObj(float x, float y, float z, int dir, Transform parent)
     {
         float angle = 0;
@@ -132,6 +143,7 @@ public class ObjectCreator : MonoBehaviour
 
         int min = 0;
         int max = 2;
+
 
         switch (dir)
         {
@@ -164,8 +176,17 @@ public class ObjectCreator : MonoBehaviour
 
         type = Random.Range(min, max);
 
+
+        if (type == 0 && CountingMark < markCount)
+        {
+            type = 12 + roomType;
+            CountingMark++;
+        }
+
         if (type == 3 && isCardRoom == true)
+        {
             type = 9;
+        }
 
         float _y = 0.0f;
         if (roomCreator.m_Panel == false && dir == -1)
@@ -180,7 +201,7 @@ public class ObjectCreator : MonoBehaviour
         max = 4 - roomCreator.m_hintCount;
 
         int random = Random.Range(0, max);
-        if (count == 29 && roomCreator.m_hintCount < 4 && random <= 1)
+        if (count == 29 && roomCreator.m_hintCount < 4 && random <= 2)
         {
             type = 10;
             roomCreator.m_hintCount++;

@@ -30,9 +30,10 @@ public class FireCollision : MonoBehaviour
             distance = Mathf.Abs((Particle[i].position - Player.transform.position).magnitude);
 
 
-            if (distance < 0.5f)
-            {               
-                playerHp.change_HP(-5);
+            if (distance < 1.0f)
+            {
+                playerHp.change_HP(-.2f);
+                break;
             }
         }
     }

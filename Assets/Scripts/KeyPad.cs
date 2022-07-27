@@ -24,16 +24,16 @@ public class KeyPad : MonoBehaviour
 
         switch (posy)
         {
-            case 0.0f:
+            case 20.0f:
                 CardType = Card.First;
                 break;
-            case 20.0f:
+            case 40.0f:
                 CardType = Card.Second;
                 break;
-            case 40.0f:
+            case 60.0f:
                 CardType = Card.Third;
                 break;
-            case 60.0f:
+            case 80.0f:
                 CardType = Card.Exit;
                 break;
         }
@@ -42,8 +42,12 @@ public class KeyPad : MonoBehaviour
     {
         if (CardType == Card)
         {
-            //Debug.Log("ON_KeyCarde");   
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeySucess);
             OnCard.Invoke();
+        }
+        else
+        {
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeyFailed);
         }
     }
 }

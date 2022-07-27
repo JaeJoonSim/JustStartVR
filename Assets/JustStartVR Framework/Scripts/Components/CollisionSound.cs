@@ -9,6 +9,7 @@ namespace JustStartVR {
     /// </summary>
     public class CollisionSound : MonoBehaviour {
 
+        public GameObject hitEnemyFX;
         public AudioClip CollisionAudio;
         AudioSource audioSource;
         float startTime;
@@ -45,7 +46,24 @@ namespace JustStartVR {
             grab = GetComponent<Grabbable>();
         }
 
+        void ShowEffect(Collision col)
+        {
+            ContactPoint contact = col.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(-Vector3.forward, contact.normal);
+            GameObject fx = Instantiate(hitEnemyFX, contact.point, rot) as GameObject;
+            fx.transform.SetParent(this.transform);
+
+        }
+
         private void OnCollisionEnter(Collision collision) {
+
+            if(collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyAttack")
+            {
+                if(hitEnemyFX != null)
+                {
+                    ShowEffect(collision);
+                }
+            }
 
             // Just spawned, don't fire collision sound immediately
             if(Time.time - startTime < 0.2f) {

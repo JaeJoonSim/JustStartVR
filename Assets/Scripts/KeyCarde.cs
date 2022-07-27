@@ -9,28 +9,34 @@ public class KeyCarde : MonoBehaviour
     public Card CardType;
     public string Card_Name;
 
+    Material material;
+
     private void Awake()
     {
         Transform world = this.transform.root;
-
+        material = this.transform.GetComponentInChildren<MeshRenderer>().material;
         float posy = world.position.y;
 
         switch (posy)
         {
-            case 0.0f:
+            case 20.0f:
                 CardType = Card.First;
                 Cardname.text = "First";
-                break;
-            case 20.0f:
-                CardType = Card.Second;
-                Cardname.text = "Second";
+                material.color = new Color(100 / 255.0f, 100 / 255.0f, 255 / 255.0f);
                 break;
             case 40.0f:
-                CardType = Card.Third;
-                Cardname.text = "Third";
+                CardType = Card.Second;
+                Cardname.text = "Second";
+                material.color = new Color(255 / 255.0f, 100 / 255.0f, 100 / 255.0f);
                 break;
             case 60.0f:
+                CardType = Card.Third;
+                Cardname.text = "Third";
+                material.color = new Color(50 / 255.0f, 50 / 255.0f, 50 / 255.0f);
+                break;
+            case 80.0f:
                 CardType = Card.Exit;
+                material.color = new Color(255 / 255.0f, 255 / 255.0f, 255 / 255.0f);
                 Cardname.text = "Exit";
                 break;
         }

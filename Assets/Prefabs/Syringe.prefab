@@ -34,7 +34,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525360715461004555}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -211,7 +211,7 @@ Transform:
   - {fileID: 7792375955310942202}
   - {fileID: 4861559871200857543}
   m_Father: {fileID: 1525360715461004555}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4332007530942675994
 GameObject:
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4332007530942675993}
   - component: {fileID: 597031357775235529}
   m_Layer: 0
-  m_Name: GrabTransform
+  m_Name: GrabTransformLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,6 +368,8 @@ GameObject:
   - component: {fileID: 3495112683501016588}
   - component: {fileID: 1332148237894249865}
   - component: {fileID: 7100469954160859044}
+  - component: {fileID: 2044409188}
+  - component: {fileID: 2044409189}
   m_Layer: 10
   m_Name: Syringe
   m_TagString: Untagged
@@ -388,10 +390,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4332007530942675993}
+  - {fileID: 8900875342171695803}
   - {fileID: 460503151785151646}
   - {fileID: 3242308161541458453}
   - {fileID: 6141875263867957807}
-  - {fileID: 8900875342171695803}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -423,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17d5a389f73fe341a760ec8c3f54225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Amount_Of_Recovery: 30
+  Amount_Of_Recovery: 50
   Needle: {fileID: 7100469954160859044}
 --- !u!114 &3495112683501016590
 MonoBehaviour:
@@ -492,6 +494,7 @@ MonoBehaviour:
   LocalOffsetTransform: {fileID: 0}
   GrabPoints:
   - {fileID: 4332007530942675993}
+  - {fileID: 8900875342171695803}
   UseCustomInspector: 1
   lastFlickTime: 0
   FlickForce: 1
@@ -551,11 +554,113 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6580706055548250824}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.05, z: 0.01}
   m_Center: {x: 0, y: -0.13, z: 0}
+--- !u!114 &2044409188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580706055548250824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad179a9e83dba5142adaaf7737678e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onGrab:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2044409189}
+        m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
+        m_MethodName: SetParentsNull
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2044409189}
+        m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
+        m_MethodName: SetParentsReturn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onBecomesClosestGrabbable:
+    m_PersistentCalls:
+      m_Calls: []
+  onNoLongerClosestGrabbable:
+    m_PersistentCalls:
+      m_Calls: []
+  onBecomesClosestRemoteGrabbable:
+    m_PersistentCalls:
+      m_Calls: []
+  onNoLongerClosestRemoteGrabbable:
+    m_PersistentCalls:
+      m_Calls: []
+  onGrip:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerDown:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerUp:
+    m_PersistentCalls:
+      m_Calls: []
+  onButton1:
+    m_PersistentCalls:
+      m_Calls: []
+  onButton1Down:
+    m_PersistentCalls:
+      m_Calls: []
+  onButton1Up:
+    m_PersistentCalls:
+      m_Calls: []
+  onButton2:
+    m_PersistentCalls:
+      m_Calls: []
+  onButton2Down:
+    m_PersistentCalls:
+      m_Calls: []
+  onButton2Up:
+    m_PersistentCalls:
+      m_Calls: []
+  onSnapZoneEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onSnapZoneExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2044409189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580706055548250824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6826398647375353613
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +722,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3661639628750336703, guid: 2cf0f31ab49c3c347be7e1124381ccab, type: 3}
+  - {fileID: 2100000, guid: bd5a65867252f6b4798634d5bee7b409, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -650,7 +755,7 @@ GameObject:
   - component: {fileID: 8900875342171695803}
   - component: {fileID: 6461859257987209462}
   m_Layer: 0
-  m_Name: GrabTransform (1)
+  m_Name: GrabTransformRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,7 +774,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1525360715461004555}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -29.96, y: 98, z: 0}
 --- !u!114 &6461859257987209462
 MonoBehaviour:
@@ -808,5 +913,5 @@ Transform:
   m_Children:
   - {fileID: 2261313874163181808}
   m_Father: {fileID: 1525360715461004555}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -17,14 +17,15 @@ public class CalcDistance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject targetOBJ = GameObject.FindGameObjectWithTag("Player");
+        GameObject targetOBJ = GameObject.FindGameObjectWithTag("XRRig").transform.GetChild(0).gameObject;
         target = targetOBJ.transform;
 
         if (OnOffObject == null)
         {
-            distance = 60;
+            distance = 30;
             OnOffObject = gameObject.transform.GetChild(0).gameObject;
         }
+
     }
 
     // Update is called once per frame
@@ -48,6 +49,13 @@ public class CalcDistance : MonoBehaviour
     }
     public float CalcTargetDistance()
     {
-        return (target.position - OnOffObject.transform.position).magnitude;
+        Vector2 pos1 = new Vector2(target.position.x, target.position.z);
+        Vector2 pos2;
+
+        if (OnOffObject.transform.position.y == 0)
+        pos2 = new Vector2(OnOffObject.transform.position.x + 13, OnOffObject.transform.position.z + 13);
+        else
+        pos2 = new Vector2(OnOffObject.transform.position.x , OnOffObject.transform.position.z );
+        return (pos1 - pos2).magnitude;
     }
 }

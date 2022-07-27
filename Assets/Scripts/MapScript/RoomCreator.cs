@@ -112,6 +112,8 @@ public class RoomCreator : MonoBehaviour
         }
     }
 
+    int roomNumber = 0;
+
     private void CreateRoom(int x, int z, bool isCreate)
     {
         string name = "Room (" + x + ", " + z + ")";
@@ -128,6 +130,11 @@ public class RoomCreator : MonoBehaviour
             parent.tag = "keycardroom";
         }
 
+        //for(int i = 0;  i< 16; i++)
+        //{
+        //    Debug.Log(i + " " + i % 4);
+        //}
+
 
         m_GroupOBJ[x, z] = new GameObject(name);
         m_GroupOBJ[x, z].transform.parent = parent.transform;
@@ -141,8 +148,8 @@ public class RoomCreator : MonoBehaviour
         ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();
         EnemyCreator enemy = m_GroupOBJ[x, z].GetComponent<EnemyCreator>();
         parent.AddComponent<CalcDistance>();
-        room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform, x, z);
-
+        room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform, x, z, roomNumber++);
+        
         if(!isCardRoom(x, z))
         {
             enemy.CreateEnemy(m_RoomSize, m_TileisEmpty, room.m_Object, m_GroupOBJ[x, z].transform, this);
@@ -163,14 +170,14 @@ public class RoomCreator : MonoBehaviour
         //6, 6
         if(parent.name == "Room (" + 1 + ", " + 1 + ")")
         {
-            for(int i = 5; i <= 7; i++)
+            for(int i = 4; i <= 8; i++)
             {
-                for(int j = 5; j <= 7; j++)
+                for(int j = 4; j <= 8; j++)
                 {
                     m_WorldTileisEmpty[i + m_mapinterval, j + m_mapinterval] = false;
                     m_TileisEmpty[i, j] = false;
                     if (i == 6 && j == 6) continue;
-                    if ((i >= 5 || i <= 7)  && j == 6) continue;
+                    if ((i >= 5 && i <= 7)  && j == 6) continue;
                     AddNewTile(i * m_TileSize, j * m_TileSize, parent);
                     
                     count++;

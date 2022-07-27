@@ -3,7 +3,7 @@ using UnityEngine;
 public class WallCreator : MonoBehaviour
 {
     [SerializeField]private RoomCreator roomCreator;
-    [SerializeField] private GameObject m_WallOBJ;
+    [SerializeField] private GameObject[] m_WallOBJ = new GameObject[2];
     [SerializeField] private GameObject m_roomCreatorObj;
     [SerializeField] private Transform m_Parent;
     [SerializeField] private bool[,] m_WallisEmpty;
@@ -68,6 +68,8 @@ public class WallCreator : MonoBehaviour
                     break;
             }
 
+            int random2 = Random.Range(0, 4) + 1;
+            int random = Random.Range(0, 2);
             if (x > -1 && x < roomCreator.m_MaxCount && z > -1 && z < roomCreator.m_MaxCount)
             {
                 if (roomCreator.m_WorldTileisEmpty[x, z])
@@ -75,9 +77,9 @@ public class WallCreator : MonoBehaviour
                     if (m_WallisEmpty[x, z])
                     {
                         GameObject newObj =
-                        Instantiate(m_WallOBJ,
+                        Instantiate(m_WallOBJ[random],
                             new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
-                            , Quaternion.identity);
+                            , Quaternion.Euler(0, random2 * 90, 0));
                         newObj.transform.parent = m_Parent;
                         m_WallisEmpty[x, z] = false;
                     }
@@ -85,9 +87,9 @@ public class WallCreator : MonoBehaviour
                 else if((x == 24 || x == 26 )&& z == 25)
                 {
                     GameObject newObj =
-                        Instantiate(m_WallOBJ,
+                        Instantiate(m_WallOBJ[random],
                             new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
-                            , Quaternion.identity);
+                            , Quaternion.Euler(0, random2 * 90, 0));
                     newObj.transform.parent = m_Parent;
                     m_WallisEmpty[x, z] = false;
                 }
@@ -95,9 +97,9 @@ public class WallCreator : MonoBehaviour
             else
             {
                  GameObject newObj = 
-                 Instantiate(m_WallOBJ,
+                 Instantiate(m_WallOBJ[random],
                      new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
-                     , Quaternion.identity);
+                     , Quaternion.Euler(0, random2 * 90, 0));
                      newObj.transform.parent = m_Parent;
             }
         }
