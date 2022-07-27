@@ -48,6 +48,7 @@ namespace JustStartVR
                 Activation = true;
                 animator.SetBool("Acte", true);
                 Needle.enabled = true;
+                SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.HealTrigger);
                 Debug.Log("Ativete");
             }
         }
