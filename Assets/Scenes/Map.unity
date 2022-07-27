@@ -9660,17 +9660,6 @@ Transform:
   m_Father: {fileID: 325102063}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &319078245 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8237752085392910894, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-  m_PrefabInstance: {fileID: 1821633368}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &325102062
 GameObject:
   m_ObjectHideFlags: 0
@@ -13496,7 +13485,7 @@ PrefabInstance:
     - target: {fileID: 6311367284414576140, guid: 27b1b6a6d06f4c24fa7712c0cc5fe8c2, type: 3}
       propertyPath: playertablet
       value: 
-      objectReference: {fileID: 1821633370}
+      objectReference: {fileID: 0}
     - target: {fileID: 8480093513916527493, guid: 27b1b6a6d06f4c24fa7712c0cc5fe8c2, type: 3}
       propertyPath: m_Name
       value: Passward Tablet (3)
@@ -15320,7 +15309,7 @@ PrefabInstance:
     - target: {fileID: 6311367284414576140, guid: 27b1b6a6d06f4c24fa7712c0cc5fe8c2, type: 3}
       propertyPath: playertablet
       value: 
-      objectReference: {fileID: 1821633370}
+      objectReference: {fileID: 0}
     - target: {fileID: 8480093513916527493, guid: 27b1b6a6d06f4c24fa7712c0cc5fe8c2, type: 3}
       propertyPath: m_Name
       value: Passward Tablet
@@ -28082,7 +28071,7 @@ PrefabInstance:
     - target: {fileID: 6311367284414576140, guid: 27b1b6a6d06f4c24fa7712c0cc5fe8c2, type: 3}
       propertyPath: playertablet
       value: 
-      objectReference: {fileID: 1821633370}
+      objectReference: {fileID: 0}
     - target: {fileID: 8480093513916527493, guid: 27b1b6a6d06f4c24fa7712c0cc5fe8c2, type: 3}
       propertyPath: m_Name
       value: Passward Tablet (1)
@@ -48940,7 +48929,7 @@ PrefabInstance:
     - target: {fileID: 6311367284414576140, guid: 27b1b6a6d06f4c24fa7712c0cc5fe8c2, type: 3}
       propertyPath: playertablet
       value: 
-      objectReference: {fileID: 1821633370}
+      objectReference: {fileID: 0}
     - target: {fileID: 8480093513916527493, guid: 27b1b6a6d06f4c24fa7712c0cc5fe8c2, type: 3}
       propertyPath: m_Name
       value: Passward Tablet (2)
@@ -52040,7 +52029,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 816060664}
-  - {fileID: 1821633377}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58667,83 +58655,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &1821633368
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1633392278}
-    m_Modifications:
-    - target: {fileID: 1821633370, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: showText
-      value: 
-      objectReference: {fileID: 319078245}
-    - target: {fileID: 8480093513916527493, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_Name
-      value: Player Tablet
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.5551109
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.446
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 22.048664
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6839104
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7295661
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -93.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
---- !u!114 &1821633370 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1821633370, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-  m_PrefabInstance: {fileID: 1821633368}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877ff2668ccb3544b8e874a30fc2a972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1821633377 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9143583448225999167, guid: f6d56d366ddd19a4ea09e01634276e1b, type: 3}
-  m_PrefabInstance: {fileID: 1821633368}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1822631362
 GameObject:
   m_ObjectHideFlags: 0
