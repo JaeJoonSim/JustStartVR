@@ -36,7 +36,7 @@ public class EnemytongueCollision : MonoBehaviour
             {
                 //Debug.Log("Çú¹Ù´Ú Ãæµ¹");
                
-                if (FSM.CurrentState == FSM.Attack2State && (FSM.target.position - FSM.grabPos.position).magnitude < 0.5f)
+                if (FSM.CurrentState == FSM.Attack2State && (FSM.target.position - FSM.grabPos.position).magnitude < 1f)
                 {
                     FSM.attackCollision = true;
                     FSM.characterController.enabled = false;
