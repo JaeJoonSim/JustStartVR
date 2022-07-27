@@ -44,8 +44,8 @@ public class SetPassWord : MonoBehaviour
             }
         }
 
-        if(playertablet != null)
-        playertablet.inputPassWord(password, curIndex);
+        //if(playertablet != null)
+        //playertablet.inputPassWord(password, curIndex);
 
         manager.count++;
 

@@ -36,25 +36,26 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        m_Obj = new GameObject[17];
+        m_Obj = new GameObject[18];
         m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet");
-        m_Obj[1] = Resources.Load<GameObject>("Room/Shelf");
-        m_Obj[2] = Resources.Load<GameObject>("Room/table");
-        m_Obj[3] = Resources.Load<GameObject>("Room/tube(withzombie)");
-        m_Obj[4] = Resources.Load<GameObject>("Room/blood3");
-        m_Obj[5] = Resources.Load<GameObject>("Room/blood4");
-        m_Obj[6] = Resources.Load<GameObject>("Room/blood1");
-        m_Obj[7] = Resources.Load<GameObject>("Room/blood2");
-        m_Obj[8] = Resources.Load<GameObject>("Room/table(withItem)");
-        m_Obj[9] = Resources.Load<GameObject>("Room/table(withHint)");
-        m_Obj[10] = Resources.Load<GameObject>("Room/Light Control Panel");
+        m_Obj[1] = Resources.Load<GameObject>("Room/Cabinet2");
+        m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
+        m_Obj[3] = Resources.Load<GameObject>("Room/table");
+        m_Obj[4] = Resources.Load<GameObject>("Room/tube(withzombie)");
+        m_Obj[5] = Resources.Load<GameObject>("Room/blood3");
+        m_Obj[6] = Resources.Load<GameObject>("Room/blood4");
+        m_Obj[7] = Resources.Load<GameObject>("Room/blood1");
+        m_Obj[8] = Resources.Load<GameObject>("Room/blood2");
+        m_Obj[9] = Resources.Load<GameObject>("Room/table(withItem)");
+        m_Obj[10] = Resources.Load<GameObject>("Room/table(withHint)");
+        m_Obj[11] = Resources.Load<GameObject>("Room/Light Control Panel");
 
-        m_Obj[11] = Resources.Load<GameObject>("Room/Mark(bishop)");
-        m_Obj[12] = Resources.Load<GameObject>("Room/Mark(horse)");
-        m_Obj[13] = Resources.Load<GameObject>("Room/Mark(king)");
-        m_Obj[14] = Resources.Load<GameObject>("Room/Mark(queen)");
-        m_Obj[15] = Resources.Load<GameObject>("Room/Mark(pawn)");
-        m_Obj[16] = Resources.Load<GameObject>("Room/Mark(rook)");
+        m_Obj[12] = Resources.Load<GameObject>("Room/Mark(bishop)");
+        m_Obj[13] = Resources.Load<GameObject>("Room/Mark(horse)");
+        m_Obj[14] = Resources.Load<GameObject>("Room/Mark(king)");
+        m_Obj[15] = Resources.Load<GameObject>("Room/Mark(queen)");
+        m_Obj[16] = Resources.Load<GameObject>("Room/Mark(pawn)");
+        m_Obj[17] = Resources.Load<GameObject>("Room/Mark(rook)");
 
         int x = 0;
         int z = 0;
@@ -141,18 +142,18 @@ public class ObjectCreator : MonoBehaviour
         bool isCardRoom = roomCreator.isCardRoom(_x, _z);
 
         int min = 0;
-        int max = 1;
+        int max = 2;
 
 
         switch (dir)
         {
             case -1:
                 angle = Random.Range(0, 360);
-                min = 1;
-                max = 8;
+                min = 2;
+                max = 9;
                 if (isCardRoom == true)
                 {
-                    max = 3;
+                    max = 4;
                 }
                 break;
             case 0:
@@ -178,20 +179,20 @@ public class ObjectCreator : MonoBehaviour
 
         if (type == 0 && CountingMark < markCount)
         {
-            type = 11 + roomType;
+            type = 12 + roomType;
             CountingMark++;
         }
 
-        if (type == 2 && isCardRoom == true)
+        if (type == 3 && isCardRoom == true)
         {
-            type = 8;
+            type = 9;
         }
 
         float _y = 0.0f;
         if (roomCreator.m_Panel == false && dir == -1)
         {
             roomCreator.m_Panel = true;
-            type = 10;
+            type = 11;
             _y = 0.5f;
         }
 
@@ -202,7 +203,7 @@ public class ObjectCreator : MonoBehaviour
         int random = Random.Range(0, max);
         if (count == 29 && roomCreator.m_hintCount < 4 && random <= 1)
         {
-            type = 9;
+            type = 10;
             roomCreator.m_hintCount++;
         }
 

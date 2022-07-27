@@ -16,7 +16,7 @@ public class PlayerTablet : MonoBehaviour
 
     public void initPassWord()
     {
-        passwordText = "asdf";
+        passwordText = "****";
         showText.text = passwordText;
     }
 
@@ -25,8 +25,7 @@ public class PlayerTablet : MonoBehaviour
     {
         int _index = index % 4;
 
-        //passwordText = passwordText.Remove(index, 1);
-        //passwordText.Insert(index, password.ToString());
-        //showText.text = passwordText;
+        passwordText = passwordText.Remove(index, 1).Insert(index, password.ToString());
+        showText.text = passwordText;
     }
 }
