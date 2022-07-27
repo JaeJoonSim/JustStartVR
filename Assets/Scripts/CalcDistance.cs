@@ -22,7 +22,7 @@ public class CalcDistance : MonoBehaviour
 
         if (OnOffObject == null)
         {
-            distance = 1000;
+            distance = 30;
             OnOffObject = gameObject.transform.GetChild(0).gameObject;
         }
 
