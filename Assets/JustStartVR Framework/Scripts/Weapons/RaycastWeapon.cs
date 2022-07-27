@@ -259,7 +259,7 @@ namespace JustStartVR
                 //MuzzleFlashObject.SetActive(false);
             }
             if (MuzzleFlashObject) {
-                MuzzleFlashObject.Pause();
+                //MuzzleFlashObject.Pause();
             }
 
             ws = GetComponentInChildren<WeaponSlide>();
