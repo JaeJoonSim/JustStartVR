@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour
         Heal,
         fire,
         motolov,
+        CardKeyFailed,
     }
 
     private void Awake()

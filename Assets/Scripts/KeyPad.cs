@@ -42,8 +42,12 @@ public class KeyPad : MonoBehaviour
     {
         if (CardType == Card)
         {
-            //Debug.Log("ON_KeyCarde");   
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeySucess);
             OnCard.Invoke();
+        }
+        else
+        {
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeyFailed);
         }
     }
 }

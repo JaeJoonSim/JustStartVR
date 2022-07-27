@@ -63,6 +63,7 @@ namespace JustStartVR
 
         void Recovery()
         {
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.Heal);
             Activation = false;
             Use = true;
             Needle.enabled = false;
