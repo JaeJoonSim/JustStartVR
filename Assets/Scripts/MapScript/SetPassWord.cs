@@ -20,6 +20,11 @@ public class SetPassWord : MonoBehaviour
     [SerializeField]
     Text text;
 
+    public void inputPassWord()
+    {
+        playertablet.inputPassWord(password, curIndex);
+    }
+
     void Start()
     {
         
