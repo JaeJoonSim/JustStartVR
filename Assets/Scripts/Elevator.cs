@@ -126,6 +126,7 @@ public class Elevator : MonoBehaviour
         }
         animator.SetBool("Close", false);
         Player.transform.GetComponent<PlayerGravity>().GravityEnabled = true;
+        SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.ElevatorArrive);
         its = false;
     }
 

@@ -20,6 +20,7 @@ public class sellCylinder : MonoBehaviour
         TubeZombie tubeZombie = GetComponentInChildren<TubeZombie>();
         if(tubeZombie != null)
         GetComponentInChildren<TubeZombie>().zombieAwake();
+        SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CrashGlass);
 
         if (Destruction) return;
         Destruction = true;

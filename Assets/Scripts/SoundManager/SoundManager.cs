@@ -23,6 +23,7 @@ public class SoundManager : MonoBehaviour
         ElevatorArrive,
         Heal,
         fire,
+        motolov,
     }
 
     private void Awake()
