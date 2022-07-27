@@ -50,7 +50,12 @@ public class CalcDistance : MonoBehaviour
     public float CalcTargetDistance()
     {
         Vector2 pos1 = new Vector2(target.position.x, target.position.z);
-        Vector2 pos2 = new Vector2(OnOffObject.transform.position.x, OnOffObject.transform.position.z);
+        Vector2 pos2;
+
+        if (OnOffObject.transform.position.y == 0)
+        pos2 = new Vector2(OnOffObject.transform.position.x + 13, OnOffObject.transform.position.z + 13);
+        else
+        pos2 = new Vector2(OnOffObject.transform.position.x , OnOffObject.transform.position.z );
         return (pos1 - pos2).magnitude;
     }
 }

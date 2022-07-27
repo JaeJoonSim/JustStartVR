@@ -18,8 +18,8 @@ RenderSettings:
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.3
-  m_LinearFogStart: 10
-  m_LinearFogEnd: 13
+  m_LinearFogStart: 20
+  m_LinearFogEnd: 23
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -1371,6 +1371,10 @@ PrefabInstance:
     - target: {fileID: 5246012338412380122, guid: 120aa1c57f3e1334d9e72df4290c8e70, type: 3}
       propertyPath: m_LocalPosition.y
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913092596847664301, guid: 120aa1c57f3e1334d9e72df4290c8e70, type: 3}
+      propertyPath: m_Intensity
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5960975775685781950, guid: 120aa1c57f3e1334d9e72df4290c8e70, type: 3}
       propertyPath: m_Layer
@@ -33352,7 +33356,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomCreator: {fileID: 1137096709}
-  m_WallOBJ: {fileID: 2624105313563668595, guid: 00d5ac5e065d902448a15c60ac688c05, type: 3}
+  m_WallOBJ:
+  - {fileID: 2624105313563668595, guid: 00d5ac5e065d902448a15c60ac688c05, type: 3}
+  - {fileID: 2624105313563668595, guid: 00d5ac5e065d902448a15c60ac688c05, type: 3}
   m_roomCreatorObj: {fileID: 1137096708}
   m_Parent: {fileID: 1133008901}
 --- !u!4 &1137096714
@@ -36845,7 +36851,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomCreator: {fileID: 1256071521}
-  m_WallOBJ: {fileID: 2624105313563668595, guid: 00d5ac5e065d902448a15c60ac688c05, type: 3}
+  m_WallOBJ:
+  - {fileID: 2624105313563668595, guid: 00d5ac5e065d902448a15c60ac688c05, type: 3}
+  - {fileID: 2624105313563668595, guid: 00d5ac5e065d902448a15c60ac688c05, type: 3}
   m_roomCreatorObj: {fileID: 1256071520}
   m_Parent: {fileID: 288075766}
 --- !u!4 &1256071526
@@ -82523,7 +82531,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomCreator: {fileID: 4479373963969348519}
-  m_WallOBJ: {fileID: 2624105313563668595, guid: 00d5ac5e065d902448a15c60ac688c05, type: 3}
+  m_WallOBJ:
+  - {fileID: 2624105313563668595, guid: 00d5ac5e065d902448a15c60ac688c05, type: 3}
+  - {fileID: 2624105313563668595, guid: 00d5ac5e065d902448a15c60ac688c05, type: 3}
   m_roomCreatorObj: {fileID: 1260738208026677925}
   m_Parent: {fileID: 566847728}
 --- !u!114 &4479373963969348517
