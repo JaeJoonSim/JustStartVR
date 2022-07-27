@@ -112,6 +112,8 @@ public class RoomCreator : MonoBehaviour
         }
     }
 
+    int roomNumber = 0;
+
     private void CreateRoom(int x, int z, bool isCreate)
     {
         string name = "Room (" + x + ", " + z + ")";
@@ -141,7 +143,7 @@ public class RoomCreator : MonoBehaviour
         ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();
         EnemyCreator enemy = m_GroupOBJ[x, z].GetComponent<EnemyCreator>();
         parent.AddComponent<CalcDistance>();
-        room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform, x, z);
+        room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform, x, z, roomNumber++);
         
         if(!isCardRoom(x, z))
         {
