@@ -7,7 +7,14 @@ public class SetPassWord : MonoBehaviour
 {
     [SerializeField] PassWordManager manager;
 
-    int password;
+    [HideInInspector]
+    public int password;
+    [HideInInspector]
+    public int curIndex;
+
+    [SerializeField]
+    PlayerTablet playertablet;
+
     int floor;
 
     [SerializeField]
@@ -19,6 +26,7 @@ public class SetPassWord : MonoBehaviour
         manager = GameObject.Find("Elevator").GetComponent<PassWordManager>();
         floor = (int)this.transform.position.y / 20;
         password = manager.number[manager.count];
+        curIndex = manager.count;
 
         int min = floor * 4;
         int max = 4 + min;
@@ -35,6 +43,9 @@ public class SetPassWord : MonoBehaviour
                 text.text += password.ToString();
             }
         }
+
+        //if(playertablet != null)
+        //playertablet.inputPassWord(password, curIndex);
 
         manager.count++;
 
