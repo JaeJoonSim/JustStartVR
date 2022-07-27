@@ -147,7 +147,7 @@ public class RoomCreator : MonoBehaviour
         m_GroupOBJ[x, z].AddComponent<EnemyCreator>();
         ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();
         EnemyCreator enemy = m_GroupOBJ[x, z].GetComponent<EnemyCreator>();
-       // parent.AddComponent<CalcDistance>();
+        parent.AddComponent<CalcDistance>();
         room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform, x, z, roomNumber++);
         
         if(!isCardRoom(x, z))
