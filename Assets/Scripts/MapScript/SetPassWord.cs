@@ -27,7 +27,7 @@ public class SetPassWord : MonoBehaviour
 
     void Start()
     {
-        
+        playertablet = GameObject.Find("Player Tablet").GetComponent<PlayerTablet>();
         manager = GameObject.Find("Elevator").GetComponent<PassWordManager>();
         floor = (int)this.transform.position.y / 20;
         password = manager.number[manager.count];
