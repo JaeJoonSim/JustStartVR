@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PassWordManager : MonoBehaviour
@@ -12,12 +10,11 @@ public class PassWordManager : MonoBehaviour
     [HideInInspector]
     public int count = 0;
 
-    void Start()
+    void Awake()
     {        
         for (int i = 0; i < 16; i++)
         {
             number[i] = Random.Range(0, 10);
-            Debug.Log(number[i]);
         }
     }
 }
