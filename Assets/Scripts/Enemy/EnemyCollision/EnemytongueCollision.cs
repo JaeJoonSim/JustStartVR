@@ -35,11 +35,13 @@ public class EnemytongueCollision : MonoBehaviour
             else if (other.gameObject.tag == "Player")
             {
                 //Debug.Log("Çú¹Ù´Ú Ãæµ¹");
-                SoundManager.m_instance.PlaySound(other.transform.position,
-                    SoundManager.SoundType.tongueGrap);
-
-                if (FSM.CurrentState == FSM.Attack2State && (FSM.target.position - FSM.grabPos.position).magnitude < 1f)
+                if (FSM.CurrentState == FSM.Attack2State && (FSM.target.position - FSM.grabPos.position).magnitude < 1f && !FSM.attackCollision)
                 {
+                    FSM.AudioHandle = SoundManager.m_instance.PlaySound(other.transform.position,
+                        SoundManager.SoundType.tongueGrap);
+                    
+
+
                     FSM.attackCollision = true;
                     FSM.characterController.enabled = false;
                 }
@@ -47,12 +49,15 @@ public class EnemytongueCollision : MonoBehaviour
             }
             else
             {
-                SoundManager.m_instance.PlaySound(other.transform.position,
-                    SoundManager.SoundType.tongue);
-                Bmgr.tongueBack = true;
+                if (!Bmgr.tongueBack)
+                {
 
+                    SoundManager.m_instance.PlaySound(other.transform.position,
+                SoundManager.SoundType.tongue);
+                    Bmgr.tongueBack = true;
+                }
             }
         }
-        
+
     }
 }

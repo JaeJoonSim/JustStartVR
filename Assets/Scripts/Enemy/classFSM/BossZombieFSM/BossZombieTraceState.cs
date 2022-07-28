@@ -6,7 +6,6 @@ public class BossZombieTraceState : EnemyBaseState
 {
     float currntTime;
 
-    float footTime = 0.5f;
 
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
@@ -60,7 +59,7 @@ public class BossZombieTraceState : EnemyBaseState
             mgr.attackPosition = mgr.transform.position;
 
             int randomAttack = Random.Range(0, 3);
-
+            randomAttack = 1;
             switch (randomAttack)
             {
                 case 0:
@@ -107,13 +106,7 @@ public class BossZombieTraceState : EnemyBaseState
         {
             mgr.MoveTarget();
 
-            footTime -= Time.deltaTime;
-
-            if(footTime < 0.0f)
-            {
-                //SoundManager.m_instance.PlaySound(mgr.transform.position, SoundManager.SoundType.BossFoot);
-                footTime = 0.5f;
-            }
+         
         }
 
  

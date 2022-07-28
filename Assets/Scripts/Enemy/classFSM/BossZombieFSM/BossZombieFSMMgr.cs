@@ -28,6 +28,8 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     [HideInInspector]
     public CharacterController characterController;
 
+    [HideInInspector]
+    public AudioSource AudioHandle;
 
 
     //BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
