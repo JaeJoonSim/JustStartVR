@@ -44,7 +44,7 @@ namespace JustStartVR
         {
             while (On_Off)
             {
-                batter -= 0.001f;
+                batter -= 0.0005f;
                 //Debug.Log(batter);
                 if(batter_UI != null)
                     batter_UI.fillAmount = batter;
@@ -78,7 +78,7 @@ namespace JustStartVR
                     {
                         if (batter < 1)
                         {
-                            batter += 0.01f;
+                            batter += 0.03f;
                             batter_UI.fillAmount = batter;
                         }
                      
