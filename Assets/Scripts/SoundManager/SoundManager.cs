@@ -78,7 +78,7 @@ public class SoundManager : MonoBehaviour
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
         newAudio.volume = volume / 100.0f;
-        newAudio.loop = true;
+        newAudio.loop = loop;
         newAudio.Play();
         audioList.Add(newAudio);
     }
