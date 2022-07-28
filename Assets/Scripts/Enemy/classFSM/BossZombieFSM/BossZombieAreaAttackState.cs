@@ -57,7 +57,7 @@ public class BossZombieAreaAttackState : EnemyBaseState
                 if (RandomPoint2(point, mgr.target.transform.position, out point))
                 {
                     Bmgr.Spown(point);
-                    SoundManager.m_instance.PlaySound(point, SoundManager.SoundType.BossSkill, Bmgr.transform, false, 50.0f);
+                  
                 }
             }
             else if (patternTime > 10f)

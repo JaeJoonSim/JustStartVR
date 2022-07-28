@@ -9,12 +9,17 @@ public class tongueTrap : MonoBehaviour
 
     bool isGrab = false;
 
+
     public Transform grabPos;
+    float attack = 0;
 
     [HideInInspector]
     public Transform target;
     [HideInInspector]
     public CharacterController characterController;
+
+    GameObject player;
+
 
     void Start()
     {
@@ -25,6 +30,7 @@ public class tongueTrap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        attack += Time.deltaTime;
         if (!isGrab)
         {
             if (yPos < 0.3f)
@@ -35,6 +41,11 @@ public class tongueTrap : MonoBehaviour
         }
         else
         {
+            if (attack > 1f)
+            {
+                attack = 0;
+                player.transform.GetComponent<Player_HP>().change_HP(-2f);
+            }
             if (yPos > 0.1f)
             {
                 yPos -= Time.deltaTime /10;
@@ -58,9 +69,13 @@ public class tongueTrap : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.tongueGrap);
-            isGrab = true;
-            characterController.enabled = false;
+            if (!isGrab)
+            {
+                player = other.gameObject;
+                SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.tongueGrap);
+                isGrab = true;
+                characterController.enabled = false;
+            }
         }
 
         else if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")

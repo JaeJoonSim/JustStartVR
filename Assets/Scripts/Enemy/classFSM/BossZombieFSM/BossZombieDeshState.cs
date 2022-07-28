@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BossZombieDeshState : EnemyBaseState
 {
-    
+
     Vector3 cross;
     float inner;
     float addAngle;
 
     bool isTurn = false;
-    float footTime = 0.5f;
 
     BossZombieFSMMgr Bmgr;
     public override void Begin(EnemyBaseFSMMgr mgr)
@@ -33,7 +32,7 @@ public class BossZombieDeshState : EnemyBaseState
             // 상향 벡터와 외적으로 생성한 벡터 내적
             inner = Vector3.Dot(Bmgr.transform.up, cross);
             // 내적이 0보다 크면 오른쪽 0보다 작으면 왼쪽으로 회전
-             addAngle = inner > 0 ? 180 * Time.deltaTime : -180 * Time.deltaTime;
+            addAngle = inner > 0 ? 180 * Time.deltaTime : -180 * Time.deltaTime;
             Bmgr.transform.rotation = Quaternion.Euler(0, addAngle, 0) * Bmgr.transform.rotation;
         }
 
@@ -47,11 +46,7 @@ public class BossZombieDeshState : EnemyBaseState
         }
 
         Bmgr.MoveFront();
-        if(footTime < 0.0f)
-        {
-            //SoundManager.m_instance.PlaySound(mgr.transform.position, SoundManager.SoundType.BossFoot);
-            footTime = 0.5f;
-        }
+
 
     }
     public override void End(EnemyBaseFSMMgr mgr)
