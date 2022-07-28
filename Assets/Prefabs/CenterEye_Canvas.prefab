@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 5918386187404167020}
   - component: {fileID: 5918386187404167021}
   - component: {fileID: 5918386187404167018}
+  - component: {fileID: 4431247471321084247}
   m_Layer: 5
   m_Name: CenterEye_Canvas
   m_TagString: Untagged
@@ -359,7 +360,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5918386187404167021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +400,21 @@ MonoBehaviour:
   - {fileID: 5918386186172037745}
   - {fileID: 5918386187590686169}
   - {fileID: 5918386186400025047}
+--- !u!114 &4431247471321084247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918386187404167023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ad582d60039d94d82f358c750b1537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exposure_time: 5
+  Subtitle: {fileID: 5918386187518456599}
+  TextAsset: {fileID: 4900000, guid: 846f253d24fd35b4cb96b6f867d08aa5, type: 3}
 --- !u!1 &5918386187518456601
 GameObject:
   m_ObjectHideFlags: 0

@@ -69,8 +69,10 @@ public class Elevator : MonoBehaviour
     public void MoveElevator(int floor)
     {
         if (its) return;
-        if (OnZombi) return;
-        if (transform.position == Floor_Point[floor].position) return;
+        if (OnZombi || transform.position == Floor_Point[floor].position)
+        {
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeyFailed);
+        }
 
         Floor = floor;
         Floor_text.text = (floor +1).ToString();
@@ -80,6 +82,7 @@ public class Elevator : MonoBehaviour
             initKeyCode(Floor);
             text.gameObject.SetActive(false);
             Floor_text.color = Color.green;
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeySucess);
         }
         else
         {
@@ -87,6 +90,7 @@ public class Elevator : MonoBehaviour
             text.color = Color.red;
             text.text = "비밀번호를\n입력하세요";
             text.gameObject.SetActive(true);
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeyFailed);
         }
     }
 

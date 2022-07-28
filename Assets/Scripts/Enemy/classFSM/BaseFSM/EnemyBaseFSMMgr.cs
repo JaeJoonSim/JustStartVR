@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEditor;
 
 
 public abstract class EnemyBaseFSMMgr : MonoBehaviour
@@ -115,10 +116,17 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     public void Damaged(float demage, Vector3 BulletForword)
     {
-        Status.Hp -= demage;
+        if (Status.Hp <= 0) return;
+            Status.Hp -= demage;
         //print(Status.Hp);
         if (!IsAlive())
         {
+            if(this.transform.name == "zombie_Boss")
+            {
+                Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Key_Card.prefab"),
+                    transform.position, Quaternion.identity, transform.root);
+            }
+        
             Die();
             //hitPoint.AddForce(BulletForword * 10f, ForceMode.VelocityChange);
         }
@@ -134,6 +142,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     public void Die()
     {
+
         agent.enabled = false;
         anim.enabled = false;
         currentState = null;

@@ -63,9 +63,9 @@ public class XR_Input_MGR : MonoBehaviour
         foreach (var device in inputDevices)
         {
             bool Value;
-            if (device.TryGetFeatureValue(inputFeatureUsage, out Value))
+            if (device.TryGetFeatureValue(inputFeatureUsage, out Value) && Value)
             {
-                //Debug.Log("button is pressed" + XR_Button_Type);
+                Debug.Log("button is pressed" + XR_Button_Type);
                 Onprssd.Invoke();
             }
         }

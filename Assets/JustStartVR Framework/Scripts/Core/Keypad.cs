@@ -94,6 +94,10 @@ namespace JustStartVR
                 {
                     Unlocked.Invoke();         
                 }
+                //else
+                //{
+                //
+                //}
                 Set_Entry();
             }
             else if (Index >= 0 && Index < MaxLength)
