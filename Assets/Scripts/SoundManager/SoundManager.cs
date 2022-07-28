@@ -79,7 +79,7 @@ public class SoundManager : MonoBehaviour
         GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity);
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
-        newAudio.volume = volume / 100.0f / maxVolume;
+        newAudio.volume = volume / 100.0f;
         newAudio.Play();
         audioList.Add(newAudio);
     }
@@ -90,7 +90,7 @@ public class SoundManager : MonoBehaviour
         GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity, parent);
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
-        newAudio.volume = volume / 100.0f / maxVolume;
+        newAudio.volume = volume / 100.0f;
         newAudio.loop = loop;
         newAudio.Play();
         audioList.Add(newAudio);
