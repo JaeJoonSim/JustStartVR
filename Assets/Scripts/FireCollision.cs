@@ -8,8 +8,12 @@ public class FireCollision : MonoBehaviour
     GameObject Player;
     Player_HP playerHp;
 
+    float time;
+
     void Start()
     {
+        time = 1.0f;
+
         ParticleSystem = this.GetComponent<ParticleSystem>();
         Particle = new ParticleSystem.Particle[ParticleSystem.maxParticles];
 
@@ -18,9 +22,12 @@ public class FireCollision : MonoBehaviour
         playerHp = Player.GetComponent<Player_HP>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         int max = ParticleSystem.GetParticles(Particle);
+
+        if(time > 0.0f)
+        time -= Time.deltaTime;
 
         float distance = 0;
 
@@ -36,5 +43,8 @@ public class FireCollision : MonoBehaviour
                 break;
             }
         }
+
+        if (max == 0 && time <= 0)
+            Destroy(this.transform.root.gameObject);
     }
 }
