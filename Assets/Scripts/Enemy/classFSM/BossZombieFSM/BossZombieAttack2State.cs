@@ -79,7 +79,6 @@ public class BossZombieAttack2State : EnemyBaseState
                     else
                     {
                         //중지 위치
-
                         SoundManager.m_instance.StopSound(Bmgr.AudioHandle);
 
                         Bmgr.characterController.enabled = true;
