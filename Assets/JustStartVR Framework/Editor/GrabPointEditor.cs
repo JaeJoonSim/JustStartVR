@@ -304,7 +304,7 @@ namespace JustStartVR {
         }
 
 #if UNITY_EDITOR
-        [MenuItem("GameObject/VRIF/GrabPoint", false, 11)]
+        [MenuItem("GameObject/JustStartVR/GrabPoint", false, 11)]
         private static void AddGrabbable(MenuCommand menuCommand) {
             // Create and add a new Grabbable Object in the Scene
             GameObject grabPoint = Instantiate(Resources.Load("DefaultGrabPointItem", typeof(GameObject))) as GameObject;

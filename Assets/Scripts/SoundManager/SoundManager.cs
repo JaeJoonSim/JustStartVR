@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     public Slider MasterSlider;
     public Slider BGMSlider;
     public Slider SFXSlider;
+    //public Toggle MuteToggle;
 
     public static SoundManager m_instance;
 
