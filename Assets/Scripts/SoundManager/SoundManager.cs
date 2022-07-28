@@ -70,11 +70,11 @@ public class SoundManager : MonoBehaviour
         audioList.Add(newAudio);
     }
 
-    public void PlaySound(Vector3 Position, SoundType type, bool loop, float volume)
+    public void PlaySound(Vector3 Position, SoundType type, Transform parent, bool loop, float volume)
     {
         int index = (int)type;
 
-        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity);
+        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity, parent);
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
         newAudio.volume = volume / 100.0f;
