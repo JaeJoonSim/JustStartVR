@@ -70,7 +70,7 @@ public class Game_Clear : MonoBehaviour
         Player.transform.rotation = Tatget.transform.rotation;
         Image.gameObject.SetActive(false);
         Credit.SetActive(true);
-        RenderSettings.fogEndDistance = 50f;
+        RenderSettings.fogEndDistance = 100f;
     }
 
 
