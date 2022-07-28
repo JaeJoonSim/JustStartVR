@@ -1311,6 +1311,7 @@ GameObject:
   - component: {fileID: 2908189473438162926}
   - component: {fileID: 2908189473438162927}
   - component: {fileID: 6620035405241311553}
+  - component: {fileID: 5461021337835248790}
   m_Layer: 16
   m_Name: zombie_Blister
   m_TagString: Enemy
@@ -1468,6 +1469,19 @@ MonoBehaviour:
   - {fileID: 5706410182081243378}
   - {fileID: 3594810476398331084}
   - {fileID: 3594810478343842473}
+--- !u!65 &5461021337835248790
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637595607862272582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2908189472094163936
 GameObject:
   m_ObjectHideFlags: 0

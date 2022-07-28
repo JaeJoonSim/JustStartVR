@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 2101905585024067803}
   - component: {fileID: 3230640620311051853}
   - component: {fileID: 7474707442074902101}
-  - component: {fileID: 8616899093677430335}
+  - component: {fileID: 6118994836459371624}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -427,7 +427,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906209633158211841}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &8616899093677430335
+--- !u!65 &6118994836459371624
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3636,6 +3636,7 @@ GameObject:
   - component: {fileID: 3974908545942222058}
   - component: {fileID: 7265081732037510598}
   - component: {fileID: 4501184123040404056}
+  - component: {fileID: 3921178814554514005}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -3683,8 +3684,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  text: {fileID: 0}
+  Floor_text: {fileID: 0}
+  keypad: {fileID: 0}
+  passwordmgr: {fileID: 0}
+  password: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   Speed: 1
   Open: 0
+  OnZombi: 0
 --- !u!95 &4501184123040404056
 Animator:
   serializedVersion: 4
@@ -3705,6 +3712,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &3921178814554514005
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7702823568683650909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 5, z: 2}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &8371309557503094110
 GameObject:
   m_ObjectHideFlags: 0
