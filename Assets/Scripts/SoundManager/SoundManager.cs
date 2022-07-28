@@ -40,7 +40,7 @@ public class SoundManager : MonoBehaviour
 
         zombieIdle,
 
-        tongue, tongueGrap, playerHit
+        tongue, tongueGrap, playerHit, playerHit2
 
     }
 

@@ -49,7 +49,12 @@ public class Player_HP : MonoBehaviour
         if (Val < 0) CenterEye_UI.Blood_Effect();
 
         if (Val < 0)
-            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.playerHit);
+        {
+            int min = (int)SoundManager.SoundType.playerHit;
+            int max = (int)SoundManager.SoundType.playerHit2 + 1;
+            int random = Random.Range(min, max);
+            SoundManager.m_instance.PlaySound(transform.position, (SoundManager.SoundType)random);
+        }
 
         HP += Val;
         Show_UI();
