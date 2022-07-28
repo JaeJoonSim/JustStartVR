@@ -10,6 +10,9 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     protected EnemyBaseState currentState;
     protected EnemyBaseState prevState;
 
+    
+    public AudioSource prevAudio;
+
     public EnemyBaseState CurrentState
     {
         get { return currentState; }

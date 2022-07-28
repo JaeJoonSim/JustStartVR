@@ -58,6 +58,7 @@ public class tongueTrap : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.tongueGrap);
             isGrab = true;
             characterController.enabled = false;
         }

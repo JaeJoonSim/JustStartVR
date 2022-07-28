@@ -28,7 +28,20 @@ public class SoundManager : MonoBehaviour
         CardKeyFailed, HealTrigger, ElevatorMove, Engine,
         Drop, itemDrop, Burning, PistolShoot, Casing, Click, Click2,
         DoorColse, DoorOpen, DropReverse, Drop2, ImpactSmall2, Slide,
-        SwitchOff, SwitchOn, Tang
+        SwitchOff, SwitchOn, Tang,
+
+
+        zombieAttack1, zombieAttack2, zombieAttack3, zombieAttack4,
+        zombieAttack5, zombieAttack6, zombieAttack7, zombieAttack8, zombieAttack9,
+
+        zombieSearching1, zombieSearching2,
+
+        zombieScreaming1, zombieScreaming2, zombieScreaming3,
+
+        zombieIdle,
+
+        tongue, tongueGrap, playerHit
+
     }
 
     private void Awake()
@@ -37,7 +50,8 @@ public class SoundManager : MonoBehaviour
             m_instance = this;
     }
 
-    public void PlaySound(Vector3 Position, SoundType type)
+    
+    public AudioSource PlaySound(Vector3 Position, SoundType type)
     {
         int index = (int)type;
 
@@ -47,9 +61,10 @@ public class SoundManager : MonoBehaviour
         newAudio.volume = Volume;
         newAudio.Play();
         audioList.Add(newAudio);
+        return newAudio;
     }
 
-    public void PlaySound(Vector3 Position, SoundType type, Transform Parent)
+    public AudioSource PlaySound(Vector3 Position, SoundType type, Transform Parent)
     {
         int index = (int)type;
 
@@ -59,9 +74,10 @@ public class SoundManager : MonoBehaviour
         newAudio.volume = Volume;
         newAudio.Play();
         audioList.Add(newAudio);
+        return newAudio;
     }
 
-    public void PlaySound(Vector3 Position, SoundType type, Transform parent, bool loop, float volume)
+    public AudioSource PlaySound(Vector3 Position, SoundType type, Transform parent, bool loop, float volume)
     {
         int index = (int)type;
 
@@ -72,6 +88,30 @@ public class SoundManager : MonoBehaviour
         newAudio.loop = loop;
         newAudio.Play();
         audioList.Add(newAudio);
+        return newAudio;
+    }
+
+    public AudioSource ChangeSound(Vector3 Position, SoundType type,
+        Transform parent, bool loop, float volume, AudioSource _source)
+    {
+        if(_source != null)
+        {
+            _source.Stop();
+            Destroy(_source.gameObject);
+        }
+
+
+        int index = (int)type;
+
+        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity, parent);
+        AudioSource newAudio = newObj.GetComponent<AudioSource>();
+
+        newAudio.clip = AudioArray[index];
+        newAudio.volume = volume / 100.0f;
+        newAudio.loop = loop;
+        newAudio.Play();
+        audioList.Add(_source);
+        return newAudio;
     }
 
     public void StopSound(AudioSource source)
