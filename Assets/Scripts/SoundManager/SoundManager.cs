@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
 
     public enum SoundType
     { 
-        BossFoot,
+        BossSkill,
         CardKeySucess,
         CrashGlass,
         CrashGlass2,
@@ -29,6 +29,8 @@ public class SoundManager : MonoBehaviour
         ElevatorMove,
         Engine,
         Drop,
+        itemDrop,
+        BossFoot,
     }
 
     private void Awake()

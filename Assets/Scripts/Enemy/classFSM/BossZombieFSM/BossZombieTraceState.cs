@@ -5,6 +5,9 @@ using UnityEngine;
 public class BossZombieTraceState : EnemyBaseState
 {
     float currntTime;
+
+    float footTime = 0.5f;
+
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
         BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
@@ -103,6 +106,14 @@ public class BossZombieTraceState : EnemyBaseState
         else
         {
             mgr.MoveTarget();
+
+            footTime -= Time.deltaTime;
+
+            if(footTime < 0.0f)
+            {
+                //SoundManager.m_instance.PlaySound(mgr.transform.position, SoundManager.SoundType.BossFoot);
+                footTime = 0.5f;
+            }
         }
 
  

@@ -12,7 +12,6 @@ public class AreaAttackAwake : MonoBehaviour
     {
         transform.Rotate(new Vector3(0, 1, 0), Random.Range(0, 360));
         GameObject impact = Instantiate(SpownEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), gameObject.transform.rotation) as GameObject;
-        impact.transform.localScale = new Vector3(5, 20, 5);
         Destroy(impact, 5f);
         //Invoke("InstantiateTongue", 1f);
     }

@@ -10,11 +10,11 @@ public class BossZombieDeshState : EnemyBaseState
     float addAngle;
 
     bool isTurn = false;
+    float footTime = 0.5f;
 
     BossZombieFSMMgr Bmgr;
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
-
         Bmgr = mgr as BossZombieFSMMgr;
         //네비 잠금
         mgr.NavStop(false);
@@ -47,6 +47,11 @@ public class BossZombieDeshState : EnemyBaseState
         }
 
         Bmgr.MoveFront();
+        if(footTime < 0.0f)
+        {
+            //SoundManager.m_instance.PlaySound(mgr.transform.position, SoundManager.SoundType.BossFoot);
+            footTime = 0.5f;
+        }
 
     }
     public override void End(EnemyBaseFSMMgr mgr)
