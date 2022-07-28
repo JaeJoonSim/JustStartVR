@@ -24,9 +24,13 @@ public class EnemyDeshCollider : MonoBehaviour
         
         if (other.gameObject.tag == "Player")
         {
+            other.transform.GetComponent<Player_HP>().change_HP(-FSM.BStatus.DeshAtk);
+
             GameObject impact = Instantiate(DashEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
             Destroy(impact,5f);
+
             gameObject.SetActive(false);
+
             FSM.ChangeState(FSM.TraceState);
             FSM.SetAnimator("DeshToMove");
         }

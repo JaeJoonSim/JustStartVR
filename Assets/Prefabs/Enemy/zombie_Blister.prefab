@@ -1426,7 +1426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyType: 3
   Hp: 200
-  Atk: 40
+  Atk: 20
   Speed: 0.6
   ViewDistance: 6
   ViewAngle: 250
@@ -1445,6 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4d208d67ecd334a90a57e6450f017a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevAudio: {fileID: 0}
   target: {fileID: 0}
   attackPosition: {x: 0, y: 0, z: 0}
   ragdoll: {fileID: 1311047163116314553}

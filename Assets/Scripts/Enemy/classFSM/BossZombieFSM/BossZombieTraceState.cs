@@ -59,6 +59,8 @@ public class BossZombieTraceState : EnemyBaseState
             mgr.attackPosition = mgr.transform.position;
 
             int randomAttack = Random.Range(0, 3);
+
+            //randomAttack = 0;
             switch (randomAttack)
             {
                 case 0:
