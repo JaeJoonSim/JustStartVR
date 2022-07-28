@@ -47,9 +47,11 @@ public class Game_Clear : MonoBehaviour
                 re = false; 
             }
         }
+
         yield return new WaitForSeconds(0.05f);
         Player.GetComponent<CharacterController>().enabled = false;
         Player.transform.position = Tatget.transform.position;
+
         bool r = true;
         while (r)
         {
@@ -61,11 +63,14 @@ public class Game_Clear : MonoBehaviour
             {
                 r = false;
             }
+
         }
-        yield return new WaitForSeconds(0.1f);
+
+            yield return new WaitForSeconds(0.1f);
         Player.transform.rotation = Tatget.transform.rotation;
         Image.gameObject.SetActive(false);
         Credit.SetActive(true);
+        RenderSettings.fogEndDistance = 50f;
     }
 
 

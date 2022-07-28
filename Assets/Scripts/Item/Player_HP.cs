@@ -47,6 +47,10 @@ public class Player_HP : MonoBehaviour
     public void change_HP(float Val)
     {
         if (Val < 0) CenterEye_UI.Blood_Effect();
+
+        if (Val < 0)
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.playerHit);
+
         HP += Val;
         Show_UI();
         if (HP < 0) GameOver();

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4046472370786560864}
   - component: {fileID: 1119195891721659589}
   - component: {fileID: 2912942693249552399}
-  - component: {fileID: 5145297732299831692}
   - component: {fileID: 8073666546327020215}
+  - component: {fileID: 696559025657107848}
   m_Layer: 0
   m_Name: Light Control Panel
   m_TagString: Untagged
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5145297732299831692
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3705377833772265946}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1.0341499, y: 1, z: 1.8}
-  m_Center: {x: -0.00068870187, y: -0.125, z: -0.35}
 --- !u!64 &8073666546327020215
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -113,6 +100,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 256196e72d57a0b41b91030f215b789e, type: 3}
+--- !u!208 &696559025657107848
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705377833772265946}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.517, y: 0.87500006, z: 0.90000004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.001, y: 0.37500003, z: -0.35000002}
+  m_TimeToStationary: 0.5
 --- !u!1001 &5807913622102329542
 PrefabInstance:
   m_ObjectHideFlags: 0

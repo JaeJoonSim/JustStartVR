@@ -25,6 +25,13 @@ public class EnemytongueCollision : MonoBehaviour
         {
             var Bmgr = FSM.CurrentState as BossZombieAttack2State;
 
+            if (other.gameObject.tag != "bullet" && other.gameObject.tag != "Melee")
+            {
+                SoundManager.m_instance.PlaySound(other.transform.position,
+                    SoundManager.SoundType.tongue);
+            }
+
+
             if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
             {
                 //Debug.Log("Çú¹Ù´Ú  ÃÑ¾Ë Ãæµ¹");
@@ -35,7 +42,9 @@ public class EnemytongueCollision : MonoBehaviour
             else if (other.gameObject.tag == "Player")
             {
                 //Debug.Log("Çú¹Ù´Ú Ãæµ¹");
-               
+                SoundManager.m_instance.PlaySound(other.transform.position,
+                    SoundManager.SoundType.tongueGrap);
+
                 if (FSM.CurrentState == FSM.Attack2State && (FSM.target.position - FSM.grabPos.position).magnitude < 1f)
                 {
                     FSM.attackCollision = true;
@@ -45,7 +54,7 @@ public class EnemytongueCollision : MonoBehaviour
             }
             else
             {
-               
+
                 Bmgr.tongueBack = true;
 
             }

@@ -7,16 +7,34 @@ public class SpeedZombieTraceState : EnemyBaseState
     float currntTime;
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
+        int min;
+        int max;
+        int random;
+
         //네비 잠금 해제
         mgr.NavStop(false);
 
         if (mgr.PrevState == mgr.IdleState)
         {
             mgr.SetAnimator("IdelToMove");
+
+            min = (int)SoundManager.SoundType.zombieScreaming1;
+            max = (int)SoundManager.SoundType.zombieScreaming3;
+            random = Random.Range(min, max);
+
+            mgr.prevAudio = SoundManager.m_instance.ChangeSound(mgr.transform.position,
+           (SoundManager.SoundType)random, null, false, 100.0f, mgr.prevAudio);
         }
         else if (mgr.PrevState == mgr.AttackState)
         {
             mgr.SetAnimator("attackToMove");
+
+            min = (int)SoundManager.SoundType.zombieSearching1;
+            max = (int)SoundManager.SoundType.zombieSearching2;
+            random = Random.Range(min, max);
+
+            mgr.prevAudio = SoundManager.m_instance.ChangeSound(mgr.transform.position,
+            (SoundManager.SoundType)random, null, false, 100.0f, mgr.prevAudio);
         }
         currntTime = 0;
 
