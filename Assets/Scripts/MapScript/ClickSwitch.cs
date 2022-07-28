@@ -27,7 +27,7 @@ public class ClickSwitch : MonoBehaviour
     {
         if (m_isWorking == false)
         {
-            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.Engine, true, 50.0f);
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.Engine, this.transform.root, true, 50.0f);
             m_isWorking = true;
 
             if(elevator != null)
