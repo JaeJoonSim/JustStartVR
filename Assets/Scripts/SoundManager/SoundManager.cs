@@ -97,6 +97,7 @@ public class SoundManager : MonoBehaviour
         if(_source != null)
         {
             _source.Stop();
+            audioList.Remove(_source);
             Destroy(_source.gameObject);
         }
 
