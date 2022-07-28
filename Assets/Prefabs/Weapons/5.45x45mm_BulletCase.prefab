@@ -201,7 +201,7 @@ AudioSource:
   m_GameObject: {fileID: 5303435160695960785}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -403458069474174528, guid: 69e1ede63c4347c4a8d70c7a6b8b2b77, type: 2}
   m_audioClip: {fileID: 8300000, guid: ba9840947c7ac514bb44b20a444375b6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.1
@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c575c9380b9d239499fadf100ef2800b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEnemyFX: {fileID: 0}
   CollisionAudio: {fileID: 8300000, guid: ba9840947c7ac514bb44b20a444375b6, type: 3}
   MinimumVolume: 0.25
   MaximumVolume: 1

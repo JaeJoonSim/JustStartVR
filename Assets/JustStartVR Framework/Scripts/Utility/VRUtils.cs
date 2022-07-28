@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 namespace JustStartVR {
 
@@ -122,8 +123,13 @@ namespace JustStartVR {
             go.transform.position = pos;
 
             AudioSource source = go.AddComponent<AudioSource>();
-
+            
             source.clip = clip;
+
+            AudioMixer audioMixer = Resources.Load<AudioMixer>("SoundOption");
+            AudioMixerGroup[] audioMixerGroup = audioMixer.FindMatchingGroups("SFX");
+            source.outputAudioMixerGroup = audioMixerGroup[0];
+
 
             // Currently only Oculus Integration supports spatial audio
 #if OCULUS_INTEGRATION

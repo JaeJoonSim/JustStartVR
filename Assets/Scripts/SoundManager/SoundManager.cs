@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-
     public AudioMixer masterMixer;
     public Slider MasterSlider;
     public Slider BGMSlider;
@@ -87,21 +86,21 @@ public class SoundManager : MonoBehaviour
         float BGMVolume = BGMSlider.value;
         float SFXVolume = SFXSlider.value;
 
-        if (MasterVolume == -40f)
+        if (MasterVolume <= -40f)
             masterMixer.SetFloat("Master", -80);
         else
             masterMixer.SetFloat("Master", MasterVolume);
 
-        if (BGMVolume == -40f)
+        if (BGMVolume <= -40f)
             masterMixer.SetFloat("BGM", -80);
         else
             masterMixer.SetFloat("BGM", BGMVolume);
 
-        if (SFXVolume == -40f)
+        if (SFXVolume <= -40f)
             masterMixer.SetFloat("SFX", -80);
         else
             masterMixer.SetFloat("SFX", SFXVolume);
-
+        
     }
 
     public void ToggleAudioVolume()
