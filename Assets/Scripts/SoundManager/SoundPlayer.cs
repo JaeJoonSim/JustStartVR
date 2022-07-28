@@ -8,7 +8,7 @@ public class SoundPlayer : MonoBehaviour
     {
         if(!audio.isPlaying)
         {
-            Destroy(gameObject);
+            SoundManager.m_instance.StopSound(audio);
         }
     }
 }

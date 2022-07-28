@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] GameObject SoundPlayerObj;
     [SerializeField] AudioClip[] AudioArray;
 
-    private List<AudioSource> audioList = new List<AudioSource>();
+    public List<AudioSource> audioList = new List<AudioSource>();
 
     public float Volume = 1.0f;
 
@@ -61,16 +61,23 @@ public class SoundManager : MonoBehaviour
         audioList.Add(newAudio);
     }
 
-    public void PlaySound(Vector3 Position, SoundType type, bool loop)
+    public void PlaySound(Vector3 Position, SoundType type, bool loop, float volume)
     {
         int index = (int)type;
 
         GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity);
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
-        newAudio.volume = Volume;
+        newAudio.volume = volume / 100.0f;
         newAudio.loop = true;
         newAudio.Play();
         audioList.Add(newAudio);
+    }
+
+    public void StopSound(AudioSource source)
+    {
+        source.Stop();
+        audioList.Remove(source);
+        Destroy(source.gameObject);
     }
 }
