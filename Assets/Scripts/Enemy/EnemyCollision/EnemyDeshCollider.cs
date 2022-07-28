@@ -21,6 +21,7 @@ public class EnemyDeshCollider : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        
         if (other.gameObject.tag == "Player")
         {
             GameObject impact = Instantiate(DashEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
@@ -37,7 +38,9 @@ public class EnemyDeshCollider : MonoBehaviour
             gameObject.SetActive(false);
             FSM.ChangeState(FSM.StunState);
             FSM.SetAnimator("DeshToStun");
+
+            SoundManager.m_instance.PlaySound(this.transform.position, SoundManager.SoundType.BossSkill
+            , transform.parent, false, 100.0f);
         }
-    }
- 
+    } 
 }
