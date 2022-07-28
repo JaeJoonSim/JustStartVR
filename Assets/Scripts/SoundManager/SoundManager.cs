@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-
     public static SoundManager m_instance;
 
     [SerializeField] GameObject SoundPlayerObj;
@@ -12,7 +11,7 @@ public class SoundManager : MonoBehaviour
 
     public List<AudioSource> audioList = new List<AudioSource>();
 
-    public float Volume = 1.0f;
+    public float maxVolume = 1.0f;
 
     public enum SoundType
     { 
@@ -46,7 +45,7 @@ public class SoundManager : MonoBehaviour
         GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity);        
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
-        newAudio.volume = Volume;
+        newAudio.volume = maxVolume;
         newAudio.Play();
         audioList.Add(newAudio);
     }
@@ -58,7 +57,7 @@ public class SoundManager : MonoBehaviour
         GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity, Parent);
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
-        newAudio.volume = Volume;
+        newAudio.volume = maxVolume;
         newAudio.Play();
         audioList.Add(newAudio);
     }
@@ -70,7 +69,7 @@ public class SoundManager : MonoBehaviour
         GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity);
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
-        newAudio.volume = volume / 100.0f;
+        newAudio.volume = volume / 100.0f / maxVolume;
         newAudio.loop = true;
         newAudio.Play();
         audioList.Add(newAudio);
