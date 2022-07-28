@@ -19,25 +19,14 @@ public class SoundManager : MonoBehaviour
 
     public List<AudioSource> audioList = new List<AudioSource>();
 
-    public float Volume = 1.0f;
+    private float Volume = 1.0f;
 
     public enum SoundType
     { 
-        BossSkill,
-        CardKeySucess,
-        CrashGlass,
-        CrashGlass2,
-        ElevatorArrive,
-        Heal,
-        fire,
-        motolov,
-        CardKeyFailed,
-        HealTrigger,
-        ElevatorMove,
-        Engine,
-        Drop,
-        itemDrop,
-        BossFoot,
+        BossSkill, CardKeySucess, CrashGlass, CrashGlass2,
+        ElevatorArrive, Heal, fire, motolov,
+        CardKeyFailed, HealTrigger, ElevatorMove, Engine,
+        Drop, itemDrop, Burning,
     }
 
     private void Awake()
