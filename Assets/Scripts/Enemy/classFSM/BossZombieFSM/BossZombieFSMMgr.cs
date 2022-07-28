@@ -98,4 +98,11 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         DeshCollider.SetActive(true);
     }
 
+    public void footsteps()
+    {
+        SoundManager.m_instance.PlaySound(this.transform.position,
+                    SoundManager.SoundType.BossFoot);
+        Debug.Log("znd");
+    }
+
 }

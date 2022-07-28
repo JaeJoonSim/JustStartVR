@@ -22,9 +22,12 @@ public class Player_HP : MonoBehaviour
     public Image HP_Bar;
     GameObject Player;
 
+    public bool isDead;
+
 
     void Start()
     {
+        isDead = false;
         Player = GameObject.FindGameObjectWithTag("Player");
         RenderSettings.fog = true;
         RenderSettings.fogColor = new Color(0, 0, 0);
@@ -34,6 +37,7 @@ public class Player_HP : MonoBehaviour
 
     void GameOver()
     {
+        SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.gameOver);
         Player.GetComponent<CharacterController>().enabled = false;
         RenderSettings.fogColor = GameOverColor;
         RenderSettings.fogDensity = 0.7f;
@@ -46,6 +50,7 @@ public class Player_HP : MonoBehaviour
     }
     public void change_HP(float Val)
     {
+        if (isDead == true) return;
         if (Val < 0) CenterEye_UI.Blood_Effect();
 
         if (Val < 0)
@@ -58,7 +63,11 @@ public class Player_HP : MonoBehaviour
 
         HP += Val;
         Show_UI();
-        if (HP < 0) GameOver();
+        if (HP < 0)
+        {
+            isDead = true;
+            GameOver();
+        }
     }
 }
 

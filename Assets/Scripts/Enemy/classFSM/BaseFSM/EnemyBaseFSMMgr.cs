@@ -204,6 +204,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     public void AttackColliderOn()
     {
+        
         attackCollider.SetActive(true);
     }
 }
