@@ -24,4 +24,12 @@ public class GameManager : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(2);
     }
+
+    public void SetActiveObject()
+    {
+        if(gameObject.activeSelf == true)
+            gameObject.SetActive(false);
+        else if (gameObject.activeSelf == false)
+            gameObject.SetActive(true);
+    }
 }

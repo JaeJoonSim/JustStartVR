@@ -13,20 +13,22 @@ public class XR_MainMenu_MGR : MonoBehaviour
 
     public void ONEnter()
     {
-        if (!Active)
+        if (Ani != null)
         {
-            Ani.SetBool("Wrist_Ani", true);
-            Active = true;
-        }
-        else
-        {
-            Ani.SetBool("Wrist_Ani", false);
-            Active = false;
-        }
+            if (!Active)
+            {
+                Ani.SetBool("Wrist_Ani", true);
+                Active = true;
+            }
+            else
+            {
+                Ani.SetBool("Wrist_Ani", false);
+                Active = false;
+            }
 
-        if(optionMenu.activeSelf == true)
-            optionMenu.SetActive(false);
-
+            if (optionMenu.activeSelf == true)
+                optionMenu.SetActive(false);
+        }
     }
 
     public void LoadScene(string Scene)

@@ -185,6 +185,14 @@ namespace JustStartVR
             }
         }
 
+        public void SetCanvasEnter(GameObject Obj)
+        {
+            if(Obj.activeSelf == true)
+                Obj.SetActive(false);
+            else if (Obj.activeSelf == false)
+                Obj.SetActive(true);
+        }
+
         void OnTriggerEnter(Collider other)
         {
             // Check Grabber
