@@ -98,4 +98,9 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         DeshCollider.SetActive(true);
     }
 
+    public void footsteps()
+    {
+        Debug.Log("znd");
+    }
+
 }
