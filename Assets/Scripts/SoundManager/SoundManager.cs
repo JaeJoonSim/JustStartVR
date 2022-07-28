@@ -26,7 +26,9 @@ public class SoundManager : MonoBehaviour
         BossSkill, CardKeySucess, CrashGlass, CrashGlass2,
         ElevatorArrive, Heal, fire, motolov,
         CardKeyFailed, HealTrigger, ElevatorMove, Engine,
-        Drop, itemDrop, Burning,
+        Drop, itemDrop, Burning, PistolShoot, Casing, Click, Click2,
+        DoorColse, DoorOpen, DropReverse, Drop2, ImpactSmall2, Slide,
+        SwitchOff, SwitchOn, Tang
     }
 
     private void Awake()
