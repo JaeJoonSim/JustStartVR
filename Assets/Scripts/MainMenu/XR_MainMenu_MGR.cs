@@ -8,6 +8,8 @@ public class XR_MainMenu_MGR : MonoBehaviour
     public Animator Ani;
     public string Scene_Name = "MainMenu";
     bool Active = false;
+    public GameObject optionMenu;
+
 
     public void ONEnter()
     {
@@ -21,6 +23,10 @@ public class XR_MainMenu_MGR : MonoBehaviour
             Ani.SetBool("Wrist_Ani", false);
             Active = false;
         }
+
+        if(optionMenu.activeSelf == true)
+            optionMenu.SetActive(false);
+
     }
 
     public void LoadScene(string Scene)
@@ -38,5 +44,13 @@ public class XR_MainMenu_MGR : MonoBehaviour
     public void Setting()
     {
         Debug.Log("Setting");
+    }
+
+    public void ShowMenu()
+    {
+        if (!optionMenu.activeSelf)
+            optionMenu.SetActive(true);
+        else if (optionMenu.activeSelf)
+            optionMenu.SetActive(false);
     }
 }

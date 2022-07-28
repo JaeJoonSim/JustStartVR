@@ -19,7 +19,7 @@ public class PlayMusicOperator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BGM = gameObject.AddComponent<AudioSource>();
+        BGM = GetComponent<AudioSource>();
         BGM.loop = true;
         if (BGMList.Length > 0) PlayBGM(BGMList[0].name);
     }
