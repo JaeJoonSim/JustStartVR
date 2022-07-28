@@ -26,7 +26,7 @@ public class Elevator : MonoBehaviour
     bool[] Locked;
 
     public float Speed;
-    public bool Open = false;
+    public bool Open = false, OnZombi = false;
 
     //Vector2 velocity = Vector2.zero;
     int Floor;
@@ -69,6 +69,9 @@ public class Elevator : MonoBehaviour
     public void MoveElevator(int floor)
     {
         if (its) return;
+        if (OnZombi) return;
+        if (transform.position == Floor_Point[floor].position) return;
+
         Floor = floor;
         Floor_text.text = (floor +1).ToString();
         if (Locked[Floor])
@@ -109,6 +112,22 @@ public class Elevator : MonoBehaviour
         StartCoroutine(Move(Floor));
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Debug.Log("OnZombi" + OnZombi);
+            OnZombi = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Debug.Log("OnZombi" + OnZombi);
+            OnZombi = false;
+        }
+    }
     IEnumerator Move(int floor)
     {
         bool y_Ppint = true;

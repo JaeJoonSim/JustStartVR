@@ -2370,6 +2370,7 @@ GameObject:
   - component: {fileID: 6422615998208792035}
   - component: {fileID: 6422615998208792034}
   - component: {fileID: 6422615998208792037}
+  - component: {fileID: 6477047252181241005}
   m_Layer: 16
   m_Name: zombie_S
   m_TagString: Enemy
@@ -2507,6 +2508,19 @@ MonoBehaviour:
   AttackRange: 1.2
   AttackSpeed: 1
   TraceTime: 10
+--- !u!65 &6477047252181241005
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6847492064012046685}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6920641508384122337
 GameObject:
   m_ObjectHideFlags: 0

@@ -1806,6 +1806,7 @@ GameObject:
   - component: {fileID: 6233696741119538984}
   - component: {fileID: 6233696741119538987}
   - component: {fileID: 6233696741119538986}
+  - component: {fileID: 8420674397956141796}
   m_Layer: 16
   m_Name: zombie_L
   m_TagString: Enemy
@@ -1943,6 +1944,19 @@ MonoBehaviour:
   ragdoll: {fileID: 7847727618948052860}
   rendering: {fileID: 6632922684861118210}
   attackCollider: {fileID: 2667938448326412309}
+--- !u!65 &8420674397956141796
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504292947452594819}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6632922684861118210
 GameObject:
   m_ObjectHideFlags: 0

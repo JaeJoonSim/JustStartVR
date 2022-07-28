@@ -497,7 +497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3640449400861999624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -27.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tatget: {fileID: 3640449402169205470}
   Image: {fileID: 0}
-  Credit: {fileID: 0}
+  Credit: {fileID: 3640449401461947631}
 --- !u!1 &3640449400994447916
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3640449401461947630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -934,7 +934,7 @@ Animator:
   m_GameObject: {fileID: 3640449401461947631}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a3eb9c2a09b34e14c87e4cb26c20bfc6, type: 2}
+  m_Controller: {fileID: 9100000, guid: b26dc94dfe56edc4cb1da04c31f7a7c8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -958,6 +958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ani: {fileID: 0}
   Scene_Name: MainMenu
+  optionMenu: {fileID: 0}
 --- !u!1 &3640449401464565289
 GameObject:
   m_ObjectHideFlags: 0
