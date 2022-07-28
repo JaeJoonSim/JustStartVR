@@ -37,10 +37,10 @@ public class EnemytongueCollision : MonoBehaviour
                 //Debug.Log("Çú¹Ù´Ú Ãæµ¹");
                 if (FSM.CurrentState == FSM.Attack2State && (FSM.target.position - FSM.grabPos.position).magnitude < 1f && !FSM.attackCollision)
                 {
-                    FSM.AudioHandle = SoundManager.m_instance.PlaySound(other.transform.position,
+                    SoundManager.m_instance.PlaySound(other.transform.position,
+                        SoundManager.SoundType.tongue);
+                    FSM.AudioHandle =  SoundManager.m_instance.PlaySound(other.transform.position,
                         SoundManager.SoundType.tongueGrap);
-                    
-
 
                     FSM.attackCollision = true;
                     FSM.characterController.enabled = false;
@@ -49,7 +49,7 @@ public class EnemytongueCollision : MonoBehaviour
             }
             else
             {
-                if (!Bmgr.tongueBack)
+                if (!Bmgr.tongueBack && !FSM.attackCollision)
                 {
 
                     SoundManager.m_instance.PlaySound(other.transform.position,
