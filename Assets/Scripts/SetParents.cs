@@ -11,7 +11,7 @@ public class SetParents : MonoBehaviour
 
     public void SetParentsReturn()
     {
-        if (transform.parent.tag != "ClipInsert")
+        if (transform.parent.tag != "ClipInsert" && transform.parent != null)
             transform.parent = null;
             
     }
