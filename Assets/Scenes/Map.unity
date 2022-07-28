@@ -9424,6 +9424,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1251786910, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: BGMList.Array.data[1].audio
+      value: 
+      objectReference: {fileID: 8300000, guid: 092e5f205d96fcf488dd83c423cfc5f9, type: 3}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -9434,7 +9438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.934
+      value: 82
       objectReference: {fileID: 0}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18033,6 +18037,11 @@ Transform:
   m_Father: {fileID: 370586801}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1340160150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6184643849857191547, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+  m_PrefabInstance: {fileID: 800337355}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1340627793
 GameObject:
   m_ObjectHideFlags: 0
@@ -31513,7 +31522,7 @@ PrefabInstance:
     - target: {fileID: 789513517, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
       propertyPath: camObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1340160150}
     - target: {fileID: 870867744854613476, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
       propertyPath: fresnelPow
       value: 1.53
