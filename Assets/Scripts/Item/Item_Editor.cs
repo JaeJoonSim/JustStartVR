@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 
 [CanEditMultipleObjects]
@@ -24,3 +25,4 @@ public class item_list : Editor
         button.Setitem();
     }
 }
+#endif
