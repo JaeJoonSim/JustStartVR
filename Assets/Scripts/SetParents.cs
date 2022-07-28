@@ -4,25 +4,16 @@ using UnityEngine;
 
 public class SetParents : MonoBehaviour
 {
-    Transform m_parent;
-
-    private void Awake()
-    {
-        m_parent = transform.parent;
-    }
-
     public void SetParentsNull()
     {
-        m_parent = transform.parent;
         transform.parent = null;
     }
 
     public void SetParentsReturn()
     {
-        if (transform.parent == null && m_parent.gameObject.active == true)
-            transform.SetParent(m_parent);
-        else
-            return;
+        if (transform.parent.tag != "ClipInsert")
+            transform.parent = null;
+            
     }
 
     //private void OnCollisionEnter(Collision collision)
