@@ -122,6 +122,7 @@ namespace JustStartVR {
             go.transform.position = pos;
 
             AudioSource source = go.AddComponent<AudioSource>();
+
             source.clip = clip;
 
             // Currently only Oculus Integration supports spatial audio
