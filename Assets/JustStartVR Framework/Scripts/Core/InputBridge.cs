@@ -1470,8 +1470,6 @@ namespace JustStartVR {
 
         bool setTrackingOrigin = false;
         public virtual void SetTrackingOriginMode(TrackingOriginModeFlags trackingOrigin) {
-            // 2019.4 Needs to use XRDevice.SetTrackingSpaceType; TrySetTrackingOriginMode does not function properly.
-            // *Removed from VRIF  v1.6 as XR plugin should properly set tracking space
 #if UNITY_2019_4
             if (trackingOrigin == TrackingOriginModeFlags.Floor) {
 #pragma warning disable

@@ -25,19 +25,19 @@ public class SetParents : MonoBehaviour
             return;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (m_parent == null &&
-            transform.parent == null &&
-            collision.collider.tag != "Gun" &&
-            collision.collider.tag != "XRRig" &&
-            collision.collider.tag != "Player" &&
-            collision.collider.tag != "Hand" &&
-            collision.collider.tag != "ClipInsert" &&
-            collision.collider.tag == "Tile")
-        {
-            m_parent = collision.transform;
-            transform.SetParent(m_parent);
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (m_parent == null &&
+    //        transform.parent == null &&
+    //        collision.collider.tag != "Gun" &&
+    //        collision.collider.tag != "XRRig" &&
+    //        collision.collider.tag != "Player" &&
+    //        collision.collider.tag != "Hand" &&
+    //        collision.collider.tag != "ClipInsert" &&
+    //        collision.collider.tag == "Tile")
+    //    {
+    //        m_parent = collision.transform;
+    //        transform.SetParent(m_parent);
+    //    }
+    //}
 }

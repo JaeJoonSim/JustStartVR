@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace JustStartVR {
-
-    /// <summary>
-    /// Convenience methods you can use with VRIF
-    /// </summary>
     public static class ExtensionMethods {
 
         /// <summary>

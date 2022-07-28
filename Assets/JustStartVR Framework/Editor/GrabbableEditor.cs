@@ -254,7 +254,7 @@ namespace JustStartVR {
             }
         }
 
-        [MenuItem("GameObject/VRIF/Grabbable", false, 10)]
+        [MenuItem("GameObject/JustStartVR/Grabbable", false, 10)]
         private static void AddGrabbable(MenuCommand menuCommand) {
             // Create and add a new Grabbable Object in the Scene
             GameObject grab = Instantiate(Resources.Load("DefaultGrabbableItem", typeof(GameObject))) as GameObject;
@@ -266,7 +266,7 @@ namespace JustStartVR {
             Selection.activeObject = grab;
         }
 
-        [MenuItem("GameObject/VRIF/EventSystem", false, 20)]
+        [MenuItem("GameObject/JustStartVR/EventSystem", false, 20)]
         private static void AddEventSystem(MenuCommand menuCommand) {
             // Create and add a new Grabbable Object in the Scene
             GameObject eventSystem = Instantiate(Resources.Load("DefaultEventSystem", typeof(GameObject))) as GameObject;

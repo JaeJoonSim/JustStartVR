@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace JustStartVR {
-
-    /// <summary>
-    /// This component is meant to help you autmatically update your grab points, as the default hand model positions have changed since VRIF v1.7
-    /// </summary>
     public class GrabpointUpdater : MonoBehaviour {
 
         [Header("Right Hand Model")]
