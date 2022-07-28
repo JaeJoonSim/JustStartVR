@@ -100,6 +100,8 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
 
     public void footsteps()
     {
+        SoundManager.m_instance.PlaySound(this.transform.position,
+                    SoundManager.SoundType.BossFoot);
         Debug.Log("znd");
     }
 
