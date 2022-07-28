@@ -34,6 +34,7 @@ public class Make_Cracks : MonoBehaviour
 
             Instantiate(Crack, other.transform.position, rot, Crack_parent.transform);
             Punch++;
+            SoundManager.m_instance.PlaySound(other.transform.position, SoundManager.SoundType.CrackGlass);
             if (Punch >= PunchCount)
             {
                 Destroy(Crack_parent);

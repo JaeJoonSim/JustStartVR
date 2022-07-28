@@ -40,7 +40,7 @@ public class SoundManager : MonoBehaviour
 
         zombieIdle,
 
-        tongue, tongueGrap, playerHit, playerHit2, BossFoot, gameOver
+        tongue, tongueGrap, playerHit, playerHit2, BossFoot, gameOver, CrackGlass
 
     }
 
@@ -97,6 +97,7 @@ public class SoundManager : MonoBehaviour
         if(_source != null)
         {
             _source.Stop();
+            audioList.Remove(_source);
             Destroy(_source.gameObject);
         }
 
