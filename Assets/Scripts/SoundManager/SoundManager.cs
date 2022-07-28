@@ -49,7 +49,6 @@ public class SoundManager : MonoBehaviour
         newAudio.Play();
         audioList.Add(newAudio);
     }
-
     public void PlaySound(Vector3 Position, SoundType type, Transform Parent)
     {
         int index = (int)type;
@@ -61,8 +60,19 @@ public class SoundManager : MonoBehaviour
         newAudio.Play();
         audioList.Add(newAudio);
     }
+    public void PlaySound(Vector3 Position, SoundType type, bool loop)
+    {
+        int index = (int)type;
 
-    public void PlaySound(Vector3 Position, SoundType type, bool loop, float volume)
+        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity);
+        AudioSource newAudio = newObj.GetComponent<AudioSource>();
+        newAudio.clip = AudioArray[index];
+        newAudio.volume = maxVolume;
+        newAudio.loop = loop;
+        newAudio.Play();
+        audioList.Add(newAudio);
+    }
+    public void PlaySound(Vector3 Position, SoundType type, float volume)
     {
         int index = (int)type;
 
@@ -70,7 +80,18 @@ public class SoundManager : MonoBehaviour
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
         newAudio.volume = volume / 100.0f / maxVolume;
-        newAudio.loop = true;
+        newAudio.Play();
+        audioList.Add(newAudio);
+    }
+    public void PlaySound(Vector3 Position, SoundType type, Transform parent, bool loop,  float volume)
+    {
+        int index = (int)type;
+
+        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity, parent);
+        AudioSource newAudio = newObj.GetComponent<AudioSource>();
+        newAudio.clip = AudioArray[index];
+        newAudio.volume = volume / 100.0f / maxVolume;
+        newAudio.loop = loop;
         newAudio.Play();
         audioList.Add(newAudio);
     }
