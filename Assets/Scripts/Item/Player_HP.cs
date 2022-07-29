@@ -61,17 +61,17 @@ public class Player_HP : MonoBehaviour
     {
         if (isDead == true) return;
 
-        if (Val < 0)
-        {
-            CenterEye_UI.Blood_Effect();
-            int min = (int)SoundManager.SoundType.playerHit;
-            int max = (int)SoundManager.SoundType.playerHit2 + 1;
-            int random = Random.Range(min, max);
-            SoundManager.m_instance.PlaySound(transform.position, (SoundManager.SoundType)random);
-        }
-
         HP += Val;
         Show_UI();
+
+        if (Val > 0) return;
+
+        CenterEye_UI.Blood_Effect();
+        int min = (int)SoundManager.SoundType.playerHit;
+        int max = (int)SoundManager.SoundType.playerHit2 + 1;
+        int random = Random.Range(min, max);
+        SoundManager.m_instance.PlaySound(transform.position, (SoundManager.SoundType)random);
+
         if (HP <= 0)
         {
             isDead = true;

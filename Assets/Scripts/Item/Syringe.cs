@@ -27,8 +27,7 @@ namespace JustStartVR
             foreach(GameObject G in gameObjects)
             {
                 Player_HP = G.GetComponent<Player_HP>();
-                if (Player_HP != null)
-                Player_HP = G.GetComponent<Player_HP>();
+                if (Player_HP != null) break;
             }       
         }
 
