@@ -2559,10 +2559,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevAudio: {fileID: 0}
   target: {fileID: 0}
+  isTargetDead: {fileID: 0}
   attackPosition: {x: 0, y: 0, z: 0}
+  TraceStart: 0
   ragdoll: {fileID: 7614589203466726562}
   rendering: {fileID: 4694273053450766510}
   attackCollider: {fileID: 736346290606506622}
+  isBurning: 0
   attackCollider2: {fileID: 4000583175575768564}
 --- !u!114 &6422615998208792037
 MonoBehaviour:
@@ -2584,7 +2587,7 @@ MonoBehaviour:
   ViewAngle: 250
   AttackRange: 1.2
   AttackSpeed: 1
-  TraceTime: 10
+  TraceTime: 20
 --- !u!65 &6477047252181241005
 BoxCollider:
   m_ObjectHideFlags: 0

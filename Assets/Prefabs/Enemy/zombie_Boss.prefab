@@ -1742,9 +1742,11 @@ MonoBehaviour:
   target: {fileID: 0}
   isTargetDead: {fileID: 0}
   attackPosition: {x: 0, y: 0, z: 0}
+  TraceStart: 0
   ragdoll: {fileID: 1050069126257322362}
   rendering: {fileID: 1719767866768810134}
   attackCollider: {fileID: 3816986323838974832}
+  isBurning: 0
   Cooldown: 0
   DeshCollider: {fileID: 784063924}
   warning: {fileID: 3949344998392466954, guid: fff35688e65368d46a5a12d2432481f5, type: 3}
@@ -1769,12 +1771,12 @@ MonoBehaviour:
   EnemyType: 4
   Hp: 1000
   Atk: 30
-  Speed: 0.8
+  Speed: 1
   ViewDistance: 10
   ViewAngle: 360
   AttackRange: 1.5
   AttackSpeed: 1.5
-  TraceTime: 10
+  TraceTime: 20
 --- !u!195 &3816986323653927141
 NavMeshAgent:
   m_ObjectHideFlags: 0

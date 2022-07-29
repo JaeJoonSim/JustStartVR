@@ -1926,7 +1926,7 @@ MonoBehaviour:
   ViewAngle: 250
   AttackRange: 1
   AttackSpeed: 1
-  TraceTime: 10
+  TraceTime: 20
 --- !u!114 &6233696741119538986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1939,11 +1939,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4d208d67ecd334a90a57e6450f017a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevAudio: {fileID: 0}
   target: {fileID: 0}
+  isTargetDead: {fileID: 0}
   attackPosition: {x: 0, y: 0, z: 0}
+  TraceStart: 0
   ragdoll: {fileID: 7847727618948052860}
   rendering: {fileID: 6632922684861118210}
   attackCollider: {fileID: 2667938448326412309}
+  isBurning: 0
 --- !u!65 &8420674397956141796
 BoxCollider:
   m_ObjectHideFlags: 0
