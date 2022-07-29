@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class SpeedZombieFSMMgr : EnemyBaseFSMMgr
 {
+    public GameObject attackCollider2;
 
     private void Awake()
     {
@@ -17,5 +18,10 @@ public class SpeedZombieFSMMgr : EnemyBaseFSMMgr
         currentState = IdleState;
     }
 
+    public override void AttackColliderOn()
+    {
+        attackCollider.SetActive(true);
+        attackCollider2.SetActive(true);
+    }
 
 }

@@ -19,7 +19,7 @@ public class BossZombieIdleState : EnemyBaseState
         {
             mgr.SetAnimator("Attack2ToIdle");
         }
-
+        mgr.NavStop(true);
 
     }
     public override void Update(EnemyBaseFSMMgr mgr)

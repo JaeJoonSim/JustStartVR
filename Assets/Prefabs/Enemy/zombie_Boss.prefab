@@ -1740,6 +1740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevAudio: {fileID: 0}
   target: {fileID: 0}
+  isTargetDead: {fileID: 0}
   attackPosition: {x: 0, y: 0, z: 0}
   ragdoll: {fileID: 1050069126257322362}
   rendering: {fileID: 1719767866768810134}
@@ -1839,7 +1840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fde8f9f855ee73418ca1c5de63dd652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 2
+  Cooldown: 10
   GrabAtk: 20
   GrabRange: 10
   DeshAtk: 50

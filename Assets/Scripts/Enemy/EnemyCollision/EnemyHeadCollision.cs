@@ -9,13 +9,13 @@ public class EnemyHeadCollision : EnemyBaseCollision
         switch (Es.EnemyType)
         {
             case 1:
-                damage = 2f;
+                damage = 3f;
                 break;
             case 2:
                 damage = 2f;
                 break;
             case 3:
-                damage = 0.5f;
+                damage = 1f;
                 break;
             case 4:
                 damage = 0f;

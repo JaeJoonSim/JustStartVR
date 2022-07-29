@@ -60,7 +60,7 @@ public class BossZombieTraceState : EnemyBaseState
 
             int randomAttack = Random.Range(0, 3);
 
-            //randomAttack = 0;
+            //randomAttack = 1;
             switch (randomAttack)
             {
                 case 0:

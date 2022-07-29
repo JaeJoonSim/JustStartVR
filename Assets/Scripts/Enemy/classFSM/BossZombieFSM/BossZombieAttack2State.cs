@@ -29,6 +29,7 @@ public class BossZombieAttack2State : EnemyBaseState
     {
         if (!mgr.IsAliveTarget()|| Bmgr.bulletCollision)
         {
+           
             mgr.ChangeState(mgr.IdleState);
             return;
         }
@@ -40,6 +41,7 @@ public class BossZombieAttack2State : EnemyBaseState
             tScale -= 5f * Time.deltaTime;
             if (tScale < 0)
             {
+                Bmgr.AudioHandle = null;
                 mgr.ChangeState(mgr.TraceState);
                 return;
             }
@@ -79,7 +81,11 @@ public class BossZombieAttack2State : EnemyBaseState
                     else
                     {
                         //중지 위치
-                        SoundManager.m_instance.StopSound(Bmgr.AudioHandle);
+                        if (Bmgr.AudioHandle != null)
+                        {
+                            SoundManager.m_instance.StopSound(Bmgr.AudioHandle);
+                        }
+                       
 
                         Bmgr.characterController.enabled = true;
                         mgr.ChangeState(mgr.TraceState);
@@ -100,6 +106,7 @@ public class BossZombieAttack2State : EnemyBaseState
 
     public override void End(EnemyBaseFSMMgr mgr)
     {
+        Bmgr.AudioHandle = null;
         Bmgr.tongue.transform.localScale = new Vector3(0, 0.1f, 0.1f);
         Bmgr.characterController.enabled = true;
         Bmgr.Cooldown = 0 ;

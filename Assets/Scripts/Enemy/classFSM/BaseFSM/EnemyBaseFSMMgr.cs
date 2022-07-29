@@ -11,7 +11,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     protected EnemyBaseState currentState;
     protected EnemyBaseState prevState;
 
-    
+    [HideInInspector]
     public AudioSource prevAudio;
 
     public EnemyBaseState CurrentState
@@ -42,6 +42,9 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     //플레이어 위치
     [HideInInspector]
     public Transform target;
+
+    [HideInInspector]
+    public Player_HP isTargetDead;
 
     //네비게이션 용 
     protected NavMeshAgent agent;
@@ -85,6 +88,8 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
         agent.speed = Status.Speed;
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).gameObject;
+        isTargetDead = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).gameObject.GetComponent<Player_HP>();
     }
 
     protected void Update()
@@ -168,7 +173,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     public float CalcTargetDistance()
     {
-        return (target.position - transform.position).magnitude;
+        return (target.transform.position - transform.position).magnitude;
     }
     public bool IsTarget()
     {
@@ -185,13 +190,12 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     public bool IsAliveTarget()
     {
-        if (target == null) return false;
-        return true;
+        return !isTargetDead.isDead;
     }
-    public void MoveTarget()
+    public void MoveTarget() 
     {
         agent.speed = Status.Speed;
-        agent.SetDestination(target.position);
+        agent.SetDestination(target.transform.position);
     }
     public void SetAnimator(string trigger)
     {
@@ -202,9 +206,8 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         agent.isStopped = isStop;
     }
 
-    public void AttackColliderOn()
-    {
-        
+    public virtual void AttackColliderOn()
+    {  
         attackCollider.SetActive(true);
     }
 }

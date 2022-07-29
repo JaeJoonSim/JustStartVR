@@ -28,14 +28,21 @@ public class EnemytongueCollision : MonoBehaviour
             if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
             {
                 //Debug.Log("Çú¹Ù´Ú  ÃÑ¾Ë Ãæµ¹");
+                if (FSM.AudioHandle != null)
+                {
+                    SoundManager.m_instance.StopSound(FSM.AudioHandle);
+                }
+              
                 FSM.bulletCollision = true;
                 FSM.Damaged(100, (transform.position - other.transform.position).normalized);
                 FSM.characterController.enabled = true;
+
+
             }
             else if (other.gameObject.tag == "Player")
             {
                 //Debug.Log("Çú¹Ù´Ú Ãæµ¹");
-                if (FSM.CurrentState == FSM.Attack2State && (FSM.target.position - FSM.grabPos.position).magnitude < 1f && !FSM.attackCollision)
+                if (FSM.CurrentState == FSM.Attack2State && (FSM.target.transform.position - FSM.grabPos.position).magnitude < 1f && !FSM.attackCollision)
                 {
                     SoundManager.m_instance.PlaySound(other.transform.position,
                         SoundManager.SoundType.tongue);

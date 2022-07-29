@@ -6,20 +6,17 @@ public class SpeedZombieIdleState : EnemyBaseState
 {
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
+        mgr.prevAudio = SoundManager.m_instance.ChangeSound(mgr.transform.position, SoundManager.SoundType.zombieIdle,
+                null, false, 100.0f, mgr.prevAudio);
         if (mgr.PrevState == mgr.TraceState)
         {
-            mgr.SetAnimator("MoveToIdle");
-
-            mgr.prevAudio = SoundManager.m_instance.ChangeSound(mgr.transform.position, SoundManager.SoundType.zombieIdle,
-                null, false, 100.0f, mgr.prevAudio);
+            mgr.SetAnimator("MoveToIdle");  
         }
         else if(mgr.PrevState == mgr.AttackState)
         {
-            mgr.SetAnimator("AttackToIdle");
-
-            mgr.prevAudio = SoundManager.m_instance.ChangeSound(mgr.transform.position, SoundManager.SoundType.zombieIdle,
-                null, false, 100.0f, mgr.prevAudio);
+            mgr.SetAnimator("AttackToIdle");    
         }
+        mgr.NavStop(true);  
 
 
     }

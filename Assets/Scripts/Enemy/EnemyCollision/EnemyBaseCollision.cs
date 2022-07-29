@@ -28,7 +28,7 @@ public abstract class EnemyBaseCollision : MonoBehaviour
         }
         else if (other.gameObject.tag == "Melee")
         {
-            Debug.Log(other.gameObject.GetComponent<DamageCollider>().Damage);
+           // Debug.Log(other.gameObject.GetComponent<DamageCollider>().Damage);
             FSM.Damaged(other.gameObject.GetComponent<DamageCollider>().Damage * damage, 
                 (transform.position - other.transform.position).normalized);   
         }
