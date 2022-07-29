@@ -123,7 +123,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         {
             if(this.transform.name == "zombie_Boss")
             {
-                Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Key_Card.prefab"),
+                Instantiate(Resources.Load<GameObject>("Room/Key_Card"),
                     transform.position, Quaternion.identity, transform.root);
             }
         
