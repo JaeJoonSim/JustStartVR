@@ -73,6 +73,10 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     //공격용
     public GameObject attackCollider;
 
+    //화염병 테그용
+    [HideInInspector]
+    public bool isBurning;
+
 
 
     protected void OnEnable()
@@ -117,6 +121,17 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             if (currentState != null)
                 currentState.Update(this);
         }
+
+        if (isBurning && !IsInvoking("offBurning"))
+        {
+            Invoke("offBurning", 0.5f);
+        }
+    }
+
+    private void offBurning()
+    {
+        Debug.Log("off");
+        isBurning = false;
     }
 
     private void DistanceCheck()
@@ -136,7 +151,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             }
         }
     }
-    public void Damaged(float demage, Vector3 BulletForword)
+    public void Damaged(float demage)
     {
         if (Status.Hp <= 0) return;
             Status.Hp -= demage;
