@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class DoorCreatorAxisX : MonoBehaviour
 {
-    private GameObject[] m_DoorObj = new GameObject[2];
     public RoomCreator roomCreator;
     public Vector2 m_keyCardRoom;
     public Vector2 m_curRoomPos;
@@ -11,10 +10,6 @@ public class DoorCreatorAxisX : MonoBehaviour
     void Start()
     {
         type = 0;
-
-        m_DoorObj[0] = Resources.Load<GameObject>("Room/HingeDoor");
-        m_DoorObj[1] = Resources.Load<GameObject>("Room/CardeKey_HingeDoor");
-
 
         int index = 4;
 
@@ -35,6 +30,9 @@ public class DoorCreatorAxisX : MonoBehaviour
             }
         }
         GameObject tile = this.transform.GetChild(index).gameObject;
-        GameObject newObj = Instantiate(m_DoorObj[type], tile.transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(new Vector3(0, 90, 0)), this.transform);
+
+        ObjectCreator objcreator = roomCreator.m_objectCreator.GetComponent<ObjectCreator>();
+
+        GameObject newObj = Instantiate(objcreator.m_Obj[18 + type], tile.transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(new Vector3(0, 90, 0)), this.transform);
     }
 }

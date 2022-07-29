@@ -8,7 +8,6 @@ public class RoomCreator : MonoBehaviour
     public GameObject[,] m_GroupOBJ;
     public Vector2 m_keyCardRoom;
 
-    [SerializeField] private Transform playerTransform;
 
     public GameObject m_Parents;
     public GameObject m_TileOBJ;
@@ -25,6 +24,8 @@ public class RoomCreator : MonoBehaviour
 
     public bool[,] m_TileisEmpty;
     public bool[,] m_WorldTileisEmpty;
+
+    public GameObject m_objectCreator;
 
     private Stack<Tile> m_tileStack = new Stack<Tile>();
 
@@ -143,9 +144,9 @@ public class RoomCreator : MonoBehaviour
 
         if (!isCreate) return;
         TileCreator(m_GroupOBJ[x, z]);
-        m_GroupOBJ[x, z].AddComponent<ObjectCreator>();
         m_GroupOBJ[x, z].AddComponent<EnemyCreator>();
-        ObjectCreator room = m_GroupOBJ[x, z].GetComponent<ObjectCreator>();
+
+        ObjectCreator room = m_objectCreator.GetComponent<ObjectCreator>();
         EnemyCreator enemy = m_GroupOBJ[x, z].GetComponent<EnemyCreator>();
         parent.AddComponent<CalcDistance>();
         room.initTile(m_RoomSize, m_TileisEmpty, this, m_GroupOBJ[x, z].transform, x, z, roomNumber++);

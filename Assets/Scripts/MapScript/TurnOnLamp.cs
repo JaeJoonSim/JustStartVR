@@ -4,7 +4,7 @@ public class TurnOnLamp : MonoBehaviour
 {
     CalcDistance m_calcDistance;
 
-    public void Start()
+    public void Awake()
     {
         m_calcDistance = this.gameObject.GetComponent<CalcDistance>();
         m_calcDistance.enabled = false;
