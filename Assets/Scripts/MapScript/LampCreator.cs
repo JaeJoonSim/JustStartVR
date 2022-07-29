@@ -18,7 +18,7 @@ public class LampCreator : MonoBehaviour
 
         for(int i = 0; i < m_roomCreator.m_MaxCount; i++)
         {
-            for (int j = 0; j < m_roomCreator.m_MaxCount; j++)
+            for (int j = 0; j < m_roomCreator.m_MaxCount2; j++)
             {
                 if(!m_roomCreator.m_WorldTileisEmpty[i, j])
                 {

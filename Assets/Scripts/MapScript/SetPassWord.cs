@@ -34,16 +34,16 @@ public class SetPassWord : MonoBehaviour
         int min = floor * 4;
         int max = 4 + min;
 
-
-        for(int i = min; i < max; i++)
+        for (int i = min; i < max; i++)
         {
-            if(manager.count != i)
+            if(manager.count != i && text.text[i] != '*')
             {
                 text.text += "*";
             }
             else
             {
                 text.text += password.ToString();
+                break;
             }
         }
 

@@ -31,6 +31,7 @@ public class RoomCreator : MonoBehaviour
     public int m_mapinterval;
 
     public int m_MaxCount;
+    public int m_MaxCount2;
 
 
     void Start()
@@ -40,64 +41,101 @@ public class RoomCreator : MonoBehaviour
         m_mapinterval = m_RoomSize + 6;
 
         m_MaxCount = m_mapinterval * m_RoomCountX;
+        m_MaxCount2 = m_mapinterval * m_RoomCountZ;
 
-        m_WorldTileisEmpty = new bool[m_MaxCount, m_MaxCount];
+        m_WorldTileisEmpty = new bool[m_MaxCount, m_MaxCount2];
 
         m_keyCardRoom.x = -1;
         m_keyCardRoom.y = -1;
 
         for (int x = 0; x < m_MaxCount; x++)
         {
-            for (int z = 0; z < m_MaxCount; z++)
+            for (int z = 0; z < m_MaxCount2; z++)
             {
                 m_WorldTileisEmpty[x, z] = true;
             }
         }
 
-
         initTileEmpty();
+
 
         int count = 2;
         int random = 0;
         int random2 = 0;
         int value = 0;
-        int roomCount = 10;
+        int roomCount = m_RoomCountX * m_RoomCountZ;
 
-        for (int i = 0; i < m_RoomCountX; i++)
+        if(roomCount <= 4)
         {
-            value = 2;
-            for(int j = 0; j < m_RoomCountZ; j++)
+            for (int i = 0; i < m_RoomCountX; i++)
             {
-                random = Random.Range(0, value);
-                initTileEmpty();
-                roomCount--;
-
-                if (i == 1 && j == 1)
+                value = 1;
+                for (int j = 0; j < m_RoomCountZ; j++)
                 {
+                    initTileEmpty();
+                    roomCount--;
                     CreateRoom(i, j, true);
-                    count--;
-                    continue;
                 }
-                if (random == 0 && count > 0)
+            }
+        }
+        else if(roomCount == 6)
+        {
+            for (int i = 0; i < m_RoomCountX; i++)
+            {
+                value = 1;
+                for (int j = 0; j < m_RoomCountZ; j++)
                 {
-                    random2 = Random.Range(0, roomCount);
-
-                    if(random2 == 0 && m_keyCardRoom.x == -1)
+                    random2 = Random.Range(0, roomCount - 1);
+                    if (random2 == 0 && m_keyCardRoom.x == -1)
                     {
                         m_keyCardRoom.x = i;
                         m_keyCardRoom.y = j;
                     }
-
+                    initTileEmpty();
+                    roomCount--;
                     CreateRoom(i, j, true);
-                    count--;
-                }
-                else
-                {
-                    CreateRoom(i, j, false);
-                    value = 0;
+                    if (roomCount == 1) break;
                 }
             }
-            count = m_RoomCountZ - 1;
+        }
+        else
+        {
+            for (int i = 0; i < m_RoomCountX; i++)
+            {
+                value = 2;
+                for (int j = 0; j < m_RoomCountZ; j++)
+                {
+                    random = Random.Range(0, value);
+                    initTileEmpty();
+                    roomCount--;
+
+                    if (i == 1 && j == 1)
+                    {
+                        CreateRoom(i, j, true);
+                        count--;
+                        continue;
+                    }
+                    if (random == 0 && count > 0)
+                    {
+                        random2 = Random.Range(0, roomCount);
+
+                        if (random2 == 0 && m_keyCardRoom.x == -1)
+                        {
+                            m_keyCardRoom.x = i;
+                            m_keyCardRoom.y = j;
+                        }
+
+                        CreateRoom(i, j, true);
+                        count--;
+                    }
+                    else
+                    {
+                        CreateRoom(i, j, false);
+                        value = 0;
+                    }
+                }
+                count = m_RoomCountZ - 1;
+            }
         }
     }
 

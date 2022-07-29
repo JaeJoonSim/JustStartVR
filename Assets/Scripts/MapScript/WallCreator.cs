@@ -15,11 +15,11 @@ public class WallCreator : MonoBehaviour
         created = false;
         m_count = 100;
 
-        m_WallisEmpty = new bool[roomCreator.m_MaxCount, roomCreator.m_MaxCount];
+        m_WallisEmpty = new bool[roomCreator.m_MaxCount, roomCreator.m_MaxCount2];
 
         for (int _x = 0; _x < roomCreator.m_MaxCount; _x++)
         {
-            for (int _z = 0; _z < roomCreator.m_MaxCount; _z++)
+            for (int _z = 0; _z < roomCreator.m_MaxCount2; _z++)
             {
                 m_WallisEmpty[_x, _z] = true;
             }
@@ -27,7 +27,7 @@ public class WallCreator : MonoBehaviour
 
         for (int _x = 0; _x < roomCreator.m_MaxCount; _x++)
         {
-            for (int _z = 0; _z < roomCreator.m_MaxCount; _z++)
+            for (int _z = 0; _z < roomCreator.m_MaxCount2; _z++)
             {
                 if (!roomCreator.m_WorldTileisEmpty[_x, _z] && m_WallisEmpty[_x, _z])
                 {
