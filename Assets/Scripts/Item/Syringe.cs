@@ -27,10 +27,8 @@ namespace JustStartVR
             foreach(GameObject G in gameObjects)
             {
                 Player_HP = G.GetComponent<Player_HP>();
-                if (Player_HP != null)
-                Player_HP = G.GetComponent<Player_HP>();
-            }
-           
+                if (Player_HP != null) break;
+            }       
         }
 
 
@@ -49,7 +47,7 @@ namespace JustStartVR
                 animator.SetBool("Acte", true);
                 Needle.enabled = true;
                 SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.HealTrigger);
-                Debug.Log("Ativete");
+                //Debug.Log("Ativete");
             }
         }
 
@@ -57,19 +55,19 @@ namespace JustStartVR
         {
             if( Activation && other.tag == "Hand")
             {
-                Debug.Log("Use");
+                //Debug.Log("Use");
                 Recovery();
             }
         }
 
         void Recovery()
         {
-            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.Heal);
+            animator.SetTrigger("Use");
             Activation = false;
             Use = true;
             Needle.enabled = false;
             Player_HP.change_HP(Amount_Of_Recovery);
-            animator.SetTrigger("Use");
+            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.Heal);
         }
 
         public override void OnButton1Down()
