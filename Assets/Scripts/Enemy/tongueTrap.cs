@@ -54,10 +54,10 @@ public class tongueTrap : MonoBehaviour
             {
                 yPosMovement -= Time.deltaTime / 10;
             }
-            target.transform.position = new Vector3(
-                               target.transform.position.x,
+            target.position = new Vector3(
+                               target.position.x,
                                grabPos.position.y-1.3f,
-                               target.transform.position.z
+                               target.position.z
                                );
 
         }

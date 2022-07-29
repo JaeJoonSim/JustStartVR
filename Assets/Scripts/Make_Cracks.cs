@@ -9,13 +9,24 @@ public class Make_Cracks : MonoBehaviour
     int Punch = 0;
     [SerializeField]
     GameObject Crack, Crack_parent;
+    
     GameObject Player;
     [SerializeField]
     sellCylinder sellCylinder;
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject G in gameObjects)
+        {
+            CharacterController P = G.GetComponent<CharacterController>();
+
+            if (P != null)
+            {
+                Player = G;
+                Player.GetComponent<CharacterController>().enabled = false;
+            }
+        }
         Player.GetComponent<CharacterController>().enabled = false;
         Player.transform.position = new Vector3(transform.position.x, Player.transform.position.y, transform.position.z);
     }
@@ -37,9 +48,10 @@ public class Make_Cracks : MonoBehaviour
             SoundManager.m_instance.PlaySound(other.transform.position, SoundManager.SoundType.CrackGlass);
             if (Punch >= PunchCount)
             {
+                sellCylinder.Sell();
                 Destroy(Crack_parent);
                 Player.GetComponent<CharacterController>().enabled = true;
-                sellCylinder.Sell();
+                gameObject.SetActive(false);
             }
         }
     }

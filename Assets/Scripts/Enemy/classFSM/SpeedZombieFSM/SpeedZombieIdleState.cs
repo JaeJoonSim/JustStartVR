@@ -10,23 +10,24 @@ public class SpeedZombieIdleState : EnemyBaseState
                 null, false, 100.0f, mgr.prevAudio);
         if (mgr.PrevState == mgr.TraceState)
         {
-            mgr.SetAnimator("MoveToIdle");  
+            mgr.SetAnimator("MoveToIdle");
         }
-        else if(mgr.PrevState == mgr.AttackState)
+        else if (mgr.PrevState == mgr.AttackState)
         {
-            mgr.SetAnimator("AttackToIdle");    
+            mgr.SetAnimator("AttackToIdle");
         }
-        mgr.NavStop(true);  
+        mgr.NavStop(true);
 
 
     }
     public override void Update(EnemyBaseFSMMgr mgr)
     {
         //시야에 타겟이 보이면
-        if (mgr.IsTarget())
+        if (mgr.IsTarget() || mgr.TraceStart == true)
         {
             //Idle => Trace
-            mgr.ChangeState(mgr.TraceState);       
+
+            mgr.ChangeState(mgr.TraceState);
             return;
         }
     }

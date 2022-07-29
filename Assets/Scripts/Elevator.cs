@@ -47,7 +47,17 @@ public class Elevator : MonoBehaviour
 
     private void Start()
     {   
-        Player = GameObject.FindGameObjectWithTag("Player");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject G in gameObjects)
+        {
+            CharacterController P = G.GetComponent<CharacterController>();
+
+            if (P != null)
+            {
+                Player = G;
+                Player.GetComponent<CharacterController>().enabled = false;
+            }
+        }
         animator = GetComponent<Animator>();
         SetPassword();
         initKeyCode(0);

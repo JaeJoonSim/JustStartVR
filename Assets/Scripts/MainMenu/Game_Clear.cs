@@ -12,7 +12,7 @@ public class Game_Clear : MonoBehaviour
     [SerializeField]
     GameObject Credit;
 
-    GameObject Player;
+    public GameObject Player;
     Camera MainCamera;
 
 
@@ -20,7 +20,17 @@ public class Game_Clear : MonoBehaviour
     {
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-        Player = GameObject.FindGameObjectWithTag("Player");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject G in gameObjects)
+        {
+            CharacterController P = G.GetComponent<CharacterController>();
+
+            if (P != null)
+            {
+                Player = G;
+                Player.GetComponent<CharacterController>().enabled = false;
+            }
+        }
 
         Image.gameObject.SetActive(true);
         Color color = Image.GetComponent<Image>().color;
