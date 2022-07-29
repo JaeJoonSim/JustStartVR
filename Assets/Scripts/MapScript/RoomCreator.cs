@@ -94,7 +94,11 @@ public class RoomCreator : MonoBehaviour
                     initTileEmpty();
                     roomCount--;
                     CreateRoom(i, j, true);
-                    if (roomCount == 1) break;
+                    if (roomCount == 1)
+                    {
+                        CreateRoom(i, j, false);
+                        break;
+                    }
                 }
             }
         }
