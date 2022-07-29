@@ -9,13 +9,14 @@ public class Make_Cracks : MonoBehaviour
     int Punch = 0;
     [SerializeField]
     GameObject Crack, Crack_parent;
+    [SerializeField]
     GameObject Player;
     [SerializeField]
     sellCylinder sellCylinder;
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        //Player = GameObject.FindGameObjectWithTag("Player");
         Player.GetComponent<CharacterController>().enabled = false;
         Player.transform.position = new Vector3(transform.position.x, Player.transform.position.y, transform.position.z);
     }
@@ -39,6 +40,7 @@ public class Make_Cracks : MonoBehaviour
             {
                 Destroy(Crack_parent);
                 Player.GetComponent<CharacterController>().enabled = true;
+                gameObject.SetActive(false);
                 sellCylinder.Sell();
             }
         }

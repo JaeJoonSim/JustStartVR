@@ -13,6 +13,7 @@ public class SetParents : MonoBehaviour
     {
         if (transform.parent.tag != "ClipInsert" && transform.parent != null)
             transform.parent = null;
+
             
     }
 

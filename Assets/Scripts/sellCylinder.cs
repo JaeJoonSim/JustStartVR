@@ -22,7 +22,7 @@ public class sellCylinder : MonoBehaviour
         GetComponentInChildren<TubeZombie>().zombieAwake();
         SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CrashGlass2);
 
-        if (Destruction) return;
+        if (Destruction == false) return;
         Destruction = true;
         Destroy(OriginalOBJ);
         copy = Instantiate(SellOBJ, transform.position, Quaternion.identity, this.transform.parent);
@@ -40,7 +40,7 @@ public class sellCylinder : MonoBehaviour
     {
         if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
         {
-            if (Destruction) return;
+            if (Destruction == false) return;
             Sell();
             GetComponent<CapsuleCollider>().enabled = false;
         }
@@ -48,7 +48,7 @@ public class sellCylinder : MonoBehaviour
         {
             if (other.gameObject.name == "DeshCollider")
             {
-                if (Destruction) return;
+                if (Destruction == false) return;
                 Sell();
             }
         }
