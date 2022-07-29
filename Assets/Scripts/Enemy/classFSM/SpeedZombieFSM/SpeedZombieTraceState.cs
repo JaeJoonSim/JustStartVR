@@ -13,17 +13,22 @@ public class SpeedZombieTraceState : EnemyBaseState
 
         //네비 잠금 해제
         mgr.NavStop(false);
-        //if (mgr.TraceStart == false)
-        //{
-        //    Collider[] closeZombies = Physics.OverlapSphere(mgr.transform.position, 20);
-        //    for (int i = 0; i < closeZombies.Length; i++)
-        //    {
-        //        Debug.Log(i);
-        //        Debug.Log(closeZombies[i].name);
-        //        //closeZombies[i].GetComponent<EnemyBaseFSMMgr>().TraceStart = true;
-        //    }
-        //}
-        //mgr.TraceStart = false;
+        if (mgr.TraceStart == false)
+        {
+            Collider[] closeZombies = Physics.OverlapSphere(mgr.transform.position, 10, 1<<16);
+            for (int i = 0; i < closeZombies.Length; ++i)
+            {
+
+                EnemyBaseFSMMgr temp = closeZombies[i].GetComponent<EnemyBaseFSMMgr>();
+                if (temp != null)
+                {
+                    temp.TraceStart = true;
+                }
+                    
+                //closeZombies[i].GetComponent<EnemyBaseFSMMgr>().TraceStart = true;
+            }
+        }
+        mgr.TraceStart = false;
 
 
         if (mgr.PrevState == mgr.IdleState)

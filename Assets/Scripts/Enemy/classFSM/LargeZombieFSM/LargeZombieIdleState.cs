@@ -26,7 +26,7 @@ public class LargeZombieIdleState : EnemyBaseState
     public override void Update(EnemyBaseFSMMgr mgr)
     {
         //시야에 타겟이 보이면
-        if (mgr.IsTarget())
+        if (mgr.IsTarget() || mgr.TraceStart == true)
         {
             //Idle => Trace
             mgr.ChangeState(mgr.TraceState);       
