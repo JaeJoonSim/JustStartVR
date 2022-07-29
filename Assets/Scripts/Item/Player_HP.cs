@@ -60,10 +60,10 @@ public class Player_HP : MonoBehaviour
     public void change_HP(float Val)
     {
         if (isDead == true) return;
-        if (Val < 0) CenterEye_UI.Blood_Effect();
 
         if (Val < 0)
         {
+            CenterEye_UI.Blood_Effect();
             int min = (int)SoundManager.SoundType.playerHit;
             int max = (int)SoundManager.SoundType.playerHit2 + 1;
             int random = Random.Range(min, max);
@@ -72,7 +72,7 @@ public class Player_HP : MonoBehaviour
 
         HP += Val;
         Show_UI();
-        if (HP < 0)
+        if (HP <= 0)
         {
             isDead = true;
             GameOver();
