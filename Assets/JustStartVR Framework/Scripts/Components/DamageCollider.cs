@@ -94,8 +94,10 @@ namespace JustStartVR {
 
                 // Can we damage what we hit?
                 Damageable d = collision.gameObject.GetComponent<Damageable>();
-                if (d.gameObject.transform.tag != "Player") 
+
+                if (d)
                 {
+                    if(d.gameObject.transform.tag != "Player")
                     d.DealDamage(Damage, collision.GetContact(0).point, collision.GetContact(0).normal, true, gameObject, collision.gameObject);
                 }
                 // Otherwise, can we take damage ourselves from this collision?
