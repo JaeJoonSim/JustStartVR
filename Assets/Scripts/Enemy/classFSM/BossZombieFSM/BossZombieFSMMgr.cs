@@ -105,10 +105,5 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         SoundManager.m_instance.PlaySound(this.transform.position,
                     SoundManager.SoundType.BossFoot);
     }
-    public override void AttackColliderOn()
-    {
-        SoundManager.m_instance.PlaySound(this.transform.position,
-                  SoundManager.SoundType.swing);
-        attackCollider.SetActive(true);
-    }
+
 }
