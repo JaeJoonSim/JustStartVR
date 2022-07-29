@@ -22,6 +22,7 @@ public class ObjectCreator : MonoBehaviour
         maxSize = max;
 
         m_Parent = parent;
+               
 
         m_TileisEmpty = new bool[max, max];
         m_Object = new bool[max, max];
