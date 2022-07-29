@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEditor;
+
 
 public class EnemyCreator : MonoBehaviour
 {
@@ -28,14 +28,14 @@ public class EnemyCreator : MonoBehaviour
 
 
         m_EnemyObj = new GameObject[4];
-        //m_EnemyObj[0] = Resources.Load<GameObject>("Enemy/zombie_S");
-        //m_EnemyObj[1] = Resources.Load<GameObject>("Enemy/zombie_L");
-        //m_EnemyObj[2] = Resources.Load<GameObject>("Enemy/zombie_Blister");
-
-        m_EnemyObj[0] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/zombie_S.prefab");
-        m_EnemyObj[1] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/zombie_L.prefab");
-        m_EnemyObj[2] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/zombie_Blister.prefab");
-        m_EnemyObj[3] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/tongueHole.prefab");
+        m_EnemyObj[0] = Resources.Load<GameObject>("Enemy/zombie_S");
+        m_EnemyObj[1] = Resources.Load<GameObject>("Enemy/zombie_L");
+        m_EnemyObj[2] = Resources.Load<GameObject>("Enemy/zombie_Blister");
+        m_EnemyObj[3] = Resources.Load<GameObject>("Enemy/tongueHole");
+        //m_EnemyObj[0] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/zombie_S.prefab");
+        //m_EnemyObj[1] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/zombie_L.prefab");
+        //m_EnemyObj[2] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/zombie_Blister.prefab");
+        //m_EnemyObj[3] = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemy/tongueHole.prefab");
 
         int x = 0;
         int z = 0;
