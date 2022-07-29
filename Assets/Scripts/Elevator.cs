@@ -101,6 +101,7 @@ public class Elevator : MonoBehaviour
             text.text = "비밀번호를\n입력하세요";
             text.gameObject.SetActive(true);
             SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeyFailed);
+            GameObject.FindGameObjectWithTag("subtitle").GetComponent<subtitle>().ShowText(6);
         }
     }
 
@@ -142,6 +143,7 @@ public class Elevator : MonoBehaviour
             OnZombi = false;
         }
     }
+    bool floor3 = false;
     IEnumerator Move(int floor)
     {
         bool y_Ppint = true;
@@ -162,6 +164,13 @@ public class Elevator : MonoBehaviour
         Player.transform.GetComponent<PlayerGravity>().GravityEnabled = true;
         SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.ElevatorArrive);
         its = false;
+
+        if (floor3)yield return null;
+        if(Floor== 3)
+        {
+            floor3 = true;
+            GameObject.FindGameObjectWithTag("subtitle").GetComponent<subtitle>().ShowText(7);
+        }
     }
 
 }

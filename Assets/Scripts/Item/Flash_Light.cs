@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 namespace JustStartVR
 {
-
     public class Flash_Light : GrabbableEvents
     {
         [SerializeField]
@@ -15,15 +14,15 @@ namespace JustStartVR
         Image batter_UI;
 
         public float batter = 1;
-        public bool _Grab = false;
-        bool On_Off = false, Shake_bool = false;
+        bool On_Off = false;
 
-        public void OnGrab(bool Grab)
-        {
-            _Grab = Grab;
-            if(_Grab)
-            StartCoroutine(Shake());
-        }
+        bool _Grab = false;
+        //public void OnGrab(bool Grab)
+        //{
+        //    if (_Grab) return;
+        //    GameObject.FindGameObjectWithTag("subtitle").GetComponent<subtitle>().ShowText(2);
+        //    _Grab = true; ;
+        //}
         void OnOffFlash()
         {
             if (batter < 0) return;
@@ -36,7 +35,7 @@ namespace JustStartVR
             {
                 On_Off = true;
                 Light.SetActive(true);
-                StartCoroutine(Time());
+                //StartCoroutine(Time());
             }
         }
 

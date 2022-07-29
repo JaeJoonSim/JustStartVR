@@ -906,6 +906,7 @@ GameObject:
   - component: {fileID: 1859194402780764643}
   - component: {fileID: 8123387833817562259}
   - component: {fileID: 7229094426640878045}
+  - component: {fileID: -2211625221902168589}
   m_Layer: 10
   m_Name: Flash_Light
   m_TagString: Untagged
@@ -966,7 +967,6 @@ MonoBehaviour:
   Light: {fileID: 131389994165298704}
   batter_UI: {fileID: 1616295637524953080}
   batter: 1
-  _Grab: 0
 --- !u!114 &1859194402780764670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,18 +1132,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1859194402780764642}
-        m_TargetAssemblyTypeName: JustStartVR.Flash_Light, Assembly-CSharp
-        m_MethodName: OnGrab
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7229094426640878045}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
         m_MethodName: SetParentsReturn
@@ -1230,6 +1218,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c44e57709f1444a8287548e6ce34a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2211625221902168589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859194402780764666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ecf1db5bd527a04dae99f69369e7c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextNumber: 5
 --- !u!1 &2573604591517751240
 GameObject:
   m_ObjectHideFlags: 0

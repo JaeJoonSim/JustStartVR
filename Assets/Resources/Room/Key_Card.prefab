@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 2839763834600095362}
   - component: {fileID: 8590413028307565297}
   - component: {fileID: 8590413028307565298}
+  - component: {fileID: 2908383843115581705}
   - component: {fileID: 8590413028307565292}
   - component: {fileID: 2181565648673464220}
   - component: {fileID: 8573310335997485825}
@@ -444,6 +445,19 @@ MonoBehaviour:
   RingOnValidPickup: 1
   RingOnValidRemotePickup: 0
   RingHelperScale: 0.2
+--- !u!114 &2908383843115581705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590413028307565301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ecf1db5bd527a04dae99f69369e7c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextNumber: 3
 --- !u!114 &8590413028307565292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +488,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2569477781065974299}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
         m_MethodName: SetParentsNull
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2908383843115581705}
+        m_TargetAssemblyTypeName: On_Grable, Assembly-CSharp
+        m_MethodName: OnGrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
