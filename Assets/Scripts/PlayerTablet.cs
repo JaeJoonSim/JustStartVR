@@ -8,9 +8,11 @@ public class PlayerTablet : MonoBehaviour
 
     string passwordText;
     int index;
+    int prevFloor;
 
     void Start()
     {
+        prevFloor = 0;
         initPassWord();
     }
 
@@ -23,11 +25,14 @@ public class PlayerTablet : MonoBehaviour
 
     public void inputPassWord(int password, int _index)
     {
+        int curFloor = _index / 4;
+        
         index = _index % 4;
 
-        if(index / 4 < _index / 4)
+        if(prevFloor < curFloor)
         {
             initPassWord();
+            prevFloor = curFloor;
         }
 
         passwordText = passwordText.Remove(index, 1).Insert(index, password.ToString());
