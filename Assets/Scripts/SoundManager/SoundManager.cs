@@ -40,7 +40,8 @@ public class SoundManager : MonoBehaviour
 
         zombieIdle,
 
-        tongue, tongueGrap, playerHit, playerHit2, BossFoot, gameOver, CrackGlass
+        tongue, tongueGrap, playerHit, playerHit2, BossFoot, gameOver, CrackGlass,
+        swing,
 
     }
 
