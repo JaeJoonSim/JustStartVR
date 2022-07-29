@@ -12,6 +12,9 @@ public class MainMenu_MGR : MonoBehaviour
             case "Start":
                 SceneLoader.LoadScene(Scene_Name);
                 break;
+            case "Exit":
+                Application.Quit();
+                break;
         }
     }
 }
