@@ -34,7 +34,7 @@ public class EnemytongueCollision : MonoBehaviour
                 }
               
                 FSM.bulletCollision = true;
-                FSM.Damaged(100, (transform.position - other.transform.position).normalized);
+                FSM.Damaged(100);
                 FSM.characterController.enabled = true;
 
 

@@ -33,9 +33,7 @@ public class FireCollision : MonoBehaviour
 
         for (int i = 0; i < max; i++)
         {
-            
             distance = Mathf.Abs((Particle[i].position - Player.transform.position).magnitude);
-
 
             if (distance < 1.0f)
             {
@@ -43,8 +41,21 @@ public class FireCollision : MonoBehaviour
                 break;
             }
         }
+        for (int i = 0; i < max; i++)
+        {
+            Collider[] closeZombies = Physics.OverlapSphere(Particle[i].position, 1, 1 << 16);
+            for (int j = 0; j < closeZombies.Length; ++j)
+            {
+                EnemyBaseFSMMgr temp = closeZombies[j].GetComponent<EnemyBaseFSMMgr>();
+                if (temp != null)
+                {
+                    temp.Damaged(10);
+                }
+            }
+        }
 
-        if (max == 0 && time <= 0)
+
+            if (max == 0 && time <= 0)
             Destroy(this.transform.root.gameObject);
     }
 }
