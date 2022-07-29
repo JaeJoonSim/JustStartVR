@@ -34,19 +34,12 @@ public class Elevator : MonoBehaviour
     bool its = false;
 
 
-    private void initKeyCode(int number)
-    {
-        int min = number * 4;
-        int max = min + 4;
-        keypad.code = null;
-        for (int i = min; i < max; i++)
-        {
-            keypad.code += password[i].ToString();
-        }
-    }
+  
 
+    string[] code;
     private void Start()
     {   
+        code = new string[Floor_Point.Length];
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject G in gameObjects)
         {
@@ -64,8 +57,21 @@ public class Elevator : MonoBehaviour
         Locked[0] = true;
         initKeyCode(0);
     }
+
+    private void initKeyCode(int number)
+    {
+
+        for (int j = 0; j < Floor_Point.Length - 1; j++)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                code[j] += password[j * i].ToString();
+            }
+        }
+    }
     void SetPassword()
     {
+        Locked = new bool[Floor_Point.Length];
         Locked = new bool[Floor_Point.Length];
         for (int i = 0; i< Floor_Point.Length; i++)
         {
@@ -89,6 +95,11 @@ public class Elevator : MonoBehaviour
         Floor_text.text = (floor +1).ToString();
         if (Locked[Floor])
         {
+            if(floor < 4)
+            {
+                keypad.code = code[floor + 1];
+            }
+
             Moving();
             text.gameObject.SetActive(false);
             Floor_text.color = Color.green;
@@ -107,7 +118,6 @@ public class Elevator : MonoBehaviour
 
     public void lift()
     {
-        initKeyCode(Floor + 1);
         Locked[Floor] = true;
         Floor_text.color = Color.green;
         text.color = Color.green;
