@@ -61,7 +61,7 @@ public class Elevator : MonoBehaviour
     private void initKeyCode(int number)
     {
 
-        for (int j = 1; j < Floor_Point.Length; j++)
+        for (int j = 0; j < Floor_Point.Length - 1; j++)
         {
             for (int i = 0; i < 4; i++)
             {
