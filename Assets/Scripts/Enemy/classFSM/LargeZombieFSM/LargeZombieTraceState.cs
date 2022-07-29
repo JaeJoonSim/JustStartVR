@@ -16,7 +16,7 @@ public class LargeZombieTraceState : EnemyBaseState
 
         if (mgr.TraceStart == false)
         {
-            Collider[] closeZombies = Physics.OverlapSphere(mgr.transform.position, 10, 1 << 16);
+            Collider[] closeZombies = Physics.OverlapSphere(mgr.transform.position, 3, 1 << 16);
             for (int i = 0; i < closeZombies.Length; ++i)
             {
 
