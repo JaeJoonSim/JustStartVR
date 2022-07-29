@@ -18,7 +18,7 @@ public class BossZombieDeshState : EnemyBaseState
         //네비 잠금
         mgr.NavStop(false);
         mgr.transform.LookAt(new Vector3(
-               mgr.target.transform.position.x, mgr.transform.position.y, mgr.target.transform.position.z));
+               mgr.target.position.x, mgr.transform.position.y, mgr.target.position.z));
         Bmgr.DeshColliderOn();
     }
 

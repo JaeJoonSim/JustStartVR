@@ -30,7 +30,7 @@ public class BossZombieAttackState : EnemyBaseState
             {
                 mgr.SetAnimator("delayToAttack");
                 mgr.transform.LookAt(new Vector3(
-                mgr.target.transform.position.x, mgr.transform.position.y, mgr.target.transform.position.z));
+                mgr.target.position.x, mgr.transform.position.y, mgr.target.position.z));
             }
             else
             {

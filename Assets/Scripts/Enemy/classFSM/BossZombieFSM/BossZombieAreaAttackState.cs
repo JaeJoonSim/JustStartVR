@@ -24,7 +24,7 @@ public class BossZombieAreaAttackState : EnemyBaseState
          patternTime = 0;
         patternStart = false;
         mgr.transform.LookAt(new Vector3(
-                mgr.target.transform.position.x, mgr.transform.position.y, mgr.target.transform.position.z));
+                mgr.target.position.x, mgr.transform.position.y, mgr.target.position.z));
 
         mgr.SetAnimator("MoveToAttack2");
 
@@ -54,7 +54,7 @@ public class BossZombieAreaAttackState : EnemyBaseState
             if (patternTime > currentTime + 0.5)
             {
                 currentTime = patternTime;
-                if (RandomPoint2(point, mgr.target.transform.position, out point))
+                if (RandomPoint2(point, mgr.target.position, out point))
                 {
                     Bmgr.Spown(point);
                   

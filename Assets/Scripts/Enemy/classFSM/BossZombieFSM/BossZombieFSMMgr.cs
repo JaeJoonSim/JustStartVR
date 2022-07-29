@@ -87,7 +87,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
    
     public Vector3 CalcTargetdirection()
     {
-        return (this.target.transform.position - this.transform.position).normalized;
+        return (this.target.position - this.transform.position).normalized;
     }
     
     public void MoveFront()
