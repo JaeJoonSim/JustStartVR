@@ -92,7 +92,7 @@ namespace JustStartVR
             {
                 if (code == Entry)
                 {
-                    Unlocked.Invoke();         
+                    Unlocked.Invoke();
                 }
                 Set_Entry();
             }

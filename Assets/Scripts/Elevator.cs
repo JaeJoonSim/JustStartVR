@@ -60,8 +60,9 @@ public class Elevator : MonoBehaviour
         }
         animator = GetComponent<Animator>();
         SetPassword();
-        initKeyCode(0);
+
         Locked[0] = true;
+        initKeyCode(0);
     }
     void SetPassword()
     {
@@ -89,7 +90,6 @@ public class Elevator : MonoBehaviour
         if (Locked[Floor])
         {
             Moving();
-            initKeyCode(Floor);
             text.gameObject.SetActive(false);
             Floor_text.color = Color.green;
             SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeySucess);
@@ -106,6 +106,7 @@ public class Elevator : MonoBehaviour
 
     public void lift()
     {
+        initKeyCode(Floor + 1);
         Locked[Floor] = true;
         Floor_text.color = Color.green;
         text.color = Color.green;

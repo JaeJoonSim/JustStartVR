@@ -7623,16 +7623,20 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8156845132710960039, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8156845132710960039, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 8156845132710960039, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 79.99999
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8156845132710960039, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.9999962
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8156845132710960039, guid: ea17dad85e545514c9ac5d274cbcd970, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10852,6 +10856,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 745043193, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: AudioArray.Array.size
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 745043193, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: AudioArray.Array.data[50]
+      value: 
+      objectReference: {fileID: 8300000, guid: ac3afd84da1851b4aa7dc8f1900b0673, type: 3}
     - target: {fileID: 6184643849896591377, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -16432,7 +16444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1146108806
 Transform:
   m_ObjectHideFlags: 0
