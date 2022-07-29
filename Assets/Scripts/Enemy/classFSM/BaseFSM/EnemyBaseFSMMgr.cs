@@ -89,9 +89,24 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         ResetAllTriggers();
 
         agent.speed = Status.Speed;
-        target = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).transform;
-        //target = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).gameObject;
-        isTargetDead = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).gameObject.GetComponent<Player_HP>();
+        
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject G in gameObjects)
+        {
+            CharacterController P = G.GetComponent<CharacterController>();
+            if (P != null)
+            {
+                target = G.transform;
+               
+
+            }
+            Player_HP pH = G.GetComponent<Player_HP>();
+            if (pH != null)
+            {
+                isTargetDead = G.GetComponent<Player_HP>();
+            }
+
+        }
     }
 
     protected void Update()
