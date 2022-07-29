@@ -93,12 +93,13 @@ public class Elevator : MonoBehaviour
 
         Floor = floor;
         Floor_text.text = (floor +1).ToString();
+
+            keypad.code = code[floor];
+
+
         if (Locked[Floor])
         {
-            if(floor < 4)
-            {
-                keypad.code = code[floor + 1];
-            }
+         
 
             Moving();
             text.gameObject.SetActive(false);
