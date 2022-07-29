@@ -61,6 +61,8 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     private bool distanceCheck;
 
+    public bool TraceStart;
+
     //¹°¸®
     public GameObject ragdoll;
 
@@ -76,7 +78,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     protected void OnEnable()
     {
         renderingDistance = 15f;
-
+        TraceStart = false;
         status = GetComponent<EnemyStatus>();
         fow = GetComponent<FieldOfView>();
         agent = GetComponent<NavMeshAgent>();
@@ -87,7 +89,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         ResetAllTriggers();
 
         agent.speed = Status.Speed;
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).transform;
         //target = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).gameObject;
         isTargetDead = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).gameObject.GetComponent<Player_HP>();
     }
@@ -173,7 +175,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     }
     public float CalcTargetDistance()
     {
-        return (target.transform.position - transform.position).magnitude;
+        return (target.position - transform.position).magnitude;
     }
     public bool IsTarget()
     {
@@ -195,7 +197,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     public void MoveTarget() 
     {
         agent.speed = Status.Speed;
-        agent.SetDestination(target.transform.position);
+        agent.SetDestination(target.position);
     }
     public void SetAnimator(string trigger)
     {

@@ -1447,7 +1447,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevAudio: {fileID: 0}
   target: {fileID: 0}
+  isTargetDead: {fileID: 0}
   attackPosition: {x: 0, y: 0, z: 0}
+  TraceStart: 0
   ragdoll: {fileID: 1311047163116314553}
   rendering: {fileID: 2510084751780061127}
   attackCollider: {fileID: 6620035404590817488}
@@ -4128,6 +4130,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3594810476375753020, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
 --- !u!1 &3594810476398331084 stripped
@@ -4210,6 +4216,10 @@ PrefabInstance:
     - target: {fileID: 3594810476375753017, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594810476375753020, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
@@ -4294,6 +4304,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3594810476375753020, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
 --- !u!4 &3594810478343842451 stripped
@@ -4376,6 +4390,10 @@ PrefabInstance:
     - target: {fileID: 3594810476375753017, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594810476375753020, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
@@ -4460,6 +4478,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3594810476375753020, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
 --- !u!4 &5846961971403155208 stripped
@@ -4542,6 +4564,10 @@ PrefabInstance:
     - target: {fileID: 3594810476375753017, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594810476375753020, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a4063398851b04c8dba95e24a3c070, type: 3}

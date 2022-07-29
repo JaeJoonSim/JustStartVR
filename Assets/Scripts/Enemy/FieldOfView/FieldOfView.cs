@@ -23,7 +23,7 @@ public class FieldOfView : MonoBehaviour
         if (dstToTarget <= mgr.Status.ViewDistance)
         {
             //플레이어의 방향
-            Vector3 dirToTarget = (mgr.target.transform.position - mgr.transform.position).normalized;
+            Vector3 dirToTarget = (mgr.target.position - mgr.transform.position).normalized;
             // 플레이어와 forward와 target이 이루는 각이 설정한 각도 내라면 또는 공격 범위 안에 들어오면 
             if (Vector3.Angle(new Vector3(head.forward.x, mgr.transform.forward.y, head.forward.z), dirToTarget) < mgr.Status.ViewAngle / 2
             || dstToTarget <= mgr.Status.AttackRange)
