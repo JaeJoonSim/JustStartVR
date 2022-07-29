@@ -24,7 +24,6 @@ public class Make_Cracks : MonoBehaviour
             if (P != null)
             {
                 Player = G;
-                Player.GetComponent<CharacterController>().enabled = false;
             }
         }
         Player.GetComponent<CharacterController>().enabled = false;

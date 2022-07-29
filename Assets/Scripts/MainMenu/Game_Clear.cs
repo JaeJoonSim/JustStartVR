@@ -28,7 +28,6 @@ public class Game_Clear : MonoBehaviour
             if (P != null)
             {
                 Player = G;
-                Player.GetComponent<CharacterController>().enabled = false;
             }
         }
 

@@ -36,7 +36,6 @@ public class Player_HP : MonoBehaviour
             if (P != null)
             {
                 Player = G;
-                Player.GetComponent<CharacterController>().enabled = false;
             }
         }
         RenderSettings.fog = true;
