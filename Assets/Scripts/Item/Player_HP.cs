@@ -28,7 +28,17 @@ public class Player_HP : MonoBehaviour
     void Start()
     {
         isDead = false;
-        Player = GameObject.FindGameObjectWithTag("Player");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject G in gameObjects)
+        {
+            CharacterController P = G.GetComponent<CharacterController>();
+
+            if (P != null)
+            {
+                Player = G;
+                Player.GetComponent<CharacterController>().enabled = false;
+            }
+        }
         RenderSettings.fog = true;
         RenderSettings.fogColor = new Color(0, 0, 0);
         RenderSettings.fogDensity = 0.1f;
