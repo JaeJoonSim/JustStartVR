@@ -77,7 +77,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     protected void OnEnable()
     {
-        renderingDistance = 15f;
+        renderingDistance = 30f;
         TraceStart = false;
         status = GetComponent<EnemyStatus>();
         fow = GetComponent<FieldOfView>();
@@ -107,8 +107,8 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     private void DistanceCheck()
     {
         distanceCheck = (CalcTargetDistance() > renderingDistance) ? false : true;
-        //ragdoll.SetActive(distanceCheck);
-        //rendering.SetActive(distanceCheck);
+        ragdoll.SetActive(distanceCheck);
+        rendering.SetActive(distanceCheck);
     }
 
     private void ResetAllTriggers()
