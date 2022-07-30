@@ -36,7 +36,7 @@ public class Elevator : MonoBehaviour
 
   
 
-    string[] code;
+    public string[] code;
     private void Start()
     {   
         code = new string[Floor_Point.Length];
@@ -63,9 +63,11 @@ public class Elevator : MonoBehaviour
 
         for (int j = 1; j < Floor_Point.Length; j++)
         {
+
             for (int i = 0; i < 4; i++)
             {
-                code[j] += password[j * i].ToString();
+                int index = (j-1) * 4;
+                code[j] += password[index + i].ToString();  
             }
         }
     }
@@ -86,24 +88,21 @@ public class Elevator : MonoBehaviour
     public void MoveElevator(int floor)
     {
         if (its) return;
-        if (OnZombi || transform.position == Floor_Point[floor].position)
+        if (transform.position == Floor_Point[floor].position)
         {
             SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeyFailed);
+            return;
         }
 
         Floor = floor;
         Floor_text.text = (floor +1).ToString();
+
         keypad.code = code[floor];
 
 
         if (Locked[Floor])
         {
-         
-
-            Moving();
-            text.gameObject.SetActive(false);
-            Floor_text.color = Color.green;
-            SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeySucess);
+            Moving();  
         }
         else
         {
@@ -118,6 +117,7 @@ public class Elevator : MonoBehaviour
 
     public void lift()
     {
+        if (Locked[Floor]) return;
         Locked[Floor] = true;
         Floor_text.color = Color.green;
         text.color = Color.green;
@@ -130,6 +130,9 @@ public class Elevator : MonoBehaviour
         Player_YPoint.position = Player.transform.position;
         Player.transform.GetComponent<PlayerGravity>().GravityEnabled = false;
         animator.SetBool("Close", true);
+        text.gameObject.SetActive(false);
+        Floor_text.color = Color.green;
+        SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeySucess);
     }
 
     public void Start_Move()

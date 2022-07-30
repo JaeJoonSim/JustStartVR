@@ -1115,7 +1115,7 @@ GameObject:
   - component: {fileID: 1835031873}
   - component: {fileID: 1835031872}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: RE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1226,8 +1226,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3080867056707232956}
         m_TargetAssemblyTypeName: XR_MainMenu_MGR, Assembly-CSharp
-        m_MethodName: MainMenu
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3585,7 +3585,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7723711468905607898}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11844,7 +11844,7 @@ GameObject:
   - component: {fileID: 4800851017938133829}
   - component: {fileID: 6516173053599410402}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11864,7 +11864,7 @@ RectTransform:
   m_Children:
   - {fileID: 8556667844746413788}
   m_Father: {fileID: 7723711468905607898}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11962,7 +11962,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Map
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2932453013059647754
@@ -25408,8 +25408,8 @@ RectTransform:
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 8171064729764199509}
   - {fileID: 1930211047083578867}
+  - {fileID: 8171064729764199509}
   - {fileID: 1835031871}
   m_Father: {fileID: 7918582032593814910}
   m_RootOrder: 3
