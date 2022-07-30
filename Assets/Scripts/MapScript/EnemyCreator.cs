@@ -71,7 +71,7 @@ public class EnemyCreator : MonoBehaviour
 
         newObj = Instantiate(m_EnemyObj[random], m_Parent);
         newObj.transform.Rotate(new Vector3(0, isTongue ? 0 : angle, 0));
-        newObj.transform.localPosition = new Vector3(x * 2, isTongue ? m_roomCreator.m_Y + 2.4f : m_roomCreator.m_Y + 1f, z * 2);
+        newObj.transform.localPosition = new Vector3(x * 2, isTongue ? m_roomCreator.m_Y + 3.468f : m_roomCreator.m_Y + 1f, z * 2);
         newObj.transform.SetParent(m_Parent.root.GetChild(0).transform);
 
     }

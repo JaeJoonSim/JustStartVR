@@ -86,7 +86,7 @@ public class Spawn_Item : MonoBehaviour
                 {
                     Instantiate(Item[item], Point.position,
                         Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)),
-                        this.transform.parent);
+                        this.transform);
                 }
             }
             SpawnCount--;

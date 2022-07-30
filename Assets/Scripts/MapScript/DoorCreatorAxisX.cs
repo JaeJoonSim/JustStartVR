@@ -35,6 +35,6 @@ public class DoorCreatorAxisX : MonoBehaviour
             }
         }
         GameObject tile = this.transform.GetChild(index).gameObject;
-        GameObject newObj = Instantiate(m_DoorObj[type], tile.transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(new Vector3(0, 90, 0)), this.transform);
+        GameObject newObj = Instantiate(m_DoorObj[type], tile.transform.position + new Vector3(1.0f, 0.5f, 0), Quaternion.Euler(new Vector3(0, 90, 0)), this.transform);
     }
 }
