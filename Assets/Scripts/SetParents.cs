@@ -17,6 +17,18 @@ public class SetParents : MonoBehaviour
             
     }
 
+    public void ActiveGripTrue(GameObject grip)
+    {
+        if(grip.activeSelf == false)
+            grip.SetActive(true);
+    }
+
+    public void ActiveGripFalse(GameObject grip)
+    {
+        if(grip.activeSelf == true)
+            grip.SetActive(false);
+    }
+
     //private void OnCollisionEnter(Collision collision)
     //{
     //    if (m_parent == null &&
