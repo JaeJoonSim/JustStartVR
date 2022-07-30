@@ -15,7 +15,7 @@ public class SpeedZombieTraceState : EnemyBaseState
         mgr.NavStop(false);
         if (mgr.TraceStart == false)
         {
-            Collider[] closeZombies = Physics.OverlapSphere(mgr.transform.position, 3, 1<<16);
+            Collider[] closeZombies = Physics.OverlapSphere(mgr.transform.position, 5, 1<<16);
             for (int i = 0; i < closeZombies.Length; ++i)
             {
 
