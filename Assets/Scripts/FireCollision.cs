@@ -52,7 +52,7 @@ public class FireCollision : MonoBehaviour
                     {
 
                         temp.isBurning = true;
-                        temp.Damaged(10);
+                        temp.Damaged(30);
 
                     }
                 }
