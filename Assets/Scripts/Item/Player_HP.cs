@@ -61,6 +61,8 @@ public class Player_HP : MonoBehaviour
     {
         if (isDead == true) return;
 
+        if (HP >= Set_HP) return;
+        
         HP += Val;
         Show_UI();
 
@@ -77,6 +79,7 @@ public class Player_HP : MonoBehaviour
             isDead = true;
             GameOver();
         }
+
     }
 }
 
