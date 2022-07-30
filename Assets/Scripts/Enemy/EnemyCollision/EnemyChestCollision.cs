@@ -16,7 +16,7 @@ public class EnemyChestCollision : EnemyBaseCollision
                 damage = 1f;
                 break;
             case 3:
-                damage = 0.5f;
+                damage = 0.3f;
                 break;
             case 4:
                 damage = 0.5f;

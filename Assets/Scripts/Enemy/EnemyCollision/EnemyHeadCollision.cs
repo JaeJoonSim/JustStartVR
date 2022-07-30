@@ -15,7 +15,7 @@ public class EnemyHeadCollision : EnemyBaseCollision
                 damage = 2f;
                 break;
             case 3:
-                damage = 1f;
+                damage = 0.3f;
                 break;
             case 4:
                 damage = 0f;
