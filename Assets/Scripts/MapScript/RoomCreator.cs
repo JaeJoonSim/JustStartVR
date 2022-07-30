@@ -86,7 +86,7 @@ public class RoomCreator : MonoBehaviour
                 for (int j = 0; j < m_RoomCountZ; j++)
                 {
                     random2 = Random.Range(0, roomCount - 1);
-                    if (random2 == 0 && m_keyCardRoom.x == -1)
+                    if ((random2 == 0 && m_keyCardRoom.x == -1) && (i != 1 && j != 1))
                     {
                         m_keyCardRoom.x = i;
                         m_keyCardRoom.y = j;
