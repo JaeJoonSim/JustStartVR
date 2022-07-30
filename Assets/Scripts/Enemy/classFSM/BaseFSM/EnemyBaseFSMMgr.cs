@@ -93,7 +93,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         ResetAllTriggers();
 
         agent.speed = Status.Speed;
-        
+        InvokeRepeating("DistanceCheck", 1f, 1f);
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject G in gameObjects)
         {
@@ -115,30 +115,26 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     protected void Update()
     {
-        InvokeRepeating("DistanceCheck", 0f, 1f);
+        
         if (distanceCheck)
         {  
             if (currentState != null)
                 currentState.Update(this);
         }
 
-        if (isBurning && !IsInvoking("offBurning"))
-        {
-            Invoke("offBurning", 0.5f);
-        }
+       
     }
 
-    private void offBurning()
-    {
-        Debug.Log("off");
-        isBurning = false;
-    }
 
     private void DistanceCheck()
     {
         distanceCheck = (CalcTargetDistance() > renderingDistance) ? false : true;
         ragdoll.SetActive(distanceCheck);
         rendering.SetActive(distanceCheck);
+        if (isBurning)
+        {
+            isBurning = false;
+        }
     }
 
     private void ResetAllTriggers()
@@ -179,17 +175,10 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     public void Die()
     {
-
         agent.enabled = false;
         anim.enabled = false;
         currentState = null;
-        StartCoroutine(DestroyObject());
-    }
-
-    IEnumerator DestroyObject()
-    {
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
+        Destroy(gameObject,5f);
     }
     public void ChangeState(EnemyBaseState state)
     {
