@@ -60,12 +60,14 @@ public class Player_HP : MonoBehaviour
     public void change_HP(float Val)
     {
         if (isDead == true) return;
-
-        if (Val > 0 &&  HP >= Set_HP) return;
         
         HP += Val;
         Show_UI();
-
+        if (HP >= Set_HP)
+        {
+            HP = Set_HP;
+            return;
+        }
         if (Val > 0) return;
 
         CenterEye_UI.Blood_Effect();
