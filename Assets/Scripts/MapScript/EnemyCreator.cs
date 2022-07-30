@@ -10,7 +10,7 @@ public class EnemyCreator : MonoBehaviour
     private int maxCount = 10;
     private RoomCreator m_roomCreator;
 
-    int maxSize;    
+    int maxSize;
 
     public void CreateEnemy(int max, bool[,] value, bool[,] value2, Transform parent, RoomCreator room)
     {
@@ -71,8 +71,8 @@ public class EnemyCreator : MonoBehaviour
 
         newObj = Instantiate(m_EnemyObj[random], m_Parent);
         newObj.transform.Rotate(new Vector3(0, isTongue ? 0 : angle, 0));
-        newObj.transform.localPosition = new Vector3(x * 2, isTongue ? m_roomCreator.m_Y + 2.4f : m_roomCreator.m_Y+1f , z * 2);
-        //newObj.transform.SetParent(m_Parent.root.GetChild(0).transform);
-        
+        newObj.transform.localPosition = new Vector3(x * 2, isTongue ? m_roomCreator.m_Y + 2.4f : m_roomCreator.m_Y + 1f, z * 2);
+        newObj.transform.SetParent(m_Parent.root.GetChild(0).transform);
+
     }
 }
