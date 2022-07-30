@@ -202,7 +202,7 @@ public class ObjectCreator : MonoBehaviour
         max = 4 - roomCreator.m_hintCount;
 
         int random = Random.Range(0, max);
-        if (count == 29 && roomCreator.m_hintCount < 4 && random <= 2)
+        if ((roomCreator.m_hintCount < 4 && random <= 2) && type != 11)
         {
             type = 10;
             roomCreator.m_hintCount++;
