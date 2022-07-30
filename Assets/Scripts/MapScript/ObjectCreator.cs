@@ -216,6 +216,12 @@ public class ObjectCreator : MonoBehaviour
             _y = 0.01f;
         }
         newObj.transform.localPosition = new Vector3(x, roomCreator.m_Y + y + _y, z);
+
+        if(type == 11)
+        {
+            newObj.transform.parent = null;
+        }
+
         newObj.SetActive(true);
 
     }

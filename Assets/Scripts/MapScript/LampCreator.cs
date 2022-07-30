@@ -13,7 +13,8 @@ public class LampCreator : MonoBehaviour
 
         if(m_roomCreator.m_Y == 60)
         {
-            m_clickSwitch = GameObject.Find("Light Control Panel").GetComponent<ClickSwitch>();
+            newObj = GameObject.Find("Light Control Panel(Clone)");
+            m_clickSwitch = newObj.GetComponentInChildren<ClickSwitch>();
         }
 
         for(int i = 0; i < m_roomCreator.m_MaxCount; i++)
