@@ -11,12 +11,15 @@ public class ObjectCreator : MonoBehaviour
     private int maxCount = 30 + markCount;
     int count = 0;
 
+    bool hint;
+
     int maxSize;
 
     int roomType;
 
     public void initTile(int max, bool[,] value, RoomCreator room, Transform parent, int roomx, int roomy, int _roomType)
     {
+        hint = false;
         roomType = _roomType;
         roomCreator = room;
         maxSize = max;
@@ -202,8 +205,9 @@ public class ObjectCreator : MonoBehaviour
         max = 4 - roomCreator.m_hintCount;
 
         int random = Random.Range(0, max);
-        if ((roomCreator.m_hintCount < 4 && random <= 2) && type != 11)
+        if ((!hint && roomCreator.m_hintCount < 4 && random <= 2) && type != 11)
         {
+            hint = true;
             type = 10;
             roomCreator.m_hintCount++;
         }
