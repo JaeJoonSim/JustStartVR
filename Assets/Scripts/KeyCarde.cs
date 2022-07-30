@@ -20,9 +20,7 @@ public class KeyCarde : MonoBehaviour
         switch (posy)
         {
             case 20.0f:
-                CardType = Card.First;
-                Cardname.text = "First";
-                material.color = new Color(100 / 255.0f, 100 / 255.0f, 255 / 255.0f);
+                Destroy(this.gameObject);
                 break;
             case 40.0f:
                 CardType = Card.Second;

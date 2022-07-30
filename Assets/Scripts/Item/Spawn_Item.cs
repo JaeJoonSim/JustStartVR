@@ -48,25 +48,25 @@ public class Spawn_Item : MonoBehaviour
     }
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        //Player = GameObject.FindGameObjectWithTag("Player");
 
 
-        spawn = gameObject.name == "table(withitem)" ? true : false;
-        if (gameObject.name == "table(withitem)")
-        {
-            spawn = true;
-
-        }
-        else
-            spawn = false;
+        //spawn = gameObject.name == "table(withitem)" ? true : false;
+        //if (gameObject.name == "table(withitem)")
+        //{
+        //    spawn = true;
+        //
+        //}
+        //else
+        //    spawn = false;
 
         Setitem();
     }
     private void Update()
     {
-        float Distance = Vector3.Distance(transform.position, Player.transform.position);
+        //float Distance = Vector3.Distance(transform.position, Player.transform.position);
 
-        if(Distance< Set_Distance)
+        if(true)
         {
             item_spawn();
         }
@@ -86,7 +86,7 @@ public class Spawn_Item : MonoBehaviour
                 {
                     Instantiate(Item[item], Point.position,
                         Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)),
-                        this.transform.parent);
+                        this.transform);
                 }
             }
             SpawnCount--;
