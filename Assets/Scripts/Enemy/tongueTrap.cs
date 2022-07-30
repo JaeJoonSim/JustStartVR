@@ -25,6 +25,18 @@ public class tongueTrap : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         characterController = target.GetComponent<CharacterController>();
+
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject G in gameObjects)
+        {
+            CharacterController P = G.GetComponent<CharacterController>();
+            if (P != null)
+            {
+                target = G.transform;
+                characterController = P;
+
+            }
+        }
     }
 
     // Update is called once per frame
