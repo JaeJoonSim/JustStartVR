@@ -42,7 +42,7 @@ public class SetPassWord : MonoBehaviour
         {
             if(manager.count != i)
             {
-                text.text = "?";
+                text.text += "*";
             }
             else
             {
