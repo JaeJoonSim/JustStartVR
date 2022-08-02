@@ -27,7 +27,7 @@ public class SetPassWord : MonoBehaviour
     {
         playertablet = GameObject.Find("Player Tablet").GetComponent<PlayerTablet>();
 
-        manager = GameObject.Find("Elevator 1").transform.GetChild(1).gameObject.GetComponent<PassWordManager>();
+        manager = GameObject.Find("Elevator 1").GetComponentInChildren<PassWordManager>();
 
         
 

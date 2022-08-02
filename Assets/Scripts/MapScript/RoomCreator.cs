@@ -186,7 +186,7 @@ public class RoomCreator : MonoBehaviour
         
         if(!isCardRoom(x, z))
         {
-            enemy.CreateEnemy(m_RoomSize, m_TileisEmpty, room.m_Object, m_GroupOBJ[x, z].transform, this);
+            enemy.CreateEnemy(m_RoomSize, m_TileisEmpty, room.m_Object, m_GroupOBJ[x, z].transform, this, x, z);
         }
     }
 

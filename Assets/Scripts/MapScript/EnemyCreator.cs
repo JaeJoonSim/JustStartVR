@@ -10,9 +10,12 @@ public class EnemyCreator : MonoBehaviour
     private int maxCount = 10;
     private RoomCreator m_roomCreator;
 
+    private int RoomCountX;
+    private int RoomCountZ;
+
     int maxSize;
 
-    public void CreateEnemy(int max, bool[,] value, bool[,] value2, Transform parent, RoomCreator room)
+    public void CreateEnemy(int max, bool[,] value, bool[,] value2, Transform parent, RoomCreator room, int _x, int _z)
     {
         m_Parent = parent;
         maxSize = max;
@@ -23,6 +26,9 @@ public class EnemyCreator : MonoBehaviour
 
         m_TileisEmpty = value;
         m_Object = value2;
+
+        RoomCountX = _x;
+        RoomCountZ = _z;
 
 
         m_EnemyObj = new GameObject[4];
@@ -65,9 +71,11 @@ public class EnemyCreator : MonoBehaviour
 
         float angle = Random.Range(0, 360);
 
-        newObj = Instantiate(m_EnemyObj[random], m_Parent);
-        newObj.transform.Rotate(new Vector3(0, isTongue ? 0 : angle, 0));
-        newObj.transform.localPosition = new Vector3(x * 2, isTongue ? m_roomCreator.m_Y + 3.468f : m_roomCreator.m_Y + 1f, z * 2);
+        const int mapinterval = 19;
+
+        newObj = Instantiate(m_EnemyObj[random],
+            new Vector3((x + mapinterval * RoomCountX) * 2, isTongue ? m_roomCreator.m_Y + 3.468f : m_roomCreator.m_Y + 1f, (z + mapinterval * RoomCountZ) * 2)
+            , Quaternion.Euler(0, isTongue ? 0 : angle, 0), m_Parent);        
         newObj.transform.SetParent(m_Parent.root.GetChild(0).transform);
 
     }
