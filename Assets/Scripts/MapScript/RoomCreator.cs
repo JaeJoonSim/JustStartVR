@@ -170,12 +170,6 @@ public class RoomCreator : MonoBehaviour
             parent.tag = "keycardroom";
         }
 
-        //for(int i = 0;  i< 16; i++)
-        //{
-        //    Debug.Log(i + " " + i % 4);
-        //}
-
-
         m_GroupOBJ[x, z] = new GameObject(name);
         m_GroupOBJ[x, z].transform.parent = parent.transform;
         m_GroupOBJ[x, z].transform.localPosition =

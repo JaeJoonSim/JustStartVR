@@ -20,25 +20,24 @@ public class SetPassWord : MonoBehaviour
 
     public void inputPassWord()
     {
-        playertablet.inputPassWord(password, curIndex);
+        playertablet.inputPassWord(password, curIndex, floor);
     }
 
     void Start()
     {
         playertablet = GameObject.Find("Player Tablet").GetComponent<PlayerTablet>();
-        manager = GameObject.Find("Elevator").GetComponent<PassWordManager>();
+
+        manager = GameObject.Find("Elevator 1").transform.GetChild(1).gameObject.GetComponent<PassWordManager>();
 
         
 
-        floor = (int)this.transform.root.transform.position.y / 20;
-        password = manager.number[manager.count];
+        floor = (int)this.transform.position.y / 20;
+        password = manager.number[floor, manager.count];
         curIndex = manager.count;
 
-        int min = floor * 4;
-        int max = 4 + min;
 
 
-        for(int i = min; i < max; i++)
+        for(int i = 0; i < 4; i++)
         {
             if(manager.count != i)
             {
@@ -49,7 +48,10 @@ public class SetPassWord : MonoBehaviour
                 text.text += password.ToString();
             }
         }
-
-        manager.count++;
+                
+        if(++manager.count >= 4)
+        {
+            manager.count = 0;
+        }
     }
 }

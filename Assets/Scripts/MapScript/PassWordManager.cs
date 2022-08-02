@@ -3,18 +3,19 @@ using UnityEngine;
 public class PassWordManager : MonoBehaviour
 {
 
-    [SerializeField]
-    Elevator elevator;
     [HideInInspector]
-    public int[] number = new int[16];
+    public int[,] number = new int[4, 4];
     [HideInInspector]
     public int count = 0;
 
     void Awake()
     {        
-        for (int i = 0; i < 16; i++)
+        for(int floor = 0; floor < 4; floor ++)
         {
-            number[i] = Random.Range(0, 10);
+            for(int i = 0; i < 4; i++)
+            {
+                number[floor, i] = Random.Range(0, 10);
+            }
         }
     }
 }

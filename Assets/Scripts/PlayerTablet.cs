@@ -7,7 +7,6 @@ public class PlayerTablet : MonoBehaviour
     Text showText;
 
     string passwordText;
-    int index;
     int prevFloor;
 
     void Start()
@@ -23,11 +22,9 @@ public class PlayerTablet : MonoBehaviour
     }
 
 
-    public void inputPassWord(int password, int _index)
+    public void inputPassWord(int password, int _index, int floor)
     {
-        int curFloor = _index / 4;
-        
-        index = _index % 4;
+        int curFloor = floor;
 
         if(prevFloor < curFloor)
         {
@@ -35,7 +32,7 @@ public class PlayerTablet : MonoBehaviour
             prevFloor = curFloor;
         }
 
-        passwordText = passwordText.Remove(index, 1).Insert(index, password.ToString());
+        passwordText = passwordText.Remove(_index, 1).Insert(_index, password.ToString());
         showText.text = passwordText;
     }
 }

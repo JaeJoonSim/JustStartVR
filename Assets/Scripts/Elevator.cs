@@ -21,7 +21,7 @@ public class Elevator : MonoBehaviour
     [SerializeField]
     PassWordManager passwordmgr;
 
-    public int[] password = new int[16];
+    public int[,] password = new int[4, 4];
 
     bool[] Locked;
 
@@ -60,14 +60,11 @@ public class Elevator : MonoBehaviour
 
     private void initKeyCode(int number)
     {
-
         for (int j = 1; j < Floor_Point.Length; j++)
         {
-
             for (int i = 0; i < 4; i++)
             {
-                int index = (j-1) * 4;
-                code[j] += password[index + i].ToString();  
+                code[j] += password[j - 1, i].ToString();
             }
         }
     }
@@ -80,9 +77,12 @@ public class Elevator : MonoBehaviour
             Locked[i] = false;
         }
 
-        for(int i = 0; i < 16; i++)
+        for(int floor = 0; floor < 4; floor ++)
         {
-            password[i] = passwordmgr.number[i];
+            for (int i = 0; i < 4; i++)
+            {
+                password[floor, i] = passwordmgr.number[floor, i];
+            }
         }
     }
     public void MoveElevator(int floor)

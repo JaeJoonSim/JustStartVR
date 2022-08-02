@@ -41,7 +41,7 @@ public class ObjectCreator : MonoBehaviour
         }
 
         m_Obj = new GameObject[18];
-        m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet2");
+        m_Obj[0] = Resources.Load<GameObject>("Room/Cabinet1");
         m_Obj[1] = Resources.Load<GameObject>("Room/Cabinet2");
         m_Obj[2] = Resources.Load<GameObject>("Room/Shelf");
         m_Obj[3] = Resources.Load<GameObject>("Room/table");
