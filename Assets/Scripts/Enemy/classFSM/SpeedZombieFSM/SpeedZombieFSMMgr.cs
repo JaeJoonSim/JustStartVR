@@ -7,15 +7,18 @@ public class SpeedZombieFSMMgr : EnemyBaseFSMMgr
 {
     public GameObject attackCollider2;
 
-    private void Awake()
+    private new void Awake()
     {
+        
+
         IdleState = new SpeedZombieIdleState();
 
         TraceState = new SpeedZombieTraceState();
 
         AttackState = new SpeedZombieAttackState();
 
-        currentState = IdleState;
+        base.Awake();
+
     }
 
     public override void AttackColliderOn()

@@ -6,15 +6,18 @@ using UnityEngine.AI;
 public class LargeZombieFSMMgr : EnemyBaseFSMMgr
 {
 
-    private void Awake()
+    private new void Awake()
     {
+   
+
         IdleState = new LargeZombieIdleState();
 
         TraceState = new LargeZombieTraceState();
 
         AttackState = new LargeZombieAttackState();
 
-        currentState = IdleState;
+        base.Awake();
+
     }
 
 

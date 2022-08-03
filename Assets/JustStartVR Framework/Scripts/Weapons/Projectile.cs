@@ -87,6 +87,7 @@ namespace JustStartVR {
                 if (HitEnemyFXPrefab)
                 {
                     GameObject impact = Instantiate(HitEnemyFXPrefab, pos, rot) as GameObject;
+                    Destroy(impact, 5f);
                     BulletHole hole = impact.GetComponent<BulletHole>();
                     if (hole)
                     {

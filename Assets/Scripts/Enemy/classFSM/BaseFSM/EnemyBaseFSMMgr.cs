@@ -77,9 +77,13 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     [HideInInspector]
     public bool isBurning;
 
+    //업데이트 지연용
+    protected float timeCount;
+
+    protected GameObject standby;
 
 
-    protected void OnEnable()
+    protected void Awake()
     {
         renderingDistance = 30f;
         TraceStart = false;
@@ -87,13 +91,9 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         fow = GetComponent<FieldOfView>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
-
-        ChangeState(IdleState);
-        prevState = IdleState;
-        ResetAllTriggers();
-
         agent.speed = Status.Speed;
-        InvokeRepeating("DistanceCheck", 1f, 1f);
+        timeCount = 0;
+        currentState = prevState = IdleState;
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject G in gameObjects)
         {
@@ -101,67 +101,75 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             if (P != null)
             {
                 target = G.transform;
-               
-
             }
             Player_HP pH = G.GetComponent<Player_HP>();
             if (pH != null)
             {
                 isTargetDead = G.GetComponent<Player_HP>();
             }
-
         }
+
+        standby = Resources.Load<GameObject>("Enemy/standby");
+        
+
     }
 
     protected void Update()
     {
-        
-        if (distanceCheck)
-        {  
-            if (currentState != null)
-                currentState.Update(this);
+        timeCount += Time.deltaTime;
+
+        if (currentState != null)
+        {
+            currentState.Update(this);
+
         }
 
-       
-    }
 
 
-    private void DistanceCheck()
-    {
-        distanceCheck = (CalcTargetDistance() > renderingDistance) ? false : true;
-        ragdoll.SetActive(distanceCheck);
-        rendering.SetActive(distanceCheck);
-        if (isBurning)
+        if (timeCount > 1f)
         {
+            timeCount = 0;
             isBurning = false;
-        }
-    }
-
-    private void ResetAllTriggers()
-    {
-        foreach (var param in anim.parameters)
-        {
-            if (param.type == AnimatorControllerParameterType.Trigger)
+            
+            if (CalcTargetDistance() >= renderingDistance && IsAlive())
             {
-                anim.ResetTrigger(param.name);
+
+                standby.GetComponent<Standby>().zombie = Resources.Load<GameObject>("Enemy/"+gameObject.name.Substring(0, gameObject.name.IndexOf("(Clone)")));
+                Debug.Log("Enemy/" + gameObject.name.Substring(0, gameObject.name.IndexOf("(Clone)")));
+                standby = Instantiate(standby, transform.position, transform.rotation);
+                
+                Destroy(gameObject);
             }
         }
+
     }
+
+
+    //private void ResetAllTriggers()
+    //{
+    //    foreach (var param in anim.parameters)
+    //    {
+    //        if (param.type == AnimatorControllerParameterType.Trigger)
+    //        {
+    //            anim.ResetTrigger(param.name);
+    //        }
+    //    }
+    //}
     public void Damaged(float demage)
     {
         if (Status.Hp <= 0) return;
-            Status.Hp -= demage;
-        //print(Status.Hp);
+
+        Status.Hp -= demage;
+
         if (!IsAlive())
         {
-            if(this.transform.name == "zombie_Boss")
+            if (this.transform.name == "zombie_Boss")
             {
                 Instantiate(Resources.Load<GameObject>("Room/Key_Card"),
                     transform.position, Quaternion.identity, transform.root);
             }
-        
+
             Die();
-            //hitPoint.AddForce(BulletForword * 10f, ForceMode.VelocityChange);
         }
         else
         {
@@ -169,7 +177,6 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             {
                 ChangeState(TraceState);
             }
-
         }
     }
 
@@ -178,8 +185,9 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         agent.enabled = false;
         anim.enabled = false;
         currentState = null;
-        Destroy(gameObject,5f);
+        Destroy(gameObject, 5f);
     }
+
     public void ChangeState(EnemyBaseState state)
     {
         if (currentState != state)
@@ -188,18 +196,20 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             prevState = currentState;
             currentState = state;
             currentState.Begin(this);
-
         }
-
     }
+
+
     public float CalcTargetDistance()
     {
-        return (target.position - transform.position).magnitude;
+        return Vector3.Distance(target.position, transform.position);
     }
+
     public bool IsTarget()
     {
         return fow.FindVisibleTargets(this);
     }
+
     public bool CheckInAttackRange()
     {
         return ((CalcTargetDistance() < status.AttackRange) ? true : false);
@@ -209,26 +219,30 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     {
         return (status.Hp > 0) ? true : false;
     }
+
     public bool IsAliveTarget()
     {
         return !isTargetDead.isDead;
     }
-    public void MoveTarget() 
+
+    public void MoveTarget()
     {
         agent.speed = Status.Speed;
         agent.SetDestination(target.position);
     }
+
     public void SetAnimator(string trigger)
     {
         anim.SetTrigger(trigger);
     }
+
     public void NavStop(bool isStop)
     {
         agent.isStopped = isStop;
     }
 
     public virtual void AttackColliderOn()
-    {  
+    {
         attackCollider.SetActive(true);
     }
 }

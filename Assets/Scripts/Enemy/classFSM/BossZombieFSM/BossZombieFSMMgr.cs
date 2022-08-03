@@ -35,8 +35,10 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     //BossZombieFSMMgr Bmgr = mgr as BossZombieFSMMgr;
 
     public Transform grabPos;
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
+
         IdleState = new BossZombieIdleState();
 
         TraceState = new BossZombieTraceState();
@@ -51,25 +53,30 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
 
         AreaAttack = new BossZombieAreaAttackState();
 
-        currentState = IdleState;
-
-     
-    }
-    private  void Start()
-    {
-        //base.Awake();
-        base.OnEnable();
-       
-        currentState.Begin(this);
         renderingDistance = 50;
         bStatus = GetComponent<BossStatus>();
         attackCollision = false;
         bulletCollision = false;
-        characterController = target.GetComponent<CharacterController>();
+
     }
+
     private new void Update()
     {
-        base.Update();
+        timeCount += Time.deltaTime;
+
+        if (currentState != null)
+        {
+            currentState.Update(this);
+
+        }
+
+
+
+        if (isBurning && timeCount > 1f)
+        {
+            timeCount = 0;
+            isBurning = false;
+        }
 
         Cooldown += Time.deltaTime;
 
