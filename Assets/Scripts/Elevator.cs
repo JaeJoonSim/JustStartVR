@@ -122,6 +122,7 @@ public class Elevator : MonoBehaviour
         Floor_text.color = Color.green;
         text.color = Color.green;
         text.text = "해제되었습니다.";
+        MoveElevator(Floor);
     }
 
     void Moving()

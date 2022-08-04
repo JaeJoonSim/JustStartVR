@@ -20,19 +20,28 @@ public class RoomCreator : MonoBehaviour
     public int m_RoomCountZ;
     public int m_TileSize;
 
+    [HideInInspector]
     public bool m_Panel;
-    public int m_hintCount = 0;
+    [HideInInspector]
+    public int m_hintCount;
 
+    [HideInInspector]
     public bool[,] m_TileisEmpty;
+    [HideInInspector]
     public bool[,] m_WorldTileisEmpty;
 
     private Stack<Tile> m_tileStack = new Stack<Tile>();
 
+    [HideInInspector]
     public int m_mapinterval;
 
+    [HideInInspector]
     public int m_MaxCount;
+    [HideInInspector]
     public int m_MaxCount2;
 
+    [HideInInspector]
+    public int m_RoomCount;
 
     void Start()
     {
@@ -44,6 +53,8 @@ public class RoomCreator : MonoBehaviour
         m_MaxCount2 = m_mapinterval * m_RoomCountZ;
 
         m_WorldTileisEmpty = new bool[m_MaxCount, m_MaxCount2];
+
+        m_hintCount = 4;
 
         m_keyCardRoom.x = -1;
         m_keyCardRoom.y = -1;
@@ -67,6 +78,7 @@ public class RoomCreator : MonoBehaviour
 
         if(roomCount <= 4)
         {
+            m_RoomCount = 4;
             for (int i = 0; i < m_RoomCountX; i++)
             {
                 value = 1;
@@ -80,6 +92,7 @@ public class RoomCreator : MonoBehaviour
         }
         else if(roomCount == 6)
         {
+            m_RoomCount = 5;
             for (int i = 0; i < m_RoomCountX; i++)
             {
                 value = 1;
@@ -102,6 +115,7 @@ public class RoomCreator : MonoBehaviour
         }
         else
         {
+            m_RoomCount = 6;
             for (int i = 0; i < m_RoomCountX; i++)
             {
                 value = 2;
@@ -188,6 +202,8 @@ public class RoomCreator : MonoBehaviour
         {
             enemy.CreateEnemy(m_RoomSize, m_TileisEmpty, room.m_Object, m_GroupOBJ[x, z].transform, this, x, z);
         }
+
+        m_RoomCount--;
     }
 
     private void TileCreator(GameObject parent)
