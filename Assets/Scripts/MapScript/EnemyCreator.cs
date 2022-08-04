@@ -75,7 +75,7 @@ public class EnemyCreator : MonoBehaviour
 
         newObj = Instantiate(m_EnemyObj[random],
             new Vector3((x + mapinterval * RoomCountX) * 2, isTongue ? m_roomCreator.m_Y + 3.468f : m_roomCreator.m_Y + 1f, (z + mapinterval * RoomCountZ) * 2)
-            , Quaternion.Euler(0, isTongue ? 0 : angle, 0), m_Parent);        
+            , Quaternion.Euler(isTongue ? 180 : 0, isTongue ? 0 : angle, 0), m_Parent);        
         newObj.transform.SetParent(m_Parent.root.GetChild(0).transform);
 
     }
