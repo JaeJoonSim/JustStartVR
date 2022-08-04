@@ -90,7 +90,7 @@ namespace JustStartVR
             }
             else if (keyPadButton.Key == '+')
             {
-                if (code == Entry)
+               // if (code == Entry)
                 {
                     Unlocked.Invoke();
                 }
