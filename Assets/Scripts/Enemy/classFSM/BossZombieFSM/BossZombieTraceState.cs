@@ -58,13 +58,13 @@ public class BossZombieTraceState : EnemyBaseState
             //현재 위치 저장
             mgr.attackPosition = mgr.transform.position;
 
-            int randomAttack = Random.Range(0, 3);
+            int randomAttack = Random.Range(0, 4);
 
             //randomAttack = 1;
             switch (randomAttack)
             {
                 case 0:
-                    if (Bmgr.CalcTargetDistance() > 5f && Bmgr.IsTarget())
+                    if (Bmgr.IsTarget())
                     {
                         mgr.ChangeState(Bmgr.DeshState);
                         mgr.SetAnimator("MoveToDesh");
@@ -82,6 +82,14 @@ public class BossZombieTraceState : EnemyBaseState
                     if (Bmgr.IsTarget())
                     {
                         mgr.ChangeState(Bmgr.AreaAttack);
+                        return;
+                    }
+                    break;
+                case 3:
+                    if (Bmgr.IsTarget())
+                    {
+                        mgr.ChangeState(Bmgr.DeshState);
+                        mgr.SetAnimator("MoveToDesh");
                         return;
                     }
                     break;

@@ -11,7 +11,7 @@ public class EnemyBlisterCollision : MonoBehaviour
         FSM = GetComponentInParent<EnemyBaseFSMMgr>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "bullet" || other.gameObject.tag == "Melee")
         {
