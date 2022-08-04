@@ -19,9 +19,9 @@ public class EnemyDeshCollider : MonoBehaviour
       
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.gameObject.tag == "Player")
         {
             other.transform.GetComponent<Player_HP>().change_HP(-FSM.BStatus.DeshAtk);

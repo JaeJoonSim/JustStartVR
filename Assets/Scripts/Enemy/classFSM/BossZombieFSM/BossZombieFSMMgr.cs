@@ -37,7 +37,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     public Transform grabPos;
     private new void Awake()
     {
-        base.Awake();
+        
 
         IdleState = new BossZombieIdleState();
 
@@ -52,11 +52,12 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         StunState = new BossZombieStunState();
 
         AreaAttack = new BossZombieAreaAttackState();
-
+        base.Awake();
         renderingDistance = 50;
         bStatus = GetComponent<BossStatus>();
         attackCollision = false;
         bulletCollision = false;
+        characterController = target.GetComponent<CharacterController>();
 
     }
 
