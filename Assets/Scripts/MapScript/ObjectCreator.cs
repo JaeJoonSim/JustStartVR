@@ -67,6 +67,18 @@ public class ObjectCreator : MonoBehaviour
 
         int dir = -1;
 
+        int random = Random.Range(0, 5);
+        if (roomCreator.m_hintCount == roomCreator.m_RoomCount)
+        {
+            random = 0;
+        }
+
+        if ((roomCreator.m_hintCount > 0 && random == 0))
+        {
+            hint = true;
+            roomCreator.m_hintCount--;
+        }
+
         while (count < maxCount)
         {
             dir = -1;
@@ -202,14 +214,16 @@ public class ObjectCreator : MonoBehaviour
 
         GameObject newObj;
 
-        max = 4 - roomCreator.m_hintCount;
-
-        int random = Random.Range(0, max);
-        if ((!hint && roomCreator.m_hintCount < 4 && random <= 2) && type != 11)
+        int random = Random.Range(0, 100);
+        if (roomCreator.m_hintCount == roomCreator.m_RoomCount)
         {
-            hint = true;
+            random = 0;
+        }
+        
+        if (hint && dir == -1)
+        {
+            hint = false;
             type = 10;
-            roomCreator.m_hintCount++;
         }
 
         newObj = Instantiate(m_Obj[type], parent);
