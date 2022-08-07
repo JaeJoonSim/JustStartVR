@@ -19,6 +19,4 @@ public class LargeZombieFSMMgr : EnemyBaseFSMMgr
         base.Awake();
 
     }
-
-
 }
