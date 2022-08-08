@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 1, g: 1, b: 1, a: 1}
   m_FogMode: 2
-  m_FogDensity: 0.3
+  m_FogDensity: 0
   m_LinearFogStart: 5.81
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -2130,26 +2130,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45c14b31ab5f1914da2235e6286c0d0b, type: 3}
---- !u!1 &1322736512 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3640449401461947631, guid: 3c226bb896541e941aef6d3158979559, type: 3}
-  m_PrefabInstance: {fileID: 3640449400477280111}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1322736518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322736512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d339b31e067172149b49f686629cfa01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ani: {fileID: 0}
-  Scene_Name: MainMenu
-  optionMenu: {fileID: 0}
 --- !u!1 &1396649701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2992,10 +2972,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3640449400861999619, guid: 3c226bb896541e941aef6d3158979559, type: 3}
-      propertyPath: Credit
-      value: 
-      objectReference: {fileID: 1322736512}
     - target: {fileID: 3640449400861999620, guid: 3c226bb896541e941aef6d3158979559, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -3010,7 +2986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3640449400861999620, guid: 3c226bb896541e941aef6d3158979559, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 6.78
       objectReference: {fileID: 0}
     - target: {fileID: 3640449400861999620, guid: 3c226bb896541e941aef6d3158979559, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3043,18 +3019,6 @@ PrefabInstance:
     - target: {fileID: 3640449400861999624, guid: 3c226bb896541e941aef6d3158979559, type: 3}
       propertyPath: m_Name
       value: Game_Clear
-      objectReference: {fileID: 0}
-    - target: {fileID: 3640449400861999624, guid: 3c226bb896541e941aef6d3158979559, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3640449401461947631, guid: 3c226bb896541e941aef6d3158979559, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3640449402177612236, guid: 3c226bb896541e941aef6d3158979559, type: 3}
-      propertyPath: m_Text
-      value: "\uAE40\uC9C4\uC218\n\n\n\uCD5C\uC0C1\uBB35\n\n\n\uAE40\uC9C4\uC218\n\uBC15\uC9C4\n\uC2EC\uC7AC\uC900\n\uC784\uB3D9\uD604\n\n\n\uAC15\uB098\uB984\n\uAE40\uC885\uC724\n\uD64D\uC601\uC900"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c226bb896541e941aef6d3158979559, type: 3}
