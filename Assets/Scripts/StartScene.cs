@@ -7,6 +7,6 @@ public class StartScene : MonoBehaviour
 {
     private void Awake()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(1);
     }
 }
