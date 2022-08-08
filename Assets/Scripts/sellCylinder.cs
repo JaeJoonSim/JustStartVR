@@ -25,6 +25,7 @@ public class sellCylinder : MonoBehaviour
         if (Destruction) return;
         Destruction = true;
         Destroy(OriginalOBJ);
+        Destroy(gameObject,3f);
         copy = Instantiate(SellOBJ, transform.position, Quaternion.identity, this.transform.parent);
 
         Invoke("elimination", 5f);

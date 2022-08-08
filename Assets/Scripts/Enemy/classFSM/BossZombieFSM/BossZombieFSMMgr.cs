@@ -100,7 +100,7 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     
     public void MoveFront()
     {
-        agent.speed = 4f;
+        agent.speed = 6f;
         agent.SetDestination(transform.position + transform.forward);
     }
     public void DeshColliderOn()

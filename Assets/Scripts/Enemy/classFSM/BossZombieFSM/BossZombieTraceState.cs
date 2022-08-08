@@ -97,7 +97,8 @@ public class BossZombieTraceState : EnemyBaseState
                     break;
             }
 
-            return;
+            mgr.MoveTarget();
+
         }
         //타겟이 공격범위 안에 들어오면 
         else if (mgr.CheckInAttackRange())
@@ -113,9 +114,7 @@ public class BossZombieTraceState : EnemyBaseState
         }
         else
         {
-            mgr.MoveTarget();
-
-         
+            mgr.MoveTarget();     
         }
 
  
