@@ -18,7 +18,7 @@ public class EnemyRegCollision : EnemyBaseCollision
                 damage = 0.3f;
                 break;
             case 4:
-                damage = 1.0f;
+                damage = 0.5f;
                 break;
             default:
                 damage = 1;

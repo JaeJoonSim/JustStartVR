@@ -18,7 +18,7 @@ public class EnemyArmCollision : EnemyBaseCollision
                 damage = 0.3f;
                 break;
             case 4:
-                damage = 0.5f;
+                damage = 0.3f;
                 break;
             default:
                 damage = 1;
