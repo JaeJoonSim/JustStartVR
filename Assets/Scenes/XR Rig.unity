@@ -343,7 +343,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2637595607862272582, guid: 74e644fc19d96b14ca7a2266afc0b438, type: 3}
       propertyPath: m_Name
-      value: zombie_Blister
+      value: zombie_Blister(Clone)
       objectReference: {fileID: 0}
     - target: {fileID: 3445622702179793148, guid: 74e644fc19d96b14ca7a2266afc0b438, type: 3}
       propertyPath: m_RootOrder
@@ -455,6 +455,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6847492064012046685, guid: ff9b677a99e231749b810bf160af864c, type: 3}
+      propertyPath: m_Name
+      value: zombie_S(Clone)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff9b677a99e231749b810bf160af864c, type: 3}
 --- !u!4 &386288565 stripped
@@ -534,6 +538,10 @@ PrefabInstance:
     - target: {fileID: 5838973361032384569, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504292947452594819, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
+      propertyPath: m_Name
+      value: zombie_L(Clone)
       objectReference: {fileID: 0}
     - target: {fileID: 8362719105163706053, guid: 8d35f4160b0f1b2459d96ce14ca977c5, type: 3}
       propertyPath: m_RootOrder
@@ -956,7 +964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6847492064012046685, guid: ff9b677a99e231749b810bf160af864c, type: 3}
       propertyPath: m_Name
-      value: zombie_S (1)
+      value: zombie_S(Clone)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff9b677a99e231749b810bf160af864c, type: 3}
@@ -1312,6 +1320,10 @@ PrefabInstance:
       value: XR Rig
       objectReference: {fileID: 0}
     - target: {fileID: 7918582032590417048, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136004075240445530, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}

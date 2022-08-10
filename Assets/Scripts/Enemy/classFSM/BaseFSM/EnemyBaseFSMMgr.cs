@@ -133,10 +133,11 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             
             if (CalcTargetDistance() >= renderingDistance && IsAlive())
             {
+                //Debug.Log("Enemy/" + gameObject.name.Substring(0, gameObject.name.IndexOf("(Clone)")));
 
                 standby.GetComponent<Standby>().zombie = Resources.Load<GameObject>("Enemy/"+gameObject.name.Substring(0, gameObject.name.IndexOf("(Clone)")));
-                Debug.Log("Enemy/" + gameObject.name.Substring(0, gameObject.name.IndexOf("(Clone)")));
-                standby = Instantiate(standby, transform.position, transform.rotation);
+                
+                standby = Instantiate(standby, transform.position, transform.rotation, gameObject.transform.parent);
                 
                 Destroy(gameObject);
             }

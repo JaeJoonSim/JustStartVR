@@ -30,7 +30,7 @@ public class Standby : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, target.position) < 30f)
             {
-                Instantiate(zombie, transform.position, transform.rotation);
+                Instantiate(zombie, transform.position, transform.rotation, gameObject.transform.parent);
                 Destroy(gameObject);
             }
         }
