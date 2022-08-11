@@ -199,13 +199,13 @@ public class ObjectCreator : MonoBehaviour
             CountingMark++;
         }
 
-        if (type == 3 && isCardRoom == true)
+        if (type == 3 && isCardRoom == true )
         {
             type = 9;
         }
 
         float _y = 0.0f;
-        if (roomCreator.m_Panel == false && dir == -1)
+        if (roomCreator.m_Panel == false && dir == -1 && hint == false)
         {
             roomCreator.m_Panel = true;
             type = 11;

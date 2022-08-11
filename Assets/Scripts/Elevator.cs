@@ -146,7 +146,7 @@ public class Elevator : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Debug.Log("OnZombi" + OnZombi);
+            //Debug.Log("OnZombi" + OnZombi);
             OnZombi = true;
         }
     }
@@ -154,7 +154,7 @@ public class Elevator : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Debug.Log("OnZombi" + OnZombi);
+            //Debug.Log("OnZombi" + OnZombi);
             OnZombi = false;
         }
     }
@@ -184,7 +184,13 @@ public class Elevator : MonoBehaviour
         if(Floor== 3)
         {
             floor3 = true;
+
+            GameObject Obj = GameObject.Find("Light Control Panel(Clone)");
+            ClickSwitch clickSwitch = Obj.GetComponentInChildren<ClickSwitch>();
+            clickSwitch.OffLight();
+
             GameObject.FindGameObjectWithTag("subtitle").GetComponent<subtitle>().ShowText(7);
+
         }
     }
 

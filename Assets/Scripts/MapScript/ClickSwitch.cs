@@ -22,6 +22,29 @@ public class ClickSwitch : MonoBehaviour
         m_lampList.Add(add);
     }
 
+    bool onoff = true;
+    float time = 0.5f;
+    public void OffLight()
+    {
+        SoundManager.m_instance.PlaySound(new Vector3(50, 60, 52), SoundManager.SoundType.neon);
+        for(int i = 0; i < 15; i++)
+        {
+            time += 0.1f;
+            StartCoroutine(blink());
+        }
+    }
+
+    IEnumerator blink()
+    {
+        yield return new WaitForSeconds(time);
+
+        onoff = !onoff ? true : false;
+        for (int i = 0; i < m_lampList.Count; i++)
+        {
+            m_lampList[i].LampOn(onoff);
+        }
+    }
+
 
     public void KickSwitch()
     {
