@@ -80,7 +80,7 @@ namespace JustStartVR
             if (keyPadButton.Key == '<')
             {
                 if (Entry.Length > 0)
-                {
+                {  
                     Entry = Entry.Substring(0, Entry.Length - 1);
                 }
                 else
@@ -91,7 +91,7 @@ namespace JustStartVR
             else if (keyPadButton.Key == '+')
             {
                 if (code == Entry)
-                {
+                {       
                     Unlocked.Invoke();
                 }
                 Set_Entry();

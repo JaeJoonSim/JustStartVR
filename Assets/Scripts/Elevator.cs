@@ -183,15 +183,15 @@ public class Elevator : MonoBehaviour
         if (floor3)yield return null;
         if(Floor== 3)
         {
-            floor3 = true;
+            if(floor3 == false)
+            {
+                GameObject Obj = GameObject.Find("Light Control Panel(Clone)");
+                ClickSwitch clickSwitch = Obj.GetComponentInChildren<ClickSwitch>();
+                clickSwitch.OffLight();
 
-            GameObject Obj = GameObject.Find("Light Control Panel(Clone)");
-            ClickSwitch clickSwitch = Obj.GetComponentInChildren<ClickSwitch>();
-            clickSwitch.OffLight();
-
-            GameObject.FindGameObjectWithTag("subtitle").GetComponent<subtitle>().ShowText(7);
-
+                GameObject.FindGameObjectWithTag("subtitle").GetComponent<subtitle>().ShowText(7);
+                floor3 = true;
+            }
         }
     }
-
 }

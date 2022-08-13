@@ -27,7 +27,11 @@ public class ClickSwitch : MonoBehaviour
     public void OffLight()
     {
         SoundManager.m_instance.PlaySound(new Vector3(50, 60, 52), SoundManager.SoundType.neon);
-        for(int i = 0; i < 15; i++)
+
+        int blinkCount = 15;
+        if (m_lampList.Count == 1) blinkCount = 16;
+
+        for (int i = 0; i < blinkCount; i++)
         {
             time += 0.1f;
             StartCoroutine(blink());
@@ -38,6 +42,7 @@ public class ClickSwitch : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
+        
         onoff = !onoff ? true : false;
         for (int i = 0; i < m_lampList.Count; i++)
         {
@@ -58,10 +63,7 @@ public class ClickSwitch : MonoBehaviour
                 elevator.setSpeed(1.0f);
             }
 
-            for(int i = 0; i < m_lampList.Count; i++)
-            {                
-                m_lampList[i].LampOn(m_isWorking);
-            }
+            OffLight();
         }
     }
 }
