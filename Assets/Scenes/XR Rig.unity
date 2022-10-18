@@ -598,6 +598,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 659cfeb27d875224a84af323c5211544, type: 3}
+--- !u!4 &646924883 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8674538323239722860, guid: 9f075218f6c9b4b4db1a235098b608cf, type: 3}
+  m_PrefabInstance: {fileID: 1738364993129191922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &687340105
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,6 +2671,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1562929503365452919, guid: 9f075218f6c9b4b4db1a235098b608cf, type: 3}
+      propertyPath: TriggerTransform
+      value: 
+      objectReference: {fileID: 646924883}
     - target: {fileID: 1562929503365452927, guid: 9f075218f6c9b4b4db1a235098b608cf, type: 3}
       propertyPath: m_Name
       value: M_AK74M_Rifle
