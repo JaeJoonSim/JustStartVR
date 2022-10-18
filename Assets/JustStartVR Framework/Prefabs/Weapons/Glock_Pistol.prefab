@@ -3980,7 +3980,7 @@ MonoBehaviour:
   MaxRange: 25
   Damage: 25
   FiringMethod: 0
-  ReloadMethod: 1
+  ReloadMethod: 0
   FiringRate: 0.05
   BulletImpactForce: 1000
   InternalAmmo: 0
@@ -4015,7 +4015,7 @@ MonoBehaviour:
   EjectInput: 04000000
   ReleaseSlideInput: 02000000
   ReloadInput: 04000000
-  BulletInChamber: 0
+  BulletInChamber: 1
   EmptyBulletInChamber: 0
   onShootEvent:
     m_PersistentCalls:
@@ -4281,7 +4281,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb41268ffa667b64b89fa3444c06f486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Settings: {fileID: 11400000, guid: 0d4d55178ef17794e96e9019810e072e, type: 2}
+  UpForce: 1
+  BackwardsForce: 10
+  TwoHandUpForce: 0.2
+  TwoHandBackwardsForce: 0
+  UseTwoHandRecoilForce: 1
+  ImpulseForce: 1
+  RandomSideToSideRecoil: 0
+  SideToSideMin: -5
+  SideToSideMax: 5
+  TwoHandSideToSideMin: -5
+  TwoHandSideToSideMax: 5
+  LimitRecoilForce: 1
+  MaxUpForce: 36
+  UseTwoHandMaxUpforce: 0
+  UseTwoHandMaxSideForce: 0
+  MaxBackForce: 0
+  TwoHandMaxUpForce: 200
+  MaxSideForce: 12
+  TwoHandMaxSideForce: 0
+  RecoveryDelay: 0
+  TwoHandedRecoveryDelay: 0
+  RecoveryTime: 0
+  TwoHandedRecoveryTime: 0
   UpRecoilType: 0
   UpRecoil: {fileID: 6024261394930030411}
   BackRecoil: {fileID: 1075853606}

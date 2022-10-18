@@ -1023,6 +1023,82 @@ PrefabInstance:
       propertyPath: m_Name
       value: AK74M_Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 986092443048242091, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: ReloadMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 986092443048242091, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: BulletInChamber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: ImpulseForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: MaxBackForce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: MaxSideForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: RecoveryDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: SideToSideMax
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: SideToSideMin
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: BackwardsForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: TwoHandUpForce
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: TwoHandMaxUpForce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: TwoHandSideToSideMax
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: TwoHandSideToSideMin
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: UseTwoHandMaxUpforce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: TwoHandBackwardsForce
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: TwoHandedRecoveryTime
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: UseTwoHandRecoilForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: RandomSideToSideRecoil
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594841391967171948, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
+      propertyPath: UseTwoHandMaxSideForce
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dbf49bb3a78daf4f8bf75042fcd7fd6, type: 3}
 --- !u!1001 &948560208
@@ -1336,14 +1412,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 687340106}
     m_Modifications:
-    - target: {fileID: 4567605641618450651, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
-      propertyPath: ReloadMethod
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4567605641618450651, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
-      propertyPath: BulletInChamber
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6024261396410624979, guid: 6e987ed47215b3a46af930a293e59f19, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2297,6 +2365,74 @@ PrefabInstance:
     - target: {fileID: 6206676912239840884, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: ImpulseForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: MaxBackForce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: MaxSideForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: RecoveryDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: SideToSideMax
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: SideToSideMin
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: BackwardsForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: TwoHandUpForce
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: TwoHandMaxUpForce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: TwoHandSideToSideMax
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: TwoHandSideToSideMin
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: UseTwoHandMaxUpforce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: TwoHandBackwardsForce
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: TwoHandedRecoveryTime
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: UseTwoHandRecoilForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: RandomSideToSideRecoil
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669268621409390734, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}
+      propertyPath: UseTwoHandMaxSideForce
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3667b3dd3bb27c469e057cda3871b68, type: 3}

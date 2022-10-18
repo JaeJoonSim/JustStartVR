@@ -6,9 +6,67 @@ namespace JustStartVR
 {
     public class RecoilSystem : MonoBehaviour
     {
-        protected Grabbable grab;
+        // Recoil Setting
+        [Header("Recoil Forces")]
+        [Tooltip("Recoil applied about the X axis.")]
+        public float UpForce = 1f;
 
-        public RecoilSettings Settings;
+        [Tooltip("Recoil applied at the BackRecoil transform position in the Z direction.")]
+        public float BackwardsForce = 1f;
+
+        [Header("TwoHandTorque")] public float TwoHandUpForce;
+        public float TwoHandBackwardsForce;
+        public bool UseTwoHandRecoilForce;
+
+        public bool ImpulseForce;
+
+        [Header("Side To Side Recoil")]
+        public bool RandomSideToSideRecoil = false;
+
+        public float SideToSideMin;
+        public float SideToSideMax;
+
+
+
+        public float TwoHandSideToSideMin;
+        public float TwoHandSideToSideMax;
+
+
+        [Header("Limits")]
+        public bool LimitRecoilForce = true;
+
+        [Tooltip("Maximum constant force applied to the up recoil.")]
+        public float MaxUpForce = 10f;
+
+        public bool UseTwoHandMaxUpforce;
+        public bool UseTwoHandMaxSideForce;
+
+        [Tooltip("Maximum constant force applied to the back recoil")]
+        public float MaxBackForce = 10f;
+
+        [Tooltip("Maximum constant force applied to the up recoil when two handed.")]
+        public float TwoHandMaxUpForce = 200f;
+
+        //is constant side force even a useful or wanted item?
+
+        [Tooltip("Maximum constant torque applied for side to side recoil")]
+        public float MaxSideForce = 0f;
+
+        [Tooltip("Maximum constant force applied to the side recoil")]
+        public float TwoHandMaxSideForce = 0f;
+
+
+
+        [Header("Recovery")]
+        public float RecoveryDelay = .2f;
+        public float TwoHandedRecoveryDelay = .1f;
+
+        public float RecoveryTime = .1f;
+        public float TwoHandedRecoveryTime = .05f;
+
+        // Recoil Setting
+
+        protected Grabbable grab;
 
         public UpRecoilType UpRecoilType;
 
@@ -37,15 +95,15 @@ namespace JustStartVR
         {
             get
             {
-                if (!Settings || !Settings.RandomSideToSideRecoil)
+                if (!RandomSideToSideRecoil)
                 {
                     return 0f;
                 }
 
                 if (TwoHanded)
-                    return Random.Range(Settings.TwoHandSideToSideMin, Settings.TwoHandSideToSideMax);
+                    return Random.Range(TwoHandSideToSideMin, TwoHandSideToSideMax);
 
-                return Random.Range(Settings.SideToSideMin, Settings.SideToSideMax);
+                return Random.Range(SideToSideMin, SideToSideMax);
             }
         }
 
@@ -63,7 +121,7 @@ namespace JustStartVR
         {
             _timeSinceLastRecoil += Time.fixedDeltaTime;
 
-            if (!Rigidbody || !Settings)
+            if (!Rigidbody)
                 return;
 
             ApplyRecoil();
@@ -79,16 +137,16 @@ namespace JustStartVR
             if (_recoil)
             {
                 grab.RequestSpringTime(0.3f);
-                var upForce = Settings.UpForce;
-                var backForce = Settings.BackwardsForce;
+                var upForce = UpForce;
+                var backForce = BackwardsForce;
 
-                if (TwoHanded && Settings.UseTwoHandRecoilForce)
+                if (TwoHanded && UseTwoHandRecoilForce)
                 {
-                    upForce = Settings.TwoHandUpForce;
-                    backForce = Settings.TwoHandBackwardsForce;
+                    upForce = TwoHandUpForce;
+                    backForce = TwoHandBackwardsForce;
                 }
 
-                if (Settings.ImpulseForce)
+                if (ImpulseForce)
                 {
                     ApplyImpulseRecoil(upForce, backForce);
                 }
@@ -98,7 +156,7 @@ namespace JustStartVR
                     CurrentForce.z += backForce;
                 }
 
-                if (Settings.RandomSideToSideRecoil)
+                if (RandomSideToSideRecoil)
                 {
                     //Rigidbody.AddForceAtPosition(UpRecoil.right * SideToSide, UpRecoil.position, ForceMode.Impulse);
                     Rigidbody.AddTorque(transform.up * SideToSide, ForceMode.Impulse);
@@ -106,33 +164,33 @@ namespace JustStartVR
                 }
             }
 
-            if (Settings.LimitRecoilForce)
+            if (LimitRecoilForce)
             {
-                var maxForce = Settings.MaxUpForce;
-                if (Settings.UseTwoHandMaxUpforce && TwoHanded)
+                var maxForce = MaxUpForce;
+                if (UseTwoHandMaxUpforce && TwoHanded)
                 {
-                    maxForce = Settings.TwoHandMaxUpForce;
+                    maxForce = TwoHandMaxUpForce;
                 }
 
-                var maxSideForce = Settings.MaxSideForce;
-                if (Settings.UseTwoHandMaxSideForce && TwoHanded)
+                var maxSideForce = MaxSideForce;
+                if (UseTwoHandMaxSideForce && TwoHanded)
                 {
-                    maxSideForce = Settings.TwoHandMaxSideForce;
+                    maxSideForce = TwoHandMaxSideForce;
                 }
 
                 CurrentForce.x = Mathf.Clamp(CurrentForce.x, -maxSideForce, maxSideForce);
                 CurrentForce.y = Mathf.Clamp(CurrentForce.y, 0, maxForce);
-                CurrentForce.z = Mathf.Clamp(CurrentForce.z, 0, Settings.MaxBackForce);
+                CurrentForce.z = Mathf.Clamp(CurrentForce.z, 0, MaxBackForce);
             }
         }
 
         private void CheckRecovery()
         {
-            var delay = TwoHanded ? Settings.TwoHandedRecoveryDelay : Settings.RecoveryDelay;
+            var delay = TwoHanded ? TwoHandedRecoveryDelay : RecoveryDelay;
 
             if (_timeSinceLastRecoil > delay)
             {
-                var recoveryTime = TwoHanded ? Settings.TwoHandedRecoveryTime : Settings.RecoveryTime;
+                var recoveryTime = TwoHanded ? TwoHandedRecoveryTime : RecoveryTime;
                 _recoveryTimer += Time.fixedDeltaTime;
                 var percentRecovered = Mathf.Clamp(_recoveryTimer / recoveryTime, 0, 1);
 
