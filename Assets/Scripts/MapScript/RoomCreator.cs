@@ -78,42 +78,12 @@ public class RoomCreator : MonoBehaviour
 
         if(roomCount <= 4)
         {
-            m_RoomCount = 4;
-            for (int i = 0; i < m_RoomCountX; i++)
-            {
-                value = 1;
-                for (int j = 0; j < m_RoomCountZ; j++)
-                {
-                    initTileEmpty();
-                    roomCount--;
-                    CreateRoom(i, j, true);
-                }
-            }
+            m_RoomCount = 2;
+
+            CreateRoom(1, 1, true);
+            CreateRoom(1, 0, true);
         }
-        else if(roomCount == 6)
-        {
-            m_RoomCount = 5;
-            for (int i = 0; i < m_RoomCountX; i++)
-            {
-                value = 1;
-                for (int j = 0; j < m_RoomCountZ; j++)
-                {
-                    random2 = Random.Range(0, roomCount - 1);
-                    if ((random2 == 0 && m_keyCardRoom.x == -1) && (i != 1 && j != 1))
-                    {
-                        m_keyCardRoom.x = i;
-                        m_keyCardRoom.y = j;
-                    }
-                    initTileEmpty();
-                    roomCount--;
-                    if(roomCount >= 1)
-                    CreateRoom(i, j, true);
-                    else
-                    CreateRoom(i, j, false);
-                }
-            }
-        }
-        else
+        else if(roomCount == 9)
         {
             m_RoomCount = 6;
             for (int i = 0; i < m_RoomCountX; i++)
