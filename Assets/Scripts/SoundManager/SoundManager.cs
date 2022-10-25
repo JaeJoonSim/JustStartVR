@@ -10,7 +10,6 @@ public class SoundManager : MonoBehaviour
     public Slider MasterSlider;
     public Slider BGMSlider;
     public Slider SFXSlider;
-    //public Toggle MuteToggle;
 
     public static SoundManager m_instance;
 
@@ -19,10 +18,10 @@ public class SoundManager : MonoBehaviour
 
     public List<AudioSource> audioList = new List<AudioSource>();
 
-    private float Volume = 1.0f;
+    private const float defaultVolume = 1.0f;
 
     public enum SoundType
-    { 
+    {
         BossSkill, CardKeySucess, CrashGlass, CrashGlass2,
         ElevatorArrive, Heal, fire, motolov,
         CardKeyFailed, HealTrigger, ElevatorMove, Engine,
@@ -51,15 +50,15 @@ public class SoundManager : MonoBehaviour
             m_instance = this;
     }
 
-    
+
     public AudioSource PlaySound(Vector3 Position, SoundType type)
     {
         int index = (int)type;
 
-        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity);        
+        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity);
         AudioSource newAudio = newObj.GetComponent<AudioSource>();
         newAudio.clip = AudioArray[index];
-        newAudio.volume = Volume;
+        newAudio.volume = defaultVolume;
         newAudio.Play();
         audioList.Add(newAudio);
         return newAudio;
@@ -67,57 +66,38 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource PlaySound(Vector3 Position, SoundType type, Transform Parent)
     {
-        int index = (int)type;
-
-        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity, Parent);
-        AudioSource newAudio = newObj.GetComponent<AudioSource>();
-        newAudio.clip = AudioArray[index];
-        newAudio.volume = Volume;
-        newAudio.Play();
-        audioList.Add(newAudio);
+        AudioSource newAudio = PlaySound(Position, type);
+        newAudio.transform.parent = Parent;
         return newAudio;
     }
 
     public AudioSource PlaySound(Vector3 Position, SoundType type, Transform parent, bool loop, float volume)
     {
-        int index = (int)type;
-
-        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity, parent);
-        AudioSource newAudio = newObj.GetComponent<AudioSource>();
-        newAudio.clip = AudioArray[index];
+        AudioSource newAudio = PlaySound(Position, type);
         newAudio.volume = volume / 100.0f;
         newAudio.loop = loop;
-        newAudio.Play();
-        audioList.Add(newAudio);
         return newAudio;
     }
 
     public AudioSource ChangeSound(Vector3 Position, SoundType type,
-        Transform parent, bool loop, float volume, AudioSource _source)
+        Transform parent, bool loop, float volume, AudioSource source)
     {
-        if(_source != null)
-        {
-            _source.Stop();
-            audioList.Remove(_source);
-            Destroy(_source.gameObject);
-        }
+        StopSound(source);
 
-
-        int index = (int)type;
-
-        GameObject newObj = Instantiate(SoundPlayerObj, Position, Quaternion.identity, parent);
-        AudioSource newAudio = newObj.GetComponent<AudioSource>();
-
-        newAudio.clip = AudioArray[index];
+        AudioSource newAudio = PlaySound(Position, type);
+        newAudio.transform.parent = parent;
         newAudio.volume = volume / 100.0f;
         newAudio.loop = loop;
-        newAudio.Play();
-        audioList.Add(_source);
         return newAudio;
     }
 
     public void StopSound(AudioSource source)
     {
+        if (source == null)
+        {
+            return;
+        }
+
         source.Stop();
         audioList.Remove(source);
         Destroy(source.gameObject);

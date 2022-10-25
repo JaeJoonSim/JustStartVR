@@ -10,8 +10,8 @@ public class DoorCreatorAxisZ : MonoBehaviour
     void Start()
     {
         type = 0;
-        m_DoorObj[0] = Resources.Load<GameObject>("Room/HingeDoor");
-        m_DoorObj[1] = Resources.Load<GameObject>("Room/CardeKey_HingeDoor");
+        m_DoorObj[0] = Resources.Load<GameObject>("Room/SM_Door_Frame");
+        m_DoorObj[1] = Resources.Load<GameObject>("Room/SM_KeyCardDoor_Frame");
         int index = 4;
 
         if (m_curRoomPos.x == m_keyCardRoom.x && m_curRoomPos.y == m_keyCardRoom.y)
