@@ -86,12 +86,15 @@ public class WallCreator : MonoBehaviour
                 }
                 else if((x == 24 || x == 26 )&& z == 25)
                 {
-                    GameObject newObj =
-                        Instantiate(m_WallOBJ[random],
-                            new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
-                            , Quaternion.Euler(0, random2 * 90, 0));
-                    newObj.transform.parent = m_Parent;
-                    m_WallisEmpty[x, z] = false;
+                    if (m_WallisEmpty[x, z])
+                    {
+                        GameObject newObj =
+                            Instantiate(m_WallOBJ[random],
+                                new Vector3(x * roomCreator.m_TileSize, roomCreator.m_Y + 0.5f, z * roomCreator.m_TileSize)
+                                , Quaternion.Euler(0, random2 * 90, 0));
+                        newObj.transform.parent = m_Parent;
+                        m_WallisEmpty[x, z] = false;
+                    }
                 }
             }
             else

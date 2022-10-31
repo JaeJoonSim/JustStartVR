@@ -76,14 +76,21 @@ public class RoomCreator : MonoBehaviour
         int value = 0;
         int roomCount = m_RoomCountX * m_RoomCountZ;
 
-        if(roomCount <= 4)
+        if (roomCount == 4)
         {
-            m_RoomCount = 2;
-
-            CreateRoom(1, 1, true);
-            CreateRoom(1, 0, true);
+            //m_RoomCount = 2;
+            for (int i = 0; i < m_RoomCountX; i++)
+            {
+                value = 1;
+                for (int j = 0; j < m_RoomCountZ; j++)
+                {
+                    initTileEmpty();
+                    roomCount--;
+                    CreateRoom(i, j, true);
+                }
+            }
         }
-        else if(roomCount == 9)
+        else if(roomCount == 6)
         {
             m_RoomCount = 6;
             for (int i = 0; i < m_RoomCountX; i++)
