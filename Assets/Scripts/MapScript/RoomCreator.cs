@@ -49,8 +49,8 @@ public class RoomCreator : MonoBehaviour
         m_GroupOBJ = new GameObject[m_RoomCountX, m_RoomCountZ];
         m_mapinterval = m_RoomSize + 6;
 
-        m_MaxCount = m_mapinterval * m_RoomCountX;
-        m_MaxCount2 = m_mapinterval * m_RoomCountZ;
+        m_MaxCount = 1000;
+        m_MaxCount2 = 1000;
 
         m_WorldTileisEmpty = new bool[m_MaxCount, m_MaxCount2];
 
@@ -112,11 +112,15 @@ public class RoomCreator : MonoBehaviour
                     {
                         random2 = Random.Range(0, roomCount);
 
-                        if (random2 == 0 && m_keyCardRoom.x == -1)
+                        if(m_Y == 40)
                         {
-                            m_keyCardRoom.x = i;
-                            m_keyCardRoom.y = j;
+                            if (random2 == 0 && m_keyCardRoom.x == -1)
+                            {
+                                m_keyCardRoom.x = i;
+                                m_keyCardRoom.y = j;
+                            }
                         }
+                        
 
                         CreateRoom(i, j, true);
                         count--;
