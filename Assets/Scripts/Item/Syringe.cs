@@ -68,6 +68,12 @@ namespace JustStartVR
             Needle.enabled = false;
             Player_HP.change_HP(Amount_Of_Recovery);
             SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.Heal);
+            Invoke("Destroy", 5f);
+        }
+
+        private void Destroy()
+        {
+            Destroy(this);
         }
 
         public override void OnButton1Down()

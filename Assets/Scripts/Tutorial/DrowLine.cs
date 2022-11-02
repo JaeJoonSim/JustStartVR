@@ -14,11 +14,9 @@ public class DrowLine : MonoBehaviour
     {
         line = GetComponent<LineRenderer>();
     }
-
     private void Update()
     {
         line.SetPosition(0, UIPos.position);
         line.SetPosition(1, TargetPos.position);
     }
-
 }
