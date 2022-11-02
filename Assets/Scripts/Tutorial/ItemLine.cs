@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemLine : MonoBehaviour
 {
     public Color color;
-    public bool ShowInventoryItem = false;
+    public bool ShowInventoryItem = false, DrowLine = true;
 
     [SerializeField]
     string Tag;
@@ -26,53 +26,54 @@ public class ItemLine : MonoBehaviour
         LineColor.material.color = color;
         itemPos = transform;
         Drow = false;
+
     }
     private void Update()
     {
-        if (Drow)
-        {
-            line.SetPosition(0, itemPos.position);
-            line.SetPosition(1, TargetPos.position);
-        }
-        else
-        {
-            line.SetPosition(0, Vector3.zero);
-            line.SetPosition(1,Vector3.zero);
-        }
+        if (!Drow) return;
+
+        line.SetPosition(0, itemPos.position);
+        line.SetPosition(1, TargetPos.position);
     }
 
     public void ItemDrop()
     {
-        Drow = false;
-        if (TargetPos == null) return;
-        if (ShowInventoryItem) return;
-            
-        GameObject gameObject = TargetPos.transform.Find(Tag).gameObject;
-        if (gameObject == null) return;
-        gameObject.SetActive(false);
-    }
 
+        Drow = false;
+        line.enabled = false;
+
+        GameObject[] objects = GameObject.FindGameObjectsWithTag(Tag);
+        if (objects[0] != null)
+        {
+            if (ShowInventoryItem) return;
+            foreach (GameObject G in objects)
+            {
+                G.transform.Find(Tag).gameObject.SetActive(false);
+            }
+        }
+
+    }
     public void DrowItemLine()
     {
-        GameObject[] objects;
-        objects = GameObject.FindGameObjectsWithTag(Tag);
-        Debug.Log(objects[0]);
-        if (objects[0] != null)
+        line.enabled = true;
+        GameObject[] objects = GameObject.FindGameObjectsWithTag(Tag);
+
+        if (objects[0] != null || Drow)
         {
             Drow = true;
             TargetPos = objects[0].transform;
-
-
-            if (ShowInventoryItem) return;
-
-            GameObject gameObject = TargetPos.transform.Find(Tag).gameObject;
-            if (gameObject == null) return;
-            gameObject.SetActive(true);
         }
         else
         {
             Drow = false;
-            gameObject.SetActive(false);
+            line.enabled = false;
         }
+
+        if (ShowInventoryItem) return;
+        foreach (GameObject G in objects)
+        {
+            G.transform.Find(Tag).gameObject.SetActive(true);
+        }
+
     }
 }
