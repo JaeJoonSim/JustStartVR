@@ -57,8 +57,8 @@ public class ObjectCreator : MonoBehaviour
         m_Obj[12] = Resources.Load<GameObject>("Room/Mark(bishop)");
         m_Obj[13] = Resources.Load<GameObject>("Room/Mark(horse)");
         m_Obj[14] = Resources.Load<GameObject>("Room/Mark(king)");
-        m_Obj[15] = Resources.Load<GameObject>("Room/Mark(queen)");
-        m_Obj[16] = Resources.Load<GameObject>("Room/Mark(pawn)");
+        m_Obj[15] = Resources.Load<GameObject>("Room/Mark(pawn)");
+        m_Obj[16] = Resources.Load<GameObject>("Room/Mark(queen)");
         m_Obj[17] = Resources.Load<GameObject>("Room/Mark(rook)");
 
         
