@@ -26,6 +26,8 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     public EnemyBaseState AttackState;
 
+    public EnemyBaseState MoveState;
+
 
 
     //스테이터스
@@ -214,11 +216,13 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     {
         int min = (int)SoundManager.SoundType.zombieIdle;
         int max = min + 1;
+        float Volume = 100.0f;
         int random;
         if (state == IdleState)
         {
             min = (int)SoundManager.SoundType.zombieIdle;
             max = min + 1;
+            Volume = 5.0f;
         }
         else if (state == TraceState)
         {
@@ -230,10 +234,13 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             min = (int)SoundManager.SoundType.zombieAttack1;
             max = (int)SoundManager.SoundType.zombieAttack9;
         }
-
+        else
+        {
+            return;
+        }
         random = Random.Range(min, max);
         prevAudio = SoundManager.m_instance.ChangeSound(transform.position, (SoundManager.SoundType)random,
-                null, false, 100.0f, prevAudio);
+                null, false, Volume, prevAudio);
     }
 
     public float CalcTargetDistance()
@@ -265,6 +272,12 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     {
         agent.speed = Status.Speed;
         agent.SetDestination(target.position);
+    }
+
+    public void MoveToPos(Vector3 pos)
+    {
+        agent.speed = Status.Speed;
+        agent.SetDestination(pos);
     }
 
     public void SetAnimator(string trigger)

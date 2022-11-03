@@ -16,6 +16,7 @@ public class LargeZombieFSMMgr : EnemyBaseFSMMgr
 
         AttackState = new LargeZombieAttackState();
 
+        MoveState = new ZombieMoveState();
         base.Awake();
 
     }
