@@ -7,18 +7,12 @@ public class LargeZombieAttackState : EnemyBaseState
     float currntTime;
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
-        int min = (int)SoundManager.SoundType.zombieAttack1;
-        int max = (int)SoundManager.SoundType.zombieAttack9;
-        int random = Random.Range(min, max);
-        
+       
         currntTime = mgr.Status.AttackSpeed;
 
         if (mgr.PrevState == mgr.TraceState)
         {
             mgr.SetAnimator("MoveToAttack");
-
-            mgr.prevAudio = SoundManager.m_instance.ChangeSound(mgr.transform.position, (SoundManager.SoundType)random,
-                null, false, 100.0f, mgr.prevAudio);
         }
     }
     public override void Update(EnemyBaseFSMMgr mgr)
