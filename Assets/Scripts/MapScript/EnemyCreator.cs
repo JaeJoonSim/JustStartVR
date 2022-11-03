@@ -63,7 +63,7 @@ public class EnemyCreator : MonoBehaviour
     {
         GameObject newObj;
 
-        int max = 1 + m_roomCreator.m_Y / 20;
+        int max = m_roomCreator.m_Y / 10;
         int random = Random.Range(0, max);
 
         bool isTongue = false;
