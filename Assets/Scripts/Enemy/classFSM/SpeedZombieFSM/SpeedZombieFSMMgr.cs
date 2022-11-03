@@ -21,9 +21,8 @@ public class SpeedZombieFSMMgr : EnemyBaseFSMMgr
 
     }
 
-    public override void AttackColliderOn()
+    public void AttackColliderOn2()
     {
-        attackCollider.SetActive(true);
         attackCollider2.SetActive(true);
     }
 

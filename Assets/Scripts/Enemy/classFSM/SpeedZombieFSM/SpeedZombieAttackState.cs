@@ -7,18 +7,11 @@ public class SpeedZombieAttackState : EnemyBaseState
     float currntTime;
     public override void Begin(EnemyBaseFSMMgr mgr)
     {
-        int min = (int)SoundManager.SoundType.zombieAttack1;
-        int max = (int)SoundManager.SoundType.zombieAttack9;
-        int random = Random.Range(min, max);
-
         currntTime = mgr.Status.AttackSpeed;
 
         if (mgr.PrevState == mgr.TraceState)
         {
             mgr.SetAnimator("MoveToAttack");
-
-            mgr.prevAudio = SoundManager.m_instance.ChangeSound(mgr.transform.position, (SoundManager.SoundType)random,
-                 null, false, 100.0f, mgr.prevAudio);
         }
     }
     public override void Update(EnemyBaseFSMMgr mgr)
@@ -35,7 +28,17 @@ public class SpeedZombieAttackState : EnemyBaseState
             currntTime = 0;
             if (mgr.CheckInAttackRange())
             {
-                mgr.SetAnimator("delayToAttack");
+                if (Random.Range(0, 2) == 0)
+                {
+                    Debug.Log(0);
+                    mgr.SetAnimator("delayToAttack");
+                }
+                else
+                {
+                    Debug.Log(1);
+                    mgr.SetAnimator("delayToAttack2");
+                }
+               
                 mgr.transform.LookAt(new Vector3(
                 mgr.target.position.x, mgr.transform.position.y, mgr.target.position.z));
             }
