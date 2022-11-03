@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHeadCollision : EnemyBaseCollision
 {
+   
     public override void setDamage()
     {
         switch (Es.EnemyType)
