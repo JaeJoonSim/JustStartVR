@@ -10,10 +10,6 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     //현재 상태와 이전 상태
     protected EnemyBaseState currentState;
     protected EnemyBaseState prevState;
-
-    [HideInInspector]
-    public AudioSource prevAudio;
-
     public EnemyBaseState CurrentState
     {
         get { return currentState; }
@@ -52,6 +48,13 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     //애니메이션
     protected Animator anim;
 
+    //모든 물리
+    protected Rigidbody[] allrig;
+
+    //사운드
+    [HideInInspector]
+    public AudioSource prevAudio;
+
     //공격시 포지션 바뀜 방지용 
     [HideInInspector]
     public Vector3 attackPosition;
@@ -63,11 +66,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     public bool TraceStart;
 
-    //물리
-    public GameObject ragdoll;
 
-    //렌더링
-    public GameObject rendering;
     protected float renderingDistance;
 
     //공격용
@@ -91,6 +90,11 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         fow = GetComponent<FieldOfView>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
+        allrig = GetComponentsInChildren<Rigidbody>();
+        foreach (var item in allrig)
+        {
+            item.isKinematic = true;
+        }
         agent.speed = Status.Speed;
         timeCount = 0;
         currentState = prevState = IdleState;
@@ -110,7 +114,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         }
 
         standby = Resources.Load<GameObject>("Enemy/standby");
-        
+
 
     }
 
@@ -130,21 +134,21 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         {
             timeCount = 0;
             isBurning = false;
-            
+
             if (CalcTargetDistance() >= renderingDistance && IsAlive())
             {
                 //Debug.Log("Enemy/" + gameObject.name.Substring(0, gameObject.name.IndexOf("(Clone)")));
 
-                standby.GetComponent<Standby>().zombie = Resources.Load<GameObject>("Enemy/"+gameObject.name.Substring(0, gameObject.name.IndexOf("(Clone)")));
-                
+                standby.GetComponent<Standby>().zombie = Resources.Load<GameObject>("Enemy/" + gameObject.name.Substring(0, gameObject.name.IndexOf("(Clone)")));
+
                 standby = Instantiate(standby, transform.position, transform.rotation, gameObject.transform.parent);
-                
+
                 Destroy(gameObject);
             }
+
         }
 
     }
-
 
     //private void ResetAllTriggers()
     //{
@@ -164,12 +168,6 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
         if (!IsAlive())
         {
-            if (this.transform.name == "zombie_Boss")
-            {
-                Instantiate(Resources.Load<GameObject>("Room/Key_Card"),
-                    transform.position, Quaternion.identity, transform.root);
-            }
-
             Die();
         }
         else
@@ -185,8 +183,19 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
     {
         agent.enabled = false;
         anim.enabled = false;
+        allrig = GetComponentsInChildren<Rigidbody>();
+        foreach (var item in allrig)
+        {
+            item.isKinematic = false;
+        }
         currentState = null;
         Destroy(gameObject, 5f);
+
+        if (this.transform.name == "zombie_Boss")
+        {
+            Instantiate(Resources.Load<GameObject>("Room/Key_Card"),
+                transform.position, Quaternion.identity, transform.root);
+        }
     }
 
     public void ChangeState(EnemyBaseState state)
@@ -197,9 +206,35 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
             prevState = currentState;
             currentState = state;
             currentState.Begin(this);
+            ChangeAudio(state);
         }
     }
 
+    private void ChangeAudio(EnemyBaseState state)
+    {
+        int min = (int)SoundManager.SoundType.zombieIdle;
+        int max = min + 1;
+        int random;
+        if (state == IdleState)
+        {
+            min = (int)SoundManager.SoundType.zombieIdle;
+            max = min + 1;
+        }
+        else if (state == TraceState)
+        {
+            min = (int)SoundManager.SoundType.zombieScreaming1;
+            max = (int)SoundManager.SoundType.zombieScreaming3;
+        }
+        else if (state == AttackState)
+        {
+            min = (int)SoundManager.SoundType.zombieAttack1;
+            max = (int)SoundManager.SoundType.zombieAttack9;
+        }
+
+        random = Random.Range(min, max);
+        prevAudio = SoundManager.m_instance.ChangeSound(transform.position, (SoundManager.SoundType)random,
+                null, false, 100.0f, prevAudio);
+    }
 
     public float CalcTargetDistance()
     {
