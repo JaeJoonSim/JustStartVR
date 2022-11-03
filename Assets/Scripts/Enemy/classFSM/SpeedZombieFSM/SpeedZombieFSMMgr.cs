@@ -17,6 +17,8 @@ public class SpeedZombieFSMMgr : EnemyBaseFSMMgr
 
         AttackState = new SpeedZombieAttackState();
 
+        MoveState = new ZombieMoveState();
+
         base.Awake();
 
     }

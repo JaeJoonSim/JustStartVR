@@ -20,10 +20,6 @@ public class BossZombieAttack2State : EnemyBaseState
         tongueBack = false;
         Bmgr.tongue.transform.localScale = new Vector3(0, 1, 1);
         count = 0f;
-
-
-
-
     }
     public override void Update(EnemyBaseFSMMgr mgr)
     {
@@ -73,7 +69,7 @@ public class BossZombieAttack2State : EnemyBaseState
                             //characterController.Move((mgr.transform.position - mgr.targetOBJ.transform.position).normalized * 1.5f * Time.deltaTime);
                             mgr.target.position = new Vector3(
                                 Bmgr.grabPos.position.x,
-                                mgr.target.position.y,
+                               Bmgr.grabPos.position.y-0.5f,
                                 Bmgr.grabPos.position.z
                                 );
                         }
@@ -96,6 +92,10 @@ public class BossZombieAttack2State : EnemyBaseState
             else
             {
                 mgr.transform.LookAt(new Vector3( mgr.target.position.x, mgr.transform.position.y, mgr.target.position.z));
+                Bmgr.tongue.transform.LookAt(new Vector3(mgr.target.position.x, mgr.target.position.y + 0.5f, mgr.target.position.z));
+                Bmgr.tongue.transform.rotation = Bmgr.tongue.transform.rotation * Quaternion.Euler(0,90,0);
+                
+                
             }
         }
        
