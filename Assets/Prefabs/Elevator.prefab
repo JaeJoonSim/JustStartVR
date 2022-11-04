@@ -375,7 +375,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8392537294239019573}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3230640620311051853
 MeshRenderer:
@@ -860,7 +860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8392537294239019573
 Transform:
   m_ObjectHideFlags: 0
@@ -873,14 +873,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2598256162438967032}
   - {fileID: 2101905585024067803}
   - {fileID: 8259144761859529536}
   - {fileID: 8259144761208655652}
   - {fileID: 8259144761108124490}
   - {fileID: 6755119252305576934}
   m_Father: {fileID: 3974908545942222058}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2968252157070136811
 GameObject:
@@ -1148,7 +1147,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3406142549664248898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.8181, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1156,8 +1155,8 @@ Transform:
   - {fileID: 6884495743941267788}
   - {fileID: 7265492072775889687}
   - {fileID: 5470427366449861199}
-  m_Father: {fileID: 8392537294239019573}
-  m_RootOrder: 0
+  m_Father: {fileID: 3974908545942222058}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6426690550549762742
 MonoBehaviour:
@@ -1363,7 +1362,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3974908545942222058}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &217137608260853478
 BoxCollider:
@@ -3173,7 +3172,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8392537294239019573}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6755119252305576937
 MeshRenderer:
@@ -3267,7 +3266,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3974908545942222058}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7379513719335919782
 GameObject:
@@ -3300,7 +3299,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3974908545942222058}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5246726306251125482
 BoxCollider:
@@ -3773,6 +3772,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3048102408947510434}
+  - {fileID: 2598256162438967032}
   - {fileID: 8392537294239019573}
   - {fileID: 6755119252404795204}
   - {fileID: 1578273826710418107}
@@ -3806,7 +3806,6 @@ MonoBehaviour:
   Floor_text: {fileID: 0}
   keypad: {fileID: 0}
   passwordmgr: {fileID: 0}
-  password: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   Speed: 1
   Open: 0
   OnZombi: 0
@@ -3879,7 +3878,7 @@ Transform:
   - {fileID: 4934342904954642313}
   - {fileID: 4807693530567043638}
   m_Father: {fileID: 3974908545942222058}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
 --- !u!1 &8531215431286214362
 GameObject:
@@ -4077,7 +4076,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8392537294239019573}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4985972917215019137
 MeshFilter:
@@ -4191,7 +4190,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8392537294239019573}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &4985972917049220335
 MeshFilter:
@@ -4305,7 +4304,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8392537294239019573}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4985972917665092837
 MeshFilter:
@@ -4967,7 +4966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2221460269868356215, guid: bc0e0473b173a1a4da43167e6e11b7bc, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2221460269868356215, guid: bc0e0473b173a1a4da43167e6e11b7bc, type: 3}
       propertyPath: m_LocalPosition.x
