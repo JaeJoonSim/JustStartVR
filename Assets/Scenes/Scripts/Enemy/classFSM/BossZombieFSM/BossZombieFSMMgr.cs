@@ -98,9 +98,9 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         return (this.target.position - this.transform.position).normalized;
     }
     
-    public void MoveFront()
+    public void MoveFront(float speed)
     {
-        agent.speed = 5f;
+        agent.speed = speed;
         agent.SetDestination(transform.position + transform.forward);
     }
     public void OnDeshCollider(bool on)

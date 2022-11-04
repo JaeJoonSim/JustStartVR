@@ -19,7 +19,7 @@ public class BossZombieAreaAttackState : EnemyBaseState
     {
         Bmgr = mgr as BossZombieFSMMgr;
 
-        point = Bmgr.transform.position + mgr.transform.forward * 5;
+        point = Bmgr.transform.position + mgr.transform.forward * 3;
         currentTime = 0;
          patternTime = 0;
         patternStart = false;
