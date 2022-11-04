@@ -511,6 +511,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1366708605048905057}
+        m_TargetAssemblyTypeName: ItemLine, Assembly-CSharp
+        m_MethodName: DrowItemLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onRelease:
     m_PersistentCalls:
       m_Calls:
@@ -529,6 +541,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2569477781065974299}
         m_TargetAssemblyTypeName: SetParents, Assembly-CSharp
         m_MethodName: SetParentsReturn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1366708605048905057}
+        m_TargetAssemblyTypeName: ItemLine, Assembly-CSharp
+        m_MethodName: ItemDrop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1014,6 +1038,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14919d932cad802429d2e02c91f4ab03, type: 3}
+--- !u!114 &1366708605048905057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7222942084321847847, guid: 14919d932cad802429d2e02c91f4ab03, type: 3}
+  m_PrefabInstance: {fileID: 8559809840138024774}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3bc1348a3f56574b960b641ce8c922f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7727743678888444958 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2158623195928425304, guid: 14919d932cad802429d2e02c91f4ab03, type: 3}
