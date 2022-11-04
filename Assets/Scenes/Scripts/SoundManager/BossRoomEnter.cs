@@ -14,7 +14,10 @@ public class BossRoomEnter : MonoBehaviour
         {
             camObject.GetComponent<PlayMusicOperator>().PlayBGM(bgmName);
             if(animator != null)
-            animator.enabled = true;
+            {
+                animator.enabled = true;
+                SoundManager.m_instance.PlaySound(this.transform.position, SoundManager.SoundType.shutter);
+            }
         }
     }
 }
