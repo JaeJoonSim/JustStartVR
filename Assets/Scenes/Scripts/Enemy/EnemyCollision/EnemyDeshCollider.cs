@@ -25,26 +25,25 @@ public class EnemyDeshCollider : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.transform.GetComponent<Player_HP>().change_HP(-FSM.BStatus.DeshAtk);
-
-            GameObject impact = Instantiate(DashEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
-            Destroy(impact,5f);
-
-            gameObject.SetActive(false);
-
+            Collision();
             FSM.ChangeState(FSM.TraceState);
             FSM.SetAnimator("DeshToMove");
         }
         else if(other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            GameObject impact = Instantiate(DashEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
-            Destroy(impact, 5f);
-
-            gameObject.SetActive(false);
+            Collision();
             FSM.ChangeState(FSM.StunState);
             FSM.SetAnimator("DeshToStun");
 
-            SoundManager.m_instance.PlaySound(this.transform.position, SoundManager.SoundType.BossSkill
-            , transform.parent, false, 100.0f);
+            
         }
     } 
+    private void Collision()
+    {
+        GameObject impact = Instantiate(DashEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
+        Destroy(impact, 5f);
+        this.gameObject.SetActive(false);
+        SoundManager.m_instance.PlaySound(this.transform.position, SoundManager.SoundType.BossSkill
+            , transform.parent, false, 100.0f);
+    }
 }

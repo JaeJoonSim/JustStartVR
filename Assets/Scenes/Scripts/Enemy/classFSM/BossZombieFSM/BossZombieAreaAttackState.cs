@@ -19,18 +19,20 @@ public class BossZombieAreaAttackState : EnemyBaseState
     {
         Bmgr = mgr as BossZombieFSMMgr;
 
-        point = Bmgr.transform.position + mgr.transform.forward * 3;
+        point = Bmgr.transform.position + mgr.transform.forward * 5;
         currentTime = 0;
          patternTime = 0;
         patternStart = false;
-        mgr.transform.LookAt(new Vector3(
-                mgr.target.position.x, mgr.transform.position.y, mgr.target.position.z));
+       
+        mgr.transform.LookAt(new Vector3(mgr.target.position.x, mgr.transform.position.y, mgr.target.position.z));
+        Bmgr.tongue.transform.LookAt(new Vector3(mgr.target.position.x, mgr.target.position.y - 2.0f, mgr.target.position.z));
+        Bmgr.tongue.transform.rotation = Bmgr.tongue.transform.rotation * Quaternion.Euler(0, 90, 0);
+        Bmgr.tongue.transform.localScale = new Vector3(0, 1, 1);
 
         mgr.SetAnimator("MoveToAttack2");
 
 
-        Bmgr.tongue.transform.localScale = new Vector3(0, 1, 1);
-        Bmgr.tongue.transform.localEulerAngles = new Vector3(0, 90, 25);
+        
     }
 
     public override void Update(EnemyBaseFSMMgr mgr)
@@ -45,6 +47,7 @@ public class BossZombieAreaAttackState : EnemyBaseState
                 Bmgr.tongue.transform.localScale = new Vector3(patternTime * 1.8f - 1, 1, 1);
                 if (patternTime > 2f)
                 {
+                  
                     patternStart = true;
                 }
             }

@@ -52,56 +52,8 @@ public class BossZombieTraceState : EnemyBaseState
                 return;
             }
         }
-
-        if (Bmgr.CheckCooldown())
-        {
-            //현재 위치 저장
-            mgr.attackPosition = mgr.transform.position;
-
-            int randomAttack = Random.Range(0, 4);
-
-            //randomAttack = 1;
-            switch (randomAttack)
-            {
-                case 0:
-                    if (Bmgr.IsTarget())
-                    {
-                        mgr.ChangeState(Bmgr.DeshState);
-                        mgr.SetAnimator("MoveToDesh");
-                        return;
-                    }
-                    break;
-                case 1:
-                    if (Bmgr.IsTarget())
-                    {
-                        mgr.ChangeState(Bmgr.Attack2State);
-                        return;
-                    }
-                    break;
-                case 2:
-                    if (Bmgr.IsTarget())
-                    {
-                        mgr.ChangeState(Bmgr.AreaAttack);
-                        return;
-                    }
-                    break;
-                case 3:
-                    if (Bmgr.IsTarget())
-                    {
-                        mgr.ChangeState(Bmgr.DeshState);
-                        mgr.SetAnimator("MoveToDesh");
-                        return;
-                    }
-                    break;
-                default:
-                    break;
-            }
-
-            mgr.MoveTarget();
-
-        }
         //타겟이 공격범위 안에 들어오면 
-        else if (mgr.CheckInAttackRange())
+        if (mgr.CheckInAttackRange())
         {
             //현재 위치 저장
             mgr.attackPosition = mgr.transform.position;
@@ -110,18 +62,60 @@ public class BossZombieTraceState : EnemyBaseState
             mgr.ChangeState(mgr.AttackState);
 
             return;
+        }
+        else if (Bmgr.CheckCooldown())
+        {
+            //현재 위치 저장
+            mgr.attackPosition = mgr.transform.position;
+
+            int randomAttack = Random.Range(0, 4);
+
+            //randomAttack = 0;
+            if (mgr.CalcTargetDistance() > 5)
+            {
+                switch (randomAttack)
+                {
+                    case 0:
+                    case 1:
+                        if (Bmgr.IsTarget())
+                        {
+                            mgr.ChangeState(Bmgr.DeshState);
+                            mgr.SetAnimator("MoveToDesh");
+                            return;
+                        }
+                        break;
+                    case 2:
+                        if (Bmgr.IsTarget())
+                        {
+                            mgr.ChangeState(Bmgr.AreaAttack);
+                            return;
+                        }
+                        break;
+                    case 3:
+                        if (Bmgr.IsTarget())
+                        {
+                            mgr.ChangeState(Bmgr.Attack2State);
+                            return;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            mgr.MoveTarget();
 
         }
+        
         else
         {
-            mgr.MoveTarget();     
+            mgr.MoveTarget();
         }
 
- 
+
     }
 
     public override void End(EnemyBaseFSMMgr mgr)
-    {   
+    {
         //네비 잠금
         mgr.NavStop(true);
     }

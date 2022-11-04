@@ -19,7 +19,7 @@ public class BossZombieDeshState : EnemyBaseState
         mgr.NavStop(false);
         mgr.transform.LookAt(new Vector3(
                mgr.target.position.x, mgr.transform.position.y, mgr.target.position.z));
-        Bmgr.DeshColliderOn();
+        Bmgr.OnDeshCollider(true);
     }
 
     public override void Update(EnemyBaseFSMMgr mgr)
@@ -51,6 +51,7 @@ public class BossZombieDeshState : EnemyBaseState
     }
     public override void End(EnemyBaseFSMMgr mgr)
     {
+        Bmgr.OnDeshCollider(false);
         Bmgr.Cooldown = 0;
         //네비 잠금
         mgr.NavStop(true);
