@@ -10593,7 +10593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343903133}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.32, y: 3.45, z: -17.93}
+  m_LocalPosition: {x: -0.38, y: 3.45, z: -20.7}
   m_LocalScale: {x: 5.09375, y: 6.40625, z: 1.5625}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10626,7 +10626,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &344067711
 GameObject:
@@ -62133,6 +62133,7 @@ GameObject:
   - component: {fileID: 1698707462654380034}
   - component: {fileID: 2322976676073359271}
   - component: {fileID: 565247603165246317}
+  - component: {fileID: 2322976676073359272}
   m_Layer: 15
   m_Name: SM_Shutter_Door
   m_TagString: Untagged
@@ -62452,6 +62453,7 @@ GameObject:
   - component: {fileID: 2378218532862215285}
   - component: {fileID: 497039102559924415}
   - component: {fileID: 2378218532862215286}
+  - component: {fileID: 2378218532862215287}
   m_Layer: 15
   m_Name: SM_LongWall_2
   m_TagString: Untagged
@@ -63093,6 +63095,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078646263445820088}
   m_Mesh: {fileID: 5060444177187149915, guid: fbb2714e80d9951489ba5db2e3c117d2, type: 3}
+--- !u!65 &2322976676073359272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078646263445820088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03, y: 2.8000004, z: 2.563761}
+  m_Center: {x: 0.05767822, y: 0.0000041127205, z: 1.3200527}
 --- !u!4 &2323426897699616635
 Transform:
   m_ObjectHideFlags: 0
@@ -63970,8 +63985,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.000008, y: 1.1645366, z: 7.0000024}
-  m_Center: {x: 7.500002, y: 0.5822649, z: 3.5000007}
+  m_Size: {x: 5, y: 1.1645366, z: 7.0000024}
+  m_Center: {x: 3.5, y: 0.5822649, z: 3.5000007}
+--- !u!65 &2378218532862215287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2154174305594741098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1.1645366, z: 7.0000024}
+  m_Center: {x: 11.4, y: 0.5822649, z: 3.5000007}
 --- !u!1 &2382426228258725741
 GameObject:
   m_ObjectHideFlags: 0
@@ -66053,6 +66081,7 @@ GameObject:
   - component: {fileID: 2455204380028765026}
   - component: {fileID: 1566541240610458823}
   - component: {fileID: 3628089015502567437}
+  - component: {fileID: 3628089015502567438}
   m_Layer: 0
   m_Name: Pref_Shutter_Door
   m_TagString: Untagged
@@ -68622,6 +68651,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3628089015502567438
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2979539950643010008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.030000005, y: 2.8000004, z: 2.563761}
+  m_Center: {x: 0.05767829, y: 0.0000002980232, z: 1.3200527}
 --- !u!1 &3633480028242970880
 GameObject:
   m_ObjectHideFlags: 0
