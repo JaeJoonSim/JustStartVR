@@ -30,12 +30,12 @@ public class SpeedZombieAttackState : EnemyBaseState
             {
                 if (Random.Range(0, 2) == 0)
                 {
-                    Debug.Log(0);
+                  
                     mgr.SetAnimator("delayToAttack");
                 }
                 else
                 {
-                    Debug.Log(1);
+                  
                     mgr.SetAnimator("delayToAttack2");
                 }
                

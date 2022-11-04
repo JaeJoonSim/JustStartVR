@@ -100,18 +100,24 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
     
     public void MoveFront()
     {
-        agent.speed = 6f;
+        agent.speed = 5f;
         agent.SetDestination(transform.position + transform.forward);
     }
-    public void DeshColliderOn()
+    public void OnDeshCollider(bool on)
     {
-        DeshCollider.SetActive(true);
+        DeshCollider.SetActive(on);
     }
 
     public void footsteps()
     {
         SoundManager.m_instance.PlaySound(this.transform.position,
                     SoundManager.SoundType.BossFoot);
+    }
+
+    public void attackSound()
+    {
+        SoundManager.m_instance.PlaySound(this.transform.position, SoundManager.SoundType.BossSkill
+           , transform.parent, false, 100.0f);
     }
     public override void AttackColliderOn()
     {
