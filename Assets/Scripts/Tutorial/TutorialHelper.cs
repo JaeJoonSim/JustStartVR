@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class TutorialHelper : MonoBehaviour
 {
     public TextMeshProUGUI textMesh;
-    public string TutorialText;
     public Color TextColor, BaseColor;
+    public string[] TutorialText;
+    public int Text_Number;
+
 
     public Renderer LineColor;
 
@@ -16,25 +18,28 @@ public class TutorialHelper : MonoBehaviour
     Canvas canvas;
     Transform mainCam;
 
+
+
+
     void Start()
     {
         canvas = GetComponent<Canvas>();
         BaseImage = GetComponent<Image>();
         AssignCamera();
 
-
-        textMesh.text = TutorialText;
+        Text_Number = 0;
+        textMesh.text = TutorialText[0];
         textMesh.color = TextColor;
 
         LineColor.material.color = BaseColor;
         BaseImage.color = BaseColor;
     }
 
-    // Update is called once per frame
     void Update()
     {
         canvas.transform.LookAt(mainCam);
     }
+
     public virtual void AssignCamera()
     {
         if (mainCam == null)
@@ -45,5 +50,11 @@ public class TutorialHelper : MonoBehaviour
                 mainCam = GameObject.FindGameObjectWithTag("MainCamera").transform;
             }
         }
+    }
+
+    public void Next()
+    {
+        Text_Number++;
+        textMesh.text = TutorialText[Text_Number];
     }
 }
