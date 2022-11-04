@@ -43,6 +43,10 @@ public class KeyPad : MonoBehaviour
         if (CardType == Card)
         {
             SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.CardKeySucess);
+            if(this.transform.parent.name == "Wall")
+            {
+                SoundManager.m_instance.PlaySound(transform.position, SoundManager.SoundType.shutter);
+            }
             OnCard.Invoke();
         }
         else
