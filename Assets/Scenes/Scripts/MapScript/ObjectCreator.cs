@@ -77,9 +77,9 @@ public class ObjectCreator : MonoBehaviour
 
         if ((roomCreator.m_hintCount > 0 && random == 0))
         {
-            hint = true;
-            roomCreator.m_hintCount--;
         }
+        hint = true;
+        roomCreator.m_hintCount--;
 
         while (count < maxCount)
         {
