@@ -14,7 +14,7 @@ public class subtitle : MonoBehaviour
     void Start()
     {
         _text = TextAsset.text.Split('$');
-        ShowText(7);
+        ShowText(8);
     }
 
     public void ShowText(int i)

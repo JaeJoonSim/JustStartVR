@@ -10,28 +10,25 @@ public class TutorialMGR : MonoBehaviour
     public GameObject password, pistal, Rifle, flash, Syringe;
     public int[] TutorialNumber = new int[5];
 
-    void Start()
+public void de()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(TutorialHelper.gameObject);
     }
     public void Grip(Transform pos)
     {
+        if (TutorialHelper == null) return;
         Transform T = pos;
         TutorialHelper.gameObject.SetActive(true);
         TutorialHelper.Grip(T);
     }
     public void rel()
     {
+        if (TutorialHelper == null) return;
         TutorialHelper.gameObject.SetActive(false);
     }
     public void next(int item)
     {
+        if (TutorialHelper == null) return;
         TutorialHelper.Next(item);
     }
 }
