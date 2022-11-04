@@ -193,7 +193,7 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
         currentState = null;
         Destroy(gameObject, 5f);
 
-        if (this.transform.name == "zombie_Boss")
+        if (Status.EnemyType == 4)
         {
             Instantiate(Resources.Load<GameObject>("Room/Key_Card"),
                 transform.position, Quaternion.identity, transform.root);
