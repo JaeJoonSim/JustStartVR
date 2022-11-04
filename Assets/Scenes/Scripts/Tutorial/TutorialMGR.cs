@@ -22,16 +22,16 @@ public class TutorialMGR : MonoBehaviour
     }
     public void Grip(Transform pos)
     {
+        Transform T = pos;
         TutorialHelper.gameObject.SetActive(true);
-        TutorialHelper.Grip(pos);
+        TutorialHelper.Grip(T);
+    }
+    public void rel()
+    {
+        TutorialHelper.gameObject.SetActive(false);
     }
     public void next(int item)
     {
-        switch (item)
-        {
-            case 0:
-
-                break;
-        }
+        TutorialHelper.Next(item);
     }
 }

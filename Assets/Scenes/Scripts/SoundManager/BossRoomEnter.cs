@@ -5,12 +5,16 @@ using UnityEngine;
 public class BossRoomEnter : MonoBehaviour
 {
     public string bgmName = "";
-
+    public Animator animator;
     public GameObject camObject;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
+        {
             camObject.GetComponent<PlayMusicOperator>().PlayBGM(bgmName);
+            if(animator != null)
+            animator.enabled = true;
+        }
     }
 }

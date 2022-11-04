@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TutorialHelper : MonoBehaviour
 {
-    public TextMeshProUGUI textMesh;
+    public Text textMesh;
     public Color TextColor, BaseColor;
     public string[] TutorialText;
     public Transform[] Taget;
@@ -25,8 +25,7 @@ public class TutorialHelper : MonoBehaviour
         BaseImage = GetComponent<Image>();
         AssignCamera();
 
-        Text_Number = 0;
-        textMesh.text = TutorialText[0];
+        Next(5);
         textMesh.color = TextColor;
 
         LineColor.material.color = BaseColor;
@@ -53,16 +52,16 @@ public class TutorialHelper : MonoBehaviour
     public void Grip(Transform pos)
     {
         Vector3 rialpos = pos.transform.position;
-        rialpos = rialpos + new Vector3(0, UPPos, 0);
         Debug.Log(rialpos);
+        rialpos = new Vector3(rialpos.x, UPPos, rialpos.z);
         DrowLine.TargetPos = pos;
         transform.position = rialpos;
     }
 
-    public void Next()
+    public void Next(int i)
     {
-        Text_Number++;
+        //Text_Number++;
 
-        textMesh.text = TutorialText[Text_Number];
+        textMesh.text = TutorialText[i];
     }
 }
