@@ -15,7 +15,31 @@ public class Game_Clear : MonoBehaviour
     public GameObject Player;
     Camera MainCamera;
 
+    private void OnEnable()
+    {
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject G in gameObjects)
+        {
+            CharacterController P = G.GetComponent<CharacterController>();
+
+            if (P != null)
+            {
+                Player = G;
+            }
+        }
+
+        Image.gameObject.SetActive(true);
+        Color color = Image.GetComponent<Image>().color;
+        color.a += 0f;
+        Image.GetComponent<Image>().color = color;
+
+
+        //MainCamera.backgroundColor = Color.white;
+
+        StartCoroutine(fade());
+    }
     void Start()
     {
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
