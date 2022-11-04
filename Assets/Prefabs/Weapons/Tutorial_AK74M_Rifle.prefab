@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1369193097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1369193098}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1369193098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369193097}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6225001711852246503}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &72351296848700682
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +777,38 @@ MonoBehaviour:
   ThumbBlendMin: 0
   ThumbBlendMax: 0
   ShowAngleGizmo: 1
+--- !u!1 &4000329156610968464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4352123392359336422}
+  m_Layer: 0
+  m_Name: AK_trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4352123392359336422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000329156610968464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4158906527864992578}
+  m_Father: {fileID: 6225001711852246503}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4205454192832553883
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,12 +990,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4540370514253690944}
   m_LocalRotation: {x: 0.00000001896061, y: 0.7071067, z: -0.000000018960607, w: 0.7071068}
-  m_LocalPosition: {x: -0.00011210972, y: 0.002387643, z: 0.0019292568}
-  m_LocalScale: {x: 0.23400001, y: 0.23400004, z: 0.19072758}
+  m_LocalPosition: {x: -0.00011210972, y: 0.002387643, z: 0.0019292635}
+  m_LocalScale: {x: 0.23400003, y: 0.23400007, z: 0.1907276}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6225001711852246503}
-  m_RootOrder: 2
+  m_Father: {fileID: 4352123392359336422}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2344580694895935613
 MeshFilter:
@@ -1725,7 +1788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5906412923136852536
 Transform:
   m_ObjectHideFlags: 0
@@ -16973,7 +17036,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6081519539212138577}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.1640892, y: -0.6210108, z: 0.304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17197,7 +17260,7 @@ MonoBehaviour:
   MaxRange: 25
   Damage: 25
   FiringMethod: 1
-  ReloadMethod: 0
+  ReloadMethod: 1
   FiringRate: 0.093
   BulletImpactForce: 1000
   InternalAmmo: 0
@@ -17212,7 +17275,7 @@ MonoBehaviour:
   ValidLayers:
     serializedVersion: 2
     m_Bits: 1281
-  TriggerTransform: {fileID: 4158906527864992578}
+  TriggerTransform: {fileID: 4352123392359336422}
   SlideTransform: {fileID: 6081519539310598301}
   MuzzlePointTransform: {fileID: 6081519538797086250}
   EjectPointTransform: {fileID: 6081519538501971675}
@@ -17232,7 +17295,7 @@ MonoBehaviour:
   EjectInput: 04000000
   ReleaseSlideInput: 02000000
   ReloadInput: 04000000
-  BulletInChamber: 1
+  BulletInChamber: 0
   EmptyBulletInChamber: 0
   onShootEvent:
     m_PersistentCalls:
@@ -19096,7 +19159,8 @@ Transform:
   m_Children:
   - {fileID: 8558343641432443842}
   - {fileID: 1512256913392262080}
-  - {fileID: 4158906527864992578}
+  - {fileID: 1369193098}
+  - {fileID: 4352123392359336422}
   m_Father: {fileID: 6081519539212138596}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

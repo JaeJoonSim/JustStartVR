@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -9,17 +8,16 @@ public class TutorialHelper : MonoBehaviour
     public TextMeshProUGUI textMesh;
     public Color TextColor, BaseColor;
     public string[] TutorialText;
+    public Transform[] Taget;
     public int Text_Number;
-
-
+    public float UPPos;
     public Renderer LineColor;
+     public DrowLine DrowLine;
+
 
     Image BaseImage;
     Canvas canvas;
     Transform mainCam;
-
-
-
 
     void Start()
     {
@@ -52,9 +50,19 @@ public class TutorialHelper : MonoBehaviour
         }
     }
 
+    public void Grip(Transform pos)
+    {
+        Vector3 rialpos = pos.transform.position;
+        rialpos = rialpos + new Vector3(0, UPPos, 0);
+        Debug.Log(rialpos);
+        DrowLine.TargetPos = pos;
+        transform.position = rialpos;
+    }
+
     public void Next()
     {
         Text_Number++;
+
         textMesh.text = TutorialText[Text_Number];
     }
 }

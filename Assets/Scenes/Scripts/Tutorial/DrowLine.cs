@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class DrowLine : MonoBehaviour
 {
-    [SerializeField]
-    private Transform TargetPos, UIPos;
+    public Transform TargetPos, UIPos;
 
     private LineRenderer line;
     //private Transform MyPos;
