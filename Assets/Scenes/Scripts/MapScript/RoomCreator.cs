@@ -352,8 +352,8 @@ public class RoomCreator : MonoBehaviour
         float _z = parent.transform.position.z /  m_mapinterval / m_TileSize;
         GameObject newOBJ;
         newOBJ = Instantiate(m_TileOBJ, parent.transform);
-        newOBJ.transform.localPosition = new Vector3(x, m_Y, z);
+        newOBJ.transform.localPosition = new Vector3(x, m_Y - 0.5f, z);
         newOBJ = Instantiate(m_CellingOBJ, parent.transform);
-        newOBJ.transform.localPosition = new Vector3(x, m_Y + 4, z);
+        newOBJ.transform.localPosition = new Vector3(x, m_Y + 4 - 0.5f, z);
     }
 }
