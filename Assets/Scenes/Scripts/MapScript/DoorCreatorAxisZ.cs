@@ -33,6 +33,6 @@ public class DoorCreatorAxisZ : MonoBehaviour
         }
 
         GameObject tile = this.transform.GetChild(index).gameObject;
-        GameObject newObj = Instantiate(m_DoorObj[type], tile.transform.position + new Vector3(0, 0.5f, -1), Quaternion.identity, this.transform.parent);
+        GameObject newObj = Instantiate(m_DoorObj[type], tile.transform.position + new Vector3(0, 1.0f, -1), Quaternion.identity, this.transform.parent);
     }
 }

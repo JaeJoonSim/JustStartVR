@@ -146,8 +146,8 @@ public class PathCreator : MonoBehaviour
     {
         GameObject newOBJ;
         newOBJ = Instantiate(roomCreator.m_TileOBJ, parent.transform);
-        newOBJ.transform.localPosition = new Vector3(x, roomCreator.m_Y, z);
+        newOBJ.transform.localPosition = new Vector3(x, roomCreator.m_Y - 0.5f, z);
         newOBJ = Instantiate(roomCreator.m_CellingOBJ, parent.transform);
-        newOBJ.transform.localPosition = new Vector3(x, roomCreator.m_Y + 4, z);
+        newOBJ.transform.localPosition = new Vector3(x, roomCreator.m_Y + 4- 0.5f, z);
     }
 }

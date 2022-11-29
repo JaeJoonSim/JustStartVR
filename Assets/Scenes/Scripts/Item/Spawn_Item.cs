@@ -84,6 +84,7 @@ public class Spawn_Item : MonoBehaviour
 
                 if (_Random == 0 || spawn == true)
                 {
+                    if (item == 3 && Point.position.y < 39) continue;
                     Instantiate(Item[item], Point.position,
                         Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)),
                         this.transform.parent);
