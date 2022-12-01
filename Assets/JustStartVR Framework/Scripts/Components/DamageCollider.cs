@@ -13,7 +13,7 @@ namespace JustStartVR {
         /// How much damage to apply to the Damageable object
         /// </summary>
 
-        float Set_Damage = 25f;
+        public float Set_Damage = 25f;
         public float Damage = 25f;
         public float speed = 5;
 
@@ -51,12 +51,15 @@ namespace JustStartVR {
         private Vector3 currentPosition;
         private double velocity;
 
+        public float Cooldown;
+
         private void Start() {
             if (ColliderRigidbody == null) {
                 ColliderRigidbody = GetComponent<Rigidbody>();
             }
             Set_Damage = Damage;
             thisDamageable = GetComponent<Damageable>();
+            Cooldown = 0;
         }
 
         private void FixedUpdate()
@@ -67,6 +70,7 @@ namespace JustStartVR {
             velocity = distance / Time.deltaTime;
             //Debug.Log(velocity);
             oldPosition = currentPosition;
+
             if (velocity > speed)
             {
                 Damage = (float)velocity;
@@ -75,6 +79,8 @@ namespace JustStartVR {
             {
                 Damage = 0;
             }
+
+            Cooldown += Time.deltaTime;
         }
 
         private void OnCollisionEnter(Collision collision) {
