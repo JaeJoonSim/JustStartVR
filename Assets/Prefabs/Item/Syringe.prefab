@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0, g: 1, b: 0.52156866, a: 0.39215687}
   ShowInventoryItem: 1
+  DrowLine: 1
   Tag: SyringeInventory
 --- !u!120 &537863160
 LineRenderer:
@@ -749,7 +750,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 8775813435063368325}
         m_TargetAssemblyTypeName: ItemLine, Assembly-CSharp

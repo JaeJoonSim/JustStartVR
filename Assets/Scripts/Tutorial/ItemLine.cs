@@ -30,8 +30,11 @@ public class ItemLine : MonoBehaviour
     }
     private void Update()
     {
-        if (!Drow) return;
-
+        if (!Drow||!firstGrab)
+        {
+            line.enabled = false;
+            return;
+        }
         line.SetPosition(0, itemPos.position);
         line.SetPosition(1, TargetPos.position);
     }
@@ -45,7 +48,6 @@ public class ItemLine : MonoBehaviour
         GameObject[] objects = GameObject.FindGameObjectsWithTag(Tag);
         if (objects[0] != null)
         {
-            if (ShowInventoryItem) return;
             foreach (GameObject G in objects)
             {
                 G.transform.Find(Tag).gameObject.SetActive(false);
@@ -55,27 +57,24 @@ public class ItemLine : MonoBehaviour
     }
     public void DrowItemLine()
     {
-        if (!firstGrab)
+        line.enabled = true;
+        GameObject[] objects = GameObject.FindGameObjectsWithTag(Tag);
+
+        if (objects[0] != null || Drow)
         {
-            line.enabled = true;
-            GameObject[] objects = GameObject.FindGameObjectsWithTag(Tag);
+            Drow = true;
+            TargetPos = objects[0].transform;
+        }
+        else
+        {
+            Drow = false;
+            line.enabled = false;
+        }
 
-            if (objects[0] != null || Drow)
-            {
-                Drow = true;
-                TargetPos = objects[0].transform;
-            }
-            else
-            {
-                Drow = false;
-                line.enabled = false;
-            }
-
-            if (ShowInventoryItem) return;
-            foreach (GameObject G in objects)
-            {
-                G.transform.Find(Tag).gameObject.SetActive(true);
-            }
+        if (ShowInventoryItem) return;
+        foreach (GameObject G in objects)
+        {
+            G.transform.Find(Tag).gameObject.SetActive(true);
         }
     }
 
