@@ -7,7 +7,7 @@ public class EnemyCreator : MonoBehaviour
     private bool[,] m_TileisEmpty;
     private bool[,] m_Object;
     private Transform m_Parent;
-    private int maxCount = 10;
+    private int maxCount = 5;
     private RoomCreator m_roomCreator;
 
     private int RoomCountX;
