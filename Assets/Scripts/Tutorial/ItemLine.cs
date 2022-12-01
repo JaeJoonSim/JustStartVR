@@ -30,7 +30,7 @@ public class ItemLine : MonoBehaviour
     }
     private void Update()
     {
-        if (!Drow||!firstGrab)
+        if (!Drow||firstGrab)
         {
             line.enabled = false;
             return;
