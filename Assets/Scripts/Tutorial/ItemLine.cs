@@ -50,6 +50,7 @@ public class ItemLine : MonoBehaviour
         {
             foreach (GameObject G in objects)
             {
+                Debug.Log(G);
                 G.transform.Find(Tag).gameObject.SetActive(false);
             }
         }
@@ -71,7 +72,7 @@ public class ItemLine : MonoBehaviour
             line.enabled = false;
         }
 
-        if (ShowInventoryItem) return;
+        //if (ShowInventoryItem) return;
         foreach (GameObject G in objects)
         {
             G.transform.Find(Tag).gameObject.SetActive(true);
