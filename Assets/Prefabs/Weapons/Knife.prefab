@@ -236,7 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821cfb7c3eab3764bbb57d764c6e26d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 25
+  Set_Damage: 25
+  Damage: 50
   speed: 5
   ColliderRigidbody: {fileID: 2775381336460495314}
   MinForce: 0.1
@@ -244,6 +245,7 @@ MonoBehaviour:
   LastDamageForce: 0
   TakeCollisionDamage: 0
   CollisionDamage: 5
+  Cooldown: 0
 --- !u!65 &7139491920176873560
 BoxCollider:
   m_ObjectHideFlags: 0
