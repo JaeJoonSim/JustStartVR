@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 979544303461363554}
   - component: {fileID: 979544303461363557}
   - component: {fileID: 979544303461363556}
-  - component: {fileID: 8114594928326902919}
   m_Layer: 15
   m_Name: SM_Door_Frame
   m_TagString: Untagged
@@ -126,22 +125,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36087608, y: 4.000004, z: 0.5}
   m_Center: {x: 0.81956196, y: 1.9999981, z: -0.00000011920929}
---- !u!208 &8114594928326902919
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628321928215121586}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 2, z: 0.25}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 2, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &2230422281419988656
 GameObject:
   m_ObjectHideFlags: 0
