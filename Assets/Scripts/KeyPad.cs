@@ -31,9 +31,6 @@ public class KeyPad : MonoBehaviour
                 CardType = Card.Second;
                 break;
             case 60.0f:
-                CardType = Card.Third;
-                break;
-            case 80.0f:
                 CardType = Card.Exit;
                 break;
         }
