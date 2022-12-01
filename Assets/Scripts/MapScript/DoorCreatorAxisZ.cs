@@ -11,7 +11,7 @@ public class DoorCreatorAxisZ : MonoBehaviour
     {
         type = 0;
         m_DoorObj[0] = Resources.Load<GameObject>("Room/New_Door_restore");
-        m_DoorObj[1] = Resources.Load<GameObject>("Room/SM_KeyCardDoor_Frame");
+        m_DoorObj[1] = Resources.Load<GameObject>("Room/New_KeyCardDoor");
         int index = 4;
 
         if (m_curRoomPos.x == m_keyCardRoom.x && m_curRoomPos.y == m_keyCardRoom.y)

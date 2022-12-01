@@ -13,7 +13,7 @@ public class DoorCreatorAxisX : MonoBehaviour
         type = 0;
 
         m_DoorObj[0] = Resources.Load<GameObject>("Room/New_Door_restore");
-        m_DoorObj[1] = Resources.Load<GameObject>("Room/SM_KeyCardDoor_Frame");
+        m_DoorObj[1] = Resources.Load<GameObject>("Room/New_KeyCardDoor");
 
 
         int index = 4;
