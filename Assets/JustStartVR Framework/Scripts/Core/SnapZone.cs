@@ -71,7 +71,6 @@ namespace JustStartVR {
         [Tooltip("Do not allow snapping if transform contains one of these names")]
         public List<string> ExcludeTransformNames;
 
-
         [Header("Audio")]
         public AudioClip SoundOnSnap;
         public AudioClip SoundOnUnsnap;
