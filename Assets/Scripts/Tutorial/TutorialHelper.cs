@@ -8,6 +8,7 @@ public class TutorialHelper : MonoBehaviour
     public Text textMesh;
     public Color TextColor, BaseColor;
     public string[] TutorialText;
+    bool[] showCount;
     public Transform[] Taget;
     public int Text_Number;
     public float UPPos;
@@ -24,10 +25,10 @@ public class TutorialHelper : MonoBehaviour
         canvas = GetComponent<Canvas>();
         BaseImage = GetComponent<Image>();
         AssignCamera();
+        showCount = new bool[TutorialText.Length];
 
         Next(5);
         textMesh.color = TextColor;
-
         LineColor.material.color = BaseColor;
         BaseImage.color = BaseColor;
     }
@@ -61,7 +62,9 @@ public class TutorialHelper : MonoBehaviour
     public void Next(int i)
     {
         //Text_Number++;
+        if (showCount[i]) gameObject.SetActive(false);
 
+        showCount[i] = true;
         textMesh.text = TutorialText[i];
     }
 }
