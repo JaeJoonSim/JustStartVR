@@ -14,7 +14,7 @@ public class EnemyDeshCollider : MonoBehaviour
     {
         if (FSM.CurrentState != FSM.DeshState)
         {
-            gameObject.SetActive(false);
+          gameObject.SetActive(false);
         }
       
     }
@@ -36,6 +36,14 @@ public class EnemyDeshCollider : MonoBehaviour
             FSM.SetAnimator("DeshToStun");
 
             
+        }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            if (!other.gameObject.GetComponentInParent<BossStatus>())
+            {
+                other.gameObject.GetComponentInParent<EnemyBaseFSMMgr>().Damaged(900);
+            }
+           
         }
     } 
     private void Collision()
