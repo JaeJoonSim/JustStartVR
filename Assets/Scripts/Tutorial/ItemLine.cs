@@ -15,7 +15,7 @@ public class ItemLine : MonoBehaviour
     LineRenderer line;
     Renderer LineColor;
 
-
+    [HideInInspector] public bool firstGrab;
     bool Drow = false;
 
     private void Start()
@@ -55,25 +55,32 @@ public class ItemLine : MonoBehaviour
     }
     public void DrowItemLine()
     {
-        line.enabled = true;
-        GameObject[] objects = GameObject.FindGameObjectsWithTag(Tag);
-
-        if (objects[0] != null || Drow)
+        if (!firstGrab)
         {
-            Drow = true;
-            TargetPos = objects[0].transform;
-        }
-        else
-        {
-            Drow = false;
-            line.enabled = false;
-        }
+            line.enabled = true;
+            GameObject[] objects = GameObject.FindGameObjectsWithTag(Tag);
 
-        if (ShowInventoryItem) return;
-        foreach (GameObject G in objects)
-        {
-            G.transform.Find(Tag).gameObject.SetActive(true);
-        }
+            if (objects[0] != null || Drow)
+            {
+                Drow = true;
+                TargetPos = objects[0].transform;
+            }
+            else
+            {
+                Drow = false;
+                line.enabled = false;
+            }
 
+            if (ShowInventoryItem) return;
+            foreach (GameObject G in objects)
+            {
+                G.transform.Find(Tag).gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void SetGrab(bool grab)
+    {
+        firstGrab = grab;
     }
 }
