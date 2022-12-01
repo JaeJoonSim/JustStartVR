@@ -24,18 +24,18 @@ public class ZombieMoveState : EnemyBaseState
         if (mgr.IsTarget() || mgr.TraceStart == true)
         {
             //Idle => Trace
-            mgr.ChangeState(mgr.IdleState);
+            mgr.ChangeState(mgr.TraceState);
             return;
         }
         else if (Vector3.Distance(movePos, mgr.transform.position) <= 1f)
         {
             //Idle => Trace
-            mgr.ChangeState(mgr.IdleState);
+            mgr.ChangeState(mgr.TraceState);
             return;
         }
         else if (moveTime > 5f)
         {
-            //Idle => Trace
+            //Idle => Idle
             mgr.ChangeState(mgr.IdleState);
             return;
         }
