@@ -13,7 +13,7 @@ namespace JustStartVR
 
         public Text display;
         public string Entry = "";
-        public int[] password = new int[4];
+        [HideInInspector]public int[] password;
 
         public int Index => Entry?.Length ?? 0;
 
@@ -26,12 +26,12 @@ namespace JustStartVR
             var colliders = GetComponentsInChildren<Collider>();
 
             code = "";
-
+            password = new int[5];
             int value;
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 code += value = Random.Range(1, 9);
-                password[i] = value;
+                password[i + 1] = value;
             }
 
             Debug.Log(code);

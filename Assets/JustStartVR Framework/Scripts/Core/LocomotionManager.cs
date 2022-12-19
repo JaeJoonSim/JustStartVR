@@ -129,7 +129,7 @@ namespace JustStartVR {
                 teleport.EnableTeleportation();
             }
             else {
-                teleport.DisableTeleportation();
+                //teleport.DisableTeleportation();
             }
         }
 
