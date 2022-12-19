@@ -1,30 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace JustStartVR
 {
     public class Keypad : MonoBehaviour
     {
-        public UnityEvent Unlocked = new UnityEvent();
-
         public string code;
+
 
         public Text display;
         public string Entry = "";
+        public int[] password = new int[4];
 
         public int Index => Entry?.Length ?? 0;
 
         public int MaxLength => code?.Length ?? 0;
 
-        private bool _unlocked;
 
         protected void Start()
         {
             var buttons = GetComponentsInChildren<Button>();
             var colliders = GetComponentsInChildren<Collider>();
+
+            code = "";
+
+            int value;
+            for(int i = 0; i < 4; i++)
+            {
+                code += value = Random.Range(1, 9);
+                password[i] = value;
+            }
+
+            Debug.Log(code);
 
             foreach (var keyCollider in colliders)
             {
@@ -37,7 +47,6 @@ namespace JustStartVR
             for (int i = 0; i < buttons.Length; i++)
             {
                 var button = buttons[i];
-                //button.onButtonDown.AddListener(OnButtonDown);
                 
                 if (i >= 0 && i <= 9)
                 {
@@ -91,8 +100,8 @@ namespace JustStartVR
             else if (keyPadButton.Key == '+')
             {
                 if (code == Entry)
-                {       
-                    Unlocked.Invoke();
+                {
+                    SceneManager.LoadScene("GameClearScene");
                 }
                 Set_Entry();
             }

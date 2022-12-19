@@ -11,8 +11,8 @@ public class Lamp : MonoBehaviour
 
     public void Start()
     {
-        actDict.Add(false, EnemyAct.Act.STOP);
-        actDict.Add(true, EnemyAct.Act.MOVE);
+        actDict.Add(true, EnemyAct.Act.STOP);
+        actDict.Add(false, EnemyAct.Act.MOVE);
     }
 
     int index;
@@ -21,12 +21,12 @@ public class Lamp : MonoBehaviour
         StartCoroutine(OnOffLight(value));
     }
 
-    bool isActive = false;
+    bool isActive = true;
     IEnumerator OnOffLight(int value)
     {
         for(index = 0; index < value; index++)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
             isActive = isActive == false ? true : false;
             light.SetActive(isActive);
             enemyScript.ChangeEnemyAct(actDict[isActive]);

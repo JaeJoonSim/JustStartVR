@@ -34,6 +34,7 @@ public class Player : CharacterBaseScript
 
         curTime = 0.0f;
         closeEyeObj.SetActive(false);
+        if(enemyScript.isDetected == true)
         enemyScript.ChangeEnemyAct(EnemyAct.Act.STOP);
         StartCoroutine(CloseEye());
     }
@@ -41,6 +42,6 @@ public class Player : CharacterBaseScript
     public override void Init()
     {
         curTime = 0.0f;
-        StartCoroutine(CloseEye());
+        //StartCoroutine(CloseEye());
     }
 }
