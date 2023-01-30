@@ -23,6 +23,8 @@ public class BossZombieDeshState : EnemyBaseState
         Bmgr.OnDeshCollider(true);
         isTurn = true;
 
+        Bmgr.Invoke("TimeoverToDesh", 5f);
+
     }
 
     public override void Update(EnemyBaseFSMMgr mgr)
@@ -56,6 +58,7 @@ public class BossZombieDeshState : EnemyBaseState
         //    isTurn = false;
         //    Bmgr.MoveFront(6);
         //}
+
         Bmgr.MoveFront(6);
 
     }
@@ -66,5 +69,7 @@ public class BossZombieDeshState : EnemyBaseState
         //네비 잠금
         mgr.NavStop(true);
     }
+
+  
 
 }

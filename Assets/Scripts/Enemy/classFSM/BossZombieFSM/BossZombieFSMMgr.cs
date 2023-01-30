@@ -111,6 +111,19 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
         DeshCollider.SetActive(on);
     }
 
+    void TimeoverToDesh()
+    {
+        if (currentState != DeshState)
+            return;
+
+        DeshCollider.SetActive(false);
+        ChangeState(TraceState);
+        SetAnimator("DeshToMove");
+        
+
+        Debug.Log("isDesh");
+    }
+
     public void footsteps()
     {
         SoundManager.m_instance.PlaySound(this.transform.position,
