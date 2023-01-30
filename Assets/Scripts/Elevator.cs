@@ -142,6 +142,12 @@ public class Elevator : MonoBehaviour
         StartCoroutine(Move(Floor));
     }
 
+    public void setLocked(int floorIdx)
+    {
+        if (Locked[floorIdx]) return;
+        Locked[floorIdx] = true;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Enemy")

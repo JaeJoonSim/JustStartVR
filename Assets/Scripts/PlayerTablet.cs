@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class PlayerTablet : MonoBehaviour
 {
+    public FloorMgr fMgr;
+
     [SerializeField]
     Text showText;
 
@@ -24,6 +26,8 @@ public class PlayerTablet : MonoBehaviour
 
     public void inputPassWord(int password, int _index, int floor)
     {
+        fMgr.isGetPassword(floor, _index);
+
         int curFloor = floor;
 
         if(prevFloor < curFloor)

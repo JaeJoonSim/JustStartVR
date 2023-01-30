@@ -10,7 +10,7 @@ public class TutorialMGR : MonoBehaviour
     public GameObject password, pistal, Rifle, flash, Syringe;
     public int[] TutorialNumber = new int[5];
 
-public void de()
+    public void de()
     {
         Destroy(TutorialHelper.gameObject);
     }
