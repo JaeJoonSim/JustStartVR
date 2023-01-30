@@ -28,9 +28,9 @@ public class KeyCarde : MonoBehaviour
                 material.color = new Color(255 / 255.0f, 100 / 255.0f, 100 / 255.0f);
                 break;
             case 60.0f:
-                CardType = Card.Third;
-                Cardname.text = "Third";
-                material.color = new Color(50 / 255.0f, 50 / 255.0f, 50 / 255.0f);
+                CardType = Card.Exit;
+                material.color = new Color(255 / 255.0f, 255 / 255.0f, 255 / 255.0f);
+                Cardname.text = "Exit";
                 break;
             case 80.0f:
                 CardType = Card.Exit;

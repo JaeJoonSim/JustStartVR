@@ -130,6 +130,10 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
         }
 
+        if (!IsAlive())
+        {
+            Die();
+        }
 
 
         if (timeCount > 1f)
@@ -183,6 +187,9 @@ public abstract class EnemyBaseFSMMgr : MonoBehaviour
 
     public void Die()
     {
+        if (currentState == null)
+            return;
+
         agent.enabled = false;
         anim.enabled = false;
         allrig = GetComponentsInChildren<Rigidbody>();

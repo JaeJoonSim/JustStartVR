@@ -71,7 +71,10 @@ public class BossZombieFSMMgr : EnemyBaseFSMMgr
 
         }
 
-
+        if (!IsAlive())
+        {
+            Die();
+        }
 
         if (isBurning && timeCount > 1f)
         {
