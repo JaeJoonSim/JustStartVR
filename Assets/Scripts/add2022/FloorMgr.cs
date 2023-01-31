@@ -34,6 +34,8 @@ public class FloorMgr : MonoBehaviour
 
         if (check)
         {
+            if (floor == 0)
+                floor = 1;
             ElevatorBtn[floor+1].color = Color.green;
             elevator.setLocked(floor+1);
         }
